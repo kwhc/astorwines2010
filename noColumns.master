@@ -1,0 +1,144 @@
+﻿<%@ Master Language="VB" CodeFile="noColumns.master.vb" Inherits="noColumns" %>
+
+<%@ Register Src="~/Ucontrols/WUCHeader.ascx" TagName="Header" TagPrefix="awHdr" %>
+<%@ Register Src="~/Ucontrols/WUCFooter.ascx" TagName="Footer" TagPrefix="awFtr" %>
+<%@ Register Src="~/Ucontrols/WUCMyAccountNav.ascx" TagName="AccountNavigation" TagPrefix="awNav" %>
+<%@ Register Src="Ucontrols/WUCShoppingCart.ascx" TagName="WUCShoppingCart" TagPrefix="uc2" %>
+<%@ Register Src="~/Ucontrols/WUCShoppingCart.ascx" TagName="ShoppingCart" TagPrefix="awCrt" %>
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us" xml:lang="en-us" xmlns="http://www.w3.org/1999/xhtml">
+  <head runat="server">
+    <title id="pageTitle" runat="server">Welcome to Astor Wines &amp; Spirits</title>
+    
+    <meta name="description" content="Welcome to New York City's largest wine & spirits store online. Come see why The Wall Street Journal says Astorwines.com is one of the best websites for buying wine online. Check out our daily deals and features. View our large selection of wines, spirits, and sake. We specialize in everything from old world to new world, organic & natural wines, whiskeys & scotches and everything else." />
+    <meta name="keywords" content="wine, wine store, new york city, new york, nyc, spirits, sake, best wine stores, wines, liquor, bordeaux, burgundy, sancerre, whisky, whiskey, vodka, rum, bourbon, bitters, scotch, boxed wine, wine box, rose wine, veuve clicquot " /> 
+    
+    <meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    
+    <link rel="icon" type="image/jpg" href="http://www.astorwines.com/images/general/favicon.jpg" />
+    <link rel="shortcut icon" type="image/jpg" href="/images/general/favicon.jpg" />
+    
+    <link rel="Stylesheet" type="text/css" href="/css/nivo-slider.css" />    
+    <link rel="stylesheet" type="text/css" href="/css/tabcontent.css" />
+    <link rel="stylesheet" type="text/css" href="/css/astorwines.css" />
+    <link rel="stylesheet" type="text/css" href="/css/jquery.modal.css" />
+    <link rel="stylesheet" type="text/css" href="/css/font-awesome.min.css" />
+        
+    <!--[if lt IE 7]>
+      <link rel="stylesheet" type="text/css" href="/styles/astorwines_ie-7.css" />
+      <script type="text/javascript" src="/js/fixPNG.js"></script>
+      <script type="text/javascript" src="/js/unitpngfix.js"></script>
+    <![endif]-->
+    
+    <!--[if gt IE 6]>
+      <link rel="stylesheet" type="text/css" href="/styles/astorwines_ie6+.css" />
+    <![endif]-->
+    
+    <!--[if IE 7]>
+      <link rel="stylesheet" type="text/css" href="/styles/ie7styles.css" />
+    <![endif]-->
+       
+    <script type="text/javascript">
+        var launch = false;
+         
+         function launchModal() {
+              launch = true;
+         }
+         
+         function pageLoad() {
+              if (launch) {
+                $find("mpe").show();
+              }
+         }
+    </script>
+    
+    <script type="text/javascript">
+        window.onunload = function() {
+            window["__flash__removeCallback"] = function(instance, name) {
+                return;
+            };
+            } 
+    </script>
+        
+    <asp:ContentPlaceHolder ID="HeadSupplement" runat="server" />
+    
+  </head>
+  <body>
+    <form id="form1" runat="server">
+    <asp:ScriptManager id="ScriptManager1" runat="server"></asp:ScriptManager>
+    
+    <div>
+        <asp:Panel id="Panel1" runat="server" BackColor="#FF3300" />
+    </div>
+     
+    <div id="mainHeader">
+    &nbsp;
+    </div>
+    
+    <div id="headerBackground">
+        &nbsp;
+    </div>   
+         
+    <div id="mainContainer">
+
+        <div id="logo">
+            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Default.aspx" CssClass="flag"><asp:Image AlternateText="Astor Wines &amp; Spirits" id="AWSLogo" ImageUrl="~/images/general/img_logo_flag.png" runat="server" ToolTip="Astor Wines & Spirits" /></asp:HyperLink>
+            <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/Default.aspx" CssClass="mini-flag"><asp:Image AlternateText="Astor Wines &amp; Spirits" id="Image1" ImageUrl="~/images/general/img_mini_flag.png" runat="server" ToolTip="Astor Wines & Spirits" /></asp:HyperLink>
+        </div> <!-- #logo -->
+        
+        <div style="z-index:100; position:absolute;"> 
+          <awHdr:Header runat="server" />
+          <asp:Label id="lblErrorMsg" runat="server" Text="Error Message" Visible="False" />
+        </div>
+   
+         <awCrt:ShoppingCart ID="ShoppingCart1" runat="Server" />     
+        
+        <div class="no-column-master">               
+            <asp:contentplaceholder id="middleContent" runat="server" />
+        </div> <!-- .no-column-master -->
+                  
+    </div> <!-- #mainContainer -->
+    
+    
+    <!-- BEGIN FOOTER -->
+      
+    <div id="footerContainer">
+        <awFtr:Footer id="WUCFooter1" runat="server" />
+    </div> <!-- #footerContainer -->   
+            
+    <!-- END FOOTER -->
+      
+    </form>
+    
+    <script type="text/javascript" src="/js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="/js/jquery-ui-1.10.3.custom.min.js"></script>
+    <script type="text/javascript" src="/js/aqtip.js"></script>
+    <script type="text/javascript" src="/js/jquery.idTabs.min.js"></script><!-- Advanced Search JS -->
+    <script type="text/javascript" src="/js/jquery.modal.min.js"></script> 
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.mod-launch').modal = {
+                showClose: true
+            };
+        });
+    </script>
+
+   <script type="text/javascript">
+      var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+      document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+      var pageTracker = _gat._getTracker("UA-2355059-3");
+      pageTracker._initData();
+      pageTracker._trackPageview();
+
+      var subscribeTracker = pageTracker._createEventTracker('Subscribe');
+      var downloadTracker = pageTracker._createEventTracker('Download');
+      var exitTracker = pageTracker._createEventTracker('Exit');
+      var videoTracker = pageTracker._createEventTracker('Video');
+    </script>
+  </body>
+</html>

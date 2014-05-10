@@ -1,0 +1,176 @@
+﻿<%@ Master Language="VB" CodeFile="search-only.master.vb" Inherits="as_master_1" %>
+
+<%@ Register Src="~/Ucontrols/WUCHeader.ascx" TagName="Header" TagPrefix="awHdr" %>
+<%@ Register Src="~/Ucontrols/WUCFooter.ascx" TagName="Footer" TagPrefix="awFtr" %>
+<%@ Register Src="~/Ucontrols/WUCSuggest.ascx" TagName="Suggest" TagPrefix="awSug" %>
+<%@ Register Src="~/Ucontrols/WUCMyAccountNav.ascx" TagName="AccountNavigation" TagPrefix="awNav" %>
+<%@ Register Src="~/Ucontrols/WUC15Tuesday.ascx" TagName="TuesdaysLeft" TagPrefix="awTuL" %>
+<%@ Register Src="Ucontrols/WUCShoppingCart.ascx" TagName="WUCShoppingCart" TagPrefix="uc2" %>
+<%@ Register Src="~/Ucontrols/WUCCombinedSearch.ascx" TagName="combinedSearch" TagPrefix="awCmb" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us" xml:lang="en-us" xmlns="http://www.w3.org/1999/xhtml">
+  <head runat="server">
+    <title id="pageTitle" runat="server">Welcome to Astor Wines &amp; Spirits</title>
+    
+    <meta name="description" content="Welcome to New York City's largest wine & spirits store online. Come see why The Wall Street Journal says Astorwines.com is one of the best websites for buying wine online. Check out our daily deals and features. View our large selection of wines, spirits, and sake. We specialize in everything from old world to new world, organic & natural wines, whiskeys & scotches and everything else." />
+    <meta name="keywords" content="wine, wine store, new york city, new york, nyc, spirits, sake, best wine stores, wines, liquor, bordeaux, burgundy, sancerre, whisky, whiskey, vodka, rum, bourbon, bitters, scotch, boxed wine, wine box, rose wine, veuve clicquot " /> 
+    
+    <meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8" />
+    
+    <link rel="icon" type="image/jpg" href="http://www.astorwines.com/images/general/favicon.jpg" />
+    <link rel="shortcut icon" type="image/jpg" href="/images/general/favicon.jpg" />
+    
+    <link rel="stylesheet" type="text/css" href="/css/astorwines.css" />
+    <link rel="stylesheet" type="text/css" href="/css/tabcontent.css" />
+    <link rel="Stylesheet" type="text/css" href="/css/thickbox.css" />
+    
+    <!-- <script type="text/javascript" src="/js/tabcontent.js"></script> -->
+    <script type="text/javascript" src="/js/jquery-1.4.2.min.js"></script>
+    <!-- <script type="text/javascript" src="/js/ddaccordion.js"></script> -->
+    <script type="text/javascript" src="/js/aqtip.js"></script>
+    <!-- Lightbox -->
+    <script type="text/javascript" src="/js/clearbox.js"></script>
+    <script type="text/javascript" src="/js/jquery.idTabs.min.js"></script>
+    <!-- Homepage Feature Display -->
+    <script type="text/javascript" src="/js/jquery.simpleSlide.js"></script>
+    
+    
+    <!--[if lt IE 7]>
+      <link rel="stylesheet" type="text/css" href="/styles/astorwines_ie-7.css" />
+      <script type="text/javascript" src="/js/fixPNG.js"></script>
+      <script type="text/javascript" src="/js/unitpngfix.js"></script>
+    <![endif]-->
+    
+    <!--[if gt IE 6]>
+      <link rel="stylesheet" type="text/css" href="/styles/astorwines_ie6+.css" />
+    <![endif]-->
+    
+    <!--[if IE 7]>
+      <link rel="stylesheet" type="text/css" href="/styles/ie7styles.css" />
+    <![endif]-->
+        
+    <!-- <script type="text/javascript">
+      ddaccordion.init({
+	    headerclass: "submenuheader", //Shared CSS class name of headers group
+	    contentclass: "submenu", //Shared CSS class name of contents group
+	    collapseprev: true, //Collapse previous content (so only one open at any time)? true/false 
+	    defaultexpanded: [], //index of content(s) open by default [index1, index2, etc] [] denotes no content
+	    animatedefault: false, //Should contents open by default be animated into view?
+	    persiststate: false, //persist state of opened contents within browser session?
+	    toggleclass: ["", "expanded"], //Two CSS classes to be applied to the header when it's collapsed and expanded, respectively ["class1", "class2"]
+	    togglehtml: ["", "", ""], //Additional HTML added to the header when it's collapsed and expanded, respectively  ["position", "html1", "html2"] (see docs)
+	    animatespeed: "normal" //speed of animation: "fast", "normal", or "slow"
+      })
+    </script> -->
+    
+    
+    <script type="text/javascript">
+         var launch = false;
+         function launchModal() {
+              launch = true;
+         }
+         function pageLoad() {
+              if (launch) {
+                $find("mpe").show();
+              }
+         }
+    </script>
+    
+    
+    <script type="text/javascript">
+        window.onunload = function() {
+            window["__flash__removeCallback"] = function(instance, name) {
+                return;
+            };
+            } 
+    </script>
+    
+	<script type="text/javascript">
+	    $(document).ready(function() {
+
+	        simpleSlide({
+	            'set_speed': 600
+	        });
+
+	        $('.auto-slider').each(function() {
+	            var related_group = $(this).attr('rel');
+	            window.setInterval("simpleSlideAction('.right-button', " + related_group + ");", 5000);
+	        });
+            
+	    });
+	    
+	</script>    
+    
+
+      <asp:ContentPlaceHolder ID="HeadSupplement" runat="server" />
+    
+    
+  </head>
+  <body>
+    <form id="form1" runat="server">
+    <asp:ScriptManager id="ScriptManager1" runat="server">
+    </asp:ScriptManager>
+    
+    <div >
+        <asp:Panel id="Panel1" runat="server" BackColor="#FF3300">
+        </asp:Panel>
+    </div>
+     
+    <div id="mainHeader">
+    &nbsp;
+    </div>
+    
+    <div id="headerBackground">
+        &nbsp;
+    </div>   
+         
+    <div id="mainContainer">
+        
+        <div style="z-index:100; position:absolute;"> 
+          <awHdr:Header runat="server" />
+          <asp:Label id="lblErrorMsg" runat="server" Text="Error Message" Visible="False" ></asp:Label>
+        </div>
+        
+        <div id="mainBody">
+                  
+          <!-- BEGIN MAIN CONTENT -->
+          <div id="mainContentSearchOnly">
+            <asp:contentplaceholder id="middleContent" runat="server" />
+          </div>
+          <!-- END MAIN CONTENT -->        
+        
+        </div>
+        <!-- END MAIN BODY -->
+        <div style="clear: both;"></div>
+
+      </div>
+      
+                <!-- BEGIN FOOTER -->
+      
+      <div id="footerContainer">
+        <awFtr:Footer id="WUCFooter1" runat="server" />
+      </div> 
+      
+      
+            
+          <!-- END FOOTER -->
+
+      
+    </form>
+   <script type="text/javascript">
+      var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+      document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+      var pageTracker = _gat._getTracker("UA-2355059-3");
+      pageTracker._initData();
+      pageTracker._trackPageview();
+
+      var subscribeTracker = pageTracker._createEventTracker('Subscribe');
+      var downloadTracker = pageTracker._createEventTracker('Download');
+      var exitTracker = pageTracker._createEventTracker('Exit');
+    </script>
+  </body>
+</html>

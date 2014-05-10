@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+    <siteMapNode url="Default.aspx" title="Home"  description="Astor Wines and Spirits">
+        <siteMapNode url="WineSearch.aspx" title="Wines"  description="Wines search" >
+          <siteMapNode url="WineSearchResult.aspx" title="Wines Search Results"  description="Wines search results" />
+          <siteMapNode url="WineSearchNoResults.aspx" title="Wines Search No Results"  description="Wines search no results" />
+        </siteMapNode>
+        <siteMapNode url="SpiritsSearch.aspx" title="Spirits"  description="Spirits search" >
+          <siteMapNode url="SpiritsSearchResult.aspx" title="Spirits Search Results"  description="Spirits search results" />
+          <siteMapNode url="SpiritsSearchNoResults.aspx" title="Spirits Search No Results"  description="Spirits search no results" />
+        </siteMapNode>
+      <siteMapNode url="SakeSearch.aspx" title="Sakés"  description="Sakés search" >
+      <siteMapNode url="SakeSearchResult.aspx" title="Sakés Search Results"  description="Sakés search results" />
+        <siteMapNode url="SakeSearchNoResults.aspx" title="Sakés Search No Results"  description="Sakés search no results" />
+      </siteMapNode>
+       <siteMapNode url="GiftIdeasSearchBlank.aspx" title="Gift Ideas"  description="Gift Ideas search" >
+      </siteMapNode>
+      <siteMapNode url="BooksAccessoriesSearch.aspx" title="Books/Accessories"  description="Books and Accessories search" >
+        <siteMapNode url="BooksAccessoriesSearchResult.aspx" title="Books/Accessories Search Results"  description="Books and Accessories search results" />
+        <siteMapNode url="BooksAccessoriesSearchNoResults.aspx" title="Books/Accessories Search No Results"  description="Books and Accessories search no results" />
+      </siteMapNode>
+      <siteMapNode url="TastingEvents.aspx" title="Free Tastings and Events"  description="Free Tastings and Events Calendar" />
+      <siteMapNode url="AstorTuesdays.aspx" title="15% Off Tuesdays"  description="15% Off Tuesdays" />
+      <siteMapNode url="SearchResult.aspx" title="Search Results"  description="Search results from your search" />
+      <siteMapNode url="product.aspx" title="Search Results" description="Search results" />
+      <siteMapNode url="SearchResultsSingle.aspx" title="Details > "  description="Detail Information on Item" />
+      <siteMapNode url="SearchNoResults.aspx" title="Search Error No Results"  description="Please correct and retry your search" />
+      <siteMapNode url="SearchError.aspx" title="Search Error"  description="Please correct and retry your search" />
+      <siteMapNode url="AstorError.aspx" title="Error"  description="Please correct and retry" />
+      <siteMapNode url="Features.aspx" title="Feature"  description="Astor Wines and Spirits Features" />
+      <siteMapNode url="astorGlossary.aspx" title="Glossary"  description="The Astor Glossary" />
+      <siteMapNode url="newArrivals.aspx" title="New Arrivals"  description="New Arrivals as Astor Wines and Spirits" />
+      <siteMapNode url="WinesOnSale.aspx" title="Wines On Sale"  description="Astor Wines and Spirits Wines On Sale" />
+      <siteMapNode url="SpecialPacks.aspx" title="Special Packs"  description="Astor Wines and Spirits Special Packs" />
+      <siteMapNode url="AstorGeneralInformation.aspx" title="General Information"  description="Astor Wines and Spirits General Information" />
+      <siteMapNode url="ShoppingCart.aspx" title="My Shopping Cart"  description="Shopping Cart" />
+      <siteMapNode url="AstorLandmarkStore.aspx" title="Astor's Landmark Store"  description="Astor's landmark store" />
+      <siteMapNode url="AstorWinesWineClubs.aspx" title="Astor Wines Wine Clubs"  description="Astor Wines Wine Clubs" />
+      <siteMapNode url="ContactUs.aspx" title="Contact Us"  description="Contact us" />
+      <siteMapNode url="DeliveryInformation.aspx" title="Astor's Delivery Information"  description="Astor's delivery information" />
+      <siteMapNode url="StoreHoursDirections.aspx" title="Astor's Store Hours and Directions"  description="Astor's store hours and directions" />
+      <siteMapNode url="PrivacyPolicy.aspx" title="Astor's Privacy Policy"  description="Privacy Policy" />
+      <siteMapNode url="secure/AstorSignIn.aspx" title="Astor Sign In"  description="Astor Sign In" />
+      <siteMapNode url="secure/AstorCheckoutSignIn.aspx" title="Astor Checkout Sign In"  description="Astor Checkout Sign In" />
+      <siteMapNode url="secure/AstorCheckoutBilling.aspx" title="Astor Checkout Billing"  description="Astor Checkout Billing" />
+      <siteMapNode url="secure/AstorCheckoutShipping.aspx" title="Astor Checkout Shipping"  description="Astor Checkout Shipping" />
+      <siteMapNode url="secure/AstorCheckoutBillingNewCustomer.aspx" title="Astor Checkout Billing"  description="Astor Checkout Billing" />
+      <siteMapNode url="secure/AstorCheckoutShippingNewCustomer.aspx" title="Astor Checkout Shipping"  description="Astor Checkout Shipping" />
+      <siteMapNode url="secure/AstorCheckoutOrderReview.aspx" title="Astor Checkout Review Order"  description="Astor Checkout Review Order" />
+      <siteMapNode url="secure/AstorCheckoutConfirmation.aspx" title="Astor Checkout Confirmation"  description="Astor Checkout Confirmation" />
+
+      <siteMapNode url="secure/MyAccountSummary.aspx" title="My Account"  description="My Astor Account Summary">
+        <siteMapNode url="secure/MyAccountEmailAddresses.aspx" title="My eMail Address and Password"  description="My Astor eMail Address and Password"/>
+        <siteMapNode url="secure/MyAccountOrderHistory.aspx" title="My Astor Order History"  description="My Astor Order History"/>
+        <siteMapNode url="secure/MyAccountShippingAddresses.aspx" title="My Shipping Addresses"  description="My Astor Shipping Addresses"/>
+        <siteMapNode url="secure/MyAccountCreditCardBillingAddresses.aspx" title="My Credit Cards and Billing Address"  description="My Astor Credit Cards and Billing Address"/>
+      </siteMapNode>
+      <siteMapNode url="AstorSiteMap.aspx" title="Astor's Site Map"  description="Astor Site Map Layout" />
+    </siteMapNode>
+</siteMap>

@@ -1,0 +1,97 @@
+﻿/* ######### CSS for Indented CSS Tabs. Remove if not using ######### */
+img 
+{
+    border: 0;
+}
+
+.indentmenu {
+/*  font: bold 33px Arial; */
+/* width: 100%; */
+  width: 17px;
+  float: left;
+}
+
+.indentmenu ul {
+  margin: 0; 
+  padding: 0;
+/*  float: left;  */
+/*  height: 61px; */
+  /* width: 80%; width of menu*/
+ /* border-top: 1px solid navy; /*navy border*/
+/*  background-image: url(featuretab.gif); */
+  /*background: url(indentbg.gif) repeat-x;*/
+}
+
+.indentmenu ul li{
+  display: inline;
+  
+  /*height: 61px; */
+}
+
+.indentmenu ul li a{
+float: left;
+/*color: white; /*text color*/
+/*padding: 5px 11px; */
+/*text-decoration: none;*/
+/*border-right: 1px solid navy; /*navy divider between menu items*/
+background-image: url(../images/features/general/featuretab.gif);
+}
+
+.indentmenu ul li a.selected{
+/*color: white !important;
+/*padding-top: 6px; /*shift text down 1px*/
+/*padding-bottom: 4px;*/
+background-image: url(../images/features/general/featuretab_selected.gif);
+/* background: black url(indentbg2.gif) center center repeat-x;*/
+}
+
+.indentment ul li a:hover 
+{
+background-image: url(../images/features/general/featuretab_selected.gif);    
+}
+
+.tabcontent{
+  display: none;
+  position: relative;
+/* top: -5px;
+  left: 1px; */
+}
+
+@media print {
+  .tabcontent {
+    display: block !important;
+  }
+}
+/* Begin New Layout Styles */
+.featureselect
+{
+    width: 604px;
+}
+
+
+.featureselect a{
+    background-image: url(../images/features/general/featuretab.gif);
+}
+
+.featureselect a.selected{
+background-image: url(../images/features/general/featuretab_selected.gif);
+}
+
+.featureselect a:hover{
+background-image: url(../images/features/general/featuretab_selected.gif);   
+}
+
+.featureselect
+{
+    position: relative;
+    top: -30px;
+    width: 606px;
+    text-align: right;
+    font-family: Arial, Sans-Serif;
+    font-weight: bold;
+    color: #ffffff;
+    font-size: 18px;
+    /* background-color: White; */
+    text-decoration: none;
+    margin-top: 0px;
+}

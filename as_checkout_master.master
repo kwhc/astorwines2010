@@ -1,0 +1,50 @@
+<%@ Master Language="VB" CodeFile="as_checkout_master.master.vb" Inherits="Ucontrols_as_checkout_master" %>
+<%@ Register Src="Ucontrols/WUCCheckOutHeader.ascx" TagName="WUCCheckOutHeader" TagPrefix="uc1" %>
+<%@ Register Src="Ucontrols/WUCFooter.ascx" TagName="WUCFooter" TagPrefix="uc2" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head runat="server">
+     <title>Welcome to Astor Wines & Spirits</title>
+    <link rel="shortcut icon" href="images/favicon.ico" >
+    <link type="text/css" rel="stylesheet" href="App_Themes/ASStyleSheet.css" />
+</head>
+<body>
+    <form id="ChkOutMaster" runat="server">
+      <asp:ScriptManager ID="ScriptManager1" runat="server">
+    </asp:ScriptManager>
+    
+    <div>
+        <uc1:WUCCheckOutHeader ID="WUCCheckOutHeader1" runat="server" />
+        <br />
+        
+        
+        <table border="0" cellpadding="0" cellspacing="0" style="width: 675px; margin-left: 100px;">
+            <tr><td></td>
+                <td ><asp:Label ID="lblErrorMsg" runat="server" CssClass="errmsg" Text="Error Message"
+            Visible="False" Width="675px"></asp:Label>
+                    <asp:contentplaceholder id="ContentPlaceHolder1" runat="server">
+                        </asp:contentplaceholder>
+                </td>
+            </tr>
+            
+            <tr><td ></td>
+                <td align="center" valign="top"><asp:Image ID="imgFooterLine" runat="server" ImageUrl="~/images/as_footer_line.gif" Width="675px" />
+                    <uc2:WUCFooter ID="WUCFooter1" runat="server" />
+                </td>
+            </tr>
+        </table>
+    </div>
+    </form>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-2355059-3");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+</body>
+</html>

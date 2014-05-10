@@ -1,0 +1,231 @@
+﻿/*
+COLORS:
+burgundy - #5f191b
+
+*/
+
+body{
+    color: #222;    
+    background-color: #1E2842;
+    background-attachment: scroll;
+    
+    /* BEGIN SPRING STYLES */
+    background-image: url(../images/2011spring/bkgr.gif);
+    background-repeat: repeat;
+    /* END SPRING STYLES */
+}
+
+.red
+{
+    color: #5f191b;
+}
+
+.checkout aside, .help, .dim, #homeContent h3, .browseLine, .searchString
+{
+    color: rgb(90, 90, 90);
+}
+
+#productPage .outOfStockMsg, .share-container, .share-container a
+{
+    color: rgb(141,141,141);
+}
+
+.share-container a:hover
+{
+    color: rgb(200,200,200);
+}
+
+input.white, input.tan, input.grey
+{
+    border: rgb(170, 170, 170);
+}
+
+input.white{
+    background-color: #fff;
+}
+
+input.grey, textarea.grey{
+    background-color: #eee;
+    border: none;
+}
+
+input.tan{
+    background-color: #e2e3ca;
+}    
+
+div.purple{
+    background-color: #542437;
+}
+
+div.teal{
+    background-color: #a5c8bd;
+}
+
+div.orange{
+    background-color: #d95b43;
+}
+
+.block
+{
+    background: #333;
+    color: #fff;
+}
+
+.dailyFeature h3, .homepage-special h3, .noResults h3, h2.dotted, .mainContent h3, #landmarkStore h2, #glossaryEntryOfDay h2, #glossaryRelated h2, #deliveryInfo h2.dotted, .accountMaintenanceSection h2, #myLoginInfo h2, #myBillingInfo h2, header span
+{
+    border-bottom: solid 1px #ddd;
+    color: rgb(110, 110, 110);
+}
+.block-hover-gray
+{
+    background-color: #333333;
+    color: #fdfdfd;
+}
+.block-hover-gray:hover
+{
+    background-color: #555555;
+}
+.block-hover-burgundy
+{
+    background-color: #98002e;
+    color: #fdfdfd;
+}
+.block-hover-burgundy:hover
+{
+    background-color: #ba4c6d;
+}
+.watermark, .muted
+{
+    color: rgb(200,200,200);
+}
+
+#advancedSearchTabs a, #navBar a{ 
+    color: #fff;
+}
+
+#lastItems .lastViewed
+{
+    border-bottom: dotted 1px #ddd;
+}
+
+#create-account-container
+{
+    border: dashed 1px rgb(170, 170, 170);
+}
+
+.share-container
+{
+    background-color: #efefef;
+    border: solid 1px #d7d7d7;
+}
+
+#shoppingcart .delivery-info-wrapper{
+    background-color: #222;
+    color: #fff;
+}
+
+ul.grid li a
+{
+    background-color: rgb(200,200,200);
+    color: #fefefe;
+}
+
+ul.grid li a:hover
+{
+    background-color: rgb(170,170,170);
+    color: #fefefe;    
+}
+
+/* Checkout
+***********************************/
+#saved-shipping-addresses
+{
+    background-color: #ddd;   
+}
+
+.checkout aside
+{
+}
+
+.checkout aside ul li
+{
+    background: #eee;
+}
+
+.checkout aside ul li.alt
+{
+    background: #E0DFDF;
+}
+
+.checkout aside ul li.head
+{
+    background: #555;
+    color: rgb(255,255,255);
+}
+
+#post-emails{
+    color: #222;
+}
+
+    #post-emails h4{
+        color: #ecebd9;
+    }
+    
+        #post-emails span.pre-head{
+            color: #fff;
+        }
+
+    #deliveryInfo .copyContainer span{
+        color: #5f191b;
+    }
+
+#userControlPanel
+{
+    background-color: #98002e;
+}
+
+#savedCartMsg
+{
+    background-color: #5f191b;
+}
+
+/* New Arrivals Table
+*************************************************/
+.new-arrivals-table td
+{
+    background-color: #efefef;
+}
+
+/* Shipping Alert
+*************************************************/
+#shipping-alert h2
+{
+    color: #eceadb; 
+    background-color: #d95b44;
+}
+
+/* Share COntainer
+*************************************************/
+#sharePage .services .facebook
+{
+    background-image: url(/images/buttons/btn_fbCirc.png);
+    background-repeat: no-repeat;
+}
+
+#sharePage .services .twitter
+{
+    background-image: url(/images/buttons/btn_twitterCirc.png);
+    background-repeat: no-repeat;
+}
+
+#sharePage .services .pinterest
+{
+    background-image: url(/images/buttons/btn_pinCirc.png);
+    background-repeat: no-repeat;
+}
+
+.share-container .email
+{
+    background-image: url(/images/buttons/btn_emailCirc.png);
+    background-repeat: no-repeat;
+}

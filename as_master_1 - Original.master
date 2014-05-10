@@ -1,0 +1,305 @@
+﻿<%@ Master Language="VB" CodeFile="as_master_1.master.vb" Inherits="as_master_1" %>
+
+<%@ Register Src="~/Ucontrols/WUCHeader.ascx" TagName="Header" TagPrefix="awHdr" %>
+<%@ Register Src="~/Ucontrols/WUCFooter.ascx" TagName="Footer" TagPrefix="awFtr" %>
+<%@ Register Src="~/Ucontrols/WUCLastItems.ascx" TagName="LastItems" TagPrefix="awItm" %>
+<%@ Register Src="~/Ucontrols/WUCSuggest.ascx" TagName="Suggest" TagPrefix="awSug" %>
+<%@ Register Src="~/Ucontrols/WUCEmailSignUpNew.ascx" TagName="EmailSignUp" TagPrefix="awEml" %>
+<%@ Register Src="~/Ucontrols/WUCAstorCenter.ascx" TagName="AstorCenter" TagPrefix="awAc" %>
+<%@ Register Src="~/Ucontrols/WUCTeaserTastings.ascx" TagName="FreeTastings" TagPrefix="awTas" %>
+<%@ Register Src="~/Ucontrols/WUCMyAccountNav.ascx" TagName="AccountNavigation" TagPrefix="awNav" %>
+<%@ Register Src="~/Ucontrols/WUC15Tuesday.ascx" TagName="TuesdaysLeft" TagPrefix="awTuL" %>
+<%@ Register Src="Ucontrols/WUCShoppingCart.ascx" TagName="WUCShoppingCart" TagPrefix="uc2" %>
+<%@ Register Src="~/Ucontrols/WUCCombinedSearch.ascx" TagName="combinedSearch" TagPrefix="awCmb" %>
+<%@ Register Src="~/Ucontrols/WUCGlossaryTout.ascx" TagName="glossaryTout" TagPrefix="awGT" %>
+<%@ Register Src="~/Ucontrols/WUCShoppingCart.ascx" TagName="ShoppingCart" TagPrefix="awCrt" %>
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us" xml:lang="en-us" xmlns="http://www.w3.org/1999/xhtml">
+  <head runat="server">
+    <title id="pageTitle" runat="server">Welcome to Astor Wines &amp; Spirits</title>
+    
+    <meta name="description" content="Welcome to New York City's largest wine & spirits store online. Come see why The Wall Street Journal says Astorwines.com is one of the best websites for buying wine online. Check out our daily deals and features. View our large selection of wines, spirits, and sake. We specialize in everything from old world to new world, organic & natural wines, whiskeys & scotches and everything else." />
+    <meta name="keywords" content="wine, wine store, new york city, new york, nyc, spirits, sake, best wine stores, wines, liquor, bordeaux, burgundy, sancerre, whisky, whiskey, vodka, rum, bourbon, bitters, scotch, boxed wine, wine box, rose wine, veuve clicquot " /> 
+    
+    <meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    
+    <link rel="icon" type="image/jpg" href="http://www.astorwines.com/images/general/aws.ico" />
+    <link rel="shortcut icon" type="image/jpg" href="/images/general/aws.ico" />
+    
+    <link rel="Stylesheet" type="text/css" href="/styles/nivo-slider.css" />    
+    <link rel="stylesheet" type="text/css" href="/styles/tabcontent.css" />
+    <link rel="Stylesheet" type="text/css" href="/styles/thickbox.css" />
+    <link rel="stylesheet" type="text/css" href="/styles/astorwines.css" />
+    
+    <script type="text/javascript" src="/js/jquery-1.5.1.min.js"></script>
+    <script type="text/javascript" src="/js/aqtip.js"></script>
+    <!-- Lightbox -->
+    <script type="text/javascript" src="/js/clearbox.js"></script>
+    <!-- Advanced Search JS -->
+    <script type="text/javascript" src="/js/jquery.idTabs.min.js"></script>
+    <!-- Homepage Feature Display -->
+    <script type="text/javascript" src="/js/swfobject.js"></script>
+    <script type="text/javascript" src="/js/jquery.nivo.slider.pack.js"></script> 
+    
+    <!--[if lt IE 7]>
+      <link rel="stylesheet" type="text/css" href="/styles/astorwines_ie-7.css" />
+      <script type="text/javascript" src="/js/fixPNG.js"></script>
+      <script type="text/javascript" src="/js/unitpngfix.js"></script>
+    <![endif]-->
+    
+    <!--[if gt IE 6]>
+      <link rel="stylesheet" type="text/css" href="/styles/astorwines_ie6+.css" />
+    <![endif]-->
+    
+    <!--[if IE 7]>
+      <link rel="stylesheet" type="text/css" href="/styles/ie7styles.css" />
+    <![endif]-->
+       
+    <script type="text/javascript">
+        var launch = false;
+         
+         function launchModal() {
+              launch = true;
+         }
+         
+         function pageLoad() {
+              if (launch) {
+                $find("mpe").show();
+              }
+         }
+
+         //Validator for Qty TextBox
+         function NumberOnly() {
+             var AsciiValue = event.keyCode
+             if ((AsciiValue >= 48 && AsciiValue <= 57) || (AsciiValue == 8 || AsciiValue == 127))
+                 event.returnValue = true;
+             else
+                 event.returnValue = false;
+         }          
+    </script>
+    
+    <script type="text/javascript">
+        window.onunload = function() {
+            window["__flash__removeCallback"] = function(instance, name) {
+                return;
+            };
+            } 
+    </script>
+    
+	<script type="text/javascript">
+	    $(document).ready(function() {
+
+
+	    });
+
+	    $(window).load(function() {
+	        $('#slider').nivoSlider({
+	            effect: 'slideInLeft', // Specify sets like: 'fold,fade,sliceDown'
+	            slices: 15, // For slice animations
+	            animSpeed: 500, // Slide transition speed
+	            pauseTime: 3000, // How long each slide will show
+	            startSlide: 0, // Set starting Slide (0 index)
+	            directionNav: true, // Next & Prev navigation
+	            directionNavHide: true, // Only show on hover
+	            controlNav: false, // 1,2,3... navigation
+	            controlNavThumbs: false, // Use thumbnails for Control Nav
+	            controlNavThumbsFromRel: false, // Use image rel for thumbs
+	            controlNavThumbsSearch: '.jpg', // Replace this with...
+	            controlNavThumbsReplace: '_thumb.jpg', // ...this in thumb Image src
+	            keyboardNav: true, // Use left & right arrows
+	            pauseOnHover: true, // Stop animation while hovering
+	            manualAdvance: false, // Force manual transitions
+	            captionOpacity: 0.8, // Universal caption opacity
+	            prevText: 'Prev', // Prev directionNav text
+	            nextText: 'Next', // Next directionNav text
+	            beforeChange: function() { }, // Triggers before a slide transition
+	            afterChange: function() { }, // Triggers after a slide transition
+	            slideshowEnd: function() { }, // Triggers after all slides have been shown
+	            lastSlide: function() { }, // Triggers when last slide is shown
+	            afterLoad: function() { } // Triggers when slider has loaded
+	        });
+	        
+	    });
+	    
+	</script>    
+      <script type="text/javascript">
+      <!--
+          function CheckPOBox(val, args) {
+              
+              var pattern = "[p|P][\\s]*[o|O][\\s]*[b|B][\\s]*[o|O][\\s]*[x|X][\\s]*[a-zA-Z0-9]*|\\b[P|p]+(OST|ost|o|O)?\\.?\\s*[O|o|0]+(ffice|FFICE)?\\.?\\s*[B|b][O|o|0]?[X|x]+\\.?\\s+[#]?(\\d+)*(\\D+)*\\b"
+
+              if (args.Value.match(pattern)) {
+                  args.IsValid = false;
+              }
+              else {
+                  args.IsValid = true;
+              }
+          }    
+        // -->
+      </script>
+    <asp:ContentPlaceHolder ID="HeadSupplement" runat="server" />
+    
+  </head>
+  <body>
+    <form id="form1" runat="server">
+    <asp:ScriptManager id="ScriptManager1" runat="server" />    
+    
+    <div>
+        <asp:Panel id="Panel1" runat="server" BackColor="#FF3300">
+        </asp:Panel>
+    </div>
+  
+     
+    <div id="mainHeader">
+    &nbsp;
+    </div>
+    
+    <div id="headerBackground">
+        &nbsp;
+    </div>   
+
+
+         
+    <div id="mainContainer" class="clearfix">
+  
+        <div id="logo">
+            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Default.aspx" CssClass="flag"><asp:Image AlternateText="Astor Wines &amp; Spirits" id="AWSLogo" ImageUrl="~/images/general/img_logo_flag.png" runat="server" ToolTip="Astor Wines & Spirits" /></asp:HyperLink>
+            <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/Default.aspx" CssClass="mini-flag"><asp:Image AlternateText="Astor Wines &amp; Spirits" id="Image1" ImageUrl="~/images/general/img_mini_flag.png" runat="server" ToolTip="Astor Wines & Spirits" /></asp:HyperLink>
+        </div> <!-- #logo -->
+
+    
+        <div style="z-index:100; position:absolute;"> 
+          <awHdr:Header runat="server" />
+          <asp:Label id="lblErrorMsg" runat="server" Text="Error Message" Visible="False" ></asp:Label>
+        </div>
+        
+        <awCrt:ShoppingCart ID="ShoppingCart1" runat="Server" />     
+
+        
+        <div id="mainBody">
+          
+          <!-- BEGIN LEFT MASTER PAGE COLUMN -->
+          
+          <div id="leftMasterpageColumn">
+            
+            <asp:Panel id="tuesdays" runat="server">
+              <div>
+                <awTuL:TuesdaysLeft runat="server" />
+              </div>
+            </asp:Panel>
+            
+            <asp:contentplaceholder id="searchContent" runat="server" />
+            
+            <div id="mayWeSuggestContainer">
+              <awSug:Suggest runat="server" />
+              <br />
+            </div>
+          
+          <!--  
+               <asp:Panel id="accountNavigation" runat="server">
+              <div>
+                <awNav:AccountNavigation id="AccountNavigation1" runat="server" />
+              </div>
+              <br />
+            </asp:Panel>
+            -->
+            
+          </div>
+          
+          <!-- END LEFT MASTERPAGE COLUMN -->
+          
+          <!-- BEGIN MAIN CONTENT -->
+          <div id="mainContent">            
+            <asp:contentplaceholder id="middleContent" runat="server"></asp:contentplaceholder>
+          </div>
+          <!-- END MAIN CONTENT -->
+          
+          <!-- BEGIN RIGHT MASTERPAGE COLUMN -->
+          <div id="rightMasterpageColumn">
+                      
+            <img src="../images/general/rightMasterpageColumnTop.gif" alt="Welcome to Astor Wines.com" style="position: relative; top: -10px; left: -5px;" />
+            
+            <asp:Panel runat="server" ID="pnlHolidayHoursTout" Visible="False">
+                <a href="sweetheart.aspx"><img src="images/features/img_hsweetheartSale.gif" alt="Sweetheart Sale" style="position: relative; top: -30px; left: -4px;" /></a>
+            </asp:Panel>
+
+            <aside class="master-right">
+              <awItm:LastItems id="LastItems1" runat="server" />
+            </aside>
+
+            <aside class="free-shipping master-right">
+                <a href="free-shipping-offer.aspx"><img src="../images/general/img_free_ship_circle_180.png" alt="Free Shipping on First Time Orders" /></a>
+                <p>Click the circle for details.</p>
+            </aside>
+
+            <aside class="master-right">
+                <a href="http://tastingnotesnyc.com"><img src="../images/general/img_tn_flag.png" alt="Tasting Notes" /></a>
+                <h3>Introducing <br />Tasting Notes</h3>
+                <p>Find cocktails, recipes, pairing advice, insight and much more!</p>
+            </aside>
+                        
+            <!--<div>
+              <awTas:FreeTastings runat="server" />
+            </div>
+            <br />-->
+            
+            <aside class="master-right">
+              <awEml:EmailSignUp runat="server" />
+            </aside>
+            
+            <aside class="master-right">
+                <awAc:AstorCenter id="upcomingClasses" runat="server" />
+            </aside>
+                        
+            <aside class="master-right">
+                <awGT:glossaryTout id="glossaryTout" runat="server" />
+            </aside>
+            
+            <aside class="master-right">
+                <div id="storeTout">
+                <div style="text-align: center; margin-bottom: 5px;"><div class="pictureFrame"><a href="../ourshop.aspx"><img src="../images/general/divinneBuilding.jpg" alt="The Divinne Press Building" /></a></div></div>
+                <h3>Our Landmark Location</h3>
+                <p>Read about our eco-friendly landmark location in New York City.</p>
+                </div>
+            </aside>
+          </div>
+          <!-- END RIGHT MASTERPAGE COLUMN -->
+        
+          
+        
+        </div>
+        <!-- END MAIN BODY -->
+
+      </div>
+      
+                <!-- BEGIN FOOTER -->
+      
+      <div id="footerContainer">
+        <awFtr:Footer id="WUCFooter1" runat="server" />
+      </div> 
+      
+      
+            
+          <!-- END FOOTER -->
+
+      
+    </form>
+   <script type="text/javascript">
+      var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+      document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+      var pageTracker = _gat._getTracker("UA-2355059-3");
+      pageTracker._initData();
+      pageTracker._trackPageview();
+
+      var subscribeTracker = pageTracker._createEventTracker('Subscribe');
+      var downloadTracker = pageTracker._createEventTracker('Download');
+      var exitTracker = pageTracker._createEventTracker('Exit');
+      var videoTracker = pageTracker._createEventTracker('Video');
+    </script>
+  </body>
+</html>

@@ -1,0 +1,114 @@
+﻿<%@ Master Language="VB" CodeFile="as_checkout.master.vb" Inherits="as_checkout" %>
+
+<%@ Register Src="~/Ucontrols/WUCHeader.ascx" TagName="Header" TagPrefix="awHdr" %>
+<%@ Register Src="~/Ucontrols/WUCFooter.ascx" TagName="Footer" TagPrefix="awFtr" %>
+<%@ Register Src="~/Ucontrols/WUCShoppingCart.ascx" TagName="ShoppingCart" TagPrefix="awCrt" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en-us" xml:lang="en-us" xmlns="http://www.w3.org/1999/xhtml">
+  <head runat="server">
+    <title>Welcome to Astor Wines &amp; Spirits</title>
+    <meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
+    <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="/images/favicon.ico" />
+    
+    <link rel="Stylesheet" type="text/css" href="/css/nivo-slider.css" />    
+    <link rel="stylesheet" type="text/css" href="/css/tabcontent.css" />
+    <link rel="stylesheet" type="text/css" href="/css/astorwines.css" />
+    <link rel="stylesheet" type="text/css" href="/css/jquery.modal.css" />
+    <link rel="Stylesheet" type="text/css" href="/css/font-awesome.min.css" />
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700,300italic' rel='stylesheet' type='text/css'>
+        
+    <!--[if lt IE 7]>
+      <link rel="stylesheet" type="text/css" href="/styles/astorwines_ie-7.css" />
+      <script type="text/javascript" src="/js/fixPNG.js"></script>
+    <![endif]-->
+    <!--[if gt IE 6]>
+      <link rel="stylesheet" type="text/css" href="/styles/astorwines_ie6+.css" />
+    <![endif]-->
+    <!--[if IE 7]>
+      <link rel="stylesheet" type="text/css" href="/styles/ie7styles.css" />
+    <![endif]-->
+    
+      <script type="text/javascript">
+      <!--
+          function CheckPOBox(val, args) {
+              
+              var pattern = "[p|P][\\s]*[o|O][\\s]*[b|B][\\s]*[o|O][\\s]*[x|X][\\s]*[a-zA-Z0-9]*|\\b[P|p]+(OST|ost|o|O)?\\.?\\s*[O|o|0]+(ffice|FFICE)?\\.?\\s*[B|b][O|o|0]?[X|x]+\\.?\\s+[#]?(\\d+)*(\\D+)*\\b"
+
+              if (args.Value.match(pattern)) {
+                  args.IsValid = false;
+              }
+              else {
+                  args.IsValid = true;
+              }
+          }    
+        // -->
+      </script>
+  </head>
+  <body>
+    <form id="form1" runat="server">
+      <asp:ScriptManager ID="ScriptManager1" runat="server">
+    </asp:ScriptManager>
+    
+     <div>
+        <asp:Panel ID="Panel1" runat="server" BackColor="#FF3300">
+        </asp:Panel>
+    </div>
+    <div id="mainHeader">
+    &nbsp;
+    </div>
+     
+    <div id="mainContainer" class="checkout">
+    
+        <div id="logo">
+            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Default.aspx"><asp:Image AlternateText="Astor Wines &amp; Spirits" id="AWSLogo" ImageUrl="~/images/general/img_logo_flag.png" runat="server" ToolTip="Astor Wines & Spirits" /></asp:HyperLink>
+        </div> <!-- #logo -->    
+    
+        <div style="z-index:100; position: absolute;">
+          <awHdr:Header ID="Header2" runat="server" />        
+          <asp:Label id="Label1" runat="server" Text="Error Message" Visible="False" />
+        </div>
+    
+        <div style="z-index:100; position:absolute">
+          <awHdr:Header ID="Header1" runat="server" />
+          <asp:Label ID="lblErrorMsg" runat="server" Text="Error Message" Visible="False" />
+        </div>
+
+        <awCrt:ShoppingCart ID="ShoppingCart1" runat="Server" />     
+                  
+          <div id="mainContentCheckout" class="no-column-master">
+            <asp:contentplaceholder id="middleContent" runat="server" />
+          </div>        
+                
+      </div>
+      
+      <!-- BEGIN FOOTER -->
+      <div id="footerContainer">
+        <div id="footerContentContainer">
+            <awFtr:Footer id="Footer1" runat="server" />
+        </div>
+      </div> 
+          <!-- END FOOTER -->
+      
+    </form>
+    <script type="text/javascript">
+      var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+      document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <asp:ContentPlaceHolder ID="GAtracker" runat="server"></asp:ContentPlaceHolder>
+    <script type="text/javascript" src="/js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="/js/jquery-ui-1.10.3.custom.min.js"></script>
+    <script type="text/javascript" src="/js/aqtip.js"></script>
+    <script type="text/javascript" src="/js/jquery.idTabs.min.js"></script><!-- Advanced Search JS -->
+    <script type="text/javascript" src="/js/jquery.modal.min.js"></script> 
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.mod-launch').modal = {
+                showClose: true
+            };
+        });
+    </script>
+    <asp:ContentPlaceHolder ID="cphJSAdd" runat="server"></asp:ContentPlaceHolder>
+    
+  </body>
+</html>

@@ -1,0 +1,64 @@
+<%@ Master Language="VB" CodeFile="as_myaccount_1.master.vb" Inherits="as_myaccount_1" %>
+<%@ Register Src="Ucontrols/WUCHeader.ascx" TagName="WUCHeader" TagPrefix="uc1" %>
+<%@ Register Src="Ucontrols/WUCFooter.ascx" TagName="WUCFooter" TagPrefix="uc3" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head id="Head1" runat="server">
+    <title>Welcome to Astor Wines & Spirits</title>
+    <link rel="shortcut icon" href="images/favicon.ico" >
+    <link type="text/css" rel="stylesheet" href="App_Themes/ASStyleSheet.css" />
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+     <table border="0" cellpadding="0" cellspacing="0" class="maintable">
+            <tr>
+                <td class="tdmain">
+                    <uc1:WUCHeader ID="WUCHeader1" runat="server" />               
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 98px; height: 19px;">
+                    <asp:Label ID="lblErrorMsg" runat="server" Text="Error Message" Width="765px" CssClass="errmsg" Visible="False" ></asp:Label></td>
+            </tr>
+        </table>
+        <table border="0" cellpadding="0" cellspacing="0" class="secondtable">
+            <tr>
+                <td class="tdsecondleft">
+                <asp:contentplaceholder id="cphMainLeft" runat="server">
+                </asp:contentplaceholder>
+                </td>
+                <td class="tdsecondmiddlesearch" align="center" style="width: 650px" valign=top>
+                    <table border="0" cellpadding="0" cellspacing="0" align="center" style="width: 772px; height: 312px">
+                        <tr>
+                            <td class="tdsecondmiddle" style="width: 781px" align="right" valign=top>
+                                <asp:contentplaceholder id="cphMainMiddle" runat="server">
+                                </asp:contentplaceholder>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align=left style="width: 781px" valign=top >
+                                <uc3:WUCFooter ID="WUCFooter1" runat="server" />
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                
+            </tr>
+         </table>
+        
+    </div>
+    </form>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-2355059-3");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+</body>
+</html>

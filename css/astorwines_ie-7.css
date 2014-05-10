@@ -1,0 +1,42 @@
+﻿#astorCenter
+{
+    overflow: hidden;
+}
+.wineClubLogo
+{
+    position: absolute;
+    left: -15px;
+    top: 5px;
+    width: 5px;
+}
+.tastingsMainRight
+{
+    float:left;
+    width: 130px;
+}
+.divUnderTab
+{
+        top: -12px;
+}
+/*    #featureTabs
+    {
+position: relative;
+left: 3px;
+    } */
+.featureRotator
+{
+    position: relative;
+left: -3px;
+}
+.moreLikeThisRight
+{
+	width:245px; 
+	clear:left;
+	float:right;
+}
+img{
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(...);
+}
+.quicksearch{
+    padding-left: 500px;
+}

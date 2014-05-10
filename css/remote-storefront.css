@@ -1,0 +1,49 @@
+﻿body 
+{
+    font-size: 1.2em;
+}
+
+#leftMasterpageColumn, #rightMasterpageColumn, #footerContainer, #mainBanner, #mainHeader
+{
+    display: none;
+}
+
+#productPage, .no-column-master
+{
+    width: 1024px;
+}
+
+.no-column-master, #mainBody
+{
+    top: 30px;
+}
+
+.moreLikeThisRightProductPage, .col-notes, .itemDetailShare
+{
+    display: none;
+}
+
+#shoppingcart #alertcontainer
+{
+    display: none;
+}
+
+#shoppingcart .cart-table
+{
+    width: 960px;
+}
+
+#shoppingcart .calculate-shipping
+{
+    display: none;
+}
+
+#checkOutBilling #gift-card-header
+{
+    display: none;
+}
+
+#shipping #free-shipping-sticker, #shipping #promo-code-container
+{
+    display: none;
+}

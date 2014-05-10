@@ -1,0 +1,1580 @@
+﻿body 
+{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, Sans-Serif;
+    background-color: #7D6B56;
+    background-image: url(../images/general/background.jpg);
+    background-repeat: repeat-x;
+    background-attachment: scroll;
+    font-size: 10pt;
+    color: #444444;
+}
+
+a 
+{
+    color: #E54800;
+    text-decoration: none;
+}
+
+a:hover
+{
+    text-decoration: underline;
+    
+}
+
+.submenuheader
+{
+    display: block;
+}
+
+#mainContainer
+{
+    width: 999px;
+    margin: 0 auto;
+}
+
+#topBanner
+{
+    position: relative;
+    left: 650px;
+    width: 347px;
+    top: 30px;
+    font-size: 12px;
+}
+#topBanner span
+{
+    font-weight: bold;
+}
+
+#mainBanner
+{
+    position: absolute;
+    width: 997px;
+}
+
+    #logo
+    {
+        position: absolute;
+        left: 0px;
+        top: -30px;
+        z-index: 1;
+    }
+    #menuBar
+    {
+        font-family: Arial, Helvetica, Sans-Serif;
+        font-size: 12pt;
+        color: #FFFFFF;
+        font-weight: bold;
+        border: none;
+        height: 30px;
+        background-image: url(../images/menubar_bg.gif);
+    }
+    #breadcrumbBar
+    {
+        border: none;
+        height: 30px;
+        background-image: url(../images/breadcrumb_bg.gif);
+        font-size: 12px;
+        position: absolute;
+        width: 997px;
+    }
+        #breadcrumb
+    {
+        position: relative;
+        top: 7px;
+        width: 800px;
+    }
+.quickSearch
+{
+    position: relative;
+    top: 3px;
+    left: 180px;
+    width: 600px;
+}
+
+.searchTextBox
+{
+    font-family: Arial, Helvetica, Sans-Serif;
+    font-size: 10pt;
+    width: 300px;
+    padding: 4px;
+}
+.searchTextBoxWatermark
+{
+    font-family: Arial, Helvetica, Sans-Serif;
+    font-size: 10pt;
+    color: #555555;
+    
+}
+.autocomplete_completionListElement 
+{  
+    overflow : auto;
+    height : auto;        
+    border-width : 1px;
+    border-style : solid;
+    list-style-type : none;
+    margin:0px;
+    padding:2px;
+    font-family: Arial, Helvetica, Sans-Serif;
+    font-size: 10pt;
+    background-color: #ffffff;
+}
+.autocomplete_listItem 
+{  
+    font-size: 10pt;
+    background-color: #FFFFFF; 
+}
+.autocomplete_highlightedListItem
+{  
+    font-size: 10pt;
+    font-weight:bolder;
+    background-color: #7D6B56;
+    color: #FFFFFF;
+}
+    #myAccount
+    {
+        position: relative;
+        top: 3px;
+        left: 910px;
+        width: 99px;
+        font-size: 14px;
+    }
+    #myAccount a
+    {
+        color: #000000;
+    }
+    #myAccount a:hover
+    {
+        text-decoration: none;
+    }
+    
+    #links
+    {
+        width: 800px;
+    }
+    #links a
+    {
+        color: #FFFFFF;
+        text-decoration: none;
+        padding: 5px 10px 6px 10px;
+        margin: 0;
+        display: inline-block;
+        margin-top: -5px;
+        position: relative;
+    }
+    
+    #links a:hover
+    {
+        background: url(../images/breadcrumb_bg.gif) 0 0;
+    }
+
+    #landmarkStore h2.greenTitle
+    {
+       color: #00a838;
+    }
+    .browseLine
+    {
+        color: #444444;
+        margin-top: 20px;
+        margin-bottom: 15px;
+        font-family: Georgia, Times New Roman, Serif;
+        text-align: center;
+        font-size: 14pt;
+        border-bottom: dotted 1px #dddddd;
+        border-top: dotted 1px #dddddd;
+        letter-spacing: 1px;
+        font-weight: normal;
+        padding-bottom: 3px;
+    }
+    #homeContent
+    {
+        background-color: #ffffff;
+        padding: 5px;
+        width: 596px;
+        margin-top: -30px;
+        }
+    
+.dailyFeatures h1, .noResults h3, h2.dotted, .productBrowse h2, #landmarkStore h2, #glossaryEntryOfDay h2, #glossaryRelated h2,  h2.checkout, #deliveryinfo h2.dotted, #wineClubMain h3
+{
+        font-family: Georgia, Times New Roman, Serif;
+        font-size: 14pt;
+        color: #444444;
+        margin-bottom: 5px;
+        border-bottom: dotted 1px #dddddd;
+}
+
+/* BEGIN SHARED HEADERS */
+#mainContentHeader{
+border-bottom: solid 1px #dddddd;
+width: 595px;
+background-color: #ffffff;
+padding: 20px 5px 0px 5px;
+}
+
+#mainContentHeader h1{
+font-size: 48px;
+color: #444444;
+line-height: 48px;
+}
+
+#giftCards h2
+{
+    font-size: 24pt;
+    margin-bottom: 10px;
+    font-style: normal;
+    line-height: 30px;
+    color: #444444;
+    font-family: Arial, Helvetica, Sans-Serif;
+    border-bottom: solid 1px #dddddd;
+}
+#featurePage h2.featureSecondHeader
+{
+        font-family: Georgia, Times New Roman, Serif;
+        font-size: 18pt;
+        color: #444444;
+        margin-bottom: 5px;
+        border-bottom: dotted 1px #dddddd;
+}
+#featurePage p
+{
+    line-height: 18px;
+    text-indent: 20px;
+    margin-bottom: 15px;
+}
+    .productBrowse h1
+    {
+        color: #444444;
+        font-size: 18px;
+        font-family: Georgia;    
+        padding: 2px 5px 0px 0px;
+        margin-bottom: 2px;
+    }
+
+   h2.homepageTout, .tastingRow h2, .tastingRowAlt h2, .orderHistoryOrder h2, .orderHistoryOrderAlt h2
+    {
+        color: #444444;
+        font-size: 18px;
+        margin: 0px;
+        font-family: Georgia;    
+        padding: 2px 5px 0px 0px;
+    }
+    
+
+    .leftHomepageTout
+    {
+        background-color: #e6e2d1; 
+        padding: 5px; 
+        width:194px; 
+        position: relative; 
+        left: 0px; 
+        margin-bottom: 30px; 
+        margin-right: 0px;
+        font-size: 8pt;
+        height: 84px;
+        float: left;
+        display: inline-block;
+    }
+    
+        .rightHomepageTout
+    {
+        background-color: #eeeeee; 
+        padding: 5px; 
+        float: right; 
+        width: 180px; 
+        position: relative; 
+        left: 5px; 
+        margin-bottom: 40px; 
+        font-size: 10pt;
+        font-weight: bold;
+        font-family: Georgia, Times New Roman, Serif;
+        color: #ffffff;
+    }
+    .featureRotator 
+{
+    width:606px;
+    height: 242px;
+    /*margin-left: 17px;*/
+}
+
+/* BEING DAILY FEATURES */
+    .dailyFeatures
+    {
+        width: 176px;
+        height: 270px;
+        margin-right: 10px;
+        float: left;
+        font-size: 8pt;
+}
+    .dailyFeaturesContainer
+{
+    margin-top: 30px;
+    margin-bottom: 40px;
+    margin-left: 15px;
+}
+    div.dailyFeatureTitle
+    {
+        font-weight: bold;
+        /* padding: 0px 5px 5px 5px; */
+        font-size: 8pt;
+        line-height: 14px;
+        font-family: Arial, Helvetivca, Sans-Serif;
+        height: 32px;
+        vertical-align: middle; 
+    }
+    .dailyFeaturesCopy
+{
+    width: 88px;
+    border-left: solid 1px #dddddd;
+    padding-left: 3px;
+    height: 220px;
+    float: left;
+}
+    .dailyFeaturesPrice
+{
+    clear: both;  
+    border-top: dotted 1px #dddddd;
+    float: none;
+    padding: 2px; 
+    line-height: 14px;
+}
+/* END DAILY FEATURES */
+
+    h1.tabLike
+    {
+        font-family: Georgia;
+        font-size: 14px;
+        color: #FFFFFF;
+        padding: 2px 0px 2px 10px;
+        margin: 0px;
+        background-image: url(../images/general/tab.gif);
+        background-repeat: no-repeat;
+    }
+	h4.date{
+	   float: left;
+	   margin: 5px 7px 5px 5px;
+	   padding: 4px 5px 10px 5px;
+	   width: 26px;
+	   border: 2px solid #D2D1C3;
+	   /*background: #151C3C;
+	   color: #F0EEE5;*/
+	   background-color: #563E23;
+       color: #FFFFFF;
+	   font-size: 1.6em;
+	   text-transform: uppercase;
+	   text-align: center;
+	   line-height: 1;
+	}
+
+	h4.date strong{
+	   display: block;
+	   color: #FFF;
+	   font-size: .5625em;
+	   font-weight: bold;
+	   font-family: Arial, Helvetivca, Sans-Serif;;
+	   text-transform: uppercase;
+	}
+	/* #featureTabs
+	{
+	    position: relative;
+        top: -40px;
+	} */
+    #featureTabs div 
+    {
+        width: 300px;
+        height: 250px;
+    }
+    #shoppingCart div, #astorCenter div, #tuesdays div, #tastingsTeaser div
+    {
+        padding: 5px;
+        font-size: 12px;
+    }
+    #shoppingCart span
+    {
+        font-weight: bold;
+    }
+    #astorCenter ul
+    {
+        padding-left: 15px;
+        margin-left: 0px;
+    }
+    #astorCenter li 
+    {
+        font-size: 10px;
+    }
+    #astorCenter h2
+    {
+        /*text-align: center;*/
+        font-size: 13px;
+    }
+   
+    .homeSCButton
+    {
+        color: #724008;
+        padding-left: 10px;
+        font-weight: bold;
+    }
+    .homeSCButton:hover
+    {
+        text-decoration: none;
+    }
+    div.darkBg
+    {
+/*        background-color: #b1aa8d; */
+    }
+    .featureImage
+    {
+        padding: 0px 5px 5px 2px;
+        width: 72px;
+        height: 142px;
+    }
+    span.wrongPrice
+    {
+        text-decoration: line-through;
+    }
+    span.dealPrice
+    {
+        color: Red;
+        font-weight:bold;
+    }
+    #freeTastings span
+    {
+        font-weight: bold;
+    }
+    #freeTastings ul
+    {
+        padding: 2px 0px 0px 5px;
+        margin: 0px;
+        list-style-type: none;
+    }
+    #freeTastings li 
+    {
+        font-size: 10px;
+        line-height: 13px;
+    }
+   /*h2.dotted
+        {
+        font-size: 16pt;
+        font-family: Georgia, Serif;
+        border-bottom: dotted thin #bbbbbb;
+        margin-bottom: 0px;
+        }*/
+
+    .searchPageContent, #resultDesc
+    {
+        padding: 10px;
+        text-indent: 20px;
+        text-align: justify;
+        color: #444444;
+    }
+    .regularFont
+    {
+        color: #000000;
+    }
+    .regularFont:hover
+    {
+        text-decoration: none;
+    }
+    /* BEGIN ADVANCED SEARCH */
+    .expandedSearch
+    {
+        width: 205px;
+/*        height: 555px; */
+        background-color: #e6e2d1;
+    }
+    .expandedSearch a
+    {
+        color: #FFFFFF;
+        font-weight: bold;
+    }
+    .expandedSearch a:hover
+    {
+        text-decoration: none;
+    }
+    .expandedSearchHeader
+    {
+        font-family: Georgia;
+        font-size: 14px;
+        width: 195px;
+        /*background-color: #563E23;*/
+        background-image: url(../images/sidehead.gif); 
+        color: White;
+        padding: 5px;
+    }
+    /* END ADVANCED SEARCH */
+    
+    .searchPanel
+    {
+        width: 200px;
+        font-size:12px;
+        padding-left: 5px;
+        background-color: #e6e2d1 ; 
+    }
+    .searchPanel a 
+    {
+        color: #E54800;
+    }
+    .searchPanel a:hover
+    {
+        text-decoration: underline;
+    }
+    .searchPanel span
+    {
+        font-size: 10px;
+    }
+    .txt10
+    {
+        font-size: 10px;
+    }
+    .expanded
+    {
+        cursor: default;
+    }
+    
+    /* MASTER PAGE COLUMNS */
+    .masterCols
+    {
+        position: relative;
+        top: -11px;
+        float: left;
+    }
+    
+    .smImgTout
+    {
+        width: 280px;
+        padding: 5px;
+        background-color: #ffffff;
+        font-size: 10pt;
+    }
+    .rightSideTout
+    {
+        width: 152px;
+        background-color: #ffffff;
+        text-align: left;
+        font-size: 10pt;
+        padding: 5px;
+    }
+    .sideToutLeft
+    {
+      padding: 5px;
+      width: 195px;
+      background-color: #e6e2d1;
+        }
+    .sideToutLeft a
+    {
+        font-family: Georgia, Times New Roman, Serif;
+        font-size: 10pt;
+        line-height: 22px;
+        font-weight: bold;
+    }
+    .sideImgTout
+    {
+        width: 195px;
+        height: 100px;
+        background-color: White;
+        text-align: left;
+    }
+    .sideImgTout img
+    {
+        border: 0;
+        float: left;
+        margin-right: 2px;
+    }
+    
+    h1.frontPage, .sideToutTitle, h2.refineSearch
+    {
+        font-family: Georgia;
+        font-size: 12pt;
+        background-color: #584025;
+        color: White;
+        padding: 5px;
+        margin-bottom: 0px;
+        z-index: 5;
+    }
+/*    #suggest ul 
+    {
+        list-style-type: none;
+        padding-left: 5px;
+        margin-left: 0px;
+    }*/
+    #tuesdays span
+    {
+        font-size: 14px;
+        font-weight: bold;
+    }
+/*    #tuesdays ul
+    {
+        list-style-type: none;
+        padding-left: 0px;
+        margin-left: 0px;
+        font-weight: bold;
+    } */
+    .mainHeader
+    {
+        background-color: #563E23;
+        color: #FFFFFF;
+        font-size: 18pt;
+        padding: 2px 0px 2px 5px;
+        margin: 0px;
+        font-family: Georgia;
+        line-height: 24px;
+    }
+/*    .mainContent
+    {
+        width:602px;
+        background-color: #FFFFFF;
+        border: solid 1px #50340C;
+    }
+    .mainContent span.bold
+    {
+        font-weight: bold;
+    }
+    .mainContent h2
+    {
+        color: #50340C;
+        font-size: 14px;
+        padding: 5px 0px;
+        margin: 0px;
+    }*/
+
+    .tastingTitle
+    {
+        font-size: 13px;
+        font-weight: bold;
+    }
+    .tastingTime
+    {
+        font-size: 12px;
+        font-weight: bold;
+    }
+    .tastingFeaturingHeader
+    {
+        font-weight: bold;
+        font-size: 12px;
+    }
+    .tastingFeaturing
+    {
+        font-size: 10px;
+    }
+    .tastingFeaturing a
+    {
+        font-weight: bold;
+    }
+    #quickSearch div
+    {
+        padding: 5px;
+        font-size: 10px;
+    }
+    
+    /* PRODUCT PAGE */
+    #productPage
+    {
+        background-color: #FFFFFF;
+        width: 602px;
+        float: left;
+    }
+    #productPage h1
+    {
+        font-size: 17px;
+        font-weight: bold;
+        padding-bottom: 0px;
+        margin-bottom: 0px;
+    }
+    #productPage span.smallFont
+    {
+        font-size: 11px;
+    }
+    #productPage span.boldFont
+    {
+        font-weight: bold;
+    }
+    #productPage span.italicFont
+    {
+        font-style:italic;
+    }
+    #productPage h2
+    {
+        padding: 2px 0px 0px 5px;
+        margin-top: 0px;
+        /*background-color: #563E23;*/
+        font-size: 22px;
+        color: #444444;
+        font-family: Georgia, Times New Roman, Serif;
+        border-bottom: dotted 1px #dddddd;
+        margin-bottom: 10px;
+    }
+    
+    #productPage h2.headerBar
+    {
+        background-color: #9a5254;
+        font-family: Georgia;
+        font-size: 12pt;
+        color: #ffffff;
+        padding: 4px;
+        border: none;
+    }
+    
+    /*LANDMARK PAGE */
+    
+    /* #landmarkStore
+    {
+        background-color: #FFFFFF; 
+        width: 575px; 
+        padding: 15px;
+        color: #444444;
+    } */
+    
+    #landmarkStore p.indent, #landmarkStore p
+    {
+        font-size: 12px;
+        padding: 0px 5px;
+        text-align: justify;
+        line-height: 18px;
+        margin-bottom: 30px;
+    }
+    #landmarkStore p.indent
+    {
+        text-indent: 20px;
+    }
+    .landmarkStoreHours, .landmarkStoreDirection
+    {
+        float: left;
+        width: 142px;
+        font-size: 12px;
+        padding: 15px 5px 0px 5px;
+        margin-bottom: 30px;
+    }
+    .landmarkStoreHours
+    {
+        width: 130px;
+    }
+    .landmarkStoreHours span, .landmarkStoreDirection span
+    {
+        font-weight: bold;
+    }
+    .landmarkStoreSubTitle
+    {
+        font-weight: bold;
+        padding: 5px 0px 0px 5px;
+        font-size: 12px;
+        margin-top: 10px;
+    }
+
+    #wineSearch, #sakeSearch, #spiritSearch, #generalSearch, #searchResult, #glossaryMain, #astorTuesdays, #topTen, #winesOnSale, #wineClubMain, #storeHours, #deliveryInfo, #privacyPolicy, #contactUs, #shoppingcart, #booksSearch, #signIn, #sakeAccessories, #featurePage, #myAccountPage, #checkOutBilling, #emailAddressAndPass, #myCreditCards, #myAddress, #orderHistory, #newCustBilling, #shipNewCust, #orderReview, #shipping, #errorPage, #orderConfirmation, #tastingPage, #newsletter, #giftCards, #landmarkStore, #emails
+    {
+        width: 605px;
+        background-color: #FFFFFF;
+        padding-bottom: 50px;
+        font-size: 10pt;
+        line-height: 18px;
+    }
+#landmarkStore, #featurePage, #emails, .mainContent
+{
+    width: 575px;
+    padding: 10px 15px;
+    background-color: #ffffff;
+    padding-bottom: 50px;
+}
+/* ACCOUNT SECTION */
+    .accountSection
+    {
+        padding: 10px;
+    }
+    
+    .accountSection h2
+    {
+        font-family: Georgia;
+        font-size:18px;
+        font-weight: 600;
+        color: #777777;
+        border-bottom: dotted 1px #bbbbbb;
+        margin-bottom: 4px;
+        
+    }
+    
+    #glossaryRelated
+    {
+        width: 200px; float: right;
+    }
+    
+    #glossaryEntryOfDay
+    {
+        width: 595px;
+    }
+    #generalSearch, #searchResult, #astorTuesdays, #topTen, #winesOnSale, #wineClubMain, #storeHours, #deliveryInfo, #privacyPolicy, #contactUs, #shoppingcart, #booksSearch, #signIn, #sakeAccessories, #featurePage, #myAccountPage, #checkOutBilling, #emailAddressAndPass, #myCreditCards, #myAddress, #orderHistory, #newCustBilling, #shipNewCust, #orderReview, #shipping, #errorPage, #glossaryMain, #orderConfirmation, #giftCards
+    {
+        font-size: 12px;
+        line-height: 20px;
+    }
+    #searchResult span.boldSpan, #astorTuesdays span.boldSpan, #topTen span.boldSpan, #winesOnSale span.boldSpan
+    {
+        font-weight: bold;
+    }
+    #searchResult h2, #astorTuesdays h2, #topTen h2, #winesOnSale h2, #sakeAccessories h2, #featurePage h2
+    {
+        margin: 0px;
+        padding: 2px 0px 0px 0px;
+        font-size: 14px;
+    }
+    .notesTermsItemDetail
+    { width: 335px; 
+		padding: 0px; 
+		margin-left: 5px; 
+		margin-bottom: 5px; 
+    }
+     .notesYouMayEnjoy
+    { width: 225px; 
+		padding: 0px; 
+		margin-bottom: 5px;
+		margin-right: 5px;
+		padding: 0px 0px 5px 0px; 
+		font-size: 11px; 
+		color: #563E23; 
+    }
+    .moreLikeThisRight
+	{
+		width:225px; 
+		float:right;
+	}
+    .boldBig
+    {
+        font-weight: bold;
+        font-size: 14px;
+    }
+    #glossaryEntryOfDay h3
+    {
+        padding: 0px;
+        margin: 0px;
+        font-size: 14px;
+    }
+    #glossaryMain h2
+    {
+        padding: 0px 0px 5px 0px;
+        margin: 0px;
+    }
+    .limitedQty
+    {
+        font-size: 10px;
+        color: Red;
+    }
+
+table.result td {
+	border: solid 1px #dddddd;
+	padding: 5px;
+}
+table.none
+{
+    border: none;
+    padding: 1px;
+}
+table.none td
+{
+    border: none;
+    padding: 0px;
+}
+.centerImg
+{
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+}
+li.right
+{
+    margin-left: 30px;
+}
+.glossarySearchFont
+{
+    font-size: 24px;
+    font-weight: bold;
+    font-family: Georgia, Times New Roman, Serif;
+}
+.acImage
+{
+    position: relative;
+    left: -4px;
+}
+.wineClubLogo
+{
+    position: relative;
+    left: -15px;
+    top: 5px;
+    width: 5px;
+}
+.tastingsMainRight
+{
+    position: absolute;
+    float:right;
+    width: 180px;
+    font-size: 8pt;
+}
+.productPrice
+{
+    border-top: dotted 1px #bbbbbb; 
+    margin-top: 6px; 
+    padding: 6px 5px;
+    font-size:12px;
+    display: inline-block;
+    width:380px;
+}
+
+.lblError
+{
+    position: relative;
+    font-size: 8pt;
+    font-weight: normal;
+    background-color: #ffffff;
+    padding: 2px;
+    width: 600px;
+    font-family: Arial, Helvetivca, Sans-Serif;, Sans-Serif;
+    font-style: italic;
+    color: #444444;
+}
+.searchPanel span.searchExpl
+{
+    font-size: 14px;
+}
+.quickSearchContainer
+{
+     width: 205px;
+}
+.errorMessage
+{
+    color: Red;
+}
+span.formLabel
+{
+    font-weight: bold;
+}
+div.break
+{
+    height: 20px;
+}
+.signInTxt
+{
+    padding-top: 5px;
+}
+.ccHelp
+{
+    font-size: 10px;
+}
+.cartItemNum
+{
+    width: 55px;
+    text-align: left;
+}
+.cartItemName
+{
+    width: 350px;
+    text-align: center;
+}
+.cartUnitType
+{
+    width: 100px;
+    text-align: center;
+}
+.cartUnitPrice
+{
+    width: 75px;
+    text-align:center;
+    }
+.cartQty
+{
+    width: 50px;
+    text-align: center;
+}
+.cartUnitTot
+{
+    width: 100px;
+    text-align: center;
+}
+.cartRem
+{
+    width: 50px;
+    text-align: right;
+}
+.textCta
+{
+    text-decoration: underline;
+}
+ .packHeader
+{
+   font-size: 17px;
+   font-weight: bold;
+   margin-bottom: 0px;
+   }
+
+   .productBrowse
+{
+    font-size: 10pt;
+    padding: 10px;
+    margin-top: 40px;
+}
+
+.productBrowse tr
+{
+   vertical-align: top;
+}
+    
+.productBrowse td
+{
+    width: 210px;
+}
+.productBrowse h2
+{
+    font-size: 12pt;
+    margin-right: 50px;
+}
+    
+    /*CHECKOUT */
+        
+    h3.checkout
+    {
+        font-size: 12pt;
+        font-family: Georgia Serif;
+        border-bottom: dotted 1px #bbbbbb;
+    }
+    .note
+    {
+        font-size: 10px;
+        font-style: italic;
+    }
+    .noteSerif
+    {
+        font-family: Georgia, Times New Roman, Times, Serif;
+        font-size: 12px;
+        font-style: italic;
+        line-height: 20px;
+    }
+    .noResults
+    {
+        font-size: 10pt;
+        line-height: 20px;
+    }
+    .noResults li 
+    {
+        margin-left: 30px;
+    }
+
+    .searchResultsSearch
+    {
+        width: 205px;
+        position: relative;
+        margin-top: 11px;
+    }
+    .searchResultItemImg img
+    {
+        width: 72px;
+    }
+        
+#footer
+{
+    text-align: center; 
+    font-size:11px; 
+    color: #ffffff; 
+    background-color:#584025; 
+    width: 980px; 
+    padding: 10px; 
+    position: relative;
+}
+.lastViewed
+{
+    line-height: 2px;
+    border-bottom: dotted 1px #dddddd;
+    margin-bottom: 3px;
+}
+/* TASTING PAGE */
+#tastingPage
+{
+    font-size: 12px;
+} 
+
+.tastingRow
+{
+    background-color: #e6e2d1; 
+    width: 590px;
+}
+
+.tastingRowAlt
+{
+    background-color: #ffffff;
+    width: 590;
+}
+.orderHistoryOrder
+{
+    line-height: 15px; 
+    padding: 5px;
+}
+.orderHistoryOrderAlt
+{
+    background-color: #eeeeee;
+    line-height: 15px; 
+    padding: 5px;
+    margin-top: 10px;
+}
+.orderHistoryLabelCol
+{
+    float: left; 
+    width: 120px; 
+    font-size: 8pt;
+}
+.orderHistoryValueCol
+{
+    float: left;  
+    font-size: 8pt;
+    width: 400px;
+}
+.ModalPopupBG
+{
+	z-index: 5000;
+	background-color: #000000;
+	opacity: .70;
+	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+	filter: alpha(opacity=50);  
+	position: static;
+	width: 100%;
+	height: 100%;
+   
+}
+
+.ModalPopup
+{
+	z-index: 0;
+	position: relative;
+	border: 10px solid #ffffff;
+	background-color: #ffffff;
+	width: 400px;  
+}
+.PopupHeader
+{
+	font-size: 12pt;
+}
+.PopupBody
+{
+	font-size: 10pt;
+}
+
+#homepageStaticTouts
+{
+    position: relative;
+    width: 596px; 
+    margin-top: 40px;
+    float: none;
+}
+#homepageStaticTouts .leftColumn
+{
+    float:left; 
+    width: 320px;
+}
+#homepageVideoTout
+{
+    margin-bottom: 30px;
+    font-size: 10pt;
+    line-height: 20px;
+    background-color: #eeeeee;
+    background-image: url(../images/general/cameraBkgr.gif); 
+    background-repeat: no-repeat;
+    background-position: right;
+    height: 225px;
+    display: inline-block;
+}
+
+#homepageVideoTout li
+{
+    line-height: 18px;
+    margin-left: 15px;
+}
+.itemDescriptionBox
+{
+    padding: 0px 20px 5px 5px; 
+    font-size: 12px; 
+    color: #444444;
+    line-height: 20px;
+    width: 330px;
+}
+#lblSearchString
+{
+    margin-top: 20px;
+}
+.newsletterPage
+{
+    background-image: url('/images/newsletter/newsletterHeader.gif'); 
+    background-position: top; 
+    background-repeat: no-repeat; 
+    height: 500px; 
+    padding-top: 200px;
+}
+.newsletterContent
+{
+    padding: 10px;
+}
+.newsletterContent h2
+{
+    font-family: Times New Roman, Times, Serif;
+    font-size: 24pt;
+}
+.newsletterContent p
+{
+    line-height: 20px;
+}
+.dailyFeaturesCopy, #acTout p
+{
+    line-height: 15px;
+    font-size: 8pt;
+}
+/* Astor Center Events Tout */
+#acTout
+{
+    display: inline-block;
+    width: 335px;
+}
+#acTout img
+{
+    float: left;
+    padding: 0px 10px 0px 0px;
+}
+span.title
+{
+    color: #82b57d;
+    font-size: 12pt;
+}
+#acTout p
+{
+    margin-bottom: 10px;
+}
+
+
+/*BEGIN NEWSLETTER PAGE */
+#newsletter
+{
+        width: 605px;
+        background-color: #FFFFFF;
+        padding-bottom: 50px;
+        font-size: 10pt;
+}
+.newsletterPage
+{
+    height: 500px; 
+}
+.newsletterContent
+{
+    padding: 10px;
+}
+.newsletterContent h1
+{
+    font-family: Arial;
+    font-size: 18pt;
+    color: #555555;
+    border-bottom: #dddddd dotted 1px;
+}
+.newsletterContent h2
+{
+    font-family: Times New Roman, Times, Serif;
+    font-size: 24pt;
+}
+.newsletterContent p
+{
+    line-height: 20px;
+}
+.download
+{
+    padding: 5px;
+    background-color: #e54800;
+    font-style: italic;
+    color: #ffffff;
+}
+/* END NEWSLETTER PAGE */
+
+/*BEGIN REFINE SEARCH */
+.refineSearch
+{
+    font-family: Arial, Helvetica, Sans-Serif;
+    color: #555555;
+    background-color: #e6e2d1;
+    width: 195px;
+    padding: 0px 5px 0px 5px; 
+    line-height: 20px;
+    }
+/*
+.refineSearch h2
+{
+   font-family: Georgia, Times New Roman, Times, Serif;
+   font-size: 14pt;
+   color: #ffffff;
+}
+*/
+.refineSearch h3
+{
+    font-weight: bold;
+    border-bottom: 1px solid #bbbbbb;
+    margin-top: 20px;
+}
+.remove
+{
+    font-family: Georgia, Times New Roman, Times, Serif;
+    color: #5f191b;
+    font-style: italic;
+    font-size: 10pt;
+}
+/* END REFINE SEARCH */
+.searchQuery 
+{
+    font-family: arial, helvetica, Sans-Serif;
+    color: #5f191b;
+    font-size: 18pt;
+}
+.showingItems
+{
+    font-family: arial, helvetica, Sans-Serif;
+    font-size: 10pt;
+    color: #555555;
+}
+.searchTip
+{
+    /*margin-top: 10px; */
+    float:right;
+    width: 200px;
+    /*font-family: Georgia, Times New Roman, Times, Serif; */
+    font-family: Arial, Helvetica, Sans-Serif;
+    color: #555555;
+    font-size: 8pt; 
+    /*font-style: italic; */
+    line-height: 16px;
+}
+div#aqTip
+{
+    text-decoration: underline;
+}
+.pictureFrame
+{
+    padding: 5px;
+    border: solid 1px #dddddd;
+    margin: 0px 10px;
+}
+.giftCardPriceContainer
+{
+    text-align: center;
+}
+.giftCardPrice
+{
+    margin-bottom: 30px;
+    color: #444444;
+    float: left;
+    font-size: 12pt;
+}
+.giftCardPrice img
+{
+    width: 161px;
+}
+.thanksgivingContainer h3
+{
+    margin-top: 20px;
+    font-size: 14pt;
+    margin-bottom: 0px;
+    font-weight: normal;
+}
+.thanksgivingContainer h4
+{
+    font-size: 10pt;
+    color: #555555;
+    font-weight: normal;
+    margin-bottom: 20px;
+}
+.thanksgivingItemVideo
+{
+    width: 585px;
+    background-color: #f7e0cf;
+    float: left;
+    padding: 10px;
+}
+.thanksgivingItemA
+{
+    width: 282px;
+    background-color: #fcf9dd;
+    float: left;
+    padding: 20px 10px;
+}
+.thanksgivingItemB
+{
+    width: 283px;
+    background-color: #ccc9bd;
+    float: left;
+    padding: 20px 10px;
+}
+.thanksgivingQuote
+{
+    color: #75005f;
+    font-family: Courier New, Courier, Times New Roman, Serif;
+    font-size: 14pt;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+.thanksgivingBottle img
+{
+    border: solid 3px #f7e0cf;
+    margin: 0px 20px;
+}
+.thanksgivingVideo
+{
+    margin-right: 10px;
+}
+.thanksgivingPrice
+{
+    font-family: Courier New, Courier, Times New Roman;
+    font-size: 18pt;
+    font-weight: bold;
+    color: #af1e23;
+}
+.thanksgivingPriceOld
+{
+    font-family: Courier New, Courier, Times New Roman;
+    font-size: 14pt;
+    font-weight: bold;
+    color: #555555;
+    text-decoration: line-through;
+}
+
+/* BEGIN EMAIL PAGE STYLES */
+
+#emails h2{
+font-size: 18px;
+color: #000000;
+border-bottom: 0px;
+}
+
+.emailHolder{
+border-bottom: solid 1px #dddddd;
+padding: 20px 0px;
+}
+
+.emailCopy{
+width: 330px;
+float: left;
+text-align: justify;
+}
+
+/* BEGIN HOLIDAY PAGE */
+#holiday{
+    background-color: #d1e4f6;
+    padding: 20px 5px;
+    width: 590px;
+    border: solid #a8171e 5px;
+}
+.holidayTop{
+    height: 150px;
+}
+.holidayTopCopy{   
+    width: 270px;
+    height: 80px;
+    border: dotted #ffffff 2px;
+    background-color: #8a171e;
+    padding: 10px;
+    color: #ffffff;
+    font-family: Georgia, Times New Roman, Serif;
+    font-style: italic;
+    font-size: 18px;
+}
+.holidayTopCopyContainer{
+    width: 295px;
+    padding: 10px;
+    background-color: #8a171e;
+    margin-left: 10px;
+    margin-top: 80px;
+}
+#holiday .submenu{
+    background-color: #ffffff;
+    border: solid #444444 1px;
+    border-top: none;
+    padding: 10px;
+    margin-top: 0px;
+    width: 557px;
+    margin-left: 5px;
+}
+#holiday h2{
+    font-size: 16px;
+}
+.holidaySalePrice{
+    font-weight: bold;
+    font-size: 14px;
+    color: #00aab5;
+}
+.holidayRegPrice{
+}
+.holidaylist{
+    margin-top: 0px;
+    display: block;
+}
+.holidayListCopy{
+    font-size: 14px;
+    padding-bottom: 10px;
+    border-bottom: dotted 1px #dddddd;
+    line-height: 22px;
+}
+.holidayListHeader{
+   
+}
+.holidayListItem{
+    border-bottom: dotted #dddddd 1px;
+}
+.holidayListItemImg{
+    float: left;
+    padding: 10px;
+    display: block;
+}
+.holidayListItemDesc{
+    float: left;
+    padding: 10px;
+    display: block;
+    width: 350px;
+}
+.holidayListItemDesc p{
+    line-height: 22px;
+    text-align: justify;
+    margin-bottom: 10px;
+}
+.holidaySalePrice{
+    font-size: 16px;
+}
+.holidayRegPrice{
+    font-size: 14px;
+}
+.holidayRegPrice span{
+    text-decoration: line-through;
+}
+.holidayInsuranceHeader{
+    background-image: url(../images/holiday/holidayinsuranceHeader.gif);
+    background-repeat: no-repeat;
+    height: 57px;
+}
+.oenephileHeader{
+    background-image: url(../images/holiday/oenephileHeader.gif);
+    background-repeat: no-repeat;
+    height: 57px;
+}
+.lastminuteHeader{
+    background-image: url(../images/holiday/lastminutegiftsHeader.gif);
+    background-repeat: no-repeat;
+    height: 57px;
+}
+.howtoimpressHeader{
+    background-image: url(../images/holiday/impressanyoneHeader.gif);
+    background-repeat: no-repeat;
+    height: 57px;
+}
+.bartenderHeader{
+    background-image: url(../images/holiday/thebartenderHeader.gif);
+    background-repeat: no-repeat;
+    height: 57px;
+}
+.partyinaboxHeader{
+    background-image: url(../images/holiday/partyinaboxHeader.gif);
+    background-repeat: no-repeat;
+    height: 57px;
+}
+#holiday .note{
+    font-family: Georgia, Times New Roman, Serif;
+    font-size: 12px;
+    color: #2a6390;
+    line-height: 22px;
+}
+
+/* END HOLIDAY PAGE */
