@@ -2,7 +2,7 @@
 
 <asp:Panel runat="server" ID="pnlShopHours">    
     <div id="holidayshophours" style="text-align: center; text-transform: uppercase; font-size: 1.4rem; margin-top: 40px; margin-bottom: 30px;color:rgb(90,90,90);font-family: 'Open Sans Condensed', Arial, Helvetica, Sans-Serif;">
-        <asp:image runat="server" ID="imgIcon" src="images/general/img_usaFlag.gif" style="margin-right: 12px; vertical-align: middle;"  height="20"  />Our shop will be open <asp:literal runat="server" ID="lblToday" /> from <asp:literal runat="server" ID="lblHours" />
+        Our shop will be open <asp:literal runat="server" ID="lblToday" /> from <asp:literal runat="server" ID="lblHours" />
     </div>
 </asp:Panel>
 

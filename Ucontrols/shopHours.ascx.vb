@@ -41,7 +41,7 @@ Partial Class Ucontrols_shopHours
 
         Dim holiday As String
 
-        holiday = "thanksgiving"
+        holiday = "memorialDay"
 
         Select Case holiday
             Case "memorialDay"
@@ -55,7 +55,7 @@ Partial Class Ucontrols_shopHours
             Case "thanksgiving"
                 lblToday.Text = "Thanksgiving"
                 lblHours.Text = "10:00 am - 6:00 pm"
-                imgIcon.Visible = False
+                'imgIcon.Visible = False
             Case "laborDay"
                 lblToday.Text = "Labor Day"
                 lblHours.Text = "10:00am - 4:00pm"
@@ -65,8 +65,8 @@ Partial Class Ucontrols_shopHours
         Dim promoBegin As DateTime 'First day of promotion
         Dim promoEnd As DateTime   'Last day of promotion
 
-        promoBegin = #11/27/2013#
-        promoEnd = #11/28/2013#.AddDays(1)
+        promoBegin = #5/21/2014#
+        promoEnd = #5/26/2014#.AddDays(1)
 
 
         If Date.Now < promoBegin Or Date.Now > promoEnd Then

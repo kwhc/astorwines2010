@@ -85,11 +85,12 @@
         </asp:PlaceHolder>
            
         <li id="shop-hours" class="img-copy-row shop-info clearfix">
+                <awSh:shopHours runat="server" ID="ucShopHours" />
+        
             <div class="imgContainer">
                 <img src="images/icons/ic_open.gif" alt="Our Shop's Hours" />
             </div>
             <div class="copyContainer">
-                <awSh:shopHours runat="server" ID="ucShopHours" />
                 <asp:Label runat="server"  ID="lblOpen" Visible="false" />   
                 <h2>Our Shop Hours</h2>
                 Monday - Saturday<br />
