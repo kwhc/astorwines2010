@@ -23,7 +23,7 @@
             </p>
         </div>
         <div style="margin-bottom:2rem;">
-            <h3>Restricted States</h3>
+            <h3>Prohibited States</h3>
             <p>
             <strong>Due to restrictive regulations, we cannot accept orders for shipment to the following locations:</strong><br />
             <asp:Literal ID="lblNotShipToStatesCodes" runat="server" /><br /><br />
@@ -31,10 +31,11 @@
             </p>
         </div>
 
-        <div style="border-bottom:solid 1px #dddddd;border-top:solid 1px #dddddd;margin-bottom:2rem;padding:2rem 0rem;">
+        <div style="border-bottom:solid 1px #dddddd;border-top:solid 1px #dddddd;padding:2rem 0rem;">
             <h3 style="text-transform:uppercase;">Spirits</h3>
             <p>If you are purchasing spirits, your order must meet our requirements for free delivery in your area. We are prohibited from sending spirits via common carrier.</p>
         </div>
+        
         
         <div>
           <h3>Within New York State</h3>
@@ -113,6 +114,17 @@
                 Astor offers free delivery to Roosevelt Island on Wednesdays and Saturdays only, for orders that exceed $100 pre-tax. Orders placed before 12:00 noon on Tuesday or Friday will generally be delivered the following day, barring seasonal peaks in delivery volume and inclement weather. Once your order has been processed, you will receive an email confirming your scheduled delivery date.
                 </p>
                 </div>
+              </li>
+              <li class="img-copy-row clearfix">
+                    <div class="imgContainer" style="width:220px;">
+                    &nbsp;
+                    </div>
+                    <div class="copyContainer gutter">
+                    <h3>Fire Island</h3>
+                    <p>
+                    Orders received by noon on Tuesday will be at the Fire Island ferry docks in time for the Friday 10 a.m. Bay Shore freight boat and the Friday 12:30 p.m. Sayville freight boat. 
+                    </p>
+                    </div>
               </li>
           
               <li class="img-copy-row clearfix">
