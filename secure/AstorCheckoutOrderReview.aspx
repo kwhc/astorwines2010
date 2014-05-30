@@ -8,6 +8,7 @@
   <div id="orderReview">
     <div style="padding: 5px;">
       <awCOH:checkOutHeader ID="WUCCheckOutHeader1" runat="server" />
+      <asp:Literal runat="server" ID="litSignatureErrorTop" Visible="false"><div style="color:Red;padding:1rem;background-color:#efefef;"><i class="icon-exclamation-sign icon-2x" style="vertical-align:middle;"></i> Please check the signature requirement at the bottom of this page to complete your order.</div></asp:Literal>
       
       <br style="clear: right;" />
       
@@ -15,13 +16,17 @@
         <h2 class="checkout">Billing Information</h2>
         <div style="padding: 5px;">
           <div style="float: left; width: 280px;">
-            Name: <asp:Literal ID="lblName" runat="server"></asp:Literal><br />
-            Company: <asp:Literal ID="lblCompany" runat="server"></asp:Literal><br />
-            Address: <asp:Literal ID="lblAddressApt" runat="server"></asp:Literal><br />
-            City/State/Zip: <asp:Literal ID="lblCityStateZipcode" runat="server"></asp:Literal><br />
-            Day Phone: <asp:Literal ID="lblDayPhone" runat="server"></asp:Literal><br />
-            Evening Phone: <asp:Literal ID="lblEveningPhone" runat="server"></asp:Literal><br />
-            Email Address: <asp:Literal ID="lblEmail" runat="server"></asp:Literal><br /><br />
+            <div style="margin-bottom:1rem;">
+                <asp:Literal ID="lblName" runat="server"></asp:Literal>
+                <asp:Literal ID="lblCompany" runat="server"></asp:Literal>
+                <asp:Literal ID="lblAddressApt" runat="server"></asp:Literal>
+                <asp:Literal ID="lblCityStateZipcode" runat="server"></asp:Literal>
+            </div>
+            <div style="margin-bottom:1rem;">
+                <b>Day Phone:</b> <asp:Literal ID="lblDayPhone" runat="server"></asp:Literal>
+                <asp:Literal ID="lblEveningPhone" runat="server"></asp:Literal>
+               <b>Email Address:</b> <asp:Literal ID="lblEmail" runat="server"></asp:Literal>
+            </div>
             <asp:LinkButton ID="imgbEditBillingAddress" runat="server" Text="Edit Billing Address" />
           </div>
           <div style="float: right; width: 280px;">
@@ -46,24 +51,28 @@
       <div class="break"></div>
       <div>
         <h2 class="checkout">Shipping Information</h2>
-        <div style="padding: 5px;">
+        <div style="">
           <div style="float: left; width: 280px;">
-            Name: <asp:Literal ID="lblShipName" runat="server"></asp:Literal><br />
-            Company: <asp:Literal ID="lblShipCompany" runat="server"></asp:Literal><br />
-            Address: <asp:Literal ID="lblShipAddressApt" runat="server"></asp:Literal><br />
-            City/State/Zip: <asp:Literal ID="lblShipCityStateZipcode" runat="server"></asp:Literal><br />
-            <asp:Literal ID="lblScross" runat="server"></asp:Literal><br />
-            Shipping Email: <asp:Literal ID="lblShipEmail" runat="server"></asp:Literal><br />
-            Day Phone: <asp:Literal ID="lblShipDayPhone" runat="server"></asp:Literal><br />
-            Evening Phone: <asp:Literal ID="lblShipEveningPhone" runat="server"></asp:Literal><br /><br />
+            <div style="margin-bottom:1rem;">
+                <asp:Literal ID="lblShipName" runat="server"></asp:Literal>
+                <asp:Literal ID="lblShipCompany" runat="server"></asp:Literal>
+                <asp:Literal ID="lblShipAddressApt" runat="server"></asp:Literal>
+                <asp:Literal ID="lblShipCityStateZipcode" runat="server"></asp:Literal>
+                <asp:Literal ID="lblScross" runat="server"></asp:Literal>
+            </div>
+            <div style="margin-bottom:1rem;">
+                <asp:Literal ID="lblShipEmail" runat="server"></asp:Literal>
+                <asp:Literal ID="lblShipDayPhone" runat="server"></asp:Literal>
+                <asp:Literal ID="lblShipEveningPhone" runat="server"></asp:Literal>
+            </div>
             <asp:LinkButton ID="imgbEditShippingAddress" runat="server" Text="Edit Shipping Info" />
           </div>
           <div style="float: right; width: 280px;">
-            Shipping Method: <asp:Literal ID="lblShippingMethod" runat="server"></asp:Literal><br />
-            <asp:Literal ID="litShipDelDate" runat="server"></asp:Literal><br />
-            <asp:Literal ID="lblShipInst" runat="server"></asp:Literal><br />
-            <asp:Literal ID="lblPromoCode" runat="server"></asp:Literal><br />
-            <asp:LinkButton ID="imgbEditShippingMethod" runat="server" Text="Edit Shipping Method" />
+                <asp:Literal ID="lblShippingMethod" runat="server" />
+                <asp:Literal ID="litShipDelDate" runat="server" />
+                <asp:Literal ID="lblShipInst" runat="server" />
+                <asp:Literal ID="lblPromoCode" runat="server" />
+                <asp:LinkButton ID="imgbEditShippingMethod" runat="server" Text="Edit Shipping Method" />
           </div>
           <div style="clear: both;"></div>
         </div>
@@ -78,9 +87,9 @@
         </div>
       </asp:PlaceHolder>
       <div class="break"></div>
-      <div>
-        <h2 class="checkout">My Order</h2>
-        <div style="padding: 5px;">
+      <div style="padding: 2rem 0;">
+        <h2>My Order</h2>
+        <div style="">
           <asp:DataList ID="datMyList" runat="server">
             <HeaderTemplate>
               <table style="width: 100%; border-style: none;">
@@ -146,10 +155,15 @@
             <div style="clear: left;"></div>
           </div>
           <div style="clear: right;"></div>
-          <asp:LinkButton ID="imgbEditShoppingCart" runat="server" Text="Edit Shopping Cart" />
+          <asp:LinkButton ID="imgbEditShoppingCart" runat="server" Text="Edit Your Order" />
         </div>
       </div>
-      <div style="float: right;">
+      <div style="padding:2rem 0;border-top: solid 1px #ddd;border-bottom:solid 1px #ddd;">
+        <h3>Signature Requirement</h3>
+        <asp:CheckBox runat="server" ID="cbSignature" Text="I understand that all deliveries require the signature of an adult at least 21 years of age.*" />
+        <asp:Literal runat="server" ID="litSignatureErrorBottom" Visible="false"><div style="color:Red;margin-top:1rem;">Please check this box above to continue with your order.</div></asp:Literal>
+      </div>
+      <div style="padding:2rem 0;">
         <asp:ImageButton ID="imgbSubmitB" runat="server" ImageUrl="~/images/general/btn_placeOrder.gif" ValidationGroup="vgReview" />
       </div>
       <div style="clear: right;"></div>

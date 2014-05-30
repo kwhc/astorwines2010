@@ -104,37 +104,42 @@ Partial Class secure_AstorCheckoutOrderReview
         With dsCust.Tables(0)
             If .Rows.Count > 0 Then
                 With .Rows(0)
-                    lblName.Text = .Item("Name")
-                    lblCompany.Text = .Item("Company")
-                    lblAddressApt.Text = .Item("AddressApt")
-                    lblCityStateZipcode.Text = .Item("CityStateZipcode")
-                    lblDayPhone.Text = .Item("DayPhone")
-                    lblEveningPhone.Text = .Item("EveningPhone")
-                    lblEmail.Text = GetCustomerID(Request, Response)
+                    lblName.Text = "<div class="""">" & .Item("Name") & "</div>"
+                    lblCompany.Text = "<div>" & .Item("Company") & "</div>"
+                    lblAddressApt.Text = "<div>" & .Item("AddressApt") & "</div>"
+                    lblCityStateZipcode.Text = "<div>" & .Item("CityStateZipcode") & "</div>"
+                    lblDayPhone.Text = "<div>" & .Item("DayPhone") & "</div>"
+                    IIf(.Item("EveningPhone") <> Nothing, lblEveningPhone.Text = "<div style=""font-weight:bold;"">Evening Phone</div><div>" & .Item("EveningPhone") & "</div>", "")
+                    lblEmail.Text = "<div>" & GetCustomerID(Request, Response) & "</div>"
 
-                    lblShipName.Text = .Item("ShipName")
-                    lblShipCompany.Text = .Item("ShipCompany")
-                    lblShipAddressApt.Text = .Item("ShipAddressApt")
-                    lblShipCityStateZipcode.Text = .Item("ShipCityStateZipcode")
-                    lblShipDayPhone.Text = .Item("ShipDayPhone")
-                    lblShipEveningPhone.Text = .Item("ShipEveningPhone")
-                    lblScross.Text = .Item("Scross")
-                    lblShipEmail.Text = .Item("ShipEmail")
+                    lblShipName.Text = "<div class="""">" & .Item("ShipName") & "</div>"
+                    lblShipCompany.Text = "<div class="""">" & .Item("ShipCompany") & "</div>"
+                    lblShipAddressApt.Text = "<div class="""">" & .Item("ShipAddressApt") & "</div>"
+                    lblShipCityStateZipcode.Text = "<div class="""">" & .Item("ShipCityStateZipcode") & "</div>"
+                    lblShipDayPhone.Text = "<div style=""font-weight:bold;"">Day Phone</div><div class="""">" & .Item("ShipDayPhone") & "</div>"
+                    IIf(.Item("ShipEveningPhone") <> Nothing, lblShipEveningPhone.Text = "<div style=""font-weight:bold;"">Evening Phone</div><div class="""">" & .Item("ShipEveningPhone") & "</div>", "")
+
+                    'If .Item("Scross").ToString <> "" Then
+                    ' lblScross.Text = "<div class="""">at " & .Item("Scross") & "</div>"
+                    ' End If
+
+                    IIf(.Item("Scross").ToString <> Nothing, lblScross.Text = "<div class="""">at " & .Item("Scross") & "</div>", "")
+
+                    lblShipEmail.Text = "<div style=""font-weight:bold;"">Shipping Email</div><div class="""">" & .Item("ShipEmail") & "</div>"
 
                     lblLShipping.Text = "Shipping/Handling (" & .Item("ShipType") & "):"
-                    lblShippingMethod.Text = .Item("ShipType")
-                    lblShipInst.Text = "Shipping Instructions: " & .Item("ShipInst")
+                    lblShippingMethod.Text = "<div style=""font-weight:bold;"">Shipping Method</div><div class=""shipping-method"">" & .Item("ShipType") & "</div>"
+                    lblShipInst.Text = "<div class=""shipping-instrutions"">Shipping Instructions" & .Item("ShipInst") & "</div>"
 
                     If .Item("ShipType") = "Astor Delivery" Then
-                        litShipDelDate.Text = "Astor Delivery Date: <br />&nbsp<b>" & FormatDateTime(.Item("ShipDate"), DateFormat.LongDate).ToString & "</b>"
+                        litShipDelDate.Text = "Astor Delivery Date: <br /><b>" & FormatDateTime(.Item("ShipDate"), DateFormat.LongDate).ToString & "</b>"
                     ElseIf .Item("ShipType") = "After Hours Courier" Then
-
-                        litShipDelDate.Text = "After Hours Courier Delivery Date: <br />&nbsp<b>" & FormatDateTime(.Item("ShipDate"), DateFormat.LongDate).ToString & " in the time range " & .Item("sPMCourier") & "</b>"
+                        litShipDelDate.Text = "After Hours Courier Delivery Date: <br /><b>" & FormatDateTime(.Item("ShipDate"), DateFormat.LongDate).ToString & " in the time range " & .Item("sPMCourier") & "</b>"
                     Else
                         If .Item("b3rdPartyShipInsAgreement") = True Then
-                            litShipDelDate.Text = "3rd Party shipment will TRANSFER from Astor Store on: <br />&nbsp<b>" & FormatDateTime(.Item("ShipDate"), DateFormat.LongDate).ToString & "</b>"
+                            litShipDelDate.Text = "3rd Party shipment will TRANSFER from our shop on: <br /><b>" & FormatDateTime(.Item("ShipDate"), DateFormat.LongDate).ToString & "</b>"
                         Else
-                            litShipDelDate.Text = "UPS Shipment will DEPART Astor Store on: <br />&nbsp<b>" & FormatDateTime(.Item("ShipDate"), DateFormat.LongDate).ToString & "</b>"
+                            litShipDelDate.Text = "UPS Shipment will DEPART from our shop on: <br /><b>" & FormatDateTime(.Item("ShipDate"), DateFormat.LongDate).ToString & "</b>"
                         End If
                     End If
 
@@ -287,12 +292,15 @@ Partial Class secure_AstorCheckoutOrderReview
         GetTaxRate = cart.WebGetTaxRate(GetCustomerID(Request, Response), String.Empty)
     End Function
 
-
     Protected Sub imgbSubmitT_Click(ByVal sender As Object, ByVal e As System.Web.UI.ImageClickEventArgs) Handles imgbSubmitB.Click
-        Confirm_Order()
+        If cbSignature.Checked Then
+            Confirm_Order()
+        Else
+            litSignatureErrorTop.Visible = True
+            litSignatureErrorBottom.Visible = True
+        End If
+
     End Sub
-
-
 
     Protected Sub imgbEditShoppingCart_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles imgbEditShoppingCart.Click
         'Redirect("~/ShoppingCart.aspx", RedirectOptions.AbsoluteHttp)https_transfer_6/18/08
