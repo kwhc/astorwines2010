@@ -14,7 +14,7 @@ Partial Class m
         Dim page = Request.QueryString("p")
 
         Select Case page
-            Case "pm-delivery-service"
+            Case "after-hours-courier-service"
                 If Date.Now >= #4/13/2014# Then
                     pnlPMDelivery.Visible = True
                 End If
@@ -27,7 +27,7 @@ Partial Class m
                     pnlCustomerSurvey.Visible = True
                 End If
             Case "spanish-wine-sale"
-                If Date.Now >= #6/17/2014# Then
+                If Date.Now >= #6/18/2014# And Date.Now < #6/20/2014# Then
                     pnlSpanishWineSale.Visible = True
                 End If
 

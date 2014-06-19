@@ -59,14 +59,14 @@
         {
             background: #80bfb3;
         }
-        .red
+        .c-red-background
         {
-            background: #341919;
+            background: rgb(195,70,57);
             color: #fefefe;
         }
-        .red:hover
+        .c-red-background:hover
         {
-            background: #5d2d2d;
+            background: rgb(232,88,77);
         }
         .fancy
         {
@@ -76,6 +76,15 @@
             line-height: 1em;
             text-align: center !important;
             color: #444;
+        }
+        .c-stone{
+            color:rgb(84,84,84);
+        }
+        .c-stone-background{
+            background-color:rgb(84,84,84);
+        }
+        a.c-stone-background:hover{
+            background-color:rgb(103,103,103);
         }
     </style>
 <div class="info-page" style="text-align:center;">
@@ -87,21 +96,21 @@
         
     <div style="border-bottom: solid 1px #ccc; text-align: center; padding: 30px 0;margin-bottom:20px;">
         <div>
-            <a href="../WineSearchResult.aspx?p=1&search=Advanced&searchtype=Contains&term=&cat=1&country=Italy&ref=clp" class="header-blox red">All Spanish Wines</a>        
+            <a href="../WineSearchResult.aspx?p=1&search=Advanced&searchtype=Contains&term=&cat=1&country=Italy&ref=clp" class="header-blox c-red-background">All Spanish Wines</a>        
         </div>
         <div style="width:48%;display:inline-block;vertical-align:top;">
-            <a href="../WineSearchResult.aspx?p=1&search=Advanced&searchtype=Contains&term=&cat=1&pricerange=1&style=1&country=Italy&ref=clp" class="second-blox red">Under $10</a>
-            <a href="../WineSearchResult.aspx?p=1&search=Advanced&searchtype=Contains&term=&cat=1&pricerange=2&style=1&country=Italy&ref=clp" class="second-blox red">$10-$20</a>
-            <a href="../WineSearchResult.aspx?p=1&search=Advanced&searchtype=Contains&term=&cat=1&pricerange=3&style=1&country=Italy&ref=clp" class="second-blox red">$21-$50</a>
-            <a href="../WineSearchResult.aspx?p=1&search=Advanced&searchtype=Contains&term=&cat=1&pricerange=4&style=1&country=Italy&ref=clp" class="second-blox red">$51-$100</a>
-            <a href="../WineSearchResult.aspx?p=1&search=Advanced&searchtype=Contains&term=&cat=1&pricerange=5&style=1&country=Italy&ref=clp" class="second-blox red">Above $100</a>
+            <a href="../WineSearchResult.aspx?p=1&search=Advanced&searchtype=Contains&term=&cat=1&pricerange=1&style=1&country=Italy&ref=clp" class="second-blox c-red-background">Under $10</a>
+            <a href="../WineSearchResult.aspx?p=1&search=Advanced&searchtype=Contains&term=&cat=1&pricerange=2&style=1&country=Italy&ref=clp" class="second-blox c-red-background">$10-$20</a>
+            <a href="../WineSearchResult.aspx?p=1&search=Advanced&searchtype=Contains&term=&cat=1&pricerange=3&style=1&country=Italy&ref=clp" class="second-blox c-red-background">$21-$50</a>
+            <a href="../WineSearchResult.aspx?p=1&search=Advanced&searchtype=Contains&term=&cat=1&pricerange=4&style=1&country=Italy&ref=clp" class="second-blox c-red-background">$51-$100</a>
+            <a href="../WineSearchResult.aspx?p=1&search=Advanced&searchtype=Contains&term=&cat=1&pricerange=5&style=1&country=Italy&ref=clp" class="second-blox c-red-background">Above $100</a>
         </div>
         <div id="column2" runat="server" style="width:48%;display:inline-block;">
-            <a href="../WineSearchResult.aspx?p=1&search=Advanced&searchtype=Contains&term=&cat=1&country=Italy&region=Piedmont&subregion=Barolo&ref=clp" class="second-blox red">Red</a>
-            <a href="../WineSearchResult.aspx?p=1&search=Advanced&searchtype=Contains&term=&cat=1&country=Italy&region=Piedmont&subregion=Barbaresco&ref=clp" class="second-blox red">White</a>
-            <a href="../WineSearchResult.aspx?p=1&search=Advanced&searchtype=Contains&term=&cat=1&country=Italy&region=Piedmont&ref=clp" class="second-blox red">Ros&eacute;</a>
-            <a href="../WineSearchResult.aspx?p=1&search=Advanced&searchtype=Contains&term=&cat=1&country=Italy&region=Abruzzi&ref=clp" class="second-blox red">Sparkling</a>
-            <a href="../WineSearchResult.aspx?p=1&search=Advanced&searchtype=Contains&term=&cat=1&country=Italy&region=Apulia&ref=clp" class="second-blox red">Fortified</a>      
+            <a href="../WineSearchResult.aspx?p=1&search=Advanced&searchtype=Contains&term=&cat=1&country=Italy&region=Piedmont&subregion=Barolo&ref=clp" class="second-blox c-red-background">Red</a>
+            <a href="../WineSearchResult.aspx?p=1&search=Advanced&searchtype=Contains&term=&cat=1&country=Italy&region=Piedmont&subregion=Barbaresco&ref=clp" class="second-blox c-red-background">White</a>
+            <a href="../WineSearchResult.aspx?p=1&search=Advanced&searchtype=Contains&term=&cat=1&country=Italy&region=Piedmont&ref=clp" class="second-blox c-red-background">Ros&eacute;</a>
+            <a href="../WineSearchResult.aspx?p=1&search=Advanced&searchtype=Contains&term=&cat=1&country=Italy&region=Abruzzi&ref=clp" class="second-blox c-red-background">Sparkling</a>
+            <a href="../WineSearchResult.aspx?p=1&search=Advanced&searchtype=Contains&term=&cat=1&country=Italy&region=Apulia&ref=clp" class="second-blox c-red-background">Fortified</a>      
         </div>
     </div>
     
