@@ -8,11 +8,11 @@ Partial Class Ucontrols_promoPennant
         Dim promoBegin As DateTime
 
         'hypPromo.NavigateUrl = "../m.aspx?p=italian-wine-sale" & "&ref=pennant"
-        hypPromo.NavigateUrl = "../WineSearchResult.aspx?p=1&search=Advanced&searchtype=Contains&term=&cat=1&color=Rosé&" & "ref=pennant"
-        imgPromo.ImageUrl = "../images/promo/201405-roseDaySale/img_roseDaySale_pennant.png"
-        imgPromo.AlternateText = "Rose Day Sale"
-        promoBegin = #5/10/2014#
-        promoEnd = #5/11/2014#.AddDays(1)
+        hypPromo.NavigateUrl = "../m.aspx?p=spanish-wine-sale&" & "ref=pennant"
+        imgPromo.ImageUrl = "../images/promo/2014-06-spanish-wine-sale/2014-06-Spanish-Wine-Sale-Pennant-Img.png"
+        imgPromo.AlternateText = "Spanish Wine Sale"
+        promoBegin = #6/25/2014#
+        promoEnd = #6/25/2014#.AddDays(1)
 
         If Date.Now < promoBegin Or Date.Now >= promoEnd Then
             pnlPromoPennant.Visible = False
