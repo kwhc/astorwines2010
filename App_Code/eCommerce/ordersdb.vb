@@ -45,7 +45,7 @@ Namespace AstorwinesCommerce
 
         End Function
         Public Function GetOrdersForCustomerFormatted(ByVal CustomerNumber As String) As DataSet
-            Dim sSP As String = "GetOrdersForCustomerFormatted_sp"
+            Dim sSP As String = "GetOrdersForCustomerFormatted062014_sp"
             Dim _cnConnection As New SqlConnection(m_ConnectionString)
             Dim _scSC As New SqlCommand(sSP, _cnConnection)
             Dim _daLocal As New SqlDataAdapter
@@ -109,7 +109,7 @@ Namespace AstorwinesCommerce
 
         End Function
         Public Function GetOrderForCustomerFormatted(ByVal CustomerNumber As String, ByVal OrderNumber As String) As DataSet
-            Dim sSP As String = "GetOrderForCustomerFormatted_sp"
+            Dim sSP As String = "GetOrderForCustomerFormatted062014_sp"
             Dim _cnConnection As New SqlConnection(m_ConnectionString)
             Dim _scSC As New SqlCommand(sSP, _cnConnection)
             Dim _daLocal As New SqlDataAdapter
@@ -180,7 +180,7 @@ Namespace AstorwinesCommerce
 
         Public Function AddNewOrder(ByVal CustomerNumber As String, ByVal Ordered As Date) As String
 
-            Dim sSP As String = "AddNewOrder_sp"
+            Dim sSP As String = "AddNewOrder062014_sp"
             Dim _cnConnection As New SqlConnection(m_ConnectionString)
             Dim _scSC As New SqlCommand(sSP, _cnConnection)
 
@@ -202,7 +202,7 @@ Namespace AstorwinesCommerce
                 _prmOrdered.Value = Ordered
 
 
-                _prmOrderNum = _scSC.Parameters.Add("@OrderNum", System.Data.SqlDbType.Char, 6)
+                _prmOrderNum = _scSC.Parameters.Add("@OrderNum", System.Data.SqlDbType.VarChar, 6)
                 _prmOrderNum.Direction = ParameterDirection.Output
 
 

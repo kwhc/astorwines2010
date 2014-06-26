@@ -90,23 +90,42 @@ Partial Class secure_AstorCheckOutConfirmation
                     lblLShipping.Text = "Shipping/Handling (" & .Item("ShipType") & "):"
                     lblShippingMethod.Text = .Item("ShipType")
 
-                    If .Item("ShipType") = "Astor Delivery" Then
-                        litShipDelDateL.Text = "Astor Truck Delivery Date:"
-                        litShipDelDate.Text = "<b>" & FormatDateTime(.Item("ShipDate"), DateFormat.LongDate).ToString & "</b>"
-                    ElseIf .Item("ShipType") = "After Hours Courier" Then
+                    'If .Item("ShipType") = "Astor Delivery" Then
+                    '    litShipDelDateL.Text = "Astor Truck Delivery Date:"
+                    '    litShipDelDate.Text = "<b>" & FormatDateTime(.Item("ShipDate"), DateFormat.LongDate).ToString & "</b>"
+                    'ElseIf .Item("ShipType") = "After Hours Courier" Then
 
-                        litShipDelDateL.Text = "After Hours Courier Delivery Date:"
-                        litShipDelDate.Text = "<b>" & FormatDateTime(.Item("ShipDate"), DateFormat.LongDate).ToString & " in the time range " & .Item("sPMCourier") & "</b>"
-                    Else
-                        If .Item("b3rdPartyShipInsAgreement") = True Then
-                            litShipDelDateL.Text = "3rd Party shipment will TRANSFER from Astor Wines &amp; Spirits on:"
-                        Else
+                    '    litShipDelDateL.Text = "After Hours Courier Delivery Date:"
+                    '    litShipDelDate.Text = "<b>" & FormatDateTime(.Item("ShipDate"), DateFormat.LongDate).ToString & " in the time range " & .Item("sPMCourier") & "</b>"
+                    'Else
+                    '    If .Item("b3rdPartyShipInsAgreement") = True Then
+                    '        litShipDelDateL.Text = "3rd Party shipment will TRANSFER from Astor Wines &amp; Spirits on:"
+                    '    Else
+                    '        litShipDelDateL.Text = "UPS shipment will DEPART Astor Wines &amp; Spirits on:"
+                    '    End If
+
+
+                    '    litShipDelDate.Text = "<b>" & FormatDateTime(.Item("ShipDate"), DateFormat.LongDate).ToString & "</b>"
+                    'End If
+
+                    Select Case .Item("ShipMethod")
+                        Case 1
+                            litShipDelDateL.Text = "Astor Truck Delivery Date:"
+                            litShipDelDate.Text = "<b>" & FormatDateTime(CType(.Item("ShipDate"), Date), DateFormat.LongDate).ToString & "</b>"
+                        Case 2
+                            litShipDelDateL.Text = "After Hours Courier Delivery Date:"
+                            litShipDelDate.Text = CType(("<b>" & FormatDateTime(CType(.Item("ShipDate"), Date), DateFormat.LongDate).ToString & " in the time range " & .Item("sPMCourier") & "</b>"), String)
+                        Case 3
+                            litShipDelDateL.Text = "After Hours Courier Delivery Date:"
+                            litShipDelDate.Text = CType(("<b>" & FormatDateTime(CType(.Item("ShipDate"), Date), DateFormat.LongDate).ToString & " in the time range " & .Item("sPMCourier") & "</b>"), String)
+                        Case 4, 5, 8, 9, 10, 11
                             litShipDelDateL.Text = "UPS shipment will DEPART Astor Wines &amp; Spirits on:"
-                        End If
+                            litShipDelDate.Text = "<b>" & FormatDateTime(CType(.Item("ShipDate"), Date), DateFormat.LongDate).ToString & "</b>"
+                        Case 6, 7
+                            litShipDelDateL.Text = "3rd Party shipment will TRANSFER from Astor Wines &amp; Spirits on:"
+                            litShipDelDate.Text = "<b>" & FormatDateTime(CType(.Item("ShipDate"), Date), DateFormat.LongDate).ToString & "</b>"
 
-
-                        litShipDelDate.Text = "<b>" & FormatDateTime(.Item("ShipDate"), DateFormat.LongDate).ToString & "</b>"
-                    End If
+                    End Select
 
                     lblShipInst.Text = .Item("ShipInst")
 

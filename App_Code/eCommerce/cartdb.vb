@@ -671,7 +671,7 @@ Namespace AstorwinesCommerce
             Return _bExists
         End Function
         Public Function WebCalcShipping(ByVal CustomerNumber As String, ByVal idt As String) As Decimal
-            Dim sSP As String = "WebCalcShipping_sp"
+            Dim sSP As String = "WebCalcShipping062014_sp"
             Dim _cnConnection As New SqlConnection(m_ConnectionString)
             Dim _scSC As New SqlCommand(sSP, _cnConnection)
 
@@ -711,7 +711,7 @@ Namespace AstorwinesCommerce
 
         End Function
         Public Function WebCalcShippingUsingZipCode(ByVal CustomerNumber As String, ByVal idt As String, ByVal ZipCode As String, ByVal ShipType As String) As Decimal
-            Dim sSP As String = "WebCalcShippingUsingZipCode_sp"
+            Dim sSP As String = "WebCalcShippingUsingZipCode062014_sp"
             Dim _cnConnection As New SqlConnection(m_ConnectionString)
             Dim _scSC As New SqlCommand(sSP, _cnConnection)
 
@@ -762,7 +762,7 @@ Namespace AstorwinesCommerce
         End Function
         Public Function WebCalcAllShipping(ByVal CustomerNumber As String, ByVal idt As String, ByVal ZipCode As String) As DataSet
 
-            Dim sSP As String = "WebCalcAllShipping_sp"
+            Dim sSP As String = "WebCalcAllShipping062014_sp"
             Dim _cnConnection As New SqlConnection(m_ConnectionString)
             Dim _scSC As New SqlCommand(sSP, _cnConnection)
             Dim _daLocal As New SqlDataAdapter
@@ -869,7 +869,7 @@ Namespace AstorwinesCommerce
         End Function
         Public Function GetShipmentDeliveryType(ByVal ZipCode As String, ByVal CustomerNumber As String) As String
 
-            Dim sSP As String = "GetShipmentDeliveryType_sp"
+            Dim sSP As String = "GetShipmentDeliveryType062014_sp"
             Dim _cnConnection As New SqlConnection(m_ConnectionString)
             Dim _scSC As New SqlCommand(sSP, _cnConnection)
 
@@ -1547,7 +1547,7 @@ Namespace AstorwinesCommerce
         End Function
         Public Function GetShoppingCartCustInfoFormatted(ByVal customerNumber As String) As DataSet
 
-            Dim sSP As String = "GetShoppingCartCustInfoFormatted_sp"
+            Dim sSP As String = "GetShoppingCartCustInfoFormatted062014_sp"
             Dim _cnConnection As New SqlConnection(m_ConnectionString)
             Dim _scSC As New SqlCommand(sSP, _cnConnection)
             Dim _daLocal As New SqlDataAdapter

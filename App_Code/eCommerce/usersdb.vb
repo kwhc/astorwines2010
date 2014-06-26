@@ -770,21 +770,35 @@ Namespace AstorwinesCommerce
 
                         sOrderHeader = sOrderHeader & "Shipping Method: " & .Item("ShipType") & vbCrLf
 
-                        If .Item("ShipType") = "Astor Delivery" Then
-                            sOrderHeader = sOrderHeader & "Astor Delivery Date: " & FormatDateTime(.Item("ShipDate"), DateFormat.LongDate).ToString & vbCrLf & vbCrLf
-                        ElseIf .Item("ShipType") = "After Hours Courier" Then
+                        'If .Item("ShipType") = "Astor Delivery" Then
+                        '    sOrderHeader = sOrderHeader & "Astor Delivery Date: " & FormatDateTime(.Item("ShipDate"), DateFormat.LongDate).ToString & vbCrLf & vbCrLf
+                        'ElseIf .Item("ShipType") = "After Hours Courier" Then
 
-                            sOrderHeader = sOrderHeader & "After Hours Courier Delivery Date: " & FormatDateTime(.Item("ShipDate"), DateFormat.LongDate).ToString & " in the time range " & .Item("sPMCourier") & vbCrLf & vbCrLf
-                        Else
-                            If .Item("b3rdPartyShipInsAgreement") = False Then
-                                sOrderHeader = sOrderHeader & "UPS Shipment will DEPART Astor Store on: " & FormatDateTime(.Item("ShipDate"), DateFormat.LongDate).ToString & vbCrLf & vbCrLf
-                            Else
-                                sOrderHeader = sOrderHeader & "3rd Party Shipment will transfer from Astor Store on: " & FormatDateTime(.Item("ShipDate"), DateFormat.LongDate).ToString & vbCrLf & vbCrLf
-                            End If
+                        '    sOrderHeader = sOrderHeader & "After Hours Courier Delivery Date: " & FormatDateTime(.Item("ShipDate"), DateFormat.LongDate).ToString & " in the time range " & .Item("sPMCourier") & vbCrLf & vbCrLf
+                        'Else
+                        '    If .Item("b3rdPartyShipInsAgreement") = False Then
+                        '        sOrderHeader = sOrderHeader & "UPS Shipment will DEPART Astor Store on: " & FormatDateTime(.Item("ShipDate"), DateFormat.LongDate).ToString & vbCrLf & vbCrLf
+                        '    Else
+                        '        sOrderHeader = sOrderHeader & "3rd Party Shipment will transfer from Astor Store on: " & FormatDateTime(.Item("ShipDate"), DateFormat.LongDate).ToString & vbCrLf & vbCrLf
+                        '    End If
 
-                        End If
+                        'End If
 
-                        sOrderHeader = sOrderHeader & "Shipping Instructions: " & .Item("ShipInst") & vbCrLf & vbCrLf
+                        Select Case .Item("ShipMethod")
+                            Case 1
+                                sOrderHeader = sOrderHeader & " Date: " & FormatDateTime(CType(.Item("ShipDate"), Date), DateFormat.LongDate).ToString & vbCrLf & vbCrLf
+                            Case 2
+                                sOrderHeader = CType((sOrderHeader & " Date: " & FormatDateTime(CType(.Item("ShipDate"), Date), DateFormat.LongDate).ToString & " in the time range " & .Item("sPMCourier") & vbCrLf & vbCrLf), String)
+                            Case 3
+                                sOrderHeader = CType((sOrderHeader & " Date: " & FormatDateTime(CType(.Item("ShipDate"), Date), DateFormat.LongDate).ToString & " in the time range " & .Item("sPMCourier") & vbCrLf & vbCrLf), String)
+                            Case 4, 5, 8, 9, 10, 11
+                                sOrderHeader = sOrderHeader & " will DEPART Astor Store on: " & FormatDateTime(CType(.Item("ShipDate"), Date), DateFormat.LongDate).ToString & vbCrLf & vbCrLf
+                            Case 6, 7
+                                sOrderHeader = sOrderHeader & " will transfer from Astor Store on: " & FormatDateTime(CType(.Item("ShipDate"), Date), DateFormat.LongDate).ToString & vbCrLf & vbCrLf
+
+                        End Select
+
+                        sOrderHeader = CType((sOrderHeader & "Shipping Instructions: " & .Item("ShipInst") & vbCrLf & vbCrLf), String)
 
                         If .Item("Gift") = True Then
                             sOrderHeader = sOrderHeader & "Gift Order: " & .Item("GiftNote") & vbCrLf & vbCrLf

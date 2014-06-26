@@ -98,7 +98,7 @@
                         <h4>Select Your Shipping Method</h4>
                         <asp:RadioButtonList ID="rblShippingMethod" runat="server" Width="250px" RepeatLayout="Flow" AutoPostBack="True" />
                         <asp:RegularExpressionValidator ID="revShippingMethod" runat="server" ControlToValidate="rblShippingMethod"
-                            ErrorMessage="Shipping Method Required!" ValidationExpression="^\d" ValidationGroup="vgShipping">
+                            ErrorMessage="Shipping Method Required!" ValidationExpression="^[0-9][0-9]*$" ValidationGroup="vgShipping">
                             <asp:Image ID="imgrfvnewEmailAddress" runat="server" ImageUrl="~/images/as_error_msg.gif" />
                         </asp:RegularExpressionValidator>
                         <asp:TextBox ID="txtzipcode" runat="server" Visible="False" />
@@ -122,7 +122,7 @@
                 
                 <asp:Panel ID="pnlSpiritsPresent" runat="server">
                     <div style="margin-bottom:2rem;">
-                    <h3 class="checkout">Currently orders that contain <b>spirits</b> can only be shipped to <b>Manhattan, Brooklyn or Queens</b> and must also <b>meet our delivery minimum</b>.</h3>
+                    <h3 class="checkout">Currently orders that contain <b>spirits</b> can only be shipped to <b>New York State</b> and must also <b>meet our delivery minimum</b>.</h3>
                     <h3 class="checkout">Use the link below to add some items to your order or remove the spirits items if you wish to continue.</h3>
                     <asp:LinkButton ID="imgbEditShoppingCart" runat="server" Text="Edit Shopping Cart" />
                     </div>

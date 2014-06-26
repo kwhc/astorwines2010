@@ -131,17 +131,30 @@ Partial Class secure_AstorCheckoutOrderReview
                     lblShippingMethod.Text = "<div style=""font-weight:bold;"">Shipping Method</div><div class=""shipping-method"">" & .Item("ShipType") & "</div>"
                     lblShipInst.Text = "<div class=""shipping-instrutions"">Shipping Instructions" & .Item("ShipInst") & "</div>"
 
-                    If .Item("ShipType") = "Astor Delivery" Then
-                        litShipDelDate.Text = "Astor Delivery Date: <br /><b>" & FormatDateTime(.Item("ShipDate"), DateFormat.LongDate).ToString & "</b>"
-                    ElseIf .Item("ShipType") = "After Hours Courier" Then
-                        litShipDelDate.Text = "After Hours Courier Delivery Date: <br /><b>" & FormatDateTime(.Item("ShipDate"), DateFormat.LongDate).ToString & " in the time range " & .Item("sPMCourier") & "</b>"
-                    Else
-                        If .Item("b3rdPartyShipInsAgreement") = True Then
-                            litShipDelDate.Text = "3rd Party shipment will TRANSFER from our shop on: <br /><b>" & FormatDateTime(.Item("ShipDate"), DateFormat.LongDate).ToString & "</b>"
-                        Else
+                    'If .Item("ShipType") = "Astor Delivery" Then
+                    '    litShipDelDate.Text = "Astor Delivery Date: <br /><b>" & FormatDateTime(.Item("ShipDate"), DateFormat.LongDate).ToString & "</b>"
+                    'ElseIf .Item("ShipType") = "After Hours Courier" Then
+                    '    litShipDelDate.Text = "After Hours Courier Delivery Date: <br /><b>" & FormatDateTime(.Item("ShipDate"), DateFormat.LongDate).ToString & " in the time range " & .Item("sPMCourier") & "</b>"
+                    'Else
+                    '    If .Item("b3rdPartyShipInsAgreement") = True Then
+                    '        litShipDelDate.Text = "3rd Party shipment will TRANSFER from our shop on: <br /><b>" & FormatDateTime(.Item("ShipDate"), DateFormat.LongDate).ToString & "</b>"
+                    '    Else
+                    '        litShipDelDate.Text = "UPS Shipment will DEPART from our shop on: <br /><b>" & FormatDateTime(.Item("ShipDate"), DateFormat.LongDate).ToString & "</b>"
+                    '    End If
+                    'End If
+                    Select Case .Item("ShipMethod")
+                        Case 1
+                            litShipDelDate.Text = "Astor Delivery Date: <br /><b>" & FormatDateTime(.Item("ShipDate"), DateFormat.LongDate).ToString & "</b>"
+                        Case 2
+                            litShipDelDate.Text = "After Hours Courier Delivery Date: <br /><b>" & FormatDateTime(.Item("ShipDate"), DateFormat.LongDate).ToString & " in the time range " & .Item("sPMCourier") & "</b>"
+                        Case 3
+                            litShipDelDate.Text = "Messenger Delivery Date: <br /><b>" & FormatDateTime(.Item("ShipDate"), DateFormat.LongDate).ToString & " in the time range " & .Item("sPMCourier") & "</b>"
+                        Case 4, 5, 8, 9, 10, 11
                             litShipDelDate.Text = "UPS Shipment will DEPART from our shop on: <br /><b>" & FormatDateTime(.Item("ShipDate"), DateFormat.LongDate).ToString & "</b>"
-                        End If
-                    End If
+                        Case 6, 7
+                            litShipDelDate.Text = "3rd Party shipment will TRANSFER from our shop on: <br /><b>" & FormatDateTime(.Item("ShipDate"), DateFormat.LongDate).ToString & "</b>"
+
+                    End Select
 
 
                     If .Item("GiftNote") <> "" Then
