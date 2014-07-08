@@ -16,6 +16,7 @@ header h1, header h2
 
 p{
     margin-bottom: 1.2em;
+    
 }
 
 .clearfix:after {
@@ -216,7 +217,78 @@ a[class*='block-hover-']
 {
     display: block;
 }
+.icon-btn{
+    cursor:pointer;
+    text-decoration:none;
+    display:block;
+}
+.icon-btn:hover{
+    text-decoration:none;
+}
+.icon-btn span.icon-stack{
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+}
+a[class^=btn-square-]{
+    padding:.5rem 1rem;
+    display:block;
+    font-size:.8rem;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    cursor:pointer;
+}
+.btn-grey{
+    background-color:#aaa;
+    color:#fefefe;
+}
+.btn-grey:hover{
+    text-decoration:none;
+    background-color:#ccc;
+}
+.btn-black{
+    background-color:#222;
+    color:#fefefe;    
+}
+.btn-black:hover{
+    background-color:#444;
+}
+.icon-btn-black .icon-stack-base{
+    color:#222;
+}
+.icon-btn-black:hover .icon-stack-base{
+    color:#444;
+}
+.btn-circle{
+    border-radius:50%;
+    font-size:2rem !important;
+    text-decoration: none !important;
+    text-align:center;
+    height:40px;
+    width:40px;
+    padding:2rem !important;
+    margin-bottom:1rem;
+}
 
+div[class^=callout-]{
+    border-top-style:solid;
+    border-top-width:1px;
+    border-right-style:solid;
+    border-right-width:1px;
+    border-bottom-style:solid;
+    border-bottom-width:1px;
+    border-left-style:solid;
+    border-left-width:12px;
+    padding: 1rem 1rem;
+    /*font-size:1rem;*/
+    margin-bottom:1rem;
+}
+.validation-note{
+    padding:.3rem;
+}
+.hider{
+    display:none;
+}
 /* BEGIN BOOTSTRAP ELEMENTS CSS 
 ******************************************/
 .control-group
@@ -640,16 +712,20 @@ body{
     
 /* END ADVANCED SEARCH STYLES */
 
+.main-container, #mainBody{
+    width: 999px;
+    position: relative;
+    top: 143px;
+}
+
 #mainBody{
     position: relative; 
     top: 143px; 
-    width: 999px;
 }
 
-.no-column-master{
-    position: relative;
-    top: 143px;
-    width: 900px;
+.no-column-page{
+
+    /*width: 900px;*/
     background-color: #fff;
     padding: 40px;
 }
@@ -2126,12 +2202,12 @@ div.break
     #shoppingcart .delivery-info-wrapper{
         clear: both;
         width: 100%;
-        margin-top: 60px;
     }
         
         #shoppingcart .delivery-info-container{
-            width: 26%;   
+            width: 27%;   
             padding: 20px 30px; 
+            text-align:center;
             float: left;
         }
         
@@ -2140,9 +2216,9 @@ div.break
                 font-weight: normal;
                 margin-bottom: 10px;
                 padding-bottom: 3px;
-                background-image: url(../images/general/purple-dot.png);
-                background-repeat: no-repeat;
-                text-indent: 28px;
+                /*background-image: url(../images/general/purple-dot.png);*/
+                /*background-repeat: no-repeat;*/
+                /*text-indent: 28px;*/
                 line-height: 26px;
             }
             
@@ -2208,6 +2284,14 @@ div.break
 
 /*CHECKOUT f
 ****************************************/
+    .checkout-page h4.email{
+        border:solid 1px #ddd;
+        padding:5rem 0;
+        width:160px;
+        margin-left:auto;
+        margin-right:auto;
+    }
+    
     #orderConfirmation h2{
         border-bottom: solid 1px #ddd;
     }

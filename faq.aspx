@@ -67,7 +67,7 @@
         </p>
     </div>
 
-    <div>
+    <div style="display:none;">
         <h3>I’m worried my bottles will break during shipment. Is there an insurance fee for shipped bottles?</h3>
         <p>
         Nope – we’ve got you covered! If your bottle arrives broken, just let us know and we’ll make arrangements to replace it, free of charge.
@@ -80,7 +80,14 @@
 Yes, we can often deliver your order on the same day as your purchase, using messengers (not our free delivery service). The fee varies according to the number of bottles you are purchasing and where they are being delivered. Please call 212-674-7500 for an estimate. 
         </p>
     </div>    
-
+    
+    <div>
+        <h3>Dop you offer free shipping?</h3>
+        <p>
+        <%= cAstorMessaging.getMsg_FreeShippingInNY() %>
+        </p>
+    </div>
+    
     <div>
         <h3>Do you ship out of state?</h3>
         <p>

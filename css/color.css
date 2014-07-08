@@ -14,10 +14,24 @@ body{
     background-repeat: repeat;
     /* END SPRING STYLES */
 }
-
-.red
+.muted{
+    color:#777;
+}
+.red, .text-danger
 {
-    color: #5f191b;
+    color: #d9534f;
+}
+.callout-danger{
+    border-color:#d9534f;
+}
+.callout-info{
+    border-color:#5bc0de;
+}
+.callout-success{
+    border-color:#5cb85c;
+}
+.bg-danger{
+    background-color:#f2dede;
 }
 
 .checkout aside, .help, .dim, #homeContent h3, .browseLine, .searchString
@@ -138,18 +152,13 @@ ul.grid li a:hover
 
 /* Checkout
 ***********************************/
-#saved-shipping-addresses
+#saved-shipping-addresses,.checkout aside ul li
 {
-    background-color: #ddd;   
+    background-color: #eee;   
 }
 
 .checkout aside
 {
-}
-
-.checkout aside ul li
-{
-    background: #eee;
 }
 
 .checkout aside ul li.alt

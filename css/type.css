@@ -88,7 +88,7 @@ header span
     font-size: 1.4em;
 }
 
-#featurePage h2.featureSecondHeader, #producer-profile #shortStats, .kiwi-alert, .astorCenterEventsDate
+#featurePage h2.featureSecondHeader, #producer-profile #shortStats, .kiwi-alert, .astorCenterEventsDate, .serif
 {
     font-family: Georgia, Times New Roman, Serif;
 }
@@ -174,7 +174,7 @@ aside h3, #leftMasterpageColumn h3
 .checkout h2{
     border-bottom: solid 1px #dddddd;
     letter-spacing: .09em;
-    padding-bottom: 1em;
+    padding-bottom: .5em;
     /* font-weight: bold; */
     text-transform:uppercase;
 }

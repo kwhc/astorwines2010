@@ -7,7 +7,7 @@ Partial Class Ucontrols_WUCShipDates
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Not Page.IsPostBack Then
             PopulateShippingDates()
-
+            ShowDeliveryBoxes()
             HolidayShippingAlert()
 
         End If
@@ -51,6 +51,13 @@ Partial Class Ucontrols_WUCShipDates
         If Date.Now > "12/25/2012" Then
             pnlHolidayAlert.Visible = False
         End If
+
+    End Sub
+
+    Sub ShowDeliveryBoxes()
+
+        phAstorTrucks.Visible = False
+
 
     End Sub
 

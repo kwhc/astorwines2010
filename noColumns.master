@@ -96,7 +96,7 @@
    
          <awCrt:ShoppingCart ID="ShoppingCart1" runat="Server" />     
         
-        <div class="no-column-master">               
+        <div class="no-column-master main-container">               
             <asp:contentplaceholder id="middleContent" runat="server" />
         </div> <!-- .no-column-master -->
                   

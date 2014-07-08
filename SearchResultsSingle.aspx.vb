@@ -4,6 +4,7 @@ Imports AstorDataClass
 Imports System.Data
 Imports System.IO
 Imports System.Windows.Forms
+Imports cAstorWinesCMS
 
 'Imports SslTools
 Partial Class SearchResultsSingle
@@ -1422,6 +1423,20 @@ Partial Class SearchResultsSingle
             Response.Redirect("~/ShoppingCart.aspx")
         End If
 
+    End Sub
+
+    Sub itemRating()
+        Dim connectionString As String = ConfigurationManager.ConnectionStrings("astorCMSConnectionString").ConnectionString
+        Dim test As Boolean
+        Dim cCms As New cAstorWinesCMS(connectionString)
+
+        test = cCms.getItemRating
+
+        If test Then
+
+        Else
+
+        End If
     End Sub
 
 End Class

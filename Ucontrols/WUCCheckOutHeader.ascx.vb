@@ -23,7 +23,7 @@ Partial Class Ucontrols_WUCCheckOutHeader
                 imgCheckOut.ImageUrl = "~/images/general/review.gif"
             Case "secure_astorcheckoutconfirmation.aspx"
                 imgCheckOut.ImageUrl = "~/images/general/confirmation.gif"
-
+                phRequiredField.Visible = False
             Case "secure_astorcheckoutconfirmation.aspx"
                 imgCheckOut.ImageUrl = "~/images/general/as_checkout_hd5r.gif"
         End Select

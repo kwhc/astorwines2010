@@ -24,11 +24,11 @@
             <aside>  
                 <ul class="grid">
                     <li class="head">
-                        <h3 class="checkout">Eligible Delivery States</h3>             
+                        <h3 class="checkout">Prohibited States</h3>             
                     </li>
                     <li>        
                         <div>
-                            At this time we ONLY ship to the following states:<br /><br />
+                            At this time we cannot ship to the following states:<br /><br />
                             <asp:Literal ID="lblShipToStatesCodes" runat="server" />
                         </div>
                     </li>
@@ -50,6 +50,8 @@
 
                 <awSNE:shippingNameEdit ID="WUCShippingNameEdit1" runat="server" />
                 
+
+                
                 <asp:Panel ID="pnlRoyalShipping" runat="server">
                     <asp:Literal runat="server" ID="litErrorShippingAgreement" Text="<span id='saError' style='color:red;'>You must agree to the Shipping Agreement</span>" Visible="false" />
                     <asp:PlaceHolder ID="phShippingAgreement" runat="server" Visible="True">
@@ -64,18 +66,11 @@
                                 <asp:CheckBox runat="server" ID="chk3rdPartyShipInsAgreement" TextAlign="Right" />
                                 I agree to the <a href="#modal" class="mod-launch" rel="modal:open">Shipping Agreement</a>
                             </h4>
-                            <h4>
-                                <asp:CheckBox runat="server" ID="chk3rdPartyShipIns" Checked="true" TextAlign="Right" />
-                                I would like to add shipping insurance for 1%</h4>
+                            
                         </div>
                         <div id="modal" style="display: none;">
                             <h3>Shipping Agreement</h3>
-                            As your agent, we can assist in selecting a common carrier for the shipment of wine
-                            that you have purchased and own. The majority of states maintain laws and regulations
-                            that control or restrict the importation of alcohol. In all cases, the purchaser
-                            is responsible for complying with the laws and regulations, including in particular
-                            those relating to the import of alcohol, in effect in the state to which the purchaser
-                            is shipping alcohol.
+                            <%=cAstorMessaging.getMsg_ThirdPartyShippingAgreement()%>
                             <div>
                                 <a href="#" rel="modal:close"><i class="icon-remove-sign"></i> close</a></div>
                         </div>
@@ -94,56 +89,82 @@
             <div style="float: left; width: 450px;">
                 <asp:Panel ID="pnlShippingMethod" runat="server">
                     <igmisc:webasyncrefreshpanel id="warpDelivery" runat="server" triggercontrolids="rblShippingMethod" triggerpostbackids="rblDeliveryDates" Width="450px" >
-                    <div style="margin-bottom:2rem;">
-                        <h4>Select Your Shipping Method</h4>
-                        <asp:RadioButtonList ID="rblShippingMethod" runat="server" Width="250px" RepeatLayout="Flow" AutoPostBack="True" />
-                        <asp:RegularExpressionValidator ID="revShippingMethod" runat="server" ControlToValidate="rblShippingMethod"
-                            ErrorMessage="Shipping Method Required!" ValidationExpression="^[0-9][0-9]*$" ValidationGroup="vgShipping">
-                            <asp:Image ID="imgrfvnewEmailAddress" runat="server" ImageUrl="~/images/as_error_msg.gif" />
-                        </asp:RegularExpressionValidator>
-                        <asp:TextBox ID="txtzipcode" runat="server" Visible="False" />
-                    </div>
-                    
-                    <div id="ShipDates" style="margin-bottom:2rem;">
-                        <asp:Panel ID="pnlDelDate" runat="server" Visible="False">
-                            <h4>Select Your Delivery Date<br /></h4>
-                            <asp:RadioButtonList ID="rblDeliveryDates" runat="server" Width="250px" RepeatLayout="Flow" />
-                        </asp:Panel>
-                    </div>
-                    
-                    <asp:Panel runat="server" ID="pnlAfterHoursCourierTimes">
                         <div style="margin-bottom:2rem;">
-                            <h4>Select Your Delivery Time</h4>
-                            <asp:RadioButtonList runat="server" ID="rblAfterHoursCourierTimes" RepeatLayout="Flow" RepeatDirection="Horizontal" />
+                            <h4>Select Your Shipping Method</h4>
+                            <asp:RadioButtonList ID="rblShippingMethod" runat="server" Width="450px" RepeatLayout="Flow" AutoPostBack="True" />
+                            <asp:RegularExpressionValidator ID="revShippingMethod" runat="server" ControlToValidate="rblShippingMethod"
+                                ErrorMessage="Shipping Method Required!" ValidationExpression="^[0-9][0-9]*$" ValidationGroup="vgShipping">
+                                <asp:Image ID="imgrfvnewEmailAddress" runat="server" ImageUrl="~/images/as_error_msg.gif" />
+                            </asp:RegularExpressionValidator>
+                            <asp:TextBox ID="txtzipcode" runat="server" Visible="False" />
                         </div>
+                        
+                        <div id="ShipDates" style="margin-bottom:2rem;">
+                            <asp:Panel ID="pnlDelDate" runat="server" Visible="False">
+                                <h4>Select Your Delivery Date<br /></h4>
+                                <asp:RadioButtonList ID="rblDeliveryDates" runat="server" Width="450px" RepeatLayout="Flow" />
+                            </asp:Panel>
+                        </div>
+                        
+                        <asp:Panel runat="server" ID="pnlAfterHoursCourierTimes">
+                            <div style="margin-bottom:2rem;">
+                                <h4>Select Your Delivery Time</h4>
+                                <asp:RadioButtonList runat="server" ID="rblAfterHoursCourierTimes" RepeatLayout="Flow" RepeatDirection="Horizontal" />
+                            </div>
                     </asp:Panel>
                     </igmisc:webasyncrefreshpanel>
                 </asp:Panel>
                 
                 <asp:Panel ID="pnlSpiritsPresent" runat="server">
                     <div style="margin-bottom:2rem;">
-                    <h3 class="checkout">Currently orders that contain <b>spirits</b> can only be shipped to <b>New York State</b> and must also <b>meet our delivery minimum</b>.</h3>
-                    <h3 class="checkout">Use the link below to add some items to your order or remove the spirits items if you wish to continue.</h3>
-                    <asp:LinkButton ID="imgbEditShoppingCart" runat="server" Text="Edit Shopping Cart" />
+                        <h3 class="checkout">Currently orders that contain <b>spirits</b> can only be shipped to <b>New York State</b> and must also <b>meet our delivery minimum</b>.</h3>
+                        <h3 class="checkout">Use the link below to add some items to your order or remove the spirits items if you wish to continue.</h3>
+                        <asp:LinkButton ID="imgbEditShoppingCart" runat="server" Text="Edit Shopping Cart" />
                     </div>
                 </asp:Panel>
-                <asp:Literal ID="lblShippingMsg" runat="server" Visible="False" />
-                <br />
-                             
-                <asp:Label runat="server" ID="lblShipInst" text="Delivery Notes:" AssociatedControlID="txtShipInst" /><br />
-                <div class="help">(E.g., "buzz #34" or "do not deliver until May 1st.")</div>
-                <asp:TextBox ID="txtShipInst" runat="server" MaxLength="70" Width="500px" CssClass="grey" />
-                <br />
-                <br />
-                <img ID="free-shipping-sticker" src="../images/general/img_free_ship_circle_180.png" alt="Free Shipping on First-Time Orders!" width="160" height="160" />
-              
+                
+                <asp:PlaceHolder runat="server" ID="phShippingMsg">
+                    <div class="callout-info">
+                        <asp:Literal ID="lblShippingMsg" runat="server" />
+                    </div>
+                </asp:PlaceHolder>
+                
+                <asp:PlaceHolder runat="server" ID="phMsgFreeDelivery">
+                    <div class="callout-success">
+                        <i class="icon-star"></i> <b>Your order meets our minimum for free delivery!</b>
+                    </div>
+                    <p>You will receive an email once your order has been processed confirming your scheduled delivery date.</p>
+                </asp:PlaceHolder>
+                
+                <asp:PlaceHolder runat="server" ID="phMsgFreeShippingNYS">
+                    <div class="callout-success">
+                        <i class="icon-star"></i> <b>Your order meets our $150 minimum for free ground shipping within New York State!</b>
+                    </div>
+                </asp:PlaceHolder>
+                
+                <asp:PlaceHolder runat="server" ID="phInsurance">
+                    <div style="padding:1rem 0;">        
+                        <h4><asp:CheckBox runat="server" ID="chk3rdPartyShipIns" Checked="true" TextAlign="Right" /> I would like to add shipping insurance for 1%</h4>
+                        <span><a href="#msg-insurance" rel="modal:open" class="mod-launch">What's this?</a></span>
+                        <div id="msg-insurance" style="display:none;">
+                        You may decline insurance against loss or breakage by unchecking this box. 
+                        <div><a href="#" rel="modal:close"><i class="icon-remove-sign"></i> close</a></div>
+                        </div>
+                    </div>
+                </asp:PlaceHolder>   
             </div>
     
             <aside>
                 <awShD:shippingDates ID="WUCShipDates1" runat="server" />
             </aside>
 
-</div> <!-- #shipping-method -->
+        </div> <!-- #shipping-method -->
+        
+        <div id="shippingNotes" class="" style="margin-bottom:2rem;">
+            <h2><asp:Label runat="server" ID="lblShipInst" text="Delivery Notes" AssociatedControlID="txtShipInst" /></h2>
+            <asp:TextBox ID="txtShipInst" runat="server" MaxLength="70" Width="500px" CssClass="grey" />
+            <div class="help">(E.g., "buzz #34" or "do not deliver until May 1st.")</div>
+        </div>
         
         <asp:Panel runat="server" ID="pnlPromoCode" Visible="false">
              <div ID="promo-code-container">
@@ -153,13 +174,14 @@
                   <asp:TextBox ID="txtPromo" runat="server" MaxLength="50" Width="261px" Wrap="False" CssClass="grey" />
                   </div>
               </div>
-         </asp:Panel> 
-          <div class="break"></div>
-        <div>
+        </asp:Panel> 
+        
+        <div style="margin-bottom:2rem;">
           <h2 class="checkout">Gift Options</h2>
           <div style="padding: 10px;">
             <igmisc:webasyncrefreshpanel id="warpGift" runat="server" triggercontrolids="chkGift" triggerpostbackids="txtGiftNote" Width="375px" Height="220px">
-              <asp:CheckBox ID="chkGift" runat="server" Text="Please check this box if you are sending a gift." AutoPostBack="True" /><br /><br />
+              <asp:CheckBox ID="chkGift" runat="server" Text="Please check this box if you are sending a gift." AutoPostBack="True" />
+              <br /><br />
               <strong>Personal Message:</strong> <span style="font-size: 10px;">(500 characters maximum)</span>
               <asp:TextBox id="txtGiftNote" runat="server" Width="371px" MaxLength="500" TextMode="MultiLine" Height="174px" /><br />
             </igmisc:webasyncrefreshpanel>
