@@ -25,34 +25,34 @@
         <div id="oc-email-map" style="margin-bottom:2rem;width:660px;margin-right:auto;margin-left:auto;">
             <h2>What to Expect Next</h2>
             <ul id="oc-email-list" class="inline" style="text-align:center;">
-                <li style="padding-right:12px;width:180px;vertical-align:top;">
+                <li>
                     <h4 class="email hider">Order Confirmation<br/>Email</h4>
                     <div style="font-style:italic;margin-bottom:1rem;">You'll receive this immediately from us.</div>
                     <div>This email details your order and verifies that it has been received and is currently being processed.</div>                
                 </li>
                 <asp:PlaceHolder runat="server" ID="phPaymentConfirmationEmail">
-                <li style="padding:0 12px;width:180px;vertical-align:top;">
+                <li>
                     <h4 class="email hider">Payment Confirmation<br/>Email</h4>
                     <div style="font-style:italic;margin-bottom:1rem;">You'll receive this within 24 hours from us.</div>
                     <div>This email tells you that your order has been approved, your payment has been processed and is packed and shipped. It will also contain your invoice.</div>
                 </li>
                 </asp:PlaceHolder>
                 <asp:PlaceHolder runat="server" ID="phShippingConfirmationEmail">
-                <li style="padding:0 12px;width:180px;vertical-align:top;">
+                <li>
                     <h4 class="email hider">Shipping Confirmation<br/>Email</h4>
                     <div style="font-style:italic;margin-bottom:1rem;">You'll receive this within 24 hours from us.</div>
                     <div><p><asp:Literal runat="server" ID="litShippingConfirmationEmailDetail"/></p></div>                
                 </li>
                 </asp:PlaceHolder>
                 <asp:PlaceHolder runat="server" ID="phTransferConfirmationEmail">
-                <li style="padding:0 12px;width:180px;vertical-align:top;">
+                <li>
                     <h4 class="email hider">Transfer Confirmation<br/>Email</h4>
                     <div style="font-style:italic;margin-bottom:1rem;">You'll receive this in 2-3 days from us.</div>
-                    <div>This email tells you your order is packed and has been transfered to a third party.</div>                
+                    <div>This email tells you your order is packed and has been transfered to a third party. It will also contain your invoice</div>                
                 </li>
                 </asp:PlaceHolder>
                 <asp:PlaceHolder runat="server" ID="phTrackingNumberEmail">
-                <li style="padding:0 12px;width:180px;vertical-align:top;">
+                <li>
                     <h4 class="email hider">Tracking Number<br/>Email</h4>
                     <div style="font-style:italic;margin-bottom:1rem;">You'll receive this in 3-4 days from <%=shipMethodTitle%>.</div>                
                     <div>
@@ -61,7 +61,7 @@
                 </li>
                 </asp:PlaceHolder>
                 <asp:PlaceHolder runat="server" ID="phAstorTruckDeliveryEmail">
-                <li style="padding:0 12px;width:180px;vertical-align:top;">
+                <li>
                     <h4 class="email hider">Delivery<br/>Email</h4>
                     <div style="font-style:italic;margin-bottom:1rem;">You'll receive this on your chosen delivery date from us.</div>                
                     <div>

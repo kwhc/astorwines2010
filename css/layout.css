@@ -2284,10 +2284,15 @@ div.break
 
 /*CHECKOUT f
 ****************************************/
+    .checkout-page #oc-email-list li{
+        padding-right:12px;
+        width:140px;
+        vertical-align:top;
+    }
     .checkout-page h4.email{
         border:solid 1px #ddd;
         padding:5rem 0;
-        width:160px;
+        width:140px;
         margin-left:auto;
         margin-right:auto;
     }

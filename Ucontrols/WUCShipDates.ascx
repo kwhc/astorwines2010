@@ -14,7 +14,7 @@
     <asp:PlaceHolder runat="server" ID="phShipDatesContainer">
         <ul class="grid">
             <li class="head">
-                <h3>Our Next Shipping Dates</h3> 
+                <h3><asp:Literal runat="server" ID="litTitle" /></h3> 
             </li>
             <asp:PlaceHolder runat="server" ID="phAfterHoursCourierService">
                 <li>
@@ -72,7 +72,8 @@
             </asp:PlaceHolder>
             <asp:PlaceHolder runat="server" ID="phThirdPartyTransfer">
                 <li>
-                    <h4>Third Party Transfer Dates</h4>
+                    <h4></h4>
+                    <p>Because your order is being transferred to a third party, you can expect your delivery in 2-8 business days.</p>
                 </li>    
             </asp:PlaceHolder>
         </ul>

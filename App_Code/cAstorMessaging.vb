@@ -27,5 +27,11 @@ Public Class cAstorMessaging
         Return msg
     End Function
 
+    Public Shared Function getMsg_ThirdPartyShipping() As String
+        msg = "<p>" & _
+        "Once you complete your purchase, the items you own will be transferred to a third party shipping company that works with UPS. UPS will contact you within two business days with your tracking number, shipping date, and anticipated delivery date. Because of this transfer, delivery may take approximately 2-8 business days. There is an optional 1% charge for insurance against breakage and loss, which you can decline at checkout." & _
+        "</p>"
+        Return msg
+    End Function
 
 End Class

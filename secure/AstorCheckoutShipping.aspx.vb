@@ -196,11 +196,7 @@ Partial Class secure_AstorCheckoutShipping
         'LOOP THROUGH SHIPPING METHOD ROWS IN DATATABLE
 
         'Reset
-        WUCShipDates1.FindControl("phAfterHoursCourierService").Visible = False
-        WUCShipDates1.FindControl("phUPSShipDates").Visible = False
-        WUCShipDates1.FindControl("phFedExShipDates").Visible = False
-        WUCShipDates1.FindControl("phAstorTrucks").Visible = False
-        WUCShipDates1.FindControl("phThirdPartyTransfer").Visible = False
+
 
         Dim dt As DataTable = _dslocal.Tables(0)
         Dim shipMethod, rowIndex As Integer
@@ -209,24 +205,29 @@ Partial Class secure_AstorCheckoutShipping
             shipMethod = dt.Rows(rowIndex)("iShipType")
             Select Case shipMethod
                 Case 1 'Astor - Truck
-                    WUCShipDates1.FindControl("phShipDatesContainer").Visible = False
-                    phInsurance.Visible = False
-                    chk3rdPartyShipIns.Checked = False
+                    setShipDates(0)
+                    showShippingInsurance(False)
                 Case 2 'Astor - PM Messenger
-                    WUCShipDates1.FindControl("phShipDatesContainer").Visible = False
-                    phInsurance.Visible = False
-                    chk3rdPartyShipIns.Checked = False
+                    setShipDates(1)
+                    showShippingInsurance(False)
                 Case 3 'Astor - Messenger
-                    WUCShipDates1.FindControl("phShipDatesContainer").Visible = False
-                    phInsurance.Visible = False
-                    chk3rdPartyShipIns.Checked = False
+                    setShipDates(2)
+                    showShippingInsurance(False)
                 Case 4 'Astor - Common Carrier - FedEx - Ground
+                    setShipDates(3)
+                    showShippingInsurance(True)
                 Case 5 'Astor - Common Carrier - UPS - Ground
-                    WUCShipDates1.FindControl("phUPSShipDates").Visible = True
+                    setShipDates(4)
+                    pnlDelDate.Visible = False
+                    showShippingInsurance(True)
                 Case 6 'Third Party - Royal - UPS - Ground
-                    WUCShipDates1.FindControl("phThirdPartyTransfer").Visible = True
+                    setShipDates(5)
+                    pnlDelDate.Visible = False
+                    showShippingInsurance(True)
                 Case 7 'Third Party - Puni - UPS - Ground
-                    WUCShipDates1.FindControl("phThirdPartyTransfer").Visible = True
+                    setShipDates(6)
+                    pnlDelDate.Visible = False
+                    showShippingInsurance(True)
                 Case 8 'Astor - Common Carrier - FedEx - Next Day Saver
                 Case 9 'Astor - Common Carrier - UPS - Next Day Saver
                 Case 10 'Astor - Common Carrier - FedEx - 3rd Day Select
@@ -451,13 +452,13 @@ Partial Class secure_AstorCheckoutShipping
             End If
             
             If txtzipcode.Text >= "07001" And txtzipcode.Text <= "08989" Then
-                If chk3rdPartyShipInsAgreement.Checked = False Then
-                    Dim sMsg As String = "You must agree to the shipping agreement!"
+                If chk3rdPartyShippingAgreement.Checked = False Then
+                    Dim sMsg As String = "You must agree to the shipping agreement"
                     Dim _webutils As New WebUtils
                     Dim t As Type = Me.GetType
 
                     litErrorShippingAgreement.Visible = True
-                    shippingAgreementContainer.Attributes.CssStyle.Add("border", "solid 2px red")
+                    shippingAgreementContainer.Attributes.CssStyle.Add("border", "solid 2px #f2dede")
 
                     _webutils.CreateMessageAlert(Me, t, sMsg, "strKey2")
                     Exit Sub
@@ -465,13 +466,13 @@ Partial Class secure_AstorCheckoutShipping
             End If
 
             If (txtzipcode.Text >= "10000" And txtzipcode.Text <= "14999") And Cart.OrderHasSpirits(GetCustomerID(Request, Response)) And Not Cart.IsShipmentInAstorDeliveryZone(txtzipcode.Text) Then
-                If chk3rdPartyShipInsAgreement.Checked = False Then
-                    Dim sMsg As String = "You must agree to the shipping agreement!"
+                If chk3rdPartyShippingAgreement.Checked = False Then
+                    Dim sMsg As String = "You must agree to the shipping agreement"
                     Dim _webutils As New WebUtils
                     Dim t As Type = Me.GetType
 
                     litErrorShippingAgreement.Visible = True
-                    shippingAgreementContainer.Attributes.CssStyle.Add("border", "solid 2px red")
+                    shippingAgreementContainer.Attributes.CssStyle.Add("border", "solid 2px #f2dede")
 
                     _webutils.CreateMessageAlert(Me, t, sMsg, "strKey2")
                     Exit Sub
@@ -619,7 +620,7 @@ Partial Class secure_AstorCheckoutShipping
             litThirdPartyNote.Text = setThirdPartyNote(1)
         Else
             pnlRoyalShipping.Visible = False
-            'chk3rdPartyShipIns.Checked = False
+            'chkShippingInsurance.Checked = False
 
         End If
         LoadUcombo()
@@ -638,8 +639,8 @@ Partial Class secure_AstorCheckoutShipping
         Dim sPromo As String = txtPromo.Text
         'Dim sPromo As String = String.Empty
         Dim sShipInst As String = txtShipInst.Text
-        Dim b3rdPartyShipInsAgreement As Boolean = chk3rdPartyShipInsAgreement.Checked
-        Dim b3rdPartyShipIns As Boolean = chk3rdPartyShipIns.Checked
+        Dim b3rdPartyShipInsAgreement As Boolean = chk3rdPartyShippingAgreement.Checked
+        Dim b3rdPartyShipIns As Boolean = chkShippingInsurance.Checked
         Dim iPMCourier As Int16 = 0
 
         If rblAfterHoursCourierTimes.Visible = True Then
@@ -681,9 +682,9 @@ Partial Class secure_AstorCheckoutShipping
             .Item("ShipInst") = txtShipInst.Text
 
             If WUCShippingNameEdit1.ShippingZipCode >= "07001" And WUCShippingNameEdit1.ShippingZipCode <= "08989" Then
-                '.Item("b3rdPartyShipInsAgreement") = chk3rdPartyShipInsAgreement.Checked
+                '.Item("b3rdPartyShipInsAgreement") = chk3rdPartyShippingAgreement.Checked
             ElseIf (WUCShippingNameEdit1.ShippingZipCode >= "10000" And WUCShippingNameEdit1.ShippingZipCode <= "14999") And Cart.OrderHasSpirits(GetCustomerID(Request, Response)) And Not Cart.IsShipmentInAstorDeliveryZone(WUCShippingNameEdit1.ShippingZipCode) Then
-                '.Item("b3rdPartyShipInsAgreement") = chk3rdPartyShipInsAgreement.Checked
+                '.Item("b3rdPartyShipInsAgreement") = chk3rdPartyShippingAgreement.Checked
             Else
                 .Item("b3rdPartyShipInsAgreement") = False
                 .Item("b3rdPartyShipIns") = False
@@ -815,7 +816,7 @@ Partial Class secure_AstorCheckoutShipping
                         txtPromo.Text = .Item("Promo")
                         txtShipInst.Text = .Item("ShipInst")
 
-                        'chk3rdPartyShipIns.Checked = .Item("b3rdPartyShipIns")
+                        'chkShippingInsurance.Checked = .Item("b3rdPartyShipIns")
 
                     End With
                 Else
@@ -824,7 +825,7 @@ Partial Class secure_AstorCheckoutShipping
                     txtGiftNote.Text = ""
                     txtPromo.Text = ""
                     txtShipInst.Text = ""
-                    'chk3rdPartyShipInsAgreement.Checked = False
+                    'chk3rdPartyShippingAgreement.Checked = False
                 End If
             End With
         End If
@@ -901,8 +902,8 @@ Partial Class secure_AstorCheckoutShipping
             litThirdPartyNote.Text = setThirdPartyNote(1)
         Else
             pnlRoyalShipping.Visible = False
-            'chk3rdPartyShipInsAgreement.Checked = False
-            'chk3rdPartyShipIns.Checked = False
+            'chk3rdPartyShippingAgreement.Checked = False
+            'chkShippingInsurance.Checked = False
         End If
     End Function
 
@@ -973,10 +974,10 @@ Partial Class secure_AstorCheckoutShipping
         Select Case thirdPartyType
             Case 0
                 'Outside NYS
-                Return "Your purchase is being made in New York. Once you complete your purchase, the items you own will be transferred at your direction to a third party shipping company – Royal Express Shipping – which will contact you directly within two business days with your shipping, tracking number, shipping date and anticipated delivery date. Because of this transfer, delivery may take approximately 3-5 days. There is an optional 1 percent charge for insurance against breakage and loss, which you can decline at checkout."
+                Return cAstorMessaging.getMsg_ThirdPartyShipping()
             Case 1
                 'Inside NYS
-                Return "To expedite your shipment, Astor Wines & Spirits has contracted with a third-party carrier for your delivery. You will receive an email from Royal Express Shipping when it has departed, followed by an email from United Parcel Service with your tracking number. If you have any questions about your order, please contact Astor Wines & Spirits at (212) 674-7500."
+                Return cAstorMessaging.getMsg_ThirdPartyShipping()
             Case Else
                 Return ""
         End Select
@@ -1003,12 +1004,57 @@ Partial Class secure_AstorCheckoutShipping
         Return methodId
 
         '0 Astor Truck
-        '1 Astor Messenger
-        '2 Astor PM Messenger
+        '1 Astor PM Messenger
+        '2 Astor Messenger
         '3 Astor FedEx
         '4 Astor UPS
         '5 Royal UPS
         '6 Puni/Lyndhurst UPS
 
     End Function
+
+    Sub showShippingInsurance(ByVal bool As Boolean)
+        Select Case bool
+            Case True
+                phInsurance.Visible = True
+                chkShippingInsurance.Checked = True
+            Case False
+                phInsurance.Visible = False
+                chkShippingInsurance.Checked = False
+        End Select
+
+    End Sub
+
+    Sub setShipDates(ByVal deliveryMethodId As Integer)
+
+        Dim literalSectionTitle As Literal = WUCShipDates1.FindControl("litTitle")
+
+        WUCShipDates1.FindControl("phShipDatesContainer").Visible = False
+        WUCShipDates1.FindControl("phAfterHoursCourierService").Visible = False
+        WUCShipDates1.FindControl("phUPSShipDates").Visible = False
+        WUCShipDates1.FindControl("phFedExShipDates").Visible = False
+        WUCShipDates1.FindControl("phAstorTrucks").Visible = False
+        WUCShipDates1.FindControl("phThirdPartyTransfer").Visible = False
+        Select Case deliveryMethodId
+            Case 0 'Astor Truck
+            Case 1 'Astor PM Messenger
+            Case 2 'Astor Messenger
+            Case 3 'Astor FedEx
+                WUCShipDates1.FindControl("phShipDatesContainer").Visible = True
+                WUCShipDates1.FindControl("phFedExShipDates").Visible = True
+                literalSectionTitle.Text = "Our Next Shipping Dates"
+            Case 4 'Astor UPS
+                WUCShipDates1.FindControl("phShipDatesContainer").Visible = True
+                WUCShipDates1.FindControl("phUPSShipDates").Visible = True
+                literalSectionTitle.Text = "Our Next Shipping Dates"
+            Case 5 'Royal UPS
+                WUCShipDates1.FindControl("phShipDatesContainer").Visible = True
+                WUCShipDates1.FindControl("phThirdPartyTransfer").Visible = True
+                literalSectionTitle.Text = "Please Note"
+            Case 6 'Punki/Lyndhurst UPS
+                WUCShipDates1.FindControl("phShipDatesContainer").Visible = True
+                WUCShipDates1.FindControl("phThirdPartyTransfer").Visible = True
+                literalSectionTitle.Text = "Please Note"
+        End Select
+    End Sub
 End Class

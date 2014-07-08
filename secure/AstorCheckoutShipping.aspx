@@ -53,7 +53,6 @@
 
                 
                 <asp:Panel ID="pnlRoyalShipping" runat="server">
-                    <asp:Literal runat="server" ID="litErrorShippingAgreement" Text="<span id='saError' style='color:red;'>You must agree to the Shipping Agreement</span>" Visible="false" />
                     <asp:PlaceHolder ID="phShippingAgreement" runat="server" Visible="True">
                         <div style="margin:10px 0px;background:#eee; padding:20px;">
                             <h4>Please Note:</h4>
@@ -61,9 +60,10 @@
                             <asp:Literal runat="server" ID="litThirdPartyNote" />
                             </p>
                         </div>
+                        <asp:Literal runat="server" ID="litErrorShippingAgreement" Text="<div id='saError' class='callout-danger'>You must agree to the Shipping Agreement</div>" Visible="false" />
                         <div id="shippingAgreementContainer" style="background: #eee; padding: 20px;" runat="server">
                             <h4>
-                                <asp:CheckBox runat="server" ID="chk3rdPartyShipInsAgreement" TextAlign="Right" />
+                                <asp:CheckBox runat="server" ID="chk3rdPartyShippingAgreement" TextAlign="Right" />
                                 I agree to the <a href="#modal" class="mod-launch" rel="modal:open">Shipping Agreement</a>
                             </h4>
                             
@@ -89,7 +89,7 @@
             <div style="float: left; width: 450px;">
                 <asp:Panel ID="pnlShippingMethod" runat="server">
                     <igmisc:webasyncrefreshpanel id="warpDelivery" runat="server" triggercontrolids="rblShippingMethod" triggerpostbackids="rblDeliveryDates" Width="450px" >
-                        <div style="margin-bottom:2rem;">
+                        <div style="margin-bottom:1rem;">
                             <h4>Select Your Shipping Method</h4>
                             <asp:RadioButtonList ID="rblShippingMethod" runat="server" Width="450px" RepeatLayout="Flow" AutoPostBack="True" />
                             <asp:RegularExpressionValidator ID="revShippingMethod" runat="server" ControlToValidate="rblShippingMethod"
@@ -99,15 +99,15 @@
                             <asp:TextBox ID="txtzipcode" runat="server" Visible="False" />
                         </div>
                         
-                        <div id="ShipDates" style="margin-bottom:2rem;">
-                            <asp:Panel ID="pnlDelDate" runat="server" Visible="False">
+                        <asp:Panel ID="pnlDelDate" runat="server" Visible="False">
+                            <div id="ShipDates" style="margin-bottom:1rem;">
                                 <h4>Select Your Delivery Date<br /></h4>
                                 <asp:RadioButtonList ID="rblDeliveryDates" runat="server" Width="450px" RepeatLayout="Flow" />
-                            </asp:Panel>
-                        </div>
+                            </div>
+                        </asp:Panel>
                         
                         <asp:Panel runat="server" ID="pnlAfterHoursCourierTimes">
-                            <div style="margin-bottom:2rem;">
+                            <div style="margin-bottom:1rem;">
                                 <h4>Select Your Delivery Time</h4>
                                 <asp:RadioButtonList runat="server" ID="rblAfterHoursCourierTimes" RepeatLayout="Flow" RepeatDirection="Horizontal" />
                             </div>
@@ -133,7 +133,6 @@
                     <div class="callout-success">
                         <i class="icon-star"></i> <b>Your order meets our minimum for free delivery!</b>
                     </div>
-                    <p>You will receive an email once your order has been processed confirming your scheduled delivery date.</p>
                 </asp:PlaceHolder>
                 
                 <asp:PlaceHolder runat="server" ID="phMsgFreeShippingNYS">
@@ -143,8 +142,9 @@
                 </asp:PlaceHolder>
                 
                 <asp:PlaceHolder runat="server" ID="phInsurance">
-                    <div style="padding:1rem 0;">        
-                        <h4><asp:CheckBox runat="server" ID="chk3rdPartyShipIns" Checked="true" TextAlign="Right" /> I would like to add shipping insurance for 1%</h4>
+                    <div style="padding:1rem 0;">      
+                        <h4>Shipping Insurance</h4>  
+                        <div><asp:CheckBox runat="server" ID="chkShippingInsurance" Checked="true" TextAlign="Right" /> I would like to add shipping insurance for 1%</div>
                         <span><a href="#msg-insurance" rel="modal:open" class="mod-launch">What's this?</a></span>
                         <div id="msg-insurance" style="display:none;">
                         You may decline insurance against loss or breakage by unchecking this box. 
