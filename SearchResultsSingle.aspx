@@ -43,7 +43,8 @@
 </script>
 
 <div id="confirmDialog" style="display:none;">
-Currently this item is only available for shipment within New York State.
+    <asp:Literal runat="server" ID="litPopUpMsgNewYorkDeliveryOnly" Visible="false">Currently this item is only available for shipment within New York State.</asp:Literal>
+    <asp:Literal runat="server" ID="litPopUpMsgLocalDeliveryOnly" Visible="false">Currently this item is only available for delivery in Manhattan, Brooklyn & Queens.</asp:Literal>
 </div> 
   
   <div id="productPage">
@@ -59,8 +60,8 @@ Currently this item is only available for shipment within New York State.
             <div class="thumbnailHolder">
                 <asp:Literal ID="thumb1Lnk" runat="server" Text="" />
                     <asp:Image runat="server" ID="thumb1" CssClass="thumbnail" />
-                <asp:Literal ID="thumb1LnkEnd" runat="server" /><br />
-                <span> label</span>                
+                <asp:Literal ID="thumb1LnkEnd" runat="server" />
+                <div class="thumb-caoption muted"> label</div>                
             </div>
             <asp:Literal runat="server" ID="litThumb1Img" />
         </asp:PlaceHolder>
@@ -69,8 +70,8 @@ Currently this item is only available for shipment within New York State.
             <div class="thumbnailHolder">
                 <asp:Literal ID="thumb2Lnk" runat="server" Text="" />
                     <asp:Image runat="server" ID="thumb2" CssClass="thumbnail" />
-                <asp:Literal ID="thumb2LnkEnd" runat="server" Text="" /><br />
-                <span> bottle</span>
+                <asp:Literal ID="thumb2LnkEnd" runat="server" Text="" />
+                <div class="thumb-caoption muted"> bottle</div>
             </div>
         </asp:PlaceHolder>
 
@@ -78,8 +79,8 @@ Currently this item is only available for shipment within New York State.
             <div class="thumbnailHolder clearfix">
                 <asp:Literal ID="thumb3Lnk" runat="server" Text="" />
                     <asp:Image runat="server" ID="thumb3" CssClass="thumbnail" />
-                <asp:Literal ID="thumb3LnkEnd" runat="server" Text="" /><br />
-                <span> packaging</span>            
+                <asp:Literal ID="thumb3LnkEnd" runat="server" Text="" />
+                <div class="thumb-caoption muted"> packaging</div>            
             </div>
             <asp:Literal runat="server" ID="litThumb3Img" />
         </asp:PlaceHolder>
@@ -162,7 +163,6 @@ Currently this item is only available for shipment within New York State.
       </div> <!-- .productTagLinks -->
        
     <div class="productPrice">
-
         <asp:Panel runat="server" ID="pnlInStock">
             <ul class="pricing">
                 <li>    
@@ -246,8 +246,8 @@ Currently this item is only available for shipment within New York State.
              <!--<%-- <asp:Literal ID="litEmbedVideo" runat="server"></asp:Literal> --%>
          	        <div id="moogaloop" style="width: 315px; height: 225px;"></div>-->
          	        <!-- Video Tasting Section -->
-                    <Vid:videoTout ID="videoTout1" runat="server" Visible="false" />
-                    <iframe runat="server" id="vimeoEmbed" width="260" height="146" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                <Vid:videoTout ID="videoTout1" runat="server" Visible="false" />
+                <iframe runat="server" id="vimeoEmbed" width="260" height="146" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
             </div>
         </div>
     </asp:PlaceHolder>
@@ -298,13 +298,14 @@ Currently this item is only available for shipment within New York State.
     <div class="moreLikeThisRightProductPage">
         <asp:PlaceHolder runat="server" ID="phItemNotes">
             <div style="border:solid 1px #dddddd;padding:12px;margin-bottom:30px;color:#555555;">
-            <h4>Item Notes</h4>
-            <ul style="line-height:1.6em;">
-                <asp:Literal ID="lblLimitedQty" runat="server" Text="Limited Production:  Only X bottle(s) per customer" Visible="False" />
-                <asp:Literal ID="litInStoreOnly" runat="server" Text="<li>Available For In Store Purchase Only</li>" Visible="False" />
-                <li style="margin-bottom:1em;">Currently this item is only available for shipment within New York State.</li>
-                <li style="margin-bottom:1em;display:none;">Currently this item cannot be shipped via UPS or FedEx.</li>
-            </ul>
+                <h4>Item Notes</h4>
+                <ul style="line-height:1.6em;">
+                    <asp:Placeholder runat="server" ID="phMsgAllocated"><li style="margin-bottom:1em;"><asp:Literal ID="lblLimitedQty" runat="server" Text="Limited Production:  Only X bottle(s) per customer" Visible="False" /></li></asp:Placeholder>
+                    <asp:Placeholder runat="server" ID="phMsgInStoreOnly"><li style="margin-bottom:1em;">Available For In Store Purchase Only</li></asp:Placeholder>
+                    <asp:Placeholder runat="server" ID="phMsgNewYorkDeliveryOnly"><li style="margin-bottom:1em;">Currently this item is only available for shipment within New York State.</li></asp:PlaceHolder>
+                    <li style="margin-bottom:1em;display:none;">Currently this item cannot be shipped via UPS or FedEx.</li>
+                    <asp:PlaceHolder runat="server" ID="phMsgLocalDeliveryOnly"><li style="margin-bottom:1em;">Currently this item is only available for delivery in Manhattan, Brooklyn & Queens.</li></asp:PlaceHolder>
+                </ul>
             </div>
         </asp:PlaceHolder>
         <div class="share-container row round clearfix">

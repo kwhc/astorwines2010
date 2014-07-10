@@ -3,9 +3,10 @@ COLORS:
 burgundy - #5f191b
 
 */
-
+body, select{
+    color: #5a5a5a;
+}
 body{
-    color: #222;    
     background-color: #1E2842;
     background-attachment: scroll;
     
@@ -14,11 +15,13 @@ body{
     background-repeat: repeat;
     /* END SPRING STYLES */
 }
+h1, h2, h3, h4, h5{
+    color: #222;
+}
 .muted{
     color:#777;
 }
-.red, .text-danger
-{
+.red, .text-danger{
     color: #d9534f;
 }
 .callout-danger{

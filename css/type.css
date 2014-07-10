@@ -307,8 +307,9 @@ h4.date strong{
         line-height: 1em;
         /* text-transform: uppercase; */
     }    
-
-    
+.thumb-caoption{
+    letter-spacing: 1px;
+}    
 #productPage h2, #tastingPage h2, .hub h2
 {
     font-weight: 700;

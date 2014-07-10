@@ -6,7 +6,7 @@
 h1, h2, h3, h4, header
 {
     margin: 10px 0px;
-    text-rendering: optimizelegibility
+    text-rendering: optimizelegibility;
 }
 
 header h1, header h2
@@ -1430,7 +1430,6 @@ h4.blue{
     .itemDescriptionBox
     {
         font-size: 12px; 
-        color: #444;
         line-height: 20px;
         text-align: justify;
     }
