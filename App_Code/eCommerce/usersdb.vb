@@ -637,7 +637,8 @@ Namespace AstorwinesCommerce
             Dim emailTo As String = sNewEmail
             Dim emailCc As String = String.Empty
             Dim emailBcc As String = "orders@astorwines.com"
-            Dim emailPriority As MailPriority = MailPriority.High
+            'Dim emailBcc As String = "kwilhelm@astorcenternyc.com"
+            Dim emailPriority As MailPriority = MailPriority.Normal
             Dim emailFormat As MailFormat = MailFormat.Text
             Dim emailAttachment As String = String.Empty
             Dim emailSubj As String = "Astor Wines & Spirits Order Confirmation for Order Number " & Inum
@@ -650,12 +651,14 @@ Namespace AstorwinesCommerce
 
             dsOrder = Orders.GetOrderForCustomerFormatted(custID, Inum)
 
-            emailBody = OrderHeader(dsOrder) & vbCrLf & vbCrLf & _
-            "--------------Order Detail---------------------------------------" & vbCrLf & _
-            OrderDetail(dsOrder) & vbCrLf & vbCrLf & _
-            "Again, thank you for your order.  We will be processing it shortly." & vbCrLf & vbCrLf & _
+            emailBody = OrderHeader(dsOrder) & vbCrLf & _
+            "----------------------------------------------------------------" & vbCrLf & vbCrLf & _
+            "Your Order" & vbCrLf & vbCrLf & _
+            OrderDetail(dsOrder) & vbCrLf & _
+            "----------------------------------------------------------------" & vbCrLf & vbCrLf & _
+            "Again, thank you for your order. We will be processing it shortly." & vbCrLf & vbCrLf & _
             "Astor Wines & Spirits" & vbCrLf & _
-            "---------------------------------------" & vbCrLf & vbCrLf
+            vbCrLf & vbCrLf
 
 
             Dim email As New cEmail
@@ -717,26 +720,27 @@ Namespace AstorwinesCommerce
         Private Function OrderHeader(ByVal Order As DataSet) As String
             Dim sOrderHeader As String = String.Empty
 
-
             With Order.Tables(0)
                 If .Rows.Count > 0 Then
                     With .Rows(0)
-                        sOrderHeader = "Thank you for your order.  Your order number is: " & .Item("OrderNumber")
+                        sOrderHeader = "Thank you for your order." & vbCrLf & _
+                        "Your order number is: " & .Item("OrderNumber") & vbCrLf & vbCrLf
 
                         If .Item("b3rdPartyShipInsAgreement") = True Then
-                            sOrderHeader = sOrderHeader & ".  We will be processing your order within the next 24 hours, at which point you will receive an email from the third party shipper with your scheduled date of delivery and in certain cases, tracking information. " & _
+                            sOrderHeader = sOrderHeader & "We will be processing your order within the next 24 hours, at which point you will receive an email from the third party shipper with your scheduled date of delivery and in certain cases, tracking information. " & _
                            "Below, please find the details of your order." & vbCrLf & vbCrLf
                         Else
-                            sOrderHeader = sOrderHeader & ".  We will be processing your order within the next 24 hours, " & _
+                            sOrderHeader = sOrderHeader & "We will be processing your order within the next 24 hours, " & _
                             "at which point you will receive an email with your scheduled date of delivery or, if your order is being shipped via " & _
-                            "UPS, the date it will depart from our store.  (In the case of the latter, you will then receive a second email containing " & _
-                            "your UPS tracking number.)  Below, please find the details of your order." & vbCrLf & vbCrLf
+                            "UPS, the date it will depart from our store. (In the case of the latter, you will then receive a second email containing " & _
+                            "your UPS tracking number.) Below, please find the details of your order." & vbCrLf & vbCrLf
                         End If
 
-                        sOrderHeader = sOrderHeader & "NOTE:  DO NOT REPLY TO THIS EMAIL.  It is generated from an automated system and won't get to us!  If you have any questions " & _
-                        "or changes regarding your order, please call us at 212-674-7500." & vbCrLf & vbCrLf
+                        sOrderHeader = sOrderHeader & "NOTE: DO NOT REPLY TO THIS EMAIL. It is generated from an automated system and won't get to us! If you have any questions " & _
+                        "or changes regarding your order, please call us at 212-674-7500." & vbCrLf & vbCrLf & _
+                         "----------------------------------------------------------------" & vbCrLf & vbCrLf
 
-                        sOrderHeader = sOrderHeader & "Billing" & vbCrLf & .Item("Name") & vbCrLf
+                        sOrderHeader = sOrderHeader & "Payment Information" & vbCrLf & .Item("Name") & vbCrLf
                         If RTrim(.Item("Company")) <> "" Then
                             sOrderHeader = sOrderHeader & .Item("Company") & vbCrLf
                         End If
@@ -747,7 +751,7 @@ Namespace AstorwinesCommerce
                         sOrderHeader = sOrderHeader & .Item("EveningPhone") & vbCrLf & vbCrLf
                         'lblEmail.Text = GetCustomerID(Request, Response)
 
-                        sOrderHeader = sOrderHeader & "Shipping" & vbCrLf & .Item("ShipName") & vbCrLf
+                        sOrderHeader = sOrderHeader & "Shipping Information" & vbCrLf & .Item("ShipName") & vbCrLf
                         If RTrim(.Item("ShipCompany")) <> "" Then
                             sOrderHeader = sOrderHeader & .Item("ShipCompany") & vbCrLf
                         End If
@@ -758,7 +762,7 @@ Namespace AstorwinesCommerce
                         sOrderHeader = sOrderHeader & .Item("ShipEveningPhone") & vbCrLf
                         sOrderHeader = sOrderHeader & .Item("ShipEmail") & vbCrLf & vbCrLf
 
-                        sOrderHeader = sOrderHeader & "Credit Card: " & .Item("ccType") & " " & .Item("ccnum") & " " & .Item("ccExpDate") & vbCrLf & vbCrLf
+                        sOrderHeader = sOrderHeader & "Payment Method" & vbCrLf & .Item("ccType") & vbCrLf & .Item("ccnum") & vbCrLf & .Item("ccExpDate") & vbCrLf & vbCrLf
 
                         If .Item("GiftCardNumber") <> "" Then
                             If Len(.Item("GiftCardNumber")) = 16 Then
@@ -768,48 +772,36 @@ Namespace AstorwinesCommerce
                             End If
                         End If
 
-                        sOrderHeader = sOrderHeader & "Shipping Method: " & .Item("ShipType") & vbCrLf
+                        sOrderHeader = sOrderHeader & "Shipping Method" & vbCrLf & .Item("ShipType") & vbCrLf
 
-                        'If .Item("ShipType") = "Astor Delivery" Then
-                        '    sOrderHeader = sOrderHeader & "Astor Delivery Date: " & FormatDateTime(.Item("ShipDate"), DateFormat.LongDate).ToString & vbCrLf & vbCrLf
-                        'ElseIf .Item("ShipType") = "After Hours Courier" Then
+                        If .Item("ShipType") = "Astor Delivery" Then
+                            sOrderHeader = sOrderHeader & "Tentative Delivery Date: " & FormatDateTime(.Item("ShipDate"), DateFormat.LongDate).ToString & vbCrLf & vbCrLf
+                        ElseIf .Item("ShipType") = "PM Messenger" Then
+                            sOrderHeader = sOrderHeader & "Tentative Delivery Date: " & FormatDateTime(.Item("ShipDate"), DateFormat.LongDate).ToString & " in the time range " & .Item("sPMCourier") & vbCrLf & vbCrLf
+                        Else
+                            If .Item("b3rdPartyShipInsAgreement") = False Then
+                                sOrderHeader = sOrderHeader & "Shipment will tentatively depart on " & FormatDateTime(.Item("ShipDate"), DateFormat.LongDate).ToString & vbCrLf & vbCrLf
+                            Else
+                                sOrderHeader = sOrderHeader & "Shipment will tentatively transfer on " & FormatDateTime(.Item("ShipDate"), DateFormat.LongDate).ToString & vbCrLf & vbCrLf
+                            End If
 
-                        '    sOrderHeader = sOrderHeader & "After Hours Courier Delivery Date: " & FormatDateTime(.Item("ShipDate"), DateFormat.LongDate).ToString & " in the time range " & .Item("sPMCourier") & vbCrLf & vbCrLf
-                        'Else
-                        '    If .Item("b3rdPartyShipInsAgreement") = False Then
-                        '        sOrderHeader = sOrderHeader & "UPS Shipment will DEPART Astor Store on: " & FormatDateTime(.Item("ShipDate"), DateFormat.LongDate).ToString & vbCrLf & vbCrLf
-                        '    Else
-                        '        sOrderHeader = sOrderHeader & "3rd Party Shipment will transfer from Astor Store on: " & FormatDateTime(.Item("ShipDate"), DateFormat.LongDate).ToString & vbCrLf & vbCrLf
-                        '    End If
+                        End If
 
-                        'End If
-
-                        Select Case .Item("ShipMethod")
-                            Case 1
-                                sOrderHeader = sOrderHeader & " Date: " & FormatDateTime(CType(.Item("ShipDate"), Date), DateFormat.LongDate).ToString & vbCrLf & vbCrLf
-                            Case 2
-                                sOrderHeader = CType((sOrderHeader & " Date: " & FormatDateTime(CType(.Item("ShipDate"), Date), DateFormat.LongDate).ToString & " in the time range " & .Item("sPMCourier") & vbCrLf & vbCrLf), String)
-                            Case 3
-                                sOrderHeader = CType((sOrderHeader & " Date: " & FormatDateTime(CType(.Item("ShipDate"), Date), DateFormat.LongDate).ToString & " in the time range " & .Item("sPMCourier") & vbCrLf & vbCrLf), String)
-                            Case 4, 5, 8, 9, 10, 11
-                                sOrderHeader = sOrderHeader & " will DEPART Astor Store on: " & FormatDateTime(CType(.Item("ShipDate"), Date), DateFormat.LongDate).ToString & vbCrLf & vbCrLf
-                            Case 6, 7
-                                sOrderHeader = sOrderHeader & " will transfer from Astor Store on: " & FormatDateTime(CType(.Item("ShipDate"), Date), DateFormat.LongDate).ToString & vbCrLf & vbCrLf
-
-                        End Select
-
-                        sOrderHeader = CType((sOrderHeader & "Shipping Instructions: " & .Item("ShipInst") & vbCrLf & vbCrLf), String)
+                        If Trim(.Item("ShipInst")) <> "" Then
+                            sOrderHeader = sOrderHeader & "Shipping Instructions" & vbCrLf & .Item("ShipInst") & vbCrLf & vbCrLf
+                        End If
 
                         If .Item("Gift") = True Then
                             sOrderHeader = sOrderHeader & "Gift Order: " & .Item("GiftNote") & vbCrLf & vbCrLf
                         End If
 
-                        sOrderHeader = sOrderHeader & "Order SubTotal: " & .Item("SubTotalValue") & vbCrLf
+                        sOrderHeader = sOrderHeader & "Order Total" & vbCrLf
+                        sOrderHeader = sOrderHeader & "Subtotal: " & .Item("SubTotalValue") & vbCrLf
                         sOrderHeader = sOrderHeader & "Tax Rate (" & (.Item("TaxRate") * 100).ToString & "%): " & .Item("TaxValue") & vbCrLf
-                        sOrderHeader = sOrderHeader & "Shipping/Handling (" & .Item("ShipType") & "): " & .Item("ShippingValue") & vbCrLf
+                        sOrderHeader = sOrderHeader & "Shipping & Handling: " & .Item("ShippingValue") & vbCrLf
 
                         If .Item("n3rdPartyAmountInsAmount") <> 0 Then
-                            sOrderHeader = sOrderHeader & "3rd Party Insurance" & ": " & .Item("n3rdPartyAmountInsAmount") & vbCrLf
+                            sOrderHeader = sOrderHeader & "Shipping Insurance" & ": " & .Item("n3rdPartyAmountInsAmount") & vbCrLf
                         End If
 
                         If RTrim(.Item("Promo")) <> "" Then
@@ -831,6 +823,9 @@ Namespace AstorwinesCommerce
         Private Function OrderDetail(ByVal Order As DataSet) As String
             Dim sOrderDetail As String = String.Empty
             Dim sUnitType As String = String.Empty
+            Dim vintage As String = String.Empty
+            Dim itemNumber As String = String.Empty
+            Dim itemName As String = String.Empty
             Dim drRow As DataRow
 
             With Order.Tables(1)
@@ -843,8 +838,19 @@ Namespace AstorwinesCommerce
                             Else
                                 sUnitType = RTrim(.Item("UnitType"))
                             End If
-                            sOrderDetail = sOrderDetail & .Item("Item") & " " & RTrim(.Item("Name")) & " - " & RTrim(.Item("vintage")) & " (" & RTrim(.Item("size")) & ") " & _
-                            RTrim(.Item("Quantity")) & " (" & sUnitType & ") - " & (Convert.ToDecimal(.Item("Quantity")) * Convert.ToDecimal(.Item("UnitPrice"))).ToString & vbCrLf
+
+                            itemNumber = .Item("Item")
+                            itemName = RTrim(.Item("Name"))
+
+                            If RTrim(.Item("vintage")) <> "" Then
+                                vintage = " - " & RTrim(.Item("vintage"))
+                            End If
+
+                            sOrderDetail = sOrderDetail & _
+                            itemName & vintage & " (#" & itemNumber & ")" & vbCrLf & _
+                            "Bottle Size: " & RTrim(.Item("size")) & vbCrLf & _
+                            "Quantity: " & RTrim(.Item("Quantity")) & " " & sUnitType & vbCrLf & _
+                            "Price: " & (Convert.ToDecimal(.Item("Quantity")) * Convert.ToDecimal(.Item("UnitPrice"))).ToString & vbCrLf & vbCrLf
 
                         End With
                     Next

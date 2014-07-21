@@ -4,7 +4,6 @@ Imports AstorDataClass
 Imports System.Data
 Imports System.IO
 Imports System.Windows.Forms
-Imports cAstorWinesCMS
 
 'Imports SslTools
 Partial Class SearchResultsSingle
@@ -15,11 +14,6 @@ Partial Class SearchResultsSingle
 
     Private VideoID As String = String.Empty
     Private Email As String = String.Empty
-
-    Private ItemNotes_AllocatedItem As Boolean = False
-    Private ItemNotes_InStoreOnly As Boolean = False
-    Private ItemNotes_LocalDeliveryOnly As Boolean = False
-    Private ItemNotes_NewYorkDeliveryOnly As Boolean = False
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         'If Not IsNothing(Request.QueryString("sb")) Then
@@ -113,8 +107,6 @@ Partial Class SearchResultsSingle
             If Not Session("ItemName") Is Nothing Then
                 Page.Title = Session("ItemName") & " | AstorWines.com"
             End If
-
-            ShowItemNotes(ItemNotes_InStoreOnly, ItemNotes_AllocatedItem, ItemNotes_LocalDeliveryOnly, ItemNotes_NewYorkDeliveryOnly)
 
         End If
 
@@ -369,9 +361,11 @@ Partial Class SearchResultsSingle
                         End If
                     Next
                 Else
+
                     phAboutProducer.Visible = False
                 End If
             Else
+
                 phAboutProducer.Visible = False
             End If
 
@@ -471,6 +465,7 @@ Partial Class SearchResultsSingle
                         WUCDefinitions1.GrapeVariety = GetGrapesForItem(sItem)
                         WUCDefinitions1.MiscTerms = .Item("MiscWords") & " " & GetOrganicsForItem(sItem) & " " & GetSakeDiscriminatorsForItem(sItem)
                         WUCDefinitions1.BindResultDataList()
+
                     End With
                 End If
             Else
@@ -701,6 +696,8 @@ Partial Class SearchResultsSingle
                         'staff pick notes
                         SetStaffPickInfoForItem(_bHasNotes)
 
+
+
                         If _bHasNotes And Date.Now > #3/30/2013# And Date.Now < #4/1/2013# Then
                             If .Item("iLevel1Type") = 1 Then
                                 If Convert.ToString(Convert.ToInt16(((.Item("botprcfl") - .Item("botprc")) / .Item("botprcfl")) * 100)) > 11 Then
@@ -729,32 +726,33 @@ Partial Class SearchResultsSingle
                         'new video embed - Kent 1/21/11
                         'VideoID = "18304599"
                         'VideoID = ""
-                        'VideoID = .Item("sVideoEmbedContent").ToString()
-                        'If RTrim(VideoID) = "" Then
-                        'embedVideo.Visible = False
-                        'Else
-                        'vimeoEmbed.Attributes.Add("src", "//player.vimeo.com/video/" & VideoID)
-                        'End If
-                        'With videoTout1
-                        '.VideoID = VideoID
-                        '.VideoHeight = "216"
-                        '.VideoWidth = "335"
-                        'End With
+                        VideoID = .Item("sVideoEmbedContent").ToString()
+                        If RTrim(VideoID) = "" Then
+                            embedVideo.Visible = False
+                        Else
+                            vimeoEmbed.Attributes.Add("src", "//player.vimeo.com/video/" & VideoID)
+                        End If
+                        With videoTout1
+                            .VideoID = VideoID
+                            '.VideoHeight = "216"
+                            '.VideoWidth = "335"
+                        End With
                         'GetVideoID("18304599")
 
-                        ' PAIRING ADVICE
+
+                        ' pairing advice
                         lblPairingAdvice.Text = .Item("spairingadvice").ToString
                         If RTrim(lblPairingAdvice.Text) = "" Then
                             pairingAdvice.Visible = False
                         End If
 
-                        ' Kosher
+                        '' kosher
                         'If .Item("iLevel1Type") = 1 And .Item("bKosher") = True Then
                         '    kosher.Visible = True
                         'Else
                         '    kosher.Visible = False
                         'End If
-                        ' Kosher for passover
+                        ' kosher for passover
                         If .Item("iLevel1Type") = 1 And .Item("bKosher") = True Then
                             kosherPassover.Visible = True
                         Else
@@ -762,6 +760,7 @@ Partial Class SearchResultsSingle
                         End If
 
                         'UBC image
+
                         'iUBC = .Item("sty_cateo")
                         'Select Case iUBC
                         '   Case 0
@@ -780,8 +779,12 @@ Partial Class SearchResultsSingle
 
                         SetUBCAwardsForItem()
 
-                        spiritsCheck(.Item("iLevel1Type").ToString) 'DELIVERY ONLY IN NEW YORK STATE
-                        'IIf(.Item("") = True, ItemNotes_NewYorkDeliveryOnly = True, "") 'DELIVERY ONLY LOCALLY
+                        'Spirits Check
+                        spiritsCheck(.Item("iLevel1Type").ToString)
+                        If .Item("iLevel1Type").ToString = 2 Then
+                            imgbAddToCart.OnClientClick = "confirmation(); return false;"
+                        End If
+
 
                         'Staff Pick
                         'lblStaffPick.Text = .Item("sStaffPick").ToString
@@ -801,6 +804,7 @@ Partial Class SearchResultsSingle
                             phStaffPick.Visible = False
                         Else
                             phStaffPick.Visible = False
+
                         End If
 
                         Dim casePriceOriginal As String = String.Empty
@@ -810,7 +814,6 @@ Partial Class SearchResultsSingle
                         Dim caseCount As String = String.Empty
                         Dim caseDiscount As String = String.Empty
 
-
                         bottlePriceOriginal = .Item("botprcfl").ToString
                         bottlePriceSale = .Item("botprc").ToString
                         caseCount = Convert.ToInt16(.Item("pack")).ToString
@@ -818,20 +821,19 @@ Partial Class SearchResultsSingle
                         casePriceSale = .Item("casprc")
                         caseDiscount = Convert.ToString(Convert.ToInt16(((casePriceOriginal - casePriceSale) / casePriceOriginal) * 100))
 
-                        litCaseLabel.Text = "Case of " & caseCount & ":"
 
                         tastingNotes.Visible = Trim(.Item("sdescr")) <> ""
 
                         litNewBottlePrice.Text = "<div class=""price"">" & "$" & bottlePriceSale & "</div>"
                         litBottleDiscount.Text = "<div class=""save price""><em>You Save: " & Convert.ToString(Convert.ToInt16(((.Item("botprcfl") - .Item("botprc")) / .Item("botprcfl")) * 100)) & "%</em></div>"
                         litNewCasePrice.Text = "<div class=""price dealPrice"">" & "$" & .Item("casprc").ToString & "</div>"
-                        'litOldCasePrice.Text = "<div class=""wrongPrice price"">" & "$" & casePriceOriginal & "</div>"
+                        litOldCasePrice.Text = "<div class=""wrongPrice price"">" & "$" & casePriceOriginal & "</div>"
+                        litCaseLabel.Text = "Case of " & caseCount & ":"
                         litCaseDiscount.Text = "<div class=""save price""><em>You Save: " & caseDiscount & "%</em></div>"
 
                         If .Item("OnSale").ToString = "On Sale" Then
                             litOldBottlePrice.Visible = True
                             litOldCasePrice.Visible = True
-                            litOldCasePrice.Text = "<div class=""price wrongPrice"">" & "$" & casePriceOriginal & "</div>"
                             'imgOnSale.Visible = True
                             litBottleDiscount.Visible = True
                             litOldBottlePrice.Text = "<div class=""price wrongPrice"">" & "$" & bottlePriceOriginal & "</div>"
@@ -843,10 +845,10 @@ Partial Class SearchResultsSingle
                             litOldCasePrice.Text = "<div class=""price"">" & "$" & casePriceOriginal & "</div>"
                         Else
                             litOldBottlePrice.Visible = False
-                            litOldBottlePrice.Text = "<div class=""price"">" & "$" & bottlePriceOriginal & "</div>"
                             litBottleDiscount.Visible = False
-                            litOldCasePrice.Text = "<div class=""price wrongPrice"">" & "$" & casePriceOriginal & "</div>"
+                            litOldBottlePrice.Text = "<div class=""price"">" & "$" & bottlePriceOriginal & "</div>"
                         End If
+
                         ' special for books and accessories
                         If .Item("iLevel1Type") = 4 Then
                             litBottlepriceLabel.Text = "Item Price:"
@@ -859,8 +861,10 @@ Partial Class SearchResultsSingle
                                 .Items(0).Value = "Item"
                             End With
                             If CInt(.Item("iBooksAndAccessoriesType")) = 44 Or CInt(.Item("iBooksAndAccessoriesType")) = 46 Then
-                                ItemNotes_InStoreOnly = True
-                                NotForSaleOnline()
+                                imgbAddToCart.Visible = False
+                                litInStoreOnly.Visible = True
+                                ddlType.Visible = False
+                                'wneQty.Visible = False
                             End If
                         End If
 
@@ -877,7 +881,7 @@ Partial Class SearchResultsSingle
                             End With
                         End If
 
-                        ' out of stock / in-stock logic
+                        ' out of stock/ instock logic
                         If .Item("IsItemAvailable") = "AIS" Then
                             pnlInStock.Visible = True
                             pnlOutOfStock.Visible = False
@@ -887,13 +891,13 @@ Partial Class SearchResultsSingle
                             pnlOutOfStock.Visible = True
                             litOutOfStockMsg.Text = outOfStockMsg
                             WaitLink.Text = "<a href='AstorWaitList.aspx?item=" + .Item("item") + "&email=" + Email + "&height=300&width=400' rel='modal:open' >YES, Notify Me</a>"
+
                         End If
 
                         'Limited Production:  Only X bottle(s) per customer
                         If Convert.ToInt16(.Item("Allocated")) > 0 Then
-                            ItemNotes_AllocatedItem = True
-                            lblLimitedQty.Text = "Limited Production:  Only " & .Item("Allocated").ToString & " bottle(s) per customer"
                             lblLimitedQty.Visible = True
+                            lblLimitedQty.Text = "<li>" & "Limited Production:  Only " & .Item("Allocated").ToString & " bottle(s) per customer" & "</li>"
                             litCaseLabel.Visible = False
                             litOldCasePrice.Visible = False
                             litNewCasePrice.Visible = False
@@ -903,8 +907,9 @@ Partial Class SearchResultsSingle
                                 .Items(0).Value = "Bottle"
                             End With
                             'wneQty.MaxValue = Convert.ToInt16(.Item("Allocated"))
-                            'Else
-                            '    lblLimitedQty.Visible = False
+
+                        Else
+                            lblLimitedQty.Visible = False
                         End If
 
                         'wine tasting link set up
@@ -920,7 +925,8 @@ Partial Class SearchResultsSingle
                         'Share & Social
                         'litShare.Text = .Item("item").ToString
 
-                        'Thumbnails
+                        'thumbnails
+
                         If File.Exists(sFilePath & "lbl/" & .Item("item").ToString & "_lbl.jpg") Then
                             thumb1.ImageUrl = "~/images/itemimages/lbl/" & .Item("item").ToString & "_lbl.jpg"
                             thumb1.Style("border") = "1px solid #dddddd"
@@ -962,6 +968,7 @@ Partial Class SearchResultsSingle
                             imgItemPic.ImageUrl = "~/images/itemimages/lg/" & .Item("item").ToString & "_lg.gif"
                         Else
                             If .Item("iLevel1Type") = 1 Then
+
 
                                 'WHITE WINE GENERIC
                                 If .Item("scolor") = "White" And .Item("bsparkling") = False And .Item("ifortified") = 0 Then
@@ -1036,6 +1043,7 @@ Partial Class SearchResultsSingle
                             ElseIf .Item("iLevel1Type") = 3 Then
                                 imgItemPic.ImageUrl = "~/images/itemimages/lg/sakegeneric_lg.gif"
                             Else
+
                                 imgItemPic.ImageUrl = "~/images/itemimages/lg/NoImageAvailable.gif"
                             End If
 
@@ -1202,11 +1210,13 @@ Partial Class SearchResultsSingle
                 sSubRegion = sValue
             Case "Producer"
                 sProducer = sValue
+
         End Select
 
         If Not IsNothing(Request.QueryString("p")) Then
             iLevel1Type = Convert.ToInt16(Request.QueryString("p"))
         Else
+
             iLevel1Type = 0
         End If
 
@@ -1220,6 +1230,7 @@ Partial Class SearchResultsSingle
         sbSearchQuery = _oAstorCommon.SetQueryStrings(hstQuery)
 
         dsLocal = _odata.FindAdvanced(hstQuery, _oWebCommon.GetCustomerID(Request, Response))
+
 
         If dsLocal.Tables(0).Rows.Count = 0 Then
             Session("SearchParms") = hstQuery
@@ -1242,6 +1253,7 @@ Partial Class SearchResultsSingle
             Dim sSearchString As String = dsLocal.Tables(0).Rows(0).Item("item").ToString
             'Redirect("SearchResultsSingle.aspx?p=1&search=" + sSearchString + "&searchtype=Contains&term=" & termQueryString, RedirectOptions.AbsoluteHttp) https_transfer_6/18/08
             Response.Redirect("SearchResultsSingle.aspx?p=" + iLevel1Type.ToString + "&search=" + sSearchString + "&searchtype=Contains")
+
         Else
             Session("DSMulti") = dsLocal
             Session("SearchParms") = hstQuery
@@ -1382,8 +1394,11 @@ Partial Class SearchResultsSingle
             shippingFlag = False
         End If
 
+
         If shippingFlag Then
-            ItemNotes_NewYorkDeliveryOnly = True
+            phItemNotes.Visible = True
+        Else
+            phItemNotes.Visible = False
         End If
 
     End Sub
@@ -1409,59 +1424,6 @@ Partial Class SearchResultsSingle
             Response.Redirect("~/ShoppingCart.aspx")
         End If
 
-    End Sub
-
-    Sub itemRating()
-        Dim connectionString As String = ConfigurationManager.ConnectionStrings("astorCMSConnectionString").ConnectionString
-        Dim test As Boolean
-        Dim cCms As New cAstorWinesCMS(connectionString)
-
-        test = cCms.getItemRating
-
-        If test Then
-
-        Else
-
-        End If
-    End Sub
-
-    Sub LocalDeliveryOnlyPopUp()
-        imgbAddToCart.OnClientClick = "confirmation(); return false;"
-        litPopUpMsgLocalDeliveryOnly.Visible = True
-    End Sub
-    Sub NewYorkDeliveryOnlyPopUp()
-        imgbAddToCart.OnClientClick = "confirmation(); return false;"
-        litPopUpMsgNewYorkDeliveryOnly.Visible = True
-    End Sub
-
-    Sub NotForSaleOnline()
-        imgbAddToCart.Visible = False
-        ddlType.Visible = False
-        'wneQty.Visible = False
-    End Sub
-
-    Sub ShowItemNotes(ByVal InStoreOnly As Boolean, ByVal AllocatedItem As Boolean, ByVal LocalDeliveryOnly As Boolean, ByVal NewYorkDeliveryOnly As Boolean)
-        phItemNotes.Visible = False
-        phMsgAllocated.Visible = False
-        phMsgInStoreOnly.Visible = False
-        phMsgLocalDeliveryOnly.Visible = False
-        phMsgNewYorkDeliveryOnly.Visible = False
-
-        If InStoreOnly Or AllocatedItem Or LocalDeliveryOnly Or NewYorkDeliveryOnly Then
-            phItemNotes.Visible = True
-        End If
-
-        If InStoreOnly Then
-            phMsgInStoreOnly.Visible = True
-        ElseIf AllocatedItem Then
-            phMsgAllocated.Visible = True
-        ElseIf LocalDeliveryOnly Then
-            phMsgLocalDeliveryOnly.Visible = True
-            LocalDeliveryOnlyPopUp()
-        ElseIf NewYorkDeliveryOnly Then
-            phMsgNewYorkDeliveryOnly.Visible = True
-            NewYorkDeliveryOnlyPopUp()
-        End If
     End Sub
 
 End Class

@@ -18,8 +18,11 @@ body{
 h1, h2, h3, h4, h5{
     color: #222;
 }
-.muted{
+.muted, .text-muted{
     color:#777;
+}
+.text-light{
+    color:#fefefe;
 }
 .red, .text-danger{
     color: #d9534f;
@@ -138,7 +141,11 @@ div.orange{
 
 #shoppingcart .delivery-info-wrapper{
     background-color: #222;
-    color: #fff;
+    color: #fefefe;
+}
+
+#shoppingcart .delivery-info-wrapper h4{
+    color: #fefefe;
 }
 
 ul.grid li a
@@ -151,6 +158,10 @@ ul.grid li a:hover
 {
     background-color: rgb(170,170,170);
     color: #fefefe;    
+}
+.background-dark{
+    background-color:#222;
+    color: #fefefe;
 }
 
 /* Checkout
@@ -169,10 +180,11 @@ ul.grid li a:hover
     background: #E0DFDF;
 }
 
-.checkout aside ul li.head
-{
+.checkout aside ul li.head{
     background: #555;
-    color: rgb(255,255,255);
+}
+.checkout aside ul li.head h3{
+    color: rgb(255,255,255) !important;
 }
 
 #post-emails{

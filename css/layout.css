@@ -1955,13 +1955,14 @@ div.break
 **************************************************/
 #log-in-container
 {
+    float:left;
+    margin-right:2rem;
     width: 500px;
 }
 
 #create-account-container
 {
-    float: right;
-    padding: 30px;
+    float: left;
     width: 320px;
 }
 
