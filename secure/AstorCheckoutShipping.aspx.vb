@@ -197,7 +197,6 @@ Partial Class secure_AstorCheckoutShipping
 
         'Reset
 
-
         Dim dt As DataTable = _dslocal.Tables(0)
         Dim shipMethod, rowIndex As Integer
 
@@ -224,10 +223,14 @@ Partial Class secure_AstorCheckoutShipping
                     setShipDates(5)
                     pnlDelDate.Visible = False
                     showShippingInsurance(True)
+                    pnlRoyalShipping.Visible = True
+                    litThirdPartyNote.Text = setThirdPartyNote(0)
                 Case 7 'Third Party - Puni - UPS - Ground
                     setShipDates(6)
                     pnlDelDate.Visible = False
                     showShippingInsurance(True)
+                    pnlRoyalShipping.Visible = True
+                    litThirdPartyNote.Text = setThirdPartyNote(0)
                 Case 8 'Astor - Common Carrier - FedEx - Next Day Saver
                 Case 9 'Astor - Common Carrier - UPS - Next Day Saver
                 Case 10 'Astor - Common Carrier - FedEx - 3rd Day Select
@@ -894,8 +897,7 @@ Partial Class secure_AstorCheckoutShipping
         LoadUcombo()
         LoadShipDates(txtzipcode.Text)
         If txtzipcode.Text >= "07001" And txtzipcode.Text <= "08989" Then
-            pnlRoyalShipping.Visible = True
-            litThirdPartyNote.Text = setThirdPartyNote(0)
+            
         ElseIf (txtzipcode.Text >= "10000" And txtzipcode.Text <= "14999") And Cart.OrderHasSpirits(GetCustomerID(Request, Response)) And Not Cart.IsShipmentInAstorDeliveryZone(txtzipcode.Text) Then
             'NYS ??
             pnlRoyalShipping.Visible = True

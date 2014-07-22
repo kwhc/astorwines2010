@@ -37,24 +37,25 @@
                     <div>This email tells you that your order has been approved, your payment has been processed and is packed and shipped. It will also contain your invoice.</div>
                 </li>
                 </asp:PlaceHolder>
-                <asp:PlaceHolder runat="server" ID="phShippingConfirmationEmail">
-                <li>
-                    <h4 class="email hider">Shipping Confirmation<br/>Email</h4>
-                    <div style="font-style:italic;margin-bottom:1rem;">You'll receive this the next business day from us.</div>
-                    <div><p><asp:Literal runat="server" ID="litShippingConfirmationEmailDetail"/></p></div>                
-                </li>
-                </asp:PlaceHolder>
                 <asp:PlaceHolder runat="server" ID="phTransferConfirmationEmail">
                 <li>
                     <h4 class="email hider">Transfer Confirmation<br/>Email</h4>
                     <div style="font-style:italic;margin-bottom:1rem;">You'll receive this in 2-3 business days from today from us.</div>
                     <div>This email tells you your order is packed and has been transfered to a third party. It will also contain your invoice</div>                
                 </li>
+                </asp:PlaceHolder>                
+                <asp:PlaceHolder runat="server" ID="phShippingConfirmationEmail">
+                <li>
+                    <h4 class="email hider">Shipping Confirmation<br/>Email</h4>
+                    <div style="font-style:italic;margin-bottom:1rem;"><asp:Literal runat="server" ID="litShippingConfirmationEmailIntro"/></div>
+                    <div><p><asp:Literal runat="server" ID="litShippingConfirmationEmailDetail"/></p></div>                
+                </li>
                 </asp:PlaceHolder>
                 <asp:PlaceHolder runat="server" ID="phTrackingNumberEmail">
                 <li>
                     <h4 class="email hider">Tracking Number<br/>Email</h4>
-                    <div style="font-style:italic;margin-bottom:1rem;">You'll receive this in 3-4 business days from today from <%=shipMethodTitle%>.</div>                
+                    <div style="font-style:italic;margin-bottom:1rem;">
+                    <asp:Literal runat="server" ID="litTRackingNumberEmailIntro" /></div>                
                     <div>
                         <asp:Literal runat="server" ID="litTrackingNumberEmailDetail"/>
                     </div>

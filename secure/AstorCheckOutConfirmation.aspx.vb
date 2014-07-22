@@ -119,25 +119,30 @@ Partial Class secure_AstorCheckOutConfirmation
                             litShipDelDateL.Text = "Astor Truck Tentative Delivery Date:"
                             litShipDelDate.Text = "<b>" & FormatDateTime(CType(.Item("ShipDate"), Date), DateFormat.LongDate).ToString & "</b>"
                             phShippingConfirmationEmail.Visible = True
+                            litShippingConfirmationEmailIntro.Text = "You'll receive this the next business day from us."
                             litShippingConfirmationEmailDetail.Text = "This email tells you that your order has been approved, your payment has been processed and is packed. It will also contain your invoice."
                             phAstorTruckDeliveryEmail.Visible = True
                         Case 2 'Astor - PM Messenger
                             shipMethodTitle = "Champion Courier"
-                            litShipDelDateL.Text = "Messenger Tentative Delivery Window:"
+                            litShipDelDateL.Text = "PM Messenger Tentative Delivery Window:"
                             litShipDelDate.Text = CType(("<b>" & FormatDateTime(CType(.Item("ShipDate"), Date), DateFormat.LongDate).ToString & " in the time range " & .Item("sPMCourier") & "</b>"), String)
                             phShippingConfirmationEmail.Visible = True
+                            litShippingConfirmationEmailIntro.Text = "You'll receive this the next business day from us."
                         Case 3 'Astor - Messenger
                             shipMethodTitle = "Messenger"
-                            litShipDelDateL.Text = "PM Messenger Tentative Delivery Window:"
+                            litShipDelDateL.Text = "Messenger Tentative Delivery Window:"
                             litShipDelDate.Text = CType(("<b>" & FormatDateTime(CType(.Item("ShipDate"), Date), DateFormat.LongDate).ToString & "</b>"), String)
                             phShippingConfirmationEmail.Visible = True
+                            litShippingConfirmationEmailIntro.Text = "You'll receive this the next business day from us."
                         Case 4, 8, 10 'Astor - Common Carrier - FedEx
                             shipMethodTitle = "FedEx"
                             litShipDelDateL.Text = "FedEx Ground shipment will tentatively depart on:"
                             litShipDelDate.Text = "<b>" & FormatDateTime(CType(.Item("ShipDate"), Date), DateFormat.LongDate).ToString & "</b>"
                             phShippingConfirmationEmail.Visible = True
+                            litShippingConfirmationEmailIntro.Text = "You'll receive this the next business day from us."
                             litShippingConfirmationEmailDetail.Text = "This email tells you that your order has been approved, your payment has been processed and is packed and shipped. It will also contain your invoice."
                             phTrackingNumberEmail.Visible = True
+                            litTRackingNumberEmailIntro.Text = "You'll receive this in 3-4 business days from today from " & shipMethodTitle
                             litTrackingNumberEmailDetail.Text = "<p>This email includes the tracking number for your order.</p>" & _
                             "<p>Please note that tracking data may not be available for up to 24 hours after an item has shipped.</p>"
                         Case 5, 9, 11 'Astor - Common Carrier UPS
@@ -145,8 +150,10 @@ Partial Class secure_AstorCheckOutConfirmation
                             litShipDelDateL.Text = "UPS Ground shipment will tentatively depart on:"
                             litShipDelDate.Text = "<b>" & FormatDateTime(CType(.Item("ShipDate"), Date), DateFormat.LongDate).ToString & "</b>"
                             phShippingConfirmationEmail.Visible = True
+                            litShippingConfirmationEmailIntro.Text = "You'll receive this the next business day from us."
                             litShippingConfirmationEmailDetail.Text = "This email tells you that your order has been approved, your payment has been processed and is packed and shipped. It will also contain your invoice."
                             phTrackingNumberEmail.Visible = True
+                            litTRackingNumberEmailIntro.Text = "You'll receive this in 3-4 business days from today from " & shipMethodTitle
                             litTrackingNumberEmailDetail.Text = "<p>This email includes the tracking number for your order.</p>" & _
                             "<p>Please note that tracking data may not be available for up to 24 hours after an item has shipped.</p>"
                         Case 6 'Third Pary - Royal - UPS
@@ -154,15 +161,21 @@ Partial Class secure_AstorCheckOutConfirmation
                             phShippingConfirmationEmail.Visible = True
                             'litShipDelDateL.Text = "Third Party shipment will tentatively transfer from our shop on:"
                             'litShipDelDate.Text = "<b>" & FormatDateTime(CType(.Item("ShipDate"), Date), DateFormat.LongDate).ToString & "</b>"
+                            litShippingConfirmationEmailIntro.Text = "You'll receive this in 3-4 business days from today from us."
+                            litShippingConfirmationEmailDetail.Text = "This email tells you that your order has been packed and shipped."
                             phTransferConfirmationEmail.Visible = True
                             phTrackingNumberEmail.Visible = True
+                            litTRackingNumberEmailIntro.Text = "You'll receive this in 4-5 business days from today from " & shipMethodTitle
                         Case 7 'Third Party - Puni/Lyndhurst - UPS
                             shipMethodTitle = "UPS"
                             phShippingConfirmationEmail.Visible = True
+                            litShippingConfirmationEmailIntro.Text = "You'll receive this in 3-4 business days from today from us."
+                            litShippingConfirmationEmailDetail.Text = "This email tells you that your order has been packed and shipped."
                             'litShipDelDateL.Text = "Third Party shipment will tentatively transfer from our shop on:"
                             'litShipDelDate.Text = "<b>" & FormatDateTime(CType(.Item("ShipDate"), Date), DateFormat.LongDate).ToString & "</b>"
                             phTransferConfirmationEmail.Visible = True
                             phTrackingNumberEmail.Visible = True
+                            litTRackingNumberEmailIntro.Text = "You'll receive this in 4-5 business days from today from " & shipMethodTitle
                     End Select
 
                     IIf(.Item("ShipInst") <> Nothing, lblShipInst.Text = "<div style=""text-transform:uppercase;color:#aaa;"">Shipping Instructions</div>" & .Item("ShipInst"), "")
