@@ -2,11 +2,12 @@
 
 <%@ Register Src="~/Ucontrols/WUCCombinedSearch.ascx" TagName="combinedSearch" TagPrefix="awCmb" %>
 <%@ Register Src="~/Ucontrols/promo/empire-state-sale.ascx" TagName="empire" TagPrefix="p" %>
-<%@ Register Src="~/Ucontrols/promo/italian-sale.ascx" TagName="italianSale" TagPrefix="p" %>
+<%@ Register Src="~/Ucontrols/promo/white-wine-sale.ascx" TagName="whiteWineSale" TagPrefix="p" %>
 <%@ Register Src="~/Ucontrols/promo/after-hours-courier-service.ascx" TagName="afterHours" TagPrefix="p" %>
 <%@ Register Src="~/Ucontrols/promo/free-shipping-first-order.ascx" TagName="freeShipping" TagPrefix="p" %>
 <%@ Register Src="~/Ucontrols/promo/customer-survey.ascx" TagName="customerSurvey" TagPrefix="p" %>
-<%@ Register Src="~/Ucontrols/promo/spanish-wine-sale.ascx" TagName="spanishWineSale" TagPrefix="p" %>
+<%@ Register Src="~/Ucontrols/promo/bastille-day-sale.ascx" TagName="bastilleDaySale" TagPrefix="p" %>
+<%@ Register Src="~/Ucontrols/promo/sale.ascx" TagName="sale" TagPrefix="p" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="searchContent" Runat="Server">
   <awCmb:combinedSearch ID="CombinedSearch1" runat="server" />
@@ -27,9 +28,14 @@
         <p:customerSurvey runat="server" ID="ucCustomerSurvey" />
     </asp:Panel>
     
-    <asp:Panel runat="server" ID="pnlSpanishWineSale">
-        <p:spanishWineSale runat="server" ID="ucSPanishWineSale" />
+    <asp:Panel runat="server" ID="pnlWhiteWineSale">
+        <p:whiteWineSale runat="server" ID="ucWhiteWineSale" />
     </asp:Panel>
+    
+    <asp:Panel runat="server" ID="pnlRoseWineSale">
+    </asp:Panel>
+    
+    <p:sale runat="server" ID="ucSale" />
     
 </div>
   
