@@ -113,31 +113,12 @@
         
     <div style="border-bottom: solid 1px #ccc; text-align: center; padding: 30px 0;margin-bottom:20px;">
         <div>
-            <asp:PlaceHolder runat="server" ID="phLinksLarge" />
-            <!--
-            <a href="../WineSearchResult.aspx?p=1&searchtype=Contains&term=&cat=1&color=White&ref=clp" class="header-blox banana-background">All White Wines</a>        
-            <a href="../WineSearchResult.aspx?p=1&searchtype=Contains&term=&cat=1&color=White&ref=clp" class="header-blox banana-background">Still White Wines</a>        
-            <a href="../WineSearchResult.aspx?p=1&searchtype=Contains&term=&cat=1&color=White&ref=clp" class="header-blox banana-background">Sparkling White Wines</a>      
-            -->              
+            <asp:PlaceHolder runat="server" ID="phLinksLarge" />           
         </div>
         <div style="width:48%;display:inline-block;vertical-align:top;">
-        <!--
-            <a href="../WineSearchResult.aspx?p=1&searchtype=Contains&cat=1&pricerange=1&color=White&ref=clp" class="second-blox c-red-background">Under $10</a>
-            <a href="../WineSearchResult.aspx?p=1&searchtype=Contains&cat=1&pricerange=2&color=White&ref=clp" class="second-blox c-red-background">$10-$20</a>
-            <a href="../WineSearchResult.aspx?p=1&searchtype=Contains&cat=1&pricerange=3&color=White&ref=clp" class="second-blox c-red-background">$21-$50</a>
-            <a href="../WineSearchResult.aspx?p=1&searchtype=Contains&cat=1&pricerange=4&color=White&ref=clp" class="second-blox c-red-background">$51-$100</a>
-            <a href="../WineSearchResult.aspx?p=1&searchtype=Contains&cat=1&pricerange=5&color=White&ref=clp" class="second-blox c-red-background">Above $100</a>
-            -->
             <asp:PlaceHolder runat="server" ID="phPriceLinks" />
         </div>
         <div id="column2" runat="server" style="width:48%;display:inline-block;">
-            <!-- 
-            <a href="../WineSearchResult.aspx?p=1&searchtype=Contains&cat=1&grape=Chardonnay&country=USA&region=California&ref=clp" class="second-blox c-red-background">California Chardonnay</a>
-            <a href="../WineSearchResult.aspx?p=1&searchtype=Contains&cat=1&country=France&region=Burgundy&color=White&ref=clp" class="second-blox c-red-background">White Burgundys</a>
-            <a href="../WineSearchResult.aspx?p=1&searchtype=Contains&cat=1&country=France&region=Champagne&ref=clp" class="second-blox c-red-background">Champagne</a>
-            <a href="../WineSearchResult.aspx?p=1&searchtype=Contains&cat=1&country=France&grape=Riesling&ref=clp" class="second-blox c-red-background">Riesling</a>
-            <a href="../WineSearchResult.aspx?p=1&searchtype=Contains&cat=1&grape=Prosecco+(Glera)&ref=clp" class="second-blox c-red-background">Prosecco</a> 
-            -->
             <asp:PlaceHolder runat="server" ID="phCategoryLinks" />
         </div>
     </div>
@@ -152,7 +133,7 @@
 <asp:PlaceHolder runat="server" ID="phOther">
     <div class="clearfix" style="width:100%;">
         <div style="width:50%;float:left;">
-            <a href="/WinesOnSale.aspx" class="block-link">
+            <a href="/WinesOnSale.aspx?ref=pastSale" class="block-link">
                 <div style="border:solid 1px #ededed;padding:2rem;text-align:center;">
                    <div style="font-weight:bold;font-size:1.4rem;margin-bottom:1rem;border:solid 3px #555555;padding-top:1rem;padding-bottom:1rem;wodth:100%;color:#555555;">Wines on Sale</div>
                    <hr style="width:6rem;border-color:#f5f5f5;border-style:solid;border-width:2px;margin-top:2rem;margin-bottom:1rem;text-align:center;" align="center"/>
@@ -160,7 +141,7 @@
             </a>
         </div>
         <div style="width:50%;float:left;">
-            <a href="/Top12.aspx" class="block-link">
+            <a href="/Top12.aspx?ref=pastSale" class="block-link">
                 <div style="border:solid 1px #ededed;padding:2rem;text-align:center;">       
                     <%--<img src="../../images/icons/img_top12_300x300.png" alt="Top 12 Under $12" width="100" />--%>
                     <div style="font-weight:bold;font-size:1.4rem;margin-bottom:1rem;border:solid 3px #555555;padding-top:1rem;padding-bottom:1rem;wodth:100%;color:#555555;">Top 12 Under $12</div>
@@ -169,6 +150,7 @@
             </a>
         </div>
     </div>
+    <!--
     <div class="clearfix" style="width:100%;">
         <div style="width:50%;float:left;">
             <a href="/WinesOnSale.aspx" class="block-link">
@@ -196,6 +178,7 @@
             </a>
         </div>
     </div>
+    -->
 </asp:PlaceHolder>
 
 
