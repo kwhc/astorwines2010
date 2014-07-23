@@ -10,11 +10,12 @@ Partial Class Ucontrols_promoPennant
 
         promoBegin = #6/25/2014#
         promoEnd = #6/25/2014#.AddDays(1)
+        promoDate = #8/6/2014#
 
         'hypPromo.NavigateUrl = "../m.aspx?p=italian-wine-sale" & "&ref=pennant"
-        hypPromo.NavigateUrl = "../m.aspx?p=spanish-wine-sale&" & "ref=pennant"
-        imgPromo.ImageUrl = "../images/promo/2014-06-spanish-wine-sale/2014-06-Spanish-Wine-Sale-Pennant-Img.png"
-        imgPromo.AlternateText = "Spanish Wine Sale"
+        hypPromo.NavigateUrl = "../m.aspx?p=white-wine-sale&" & "ref=pennant"
+        imgPromo.ImageUrl = "../images/promo/2014-08-white-wine-sale/2014-08-White-Wine-Sale-Pennant.png"
+        imgPromo.AlternateText = "White Wine Sale"
 
         If isSingleDaySale Then
             If Date.Today = promoDate Then

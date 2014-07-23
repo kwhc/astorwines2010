@@ -26,7 +26,7 @@ Partial Class Ucontrols_promo_made_in_usa
 
     Sub jsonWhiteWineSale()
 
-        saleDate = #8/6/2014#
+        saleDate = #7/23/2014#
 
         If Date.Today = saleDate Then
 
