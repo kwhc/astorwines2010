@@ -1,12 +1,10 @@
 ﻿<%@ Page Language="VB" MasterPageFile="~/as_master_1.master" EnableEventValidation="false" AutoEventWireup="false" CodeFile="m.aspx.vb" Inherits="m" title="Astor Wines & Spirits" %>
 
 <%@ Register Src="~/Ucontrols/WUCCombinedSearch.ascx" TagName="combinedSearch" TagPrefix="awCmb" %>
-<%@ Register Src="~/Ucontrols/promo/empire-state-sale.ascx" TagName="empire" TagPrefix="p" %>
 <%@ Register Src="~/Ucontrols/promo/white-wine-sale.ascx" TagName="whiteWineSale" TagPrefix="p" %>
 <%@ Register Src="~/Ucontrols/promo/after-hours-courier-service.ascx" TagName="afterHours" TagPrefix="p" %>
 <%@ Register Src="~/Ucontrols/promo/free-shipping-first-order.ascx" TagName="freeShipping" TagPrefix="p" %>
 <%@ Register Src="~/Ucontrols/promo/customer-survey.ascx" TagName="customerSurvey" TagPrefix="p" %>
-<%@ Register Src="~/Ucontrols/promo/bastille-day-sale.ascx" TagName="bastilleDaySale" TagPrefix="p" %>
 <%@ Register Src="~/Ucontrols/promo/sale.ascx" TagName="sale" TagPrefix="p" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="searchContent" Runat="Server">
