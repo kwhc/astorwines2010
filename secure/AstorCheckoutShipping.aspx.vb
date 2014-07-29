@@ -113,17 +113,28 @@ Partial Class secure_AstorCheckoutShipping
         If WUCShippingNameEdit1.Visible = True Then
             txtzipcode.Text = WUCShippingNameEdit1.ShippingZipCode
         End If
-
-        If txtzipcode.Text >= "07001" And txtzipcode.Text <= "08989" Then
+        If rblShippingMethod.SelectedValue = "6" Or rblShippingMethod.SelectedValue = "7" Then
             pnlRoyalShipping.Visible = True
             litThirdPartyNote.Text = setThirdPartyNote(0)
-        ElseIf (txtzipcode.Text >= "10000" And txtzipcode.Text <= "14999") And Cart.OrderHasSpirits(GetCustomerID(Request, Response)) And Not Cart.IsShipmentInAstorDeliveryZone(txtzipcode.Text) Then
-            'NYS ??
-            pnlRoyalShipping.Visible = True
+            'showShippingInsurance(True)
+        ElseIf rblShippingMethod.SelectedValue = "4" Or rblShippingMethod.SelectedValue = "5" Then
+            pnlRoyalShipping.Visible = False
             litThirdPartyNote.Text = setThirdPartyNote(1)
         Else
             pnlRoyalShipping.Visible = False
+            litThirdPartyNote.Text = ""
+            chkShippingInsurance.Checked = False
         End If
+        'If txtzipcode.Text >= "07001" And txtzipcode.Text <= "08989" Then
+        '    pnlRoyalShipping.Visible = True
+        '    litThirdPartyNote.Text = setThirdPartyNote(0)
+        'ElseIf (txtzipcode.Text >= "10000" And txtzipcode.Text <= "14999") And Cart.OrderHasSpirits(GetCustomerID(Request, Response)) And Not Cart.IsShipmentInAstorDeliveryZone(txtzipcode.Text) Then
+        '    'NYS ??
+        '    pnlRoyalShipping.Visible = True
+        '    litThirdPartyNote.Text = setThirdPartyNote(1)
+        'Else
+        '    pnlRoyalShipping.Visible = False
+        'End If
         'Dim shippingAgreementContainer As HtmlGenericControl
         'shippingAgreementContainer = WUCShippingNameEdit1.FindControl("shippingAgreementContainer")
         'litSAContainer.Text = shippingAgreementContainer.ClientID.ToString
@@ -214,6 +225,7 @@ Partial Class secure_AstorCheckoutShipping
                     showShippingInsurance(False)
                 Case 4 'Astor - Common Carrier - FedEx - Ground
                     setShipDates(3)
+                    showShippingInsurance(True)
                     showShippingInsurance(True)
                 Case 5 'Astor - Common Carrier - UPS - Ground
                     setShipDates(4)
@@ -453,8 +465,9 @@ Partial Class secure_AstorCheckoutShipping
                 End If
 
             End If
-            
-            If txtzipcode.Text >= "07001" And txtzipcode.Text <= "08989" Then
+
+            'If txtzipcode.Text >= "07001" And txtzipcode.Text <= "08989" Then
+            If rblShippingMethod.SelectedValue = "6" Or rblShippingMethod.SelectedValue = "7" Then
                 If chk3rdPartyShippingAgreement.Checked = False Then
                     Dim sMsg As String = "You must agree to the shipping agreement"
                     Dim _webutils As New WebUtils
@@ -468,7 +481,8 @@ Partial Class secure_AstorCheckoutShipping
                 End If
             End If
 
-            If (txtzipcode.Text >= "10000" And txtzipcode.Text <= "14999") And Cart.OrderHasSpirits(GetCustomerID(Request, Response)) And Not Cart.IsShipmentInAstorDeliveryZone(txtzipcode.Text) Then
+            ' If (txtzipcode.Text >= "10000" And txtzipcode.Text <= "14999") And Cart.OrderHasSpirits(GetCustomerID(Request, Response)) And Not Cart.IsShipmentInAstorDeliveryZone(txtzipcode.Text) Then
+            If rblShippingMethod.SelectedValue = "6" Or rblShippingMethod.SelectedValue = "7" Then
                 If chk3rdPartyShippingAgreement.Checked = False Then
                     Dim sMsg As String = "You must agree to the shipping agreement"
                     Dim _webutils As New WebUtils
@@ -614,17 +628,26 @@ Partial Class secure_AstorCheckoutShipping
         End If
 
         'THIRD PARTY ORDER
-        If txtzipcode.Text >= "07001" And txtzipcode.Text <= "08989" Then
+        'If txtzipcode.Text >= "07001" And txtzipcode.Text <= "08989" Then
+        '    pnlRoyalShipping.Visible = True
+        '    litThirdPartyNote.Text = setThirdPartyNote(0)
+        'ElseIf (txtzipcode.Text >= "10000" And txtzipcode.Text <= "14999") And Cart.OrderHasSpirits(GetCustomerID(Request, Response)) And Not Cart.IsShipmentInAstorDeliveryZone(txtzipcode.Text) Then
+        '    'NYS ??
+        '    pnlRoyalShipping.Visible = True
+        '    litThirdPartyNote.Text = setThirdPartyNote(1)
+
+        If rblShippingMethod.SelectedValue = "6" Or rblShippingMethod.SelectedValue = "7" Then
             pnlRoyalShipping.Visible = True
             litThirdPartyNote.Text = setThirdPartyNote(0)
-        ElseIf (txtzipcode.Text >= "10000" And txtzipcode.Text <= "14999") And Cart.OrderHasSpirits(GetCustomerID(Request, Response)) And Not Cart.IsShipmentInAstorDeliveryZone(txtzipcode.Text) Then
-            'NYS ??
-            pnlRoyalShipping.Visible = True
+            showShippingInsurance(True)
+        ElseIf rblShippingMethod.SelectedValue = "4" Or rblShippingMethod.SelectedValue = "5" Then
+            pnlRoyalShipping.Visible = False
             litThirdPartyNote.Text = setThirdPartyNote(1)
+            showShippingInsurance(True)
         Else
             pnlRoyalShipping.Visible = False
-            'chkShippingInsurance.Checked = False
-
+            litThirdPartyNote.Text = ""
+            chkShippingInsurance.Checked = False
         End If
         LoadUcombo()
     End Sub
@@ -684,10 +707,14 @@ Partial Class secure_AstorCheckoutShipping
             '.Item("Promo") = String.Empty
             .Item("ShipInst") = txtShipInst.Text
 
-            If WUCShippingNameEdit1.ShippingZipCode >= "07001" And WUCShippingNameEdit1.ShippingZipCode <= "08989" Then
-                '.Item("b3rdPartyShipInsAgreement") = chk3rdPartyShippingAgreement.Checked
-            ElseIf (WUCShippingNameEdit1.ShippingZipCode >= "10000" And WUCShippingNameEdit1.ShippingZipCode <= "14999") And Cart.OrderHasSpirits(GetCustomerID(Request, Response)) And Not Cart.IsShipmentInAstorDeliveryZone(WUCShippingNameEdit1.ShippingZipCode) Then
-                '.Item("b3rdPartyShipInsAgreement") = chk3rdPartyShippingAgreement.Checked
+            'If WUCShippingNameEdit1.ShippingZipCode >= "07001" And WUCShippingNameEdit1.ShippingZipCode <= "08989" Then
+            '    '.Item("b3rdPartyShipInsAgreement") = chk3rdPartyShippingAgreement.Checked
+            'ElseIf (WUCShippingNameEdit1.ShippingZipCode >= "10000" And WUCShippingNameEdit1.ShippingZipCode <= "14999") And Cart.OrderHasSpirits(GetCustomerID(Request, Response)) And Not Cart.IsShipmentInAstorDeliveryZone(WUCShippingNameEdit1.ShippingZipCode) Then
+            '    '.Item("b3rdPartyShipInsAgreement") = chk3rdPartyShippingAgreement.Checked
+
+            If rblShippingMethod.SelectedValue = "6" Or rblShippingMethod.SelectedValue = "7" Or rblShippingMethod.SelectedValue = "4" Or rblShippingMethod.SelectedValue = "5" Then
+                .Item("b3rdPartyShipInsAgreement") = chk3rdPartyShippingAgreement.Checked
+                .Item("b3rdPartyShipIns") = chkShippingInsurance.Checked
             Else
                 .Item("b3rdPartyShipInsAgreement") = False
                 .Item("b3rdPartyShipIns") = False
@@ -819,7 +846,7 @@ Partial Class secure_AstorCheckoutShipping
                         txtPromo.Text = .Item("Promo")
                         txtShipInst.Text = .Item("ShipInst")
 
-                        'chkShippingInsurance.Checked = .Item("b3rdPartyShipIns")
+                        chkShippingInsurance.Checked = .Item("b3rdPartyShipIns")
 
                     End With
                 Else
@@ -828,7 +855,7 @@ Partial Class secure_AstorCheckoutShipping
                     txtGiftNote.Text = ""
                     txtPromo.Text = ""
                     txtShipInst.Text = ""
-                    'chk3rdPartyShippingAgreement.Checked = False
+                    chk3rdPartyShippingAgreement.Checked = False
                 End If
             End With
         End If
@@ -896,17 +923,30 @@ Partial Class secure_AstorCheckoutShipping
     Protected Overrides Function OnBubbleEvent(ByVal source As Object, ByVal args As System.EventArgs) As Boolean
         LoadUcombo()
         LoadShipDates(txtzipcode.Text)
-        If txtzipcode.Text >= "07001" And txtzipcode.Text <= "08989" Then
-            
-        ElseIf (txtzipcode.Text >= "10000" And txtzipcode.Text <= "14999") And Cart.OrderHasSpirits(GetCustomerID(Request, Response)) And Not Cart.IsShipmentInAstorDeliveryZone(txtzipcode.Text) Then
-            'NYS ??
+        If rblShippingMethod.SelectedValue = "6" Or rblShippingMethod.SelectedValue = "7" Then
             pnlRoyalShipping.Visible = True
+            litThirdPartyNote.Text = setThirdPartyNote(0)
+            showShippingInsurance(True)
+        ElseIf rblShippingMethod.SelectedValue = "4" Or rblShippingMethod.SelectedValue = "5" Then
+            pnlRoyalShipping.Visible = False
             litThirdPartyNote.Text = setThirdPartyNote(1)
+            showShippingInsurance(True)
         Else
             pnlRoyalShipping.Visible = False
-            'chk3rdPartyShippingAgreement.Checked = False
-            'chkShippingInsurance.Checked = False
+            litThirdPartyNote.Text = ""
+            chkShippingInsurance.Checked = False
         End If
+        'If txtzipcode.Text >= "07001" And txtzipcode.Text <= "08989" Then
+
+        'ElseIf (txtzipcode.Text >= "10000" And txtzipcode.Text <= "14999") And Cart.OrderHasSpirits(GetCustomerID(Request, Response)) And Not Cart.IsShipmentInAstorDeliveryZone(txtzipcode.Text) Then
+        '    'NYS ??
+        '    pnlRoyalShipping.Visible = True
+        '    litThirdPartyNote.Text = setThirdPartyNote(1)
+        'Else
+        '    pnlRoyalShipping.Visible = False
+        '    'chk3rdPartyShippingAgreement.Checked = False
+        '    'chkShippingInsurance.Checked = False
+        'End If
     End Function
 
     Protected Sub lnkbDeleteShipping_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles lnkbDeleteShipping.Click

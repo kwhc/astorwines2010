@@ -278,13 +278,13 @@ Partial Class ShoppingCart
             lblShippingMsg.Text = "<b>Your order meets our minimum for free delivery!</b>"
         ElseIf Type = 2 And dAmountNeeded < 1 Then
             lblShippingMsg.Visible = True
-            lblShippingMsg.Text = "<b>Your order meets our $150 minimum for free UPS Ground shipping within New York State!</b><br />If you would like to upgrade to 3rd Day Select or Next Day Air shipping, please note that full shipping charges apply."
+            lblShippingMsg.Text = "<b>Your order meets our $150 minimum for free ground shipping within New York State!</b>"
         ElseIf Type = 3 And dAmountNeeded < 1 Then
             lblShippingMsg.Visible = True
             lblShippingMsg.Text = "<b>Your order is eligiable for first order free shipping!</b>"
         ElseIf Type = 4 And dAmountNeeded < 1 Then
             lblShippingMsg.Visible = True
-            lblShippingMsg.Text = "<b>Your order is eligiable for first order free shipping!</b><br />If you would like to upgrade to 3rd Day Select or Next Day Air shipping, please note that full shipping charges apply."
+            lblShippingMsg.Text = "<b>Your order is eligiable for first order free shipping!</b>"
 
         Else
             lblShippingMsg.Visible = False

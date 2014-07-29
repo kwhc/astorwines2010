@@ -151,7 +151,7 @@ Partial Class secure_AstorCheckoutOrderReview
                         Case 3 'Astor Messenger
                             litShipDelDate.Text = "<p>" & "Tentative Delivery Date: <br />" & FormatDateTime(.Item("ShipDate"), DateFormat.LongDate).ToString & " in the time range " & .Item("sPMCourier") & "</p>"
                         Case 4, 5, 8, 9, 10, 11 'Astor Common Carrier
-                            litShipDelDate.Text = "<p>" & "Shipment will tentatively depart on:<br />" & FormatDateTime(.Item("ShipDate"), DateFormat.LongDate).ToString & "</p>"
+                            litShipDelDate.Text = "<p>" & "Shipment will tentatively depart on: <br />" & FormatDateTime(.Item("ShipDate"), DateFormat.LongDate).ToString & "</p>"
                         Case 6, 7 'Third Party
                             'litShipDelDate.Text = "<p>" & "Third Party shipment will transfer from our shop on: <br />" & FormatDateTime(.Item("ShipDate"), DateFormat.LongDate).ToString & "</p>"
                     End Select
