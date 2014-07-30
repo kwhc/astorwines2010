@@ -727,16 +727,16 @@ Namespace AstorwinesCommerce
                         "Your order number is: " & .Item("OrderNumber") & vbCrLf & vbCrLf
 
                         If .Item("b3rdPartyShipInsAgreement") = True Then
-                            sOrderHeader = sOrderHeader & "We will be processing your order within the next 24 hours, at which point you will receive an email from the third party shipper with your scheduled date of delivery and in certain cases, tracking information. " & _
+                            sOrderHeader = sOrderHeader & "We will be processing your order within the next 24 hours." & _
+                            "Once your order is processed, you will receive a transfer confirmation email containing your invoice." & _
                            "Below, please find the details of your order." & vbCrLf & vbCrLf
                         Else
                             sOrderHeader = sOrderHeader & "We will be processing your order within the next 24 hours, " & _
-                            "at which point you will receive an email with your scheduled date of delivery or, if your order is being shipped via " & _
-                            "UPS, the date it will depart from our store. (In the case of the latter, you will then receive a second email containing " & _
-                            "your UPS tracking number.) Below, please find the details of your order." & vbCrLf & vbCrLf
+                            "at which point you will receive an confirmation email containing your invoice and information on what to expect next." & _
+                            "Below, please find the details of your order." & vbCrLf & vbCrLf
                         End If
 
-                        sOrderHeader = sOrderHeader & "NOTE: DO NOT REPLY TO THIS EMAIL. It is generated from an automated system and won't get to us! If you have any questions " & _
+                        sOrderHeader = sOrderHeader & "NOTE: DO NOT REPLY TO THIS EMAIL." & vbCrLf & "It is generated from an automated system and won't get to us! If you have any questions " & _
                         "or changes regarding your order, please call us at 212-674-7500." & vbCrLf & vbCrLf & _
                          "----------------------------------------------------------------" & vbCrLf & vbCrLf
 

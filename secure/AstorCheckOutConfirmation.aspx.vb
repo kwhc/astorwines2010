@@ -113,6 +113,7 @@ Partial Class secure_AstorCheckOutConfirmation
                     phTransferConfirmationEmail.Visible = False
                     phTrackingNumberEmail.Visible = False
                     phAstorTruckDeliveryEmail.Visible = False
+                    phDeliveryConfirmationEmail.Visible = False
 
                     Select Case .Item("ShipMethod")
                         Case 1 'Astor - Delivery Trucks
@@ -128,6 +129,9 @@ Partial Class secure_AstorCheckOutConfirmation
                             litShipDelDate.Text = CType(("<b>" & FormatDateTime(CType(.Item("ShipDate"), Date), DateFormat.LongDate).ToString & " in the time range " & .Item("sPMCourier") & "</b>"), String)
                             phShippingConfirmationEmail.Visible = True
                             litShippingConfirmationEmailIntro.Text = "You'll receive this the next business day from us."
+                            phDeliveryConfirmationEmail.Visible = True
+                            litDeliveryConfirmationEmailIntro.Text = "<p>You'll receive this on the day of your delivery from the messenger service.</p>"
+                            litDeliveryConfirmationEmailDetail.Text = "<p>It will confirm that your order has been successfully delivered.</p>"
                         Case 3 'Astor - Messenger
                             shipMethodTitle = "Messenger"
                             litShipDelDateL.Text = "Messenger Tentative Delivery Window:"
@@ -145,7 +149,7 @@ Partial Class secure_AstorCheckOutConfirmation
                             litShippingConfirmationEmailIntro.Text = "You'll receive this the next business day from us."
                             litShippingConfirmationEmailDetail.Text = "This email tells you that your order has been approved, your payment has been processed and is packed and shipped. It will also contain your invoice."
                             phTrackingNumberEmail.Visible = True
-                            litTRackingNumberEmailIntro.Text = "You'll receive this in 3-4 business days from today from " & shipMethodTitle
+                            litTRackingNumberEmailIntro.Text = "You'll receive this in 2-4 business days from today from " & shipMethodTitle
                             litTrackingNumberEmailDetail.Text = "<p>This email includes the tracking number for your order.</p>" & _
                             "<p>Please note that tracking data may not be available for up to 24 hours after an item has shipped.</p>"
                         Case 5, 9, 11 'Astor - Common Carrier UPS
@@ -156,7 +160,7 @@ Partial Class secure_AstorCheckOutConfirmation
                             litShippingConfirmationEmailIntro.Text = "You'll receive this the next business day from us."
                             litShippingConfirmationEmailDetail.Text = "This email tells you that your order has been approved, your payment has been processed and is packed and shipped. It will also contain your invoice."
                             phTrackingNumberEmail.Visible = True
-                            litTRackingNumberEmailIntro.Text = "You'll receive this in 3-4 business days from today from " & shipMethodTitle
+                            litTRackingNumberEmailIntro.Text = "You'll receive this in 2-4 business days from today from " & shipMethodTitle
                             litTrackingNumberEmailDetail.Text = "<p>This email includes the tracking number for your order.</p>" & _
                             "<p>Please note that tracking data may not be available for up to 24 hours after an item has shipped.</p>"
                         Case 6 'Third Pary - Royal - UPS

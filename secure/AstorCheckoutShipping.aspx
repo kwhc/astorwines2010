@@ -147,7 +147,7 @@
                         <div><asp:CheckBox runat="server" ID="chkShippingInsurance" Checked="true" TextAlign="Right" /> I would like to add shipping insurance for 1%</div>
                         <span><a href="#msg-insurance" rel="modal:open" class="mod-launch">What's this?</a></span>
                         <div id="msg-insurance" style="display:none;">                            
-                            <p>For 1% of your order value, you’ll be covered for loss or breakage. If your bottle arrives broken, or never arrives at all, just let us know and we’ll make arrangements to replace it, free of charge.</p>
+                            <%=cAstorMessaging.getMsg_ShippingInsurance %>
                             <p>You may decline insurance against loss or breakage by unchecking this box.</p>
                             <div><a href="#" rel="modal:close"><i class="icon-remove-sign"></i> close</a></div>
                         </div>

@@ -54,8 +54,7 @@
                 <asp:PlaceHolder runat="server" ID="phTrackingNumberEmail">
                 <li>
                     <h4 class="email hider">Tracking Number<br/>Email</h4>
-                    <div style="font-style:italic;margin-bottom:1rem;">
-                    <asp:Literal runat="server" ID="litTRackingNumberEmailIntro" /></div>                
+                    <div style="font-style:italic;margin-bottom:1rem;"><asp:Literal runat="server" ID="litTRackingNumberEmailIntro" /></div>                
                     <div>
                         <asp:Literal runat="server" ID="litTrackingNumberEmailDetail"/>
                     </div>
@@ -67,6 +66,15 @@
                     <div style="font-style:italic;margin-bottom:1rem;">You'll receive this on your chosen delivery date from us.</div>                
                     <div>
                         <p>This email tells you that your order is on its way to you! It includes the delivery window in which you will receive your order.</p>
+                    </div>
+                </li>
+                </asp:PlaceHolder>
+                <asp:PlaceHolder runat="server" ID="phDeliveryConfirmationEmail">
+                <li>
+                    <h4 class="email hider">Delivery<br/>Confirmation<br/>Email</h4>
+                    <div style="font-style:italic;margin-bottom:1rem;"><asp:Literal runat="server" ID="litDeliveryConfirmationEmailIntro" /></div>
+                    <div>
+                        <asp:Literal runat="server" ID="litDeliveryConfirmationEmailDetail" />
                     </div>
                 </li>
                 </asp:PlaceHolder>

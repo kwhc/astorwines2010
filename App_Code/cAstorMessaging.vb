@@ -18,7 +18,8 @@ Public Class cAstorMessaging
     End Function
 
     Public Shared Function getMsg_ShippingInsurance() As String
-        msg = "TK"
+        msg = "<p>For 1% of your order value, you will be covered for loss or breakage. If your bottle arrives broken, or never arrives at all, let us know and we will make arrangements to replace it, free of charge.</p>" & _
+        "<p>By refusing insurance, you relieve Astor Wines & Spirits of any and all responsibility for breakage or loss that may occur to your order.</p>"
         Return msg
     End Function
 
@@ -29,7 +30,7 @@ Public Class cAstorMessaging
 
     Public Shared Function getMsg_ThirdPartyShipping() As String
         msg = "<p>" & _
-        "Once you complete your purchase, the items you own will be transferred to a third party shipping company that works with UPS. UPS will contact you within two business days with your tracking number, shipping date, and anticipated delivery date. Because of this transfer, delivery may take approximately 2-8 business days. There is an optional 1% charge for insurance against breakage and loss, which you can decline at checkout." & _
+        "Once you complete your purchase, the items you own will be transferred to a third party shipping company that works with UPS. UPS will contact you within two business days from the day your order is shipped with your tracking number, shipping date, and anticipated delivery date. Because of this transfer, delivery may take approximately 2-8 business days. There is an optional 1% charge for insurance against breakage and loss, which you can decline at checkout." & _
         "</p>"
         Return msg
     End Function
