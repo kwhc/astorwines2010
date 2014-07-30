@@ -1290,6 +1290,44 @@ Namespace AstorwinesCommerce
             Return _bExists
 
         End Function
+        Public Function OrderHasSpiritsAstorTruckOnly(ByVal CustomerNumber As String) As Boolean
+            Dim sSP As String = "OrderHasSpiritsAstorTruckOnly_sp"
+            Dim _cnConnection As New SqlConnection(m_ConnectionString)
+            Dim _scSC As New SqlCommand(sSP, _cnConnection)
+            Dim _bExists As Boolean = False
+            Dim _prmCustomerNumber As New SqlParameter
+            Dim _prmExists As New SqlParameter
+
+            With _scSC
+                Try
+
+
+                    .CommandType = CommandType.StoredProcedure
+                    _prmCustomerNumber = .Parameters.Add("@CustomerNumber", System.Data.SqlDbType.VarChar, 100)
+                    _prmCustomerNumber.Value = CustomerNumber
+                    _prmCustomerNumber.Direction = ParameterDirection.Input
+
+                    _prmExists = .Parameters.Add("@Exists", System.Data.SqlDbType.Bit, 1)
+                    _prmExists.Direction = ParameterDirection.Output
+                    .Connection.Open()
+                    .ExecuteNonQuery()
+
+                    _bExists = CType(.Parameters("@Exists").Value, Boolean)
+
+                Catch ex As Exception
+                    Throw
+
+                Finally
+
+                End Try
+                If .Connection.State = ConnectionState.Open Then
+                    .Connection.Close()
+                End If
+            End With
+
+            Return _bExists
+
+        End Function
         Public Function OrderHasSpiritsAndNonDeliveryZone(ByVal CustomerNumber As String, ByVal ZipCode As String) As Boolean
             Dim sSP As String = "OrderHasSpiritsAndNonDeliveryZone_sp"
             Dim _cnConnection As New SqlConnection(m_ConnectionString)
