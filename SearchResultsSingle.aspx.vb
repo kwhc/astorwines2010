@@ -785,6 +785,10 @@ Partial Class SearchResultsSingle
                             imgbAddToCart.OnClientClick = "confirmation(); return false;"
                         End If
 
+                        If isNonShippableSpirits(.Item("bAstorTruckOnly")) Then
+
+                        End If
+
 
                         'Staff Pick
                         'lblStaffPick.Text = .Item("sStaffPick").ToString
@@ -1370,7 +1374,6 @@ Partial Class SearchResultsSingle
     End Sub
 
     Sub SetEasterEgg(ByVal easterEgg As Integer)
-
         Select Case easterEgg
             Case 0
                 imgEasterEgg.ImageUrl = "../images/holiday/egg10.jpg"
@@ -1394,7 +1397,6 @@ Partial Class SearchResultsSingle
             shippingFlag = False
         End If
 
-
         If shippingFlag Then
             phItemNotes.Visible = True
         Else
@@ -1402,6 +1404,14 @@ Partial Class SearchResultsSingle
         End If
 
     End Sub
+
+    Public Function isNonShippableSpirits(ByVal flag As Boolean) As Boolean
+        If flag Then
+            Return True
+        Else
+            Return False
+        End If
+    End Function
 
     Sub addToCart()
         Dim intTxt As Integer
