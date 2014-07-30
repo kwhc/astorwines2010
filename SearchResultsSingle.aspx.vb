@@ -785,7 +785,7 @@ Partial Class SearchResultsSingle
                             imgbAddToCart.OnClientClick = "confirmation(); return false;"
                         End If
 
-                        If isNonShippableSpirits(.Item("bAstorTruckOnly")) Then
+                        If isCommonCarrierRestricted(.Item("bAstorTruckOnly")) Then
 
                         End If
 
@@ -1393,6 +1393,7 @@ Partial Class SearchResultsSingle
 
         If iLevel1Type = "2" Then
             shippingFlag = True
+            imgbAddToCart.OnClientClick = "confirmation(); return false;"
         Else
             shippingFlag = False
         End If
@@ -1405,7 +1406,7 @@ Partial Class SearchResultsSingle
 
     End Sub
 
-    Public Function isNonShippableSpirits(ByVal flag As Boolean) As Boolean
+    Public Function isCommonCarrierRestricted(ByVal flag As Boolean) As Boolean
         If flag Then
             Return True
         Else
