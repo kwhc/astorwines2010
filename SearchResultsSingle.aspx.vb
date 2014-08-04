@@ -730,7 +730,8 @@ Partial Class SearchResultsSingle
                         If RTrim(VideoID) = "" Then
                             embedVideo.Visible = False
                         Else
-                            vimeoEmbed.Attributes.Add("src", "//player.vimeo.com/video/" & VideoID)
+                            'ekm removed - 7/31/2014
+                            'vimeoEmbed.Attributes.Add("src", "//player.vimeo.com/video/" & VideoID)
                         End If
                         With videoTout1
                             .VideoID = VideoID

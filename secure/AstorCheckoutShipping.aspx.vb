@@ -167,23 +167,32 @@ Partial Class secure_AstorCheckoutShipping
         '_sDeliveryType = Cart.GetShipmentDeliveryType(txtzipcode.Text, GetCustomerID(Request, Response))
         'MsgBox(_sDeliveryType)
 
-        'EKM removed
-        'If Cart.OrderHasSpiritsAndNonDeliveryZone(GetCustomerID(Request, Response), txtzipcode.Text) Then
-        '    pnlSpiritsPresent.Visible = True
-        '    pnlShippingMethod.Visible = False
-        '    imgbContinueCheckoutBottom.Visible = False
-        '    imgbContinueCheckoutBottom.Enabled = False
-        '    imgbNotContinueCheckoutBottom.Visible = True
-        '    imgbNotContinueCheckoutBottom.Enabled = False
-        '    WUCShipDates1.FindControl("phUPSShipDates").Visible = False
-        'Else
-        pnlSpiritsPresent.Visible = False
-        pnlShippingMethod.Visible = True
-        imgbContinueCheckoutBottom.Visible = True
-        imgbContinueCheckoutBottom.Enabled = True
-        imgbNotContinueCheckoutBottom.Visible = False
-        imgbNotContinueCheckoutBottom.Enabled = False
-        'End If
+        'EKM - only allow spirits for NY state
+        If Cart.OrderHasSpiritsAndNonDeliveryZone(GetCustomerID(Request, Response), txtzipcode.Text) Then
+            pnlSpiritsPresent.Visible = True
+            pnlShippingMethod.Visible = False
+            imgbContinueCheckoutBottom.Visible = False
+            imgbContinueCheckoutBottom.Enabled = False
+            imgbNotContinueCheckoutBottom.Visible = True
+            imgbNotContinueCheckoutBottom.Enabled = False
+            WUCShipDates1.FindControl("phUPSShipDates").Visible = False
+            'EKM - only allow non astor truck spirits for Astor Delievery area
+        ElseIf Cart.OrderHasSpiritsAstorTruckOnly(GetCustomerID(Request, Response), txtzipcode.Text) Then
+            pnlSpiritsPresent.Visible = True
+            pnlShippingMethod.Visible = False
+            imgbContinueCheckoutBottom.Visible = False
+            imgbContinueCheckoutBottom.Enabled = False
+            imgbNotContinueCheckoutBottom.Visible = True
+            imgbNotContinueCheckoutBottom.Enabled = False
+            WUCShipDates1.FindControl("phUPSShipDates").Visible = False
+        Else
+            pnlSpiritsPresent.Visible = False
+            pnlShippingMethod.Visible = True
+            imgbContinueCheckoutBottom.Visible = True
+            imgbContinueCheckoutBottom.Enabled = True
+            imgbNotContinueCheckoutBottom.Visible = False
+            imgbNotContinueCheckoutBottom.Enabled = False
+        End If
 
         _dslocal = Cart.WebCalcAllShipping(GetCustomerID(Request, Response), String.Empty, txtzipcode.Text)
         'With ddlShippingMethod
@@ -386,6 +395,11 @@ Partial Class secure_AstorCheckoutShipping
 
         If zipcode <> "" Then
             _sDeliveryType = Cart.GetShipmentDeliveryType(txtzipcode.Text, GetCustomerID(Request, Response))
+
+            If rblShippingMethod.SelectedValue = "2" Then
+                _sDeliveryType = "P"
+            End If
+
             _dsDelDates = Cart.LoadShippingDatesAstorDelivery(_sDeliveryType)
 
             _dvDelDates.Table = _dsDelDates.Tables(0)

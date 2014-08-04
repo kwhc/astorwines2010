@@ -266,6 +266,16 @@ Partial Class secure_AstorCheckoutOrderReview
         ' Dim sShipType As String = ddlShipType.SelectedValue
         Dim Inum As String = String.Empty
 
+        ' added EKM 7/2014 - double check ship date selected
+        Dim sMsg As String = "Shipping Date no longer valid - please reselect shipping Date!"
+        If Not cart.CheckShipDateInCart((GetCustomerID(Request, Response))) Then
+            Dim _webutils As New WebUtils
+            Dim t As Type = Me.GetType
+
+            _webutils.CreateMessageAlert(Me, t, sMsg, "strKey2")
+            Exit Sub
+        End If
+
         Inum = orders.AddNewOrder(GetCustomerID(Request, Response), DateTime.Now)
         EmailConfirmation(Inum)
         cart.ResetShoppingCart(GetCustomerID(Request, Response))

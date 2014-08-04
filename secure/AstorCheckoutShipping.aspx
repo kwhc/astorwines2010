@@ -117,8 +117,8 @@
                 
                 <asp:Panel ID="pnlSpiritsPresent" runat="server">
                     <div style="margin-bottom:2rem;">
-                        <h3 class="checkout">Currently orders that contain <b>spirits</b> can only be shipped to <b>New York State</b> and must also <b>meet our delivery minimum</b>.</h3>
-                        <h3 class="checkout">Use the link below to add some items to your order or remove the spirits items if you wish to continue.</h3>
+                        <h3 class="checkout">Currently orders that contain <b>spirits</b> can only be shipped to <b>New York State</b>. Also certain <b>odd sized spirits</b> can only be shipped within the Astor Truck Delivery area.</h3>
+                        <h3 class="checkout">Use the link below to remove the spirits items if you wish to continue.</h3>
                         <asp:LinkButton ID="imgbEditShoppingCart" runat="server" Text="Edit Shopping Cart" />
                     </div>
                 </asp:Panel>
