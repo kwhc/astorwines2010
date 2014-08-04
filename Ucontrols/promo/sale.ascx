@@ -75,6 +75,13 @@
         .banana-background:hover{
             background-color: rgba(253,232,125,0.5);
         }
+        .rose-background{
+            background-color: rgba(188,45,38,.6);
+            color:#efefef;
+        }
+        .rose-background:hover{
+            background-color: rgba(188,45,38,.5);
+        }
         .fancy
         {
             font-family: Times New Roman, Times, Serif;
