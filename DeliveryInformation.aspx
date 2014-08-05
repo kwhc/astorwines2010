@@ -87,9 +87,9 @@
                   </div>
                   <div class="copyContainer gutter">
                   <h3>Brooklyn</h3>
-                  <span>Free Shipping On Orders Over $150 (pre-tax)</span>
+                  <span>Free Shipping On Orders Over $99 (pre-tax)</span>
                   <p>    
-                    Astor offers free delivery to Brooklyn on Tuesdays, Wednesdays, Fridays, and Saturdays only on orders that exceed $150 pre-tax. 
+                    Astor offers free delivery to Brooklyn on Tuesdays, Wednesdays, Fridays, and Saturdays only on orders that exceed $99 pre-tax. 
                   </p>
                   <p>  
                     Orders placed before 12 noon on Monday, Tuesday, Thursday, or Friday will generally be delivered the following day, barring seasonal peaks in delivery volume and inclement weather. You will receive a confirmation email once your order has been processed confirming your scheduled delivery date.
@@ -121,9 +121,9 @@
                 </div>
                 <div class="copyContainer gutter">
                 <h3>Roosevelt Island</h3>
-                <span>Free Shipping on Orders Over $100 (Pre-Tax)</span>
+                <span>Free Shipping on Orders Over $150 (Pre-Tax)</span>
                 <p>
-                Astor offers free delivery to Roosevelt Island on Wednesdays and Saturdays only, for orders that exceed $100 pre-tax. 
+                Astor offers free delivery to Roosevelt Island on Wednesdays and Saturdays only, for orders that exceed $150 pre-tax. 
                 </p>
                 <p>
                 Orders placed before 12:00 noon on Tuesday or Friday will generally be delivered the following day, barring seasonal peaks in delivery volume and inclement weather. Once your order has been processed, you will receive an email confirming your scheduled delivery date.
