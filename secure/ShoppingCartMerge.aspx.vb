@@ -17,7 +17,7 @@ Partial Class ShoppingCartMerge
         Dim cart As New AstorwinesCommerce.CartDB(getConnStr())
         ' If page is not being loaded in response to postback
         If Not Page.IsPostBack Then
-            lblShipToStatesCodes.Text = Application("ShipToStatesCodes")
+            lblShipToStatesCodes.Text = Application("NotShipToStatesDesc")
 
             If Context.User.Identity.Name <> "" Then
                 email = Context.User.Identity.Name

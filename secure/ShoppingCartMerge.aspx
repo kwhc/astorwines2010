@@ -6,6 +6,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="middleContent" Runat="Server">
 <div id="shoppingcart" class="clearfix">
+<div class="no-column-page">
     <h1>Don't forget these!</h1>
     
     <p>These items were previously saved to your cart. You can add them individually or all together.</p>
@@ -131,11 +132,13 @@
         <p>Any items you do not add to your cart will no longer be saved.</p>
     </div>      
               
+    </div>
+
     <div class="delivery-info-wrapper clearfix">
         <div class="delivery-info-container">
-            <h4>Eligible Delivery States</h4>
+            <h4><br/>Prohibited States</h4>
             <p>
-            Because laws prohibit us from shipping alcohol to certain states, we can ONLY ship to:<br />
+            Due to restrictive regulations, we cannot accept orders for shipment to the following locations:
             </p>    
             <asp:Literal ID="lblShipToStatesCodes" runat="server" />   
             <p>We do not ship internationally. Sorry!</p>        
@@ -144,17 +147,18 @@
         <div class="delivery-info-container">
             <h4>Free Shipping Available in New York</h4>
                 <p>
-                Use our Shipping Calculator above to see if your order qualifies for free ground shipping.
+                <%= cAstorMessaging.getMsg_FreeShippingInNY() %>
                 </p>          
         </div> <!-- .delivery-info-container -->
 
         <div class="delivery-info-container">
-            <h4>Signature Required!</h4>
+            <h4><br/>Signature Required!</h4>
             <p>
             A person 21 years of age or older must sign for your delivery, so please be sure someone of age will be available to welcome your bottles home!
             </p>          
         </div> <!-- .delivery-info-container -->
    </div> <!-- .delivery-info-wrapper --> 
+    
     </div>
     
 </asp:Content>
