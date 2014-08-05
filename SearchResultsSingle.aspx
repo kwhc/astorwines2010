@@ -43,7 +43,8 @@
 </script>
 
 <div id="confirmDialog" style="display:none;">
-Currently this item is only available for shipment within New York State.
+<asp:PlaceHolder runat="server" ID="phNYSRestrictionModal"><p>Currently this item is only available for shipment within New York State.</p></asp:Placeholder>
+<asp:Placeholder runat="server" ID="phCommonCarrierRestrictionModal"><p>Currently this item cannot be shipped via UPS or FedEx.</p></asp:Placeholder>
 </div> 
   
   <div id="productPage">
@@ -301,7 +302,7 @@ Currently this item is only available for shipment within New York State.
                 <asp:Literal ID="lblLimitedQty" runat="server" Text="Limited Production:  Only X bottle(s) per customer" Visible="False" />
                 <asp:Literal ID="litInStoreOnly" runat="server" Text="<li>Available For In Store Purchase Only</li>" Visible="False" />
                 <li style="margin-bottom:1em;">Currently this item is only available for shipment within New York State.</li>
-                <li style="margin-bottom:1em;display:none;">Currently this item cannot be shipped via UPS or FedEx.</li>
+                <asp:Placeholder runat="server" ID="phCommonCarrierRestrictionMsg"><li style="margin-bottom:1em;">Currently this item cannot be shipped via UPS or FedEx.</li></asp:Placeholder>
             </ul>
             </div>
         </asp:PlaceHolder>

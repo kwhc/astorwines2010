@@ -782,14 +782,17 @@ Partial Class SearchResultsSingle
 
                         'Spirits Check
                         spiritsCheck(.Item("iLevel1Type").ToString)
-                        If .Item("iLevel1Type").ToString = 2 Then
+                        If .Item("iLevel1Type").ToString = 2 Or isCommonCarrierRestricted(.Item("bAstorTruckOnly")) Then
                             imgbAddToCart.OnClientClick = "confirmation(); return false;"
                         End If
 
                         If isCommonCarrierRestricted(.Item("bAstorTruckOnly")) Then
-
+                            phCommonCarrierRestrictionMsg.Visible = True
+                            phCommonCarrierRestrictionModal.Visible = True
+                        Else
+                            phCommonCarrierRestrictionMsg.Visible = False
+                            phCommonCarrierRestrictionModal.Visible = False
                         End If
-
 
                         'Staff Pick
                         'lblStaffPick.Text = .Item("sStaffPick").ToString
