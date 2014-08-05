@@ -30,11 +30,11 @@ Partial Class Ucontrols_promo_made_in_usa
 
         saleDate = #8/6/2014#
 
-        If Date.Today = saleDate Then
+        If Date.Today = saleDate Or Date.Today = saleDate.AddDays(-1) Then
 
             promoActive()
 
-            imgHero.ImageUrl = "~/images/promo/2014-08-white-wine-sale/2014-08-white-wine-sale-email-header.jpg"
+            imgHero.ImageUrl = "~/images/promo/2014-08-white-wine-sale/2014-08-White-Wine-Sale-Email-header-Img.jpg"
             litHeadline.Text = "20% Off*<br/>All White Wines"
             litIntro.Text = "<p class='fancy'>" & saleDate.ToString("dddd MMMM dd, yyyy") & "</p>"
             Page.Title = "20% Off All White Wines Today"
@@ -108,7 +108,7 @@ Partial Class Ucontrols_promo_made_in_usa
     Sub jsonRoseSale()
         'saleDate = #8/20/2014#
         saleDate = #7/31/2014#
-        If Date.Today = saleDate Then
+        If Date.Today = saleDate Or Date.Today = saleDate.AddDays(-1) Then
             promoActive()
 
             imgHero.ImageUrl = "~/images/promo/2014-08-white-wine-sale/2014-08-white-wine-sale-email-header.jpg"
