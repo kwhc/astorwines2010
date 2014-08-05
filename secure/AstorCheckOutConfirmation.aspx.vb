@@ -138,9 +138,10 @@ Partial Class secure_AstorCheckOutConfirmation
                             litShipDelDate.Text = CType(("<b>" & FormatDateTime(CType(.Item("ShipDate"), Date), DateFormat.LongDate).ToString & "</b>"), String)
                             phShippingConfirmationEmail.Visible = True
                             litShippingConfirmationEmailIntro.Text = "You'll receive this the next business day from us."
+                            litShippingConfirmationEmailDetail.Text = "It will include your invoice."
                             phTrackingNumberEmail.Visible = True
                             litTRackingNumberEmailIntro.Text = "You'll receive this on the day of your delivery from the messenger service."
-                            litTrackingNumberEmailDetail.Text = "<p>If your delivery is sent via Cyclehawk, you will receive an email with a tracking number. If your delivery is sent via Champion Courier, you will receive an email when your order has been successfully delivered.</p>"
+                            litTrackingNumberEmailDetail.Text = "<p>You will receive an email from the messenger service once your order has been delivered.</p>"
                         Case 4, 8, 10 'Astor - Common Carrier - FedEx
                             shipMethodTitle = "FedEx"
                             litShipDelDateL.Text = "FedEx Ground shipment will tentatively depart on:"
