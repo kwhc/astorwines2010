@@ -18,9 +18,7 @@ body{
 h1, h2, h3, h4, h5{
     color: #222;
 }
-.muted, .text-muted{
-    color:#777;
-}
+
 .text-light{
     color:#fefefe;
 }
@@ -40,9 +38,9 @@ h1, h2, h3, h4, h5{
     background-color:#f2dede;
 }
 
-.checkout aside, .help, .dim, #homeContent h3, .browseLine, .searchString
+.checkout aside, .help, .dim, #homeContent h3, .browseLine, .searchString,.muted, .text-muted
 {
-    color: rgb(90, 90, 90);
+    color: rgb(120, 120, 120);
 }
 
 #productPage .outOfStockMsg, .share-container, .share-container a
