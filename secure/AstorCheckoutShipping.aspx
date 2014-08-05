@@ -11,7 +11,7 @@
 <%@ Register Src="~/Ucontrols/deliveryAlert.ascx" TagPrefix="alert" TagName="shipping" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="middleContent" Runat="Server">
-  <div id="shipping" class="checkout clearfix">
+  <div id="shipping" class="checkout clearfix text-muted">
 
       <awCOH:checkOutHeader ID="WUCCheckOutHeader1" runat="server" />
       <asp:Panel runat="server" DefaultButton="imgbContinueCheckoutBottom" ID="pnlChkout" Width="100%">
@@ -56,9 +56,7 @@
                     <asp:PlaceHolder ID="phShippingAgreement" runat="server" Visible="True">
                         <div style="margin:10px 0px;background:#eee; padding:20px;">
                             <h4>Please Note:</h4>
-                            <p>
                             <asp:Literal runat="server" ID="litThirdPartyNote" />
-                            </p>
                         </div>
                         <asp:Literal runat="server" ID="litErrorShippingAgreement" Text="<div id='saError' class='callout-danger'>You must agree to the Shipping Agreement</div>" Visible="false" />
                         <div id="shippingAgreementContainer" style="background: #eee; padding: 20px;" runat="server">
@@ -70,7 +68,7 @@
                         </div>
                         <div id="modal" style="display: none;">
                             <h3>Shipping Agreement</h3>
-                            <%=cAstorMessaging.getMsg_ThirdPartyShippingAgreement()%>
+                            <span class="text-muted"><%=cAstorMessaging.getMsg_ThirdPartyShippingAgreement()%></span>
                             <div>
                                 <a href="#" rel="modal:close"><i class="icon-remove-sign"></i> close</a></div>
                         </div>
@@ -116,11 +114,17 @@
                 </asp:Panel>
                 
                 <asp:Panel ID="pnlSpiritsPresent" runat="server">
-                    <div style="margin-bottom:2rem;">
-                        <h3 class="checkout">Currently orders that contain <b>spirits</b> can only be shipped to <b>New York State</b>. Also certain <b>odd sized spirits</b> can only be shipped within the Astor Truck Delivery area.</h3>
-                        <h3 class="checkout">Use the link below to remove the spirits items if you wish to continue.</h3>
-                        <asp:LinkButton ID="imgbEditShoppingCart" runat="server" Text="Edit Shopping Cart" />
+                    <div class="callout-danger" style="margin-bottom:2rem;">
+                        <h3 class="checkout" style="font-weight:bold;">Currently orders that contain spirits can only be shipped to New York State.</h3>
+                        <p class="text-muted">Use the link below to remove these items if you wish to continue.</p>
+                        <asp:LinkButton ID="imgbEditShoppingCart" runat="server" Text="View My Shopping Cart &raquo;" />
                     </div>
+                    <div class="callout-danger" style="margin-bottom:2rem;">
+                        <h3 class="checkout" style="font-weight:bold;">There are items in this order that cannot be shipped via UPS or FedEx.</h3>
+                        <p class="text-muted">Use the link below to remove these items if you wish to continue.</p>
+                        <asp:LinkButton ID="imgbEditShoppingCartCommonCarrierRestricted" runat="server" Text="View My Shopping Cart &raquo;" />
+                    </div>
+                        
                 </asp:Panel>
                 
                 <asp:PlaceHolder runat="server" ID="phShippingMsg">

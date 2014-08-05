@@ -113,6 +113,7 @@ Partial Class secure_AstorCheckoutShipping
         If WUCShippingNameEdit1.Visible = True Then
             txtzipcode.Text = WUCShippingNameEdit1.ShippingZipCode
         End If
+
         If rblShippingMethod.SelectedValue = "6" Or rblShippingMethod.SelectedValue = "7" Then
             pnlRoyalShipping.Visible = True
             litThirdPartyNote.Text = setThirdPartyNote(0)
@@ -120,11 +121,15 @@ Partial Class secure_AstorCheckoutShipping
         ElseIf rblShippingMethod.SelectedValue = "4" Or rblShippingMethod.SelectedValue = "5" Then
             pnlRoyalShipping.Visible = False
             litThirdPartyNote.Text = setThirdPartyNote(1)
+        ElseIf rblShippingMethod.SelectedValue = "3" Then
+            pnlRoyalShipping.Visible = False
+            chkShippingInsurance.Checked = False
         Else
             pnlRoyalShipping.Visible = False
             litThirdPartyNote.Text = ""
             chkShippingInsurance.Checked = False
         End If
+
         'If txtzipcode.Text >= "07001" And txtzipcode.Text <= "08989" Then
         '    pnlRoyalShipping.Visible = True
         '    litThirdPartyNote.Text = setThirdPartyNote(0)
@@ -232,9 +237,9 @@ Partial Class secure_AstorCheckoutShipping
                 Case 3 'Astor - Messenger
                     setShipDates(2)
                     showShippingInsurance(False)
+                    'pnlRoyalShipping.Visible = False
                 Case 4 'Astor - Common Carrier - FedEx - Ground
                     setShipDates(3)
-                    showShippingInsurance(True)
                     showShippingInsurance(True)
                 Case 5 'Astor - Common Carrier - UPS - Ground
                     setShipDates(4)
@@ -658,6 +663,9 @@ Partial Class secure_AstorCheckoutShipping
             pnlRoyalShipping.Visible = False
             litThirdPartyNote.Text = setThirdPartyNote(1)
             showShippingInsurance(True)
+        ElseIf rblShippingMethod.SelectedValue = "3" Then
+            pnlRoyalShipping.Visible = False
+            chkShippingInsurance.Checked = False
         Else
             pnlRoyalShipping.Visible = False
             litThirdPartyNote.Text = ""
@@ -945,6 +953,9 @@ Partial Class secure_AstorCheckoutShipping
             pnlRoyalShipping.Visible = False
             litThirdPartyNote.Text = setThirdPartyNote(1)
             showShippingInsurance(True)
+        ElseIf rblShippingMethod.SelectedValue = "3" Then
+            pnlRoyalShipping.Visible = False
+            chkShippingInsurance.Checked = False
         Else
             pnlRoyalShipping.Visible = False
             litThirdPartyNote.Text = ""
@@ -1017,14 +1028,16 @@ Partial Class secure_AstorCheckoutShipping
         End If
     End Sub
 
-
     Protected Sub imgbEditShoppingCart_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles imgbEditShoppingCart.Click
+        Response.Redirect("~/ShoppingCart.aspx")
+    End Sub
+
+    Protected Sub imgbEditShoppingCartCommonCarrierRestricted_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles imgbEditShoppingCartCommonCarrierRestricted.Click
         Response.Redirect("~/ShoppingCart.aspx")
     End Sub
 
     Protected Sub rblShippingMethod_SelectedIndexChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles rblShippingMethod.SelectedIndexChanged
         'LoadShipDates(txtzipcode.Text)
-
     End Sub
     Function setThirdPartyNote(ByVal thirdPartyType As Integer) As String
         Select Case thirdPartyType
@@ -1113,4 +1126,6 @@ Partial Class secure_AstorCheckoutShipping
                 literalSectionTitle.Text = "Please Note"
         End Select
     End Sub
+
+
 End Class
