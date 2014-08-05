@@ -16,17 +16,15 @@ Partial Class ShoppingCart
     Private dsn As String = WebAppConfig.ConnectString
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        ' Store Return Url in Page State
+        'Store Return Url in Page State
         'ReturnUrl.Value = ""
         'If Not Request.QueryString("ReturnUrl") Is Nothing Then
-
-        '    ReturnUrl.Value = Request.QueryString("ReturnUrl")
-
+        'ReturnUrl.Value = Request.QueryString("ReturnUrl")
         'End If
 
         Dim cart As New AstorwinesCommerce.CartDB(getConnStr())
 
-        ' If page is not being loaded in response to postback
+        'If page is not being loaded in response to postback
         If Not Page.IsPostBack Then
             If Request.QueryString("aos") = "co" Then
                 AOSType = Request.QueryString("aos")
@@ -37,7 +35,6 @@ Partial Class ShoppingCart
 
             If Not Session("ShippingZipCode") Is Nothing Then
                 txtzipcode.Text = Session("ShippingZipCode")
-
             End If
             ' If a new product to add is specified, add it to the shopping cart
             If Request.Params("Item") <> "" Then
@@ -51,7 +48,7 @@ Partial Class ShoppingCart
             LoadShippingCombo()
             CalcTotals()
 
-            ' Store Return Url in Page State
+            'Store Return Url in Page State
 
             'If Not Session("ReturnUrl") Is Nothing Then
             '    ReturnUrl.Value = Session("ReturnUrl")
@@ -59,12 +56,9 @@ Partial Class ShoppingCart
             'End If
         End If
 
-
-
         If Not Session("ReturnUrl") Is Nothing Then
             ReturnUrl.Value = Session("ReturnUrl")
             Session("ReturnUrl") = Nothing
-
         Else
             ReturnUrl.Value = "~/default.aspx"
         End If
@@ -104,7 +98,7 @@ Partial Class ShoppingCart
         End If
         If Not Session("ShoppingCartAddError") Is Nothing Then
             If RTrim(Session("ShoppingCartAddError")) <> "" Then
-                status.Text = "ERROR: Cannot mix Wine Club items with NON-Wine Club items in cart"
+                status.Text = "Wine Club orders must be purchased separately and cannot contain other items."
                 status.ForeColor = Drawing.Color.Red
                 Session.Remove("ShoppingCartAddError")
             End If
@@ -146,14 +140,14 @@ Partial Class ShoppingCart
 
     Private Sub PopulateShoppingCartList()
 
-        ' Popoulate list with updated shopping cart data
+        'Popoulate list with updated shopping cart data
         Dim cart As New AstorwinesCommerce.CartDB(getConnStr())
         Dim ds As DataSet = cart.GetShoppingCartItems(GetCustomerID(Request, Response), AOSType)
 
         datMyList.DataSource = ds
         datMyList.DataBind()
 
-        ' Walk through table and calculate the total value
+        'Walk through table and calculate the total value
         Dim dt As DataTable = ds.Tables(0)
         Dim lIndex, Quantity As Integer
         Dim UnitPrice As Double
@@ -229,7 +223,6 @@ Partial Class ShoppingCart
         If Not Session("ShippingSelectedIndex") Is Nothing Then
             iSelectedIndex = Session("ShippingSelectedIndex")
         End If
-
 
         If Len(RTrim(_sZipCode)) >= 5 Then
             Dim sCity As String = String.Empty
@@ -344,7 +337,6 @@ Partial Class ShoppingCart
                 '        Response.Redirect("~/secure/AstorCheckoutBilling.aspx")
                 '    End If
 
-
                 'Else
                 '    'Redirect("~/secure/AstorCheckoutBillingNewCustomer.aspx", RedirectOptions.AbsoluteHttps)https_transfer_6/18/08
                 '    If Not IsNothing(Request.QueryString("remote")) = True Then
@@ -353,7 +345,6 @@ Partial Class ShoppingCart
                 '        Response.Redirect("~/secure/AstorCheckoutBillingNewCustomer.aspx")
 
                 '    End If
-
                 'End If
             Else
                 'Redirect("~/secure/AstorSignin.aspx?si=" & WebAppConfig.SignInReference.CheckOut, RedirectOptions.AbsoluteHttps) https_transfer_6/18/08
@@ -419,6 +410,13 @@ Partial Class ShoppingCart
             If CInt(myRow("iLevel1Type")).ToString = 2 Then
                 spiritMessages()
             End If
+
+            ''Common Carrier Restricted
+            'If myRow("bAstorTruckOnly") = 1 Then
+            '    CType(e.Item.FindControl("litCommonCarrierRestricted"), Literal).Visible = True
+            'Else
+            '    CType(e.Item.FindControl("litCommonCarrierRestricted"), Literal).Visible = False
+            'End If
 
         End If
 
