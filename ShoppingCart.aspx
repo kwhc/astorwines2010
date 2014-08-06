@@ -76,7 +76,7 @@
                             <p>
                             Item #:<asp:Label ID="lblItemNumber" runat="server" Text='<%# rtrim(databinder.eval(container.dataitem, "Item")) %>' /> | Unit Type:<asp:Label ID="lblUnitType" runat="server" />
                             </p>
-                            <asp:Literal runat="server" ID="litCommonCarrierRestricted" Text="<p>This item cannot be shipped via UPS or FedEx</p>" />
+                            <asp:Literal runat="server" ID="litCommonCarrierRestricted" Text="<p>Currently this can only be shipped to Manhattan, Queens & Brooklyn.</p>" />
                             <%-- <%# DataBinder.Eval(Container.DataItem, "bAstorTruckOnly").ToString %> --%>
                         </div>
                         <!-- .item-meta -->
@@ -115,7 +115,10 @@
 	            <asp:HyperLink ID="hyplItemName" runat="server"><%# rtrim(databinder.eval(container.dataitem, "Name"))&" - "&rtrim(databinder.eval(container.dataitem, "vintage"))&" ("&rtrim(databinder.eval(container.dataitem, "size"))&")" %></asp:HyperLink>
                 <asp:Label ID="lblLimitedQty" runat="server" Text="Limited Production:  Only X bottle(s) per customer" Visible="False" />
                 <div class="item-meta">
-                Item #:<asp:Label ID="lblItemNumber" runat="server" Text='<%# rtrim(databinder.eval(container.dataitem, "Item")) %>' /> | Unit Type: <asp:Label ID="lblUnitType" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "UnitType") %>' />		
+                <p>
+                    Item #:<asp:Label ID="lblItemNumber" runat="server" Text='<%# rtrim(databinder.eval(container.dataitem, "Item")) %>' /> | Unit Type: <asp:Label ID="lblUnitType" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "UnitType") %>' />		
+                </p>
+                <asp:Literal runat="server" ID="litCommonCarrierRestricted" Text="<p>Currently this can only be shipped to Manhattan, Queens & Brooklyn.</p>" />
                 </div> <!-- .item-meta -->
             </td>
         			

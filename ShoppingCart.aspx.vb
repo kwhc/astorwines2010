@@ -411,12 +411,12 @@ Partial Class ShoppingCart
                 spiritMessages()
             End If
 
-            ''Common Carrier Restricted
-            'If myRow("bAstorTruckOnly") = 1 Then
-            '    CType(e.Item.FindControl("litCommonCarrierRestricted"), Literal).Visible = True
-            'Else
-            '    CType(e.Item.FindControl("litCommonCarrierRestricted"), Literal).Visible = False
-            'End If
+            'Common Carrier Restricted
+            If myRow("bAstorTruckOnly") = True Then
+                CType(e.Item.FindControl("litCommonCarrierRestricted"), Literal).Visible = True
+            Else
+                CType(e.Item.FindControl("litCommonCarrierRestricted"), Literal).Visible = False
+            End If
 
         End If
 

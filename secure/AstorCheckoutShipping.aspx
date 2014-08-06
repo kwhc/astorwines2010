@@ -119,8 +119,10 @@
                         <p class="text-muted">Use the link below to remove these items if you wish to continue.</p>
                         <asp:LinkButton ID="imgbEditShoppingCart" runat="server" Text="View My Shopping Cart &raquo;" />
                     </div>
+                </asp:Panel>
+                <asp:Panel runat="server" ID="pnlCommonCarrierRestricted">
                     <div class="callout-danger" style="margin-bottom:2rem;">
-                        <h3 class="checkout" style="font-weight:bold;">There are items in this order that cannot be shipped via UPS or FedEx.</h3>
+                        <h3 class="checkout" style="font-weight:bold;">There are items in this order that can only be shipped to Manhattan, Queens & Brooklyn.</h3>
                         <p class="text-muted">Use the link below to remove these items if you wish to continue.</p>
                         <asp:LinkButton ID="imgbEditShoppingCartCommonCarrierRestricted" runat="server" Text="View My Shopping Cart &raquo;" />
                     </div>

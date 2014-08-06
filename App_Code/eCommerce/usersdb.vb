@@ -727,12 +727,12 @@ Namespace AstorwinesCommerce
                         "Your order number is: " & .Item("OrderNumber") & vbCrLf & vbCrLf
 
                         If .Item("b3rdPartyShipInsAgreement") = True Then
-                            sOrderHeader = sOrderHeader & "We will be processing your order within the next 24 hours." & _
-                            "Once your order is processed, you will receive a transfer confirmation email containing your invoice." & _
+                            sOrderHeader = sOrderHeader & "We will be processing your order within the next 24 hours. " & _
+                            "Once your order is processed, you will receive a transfer confirmation email containing your invoice. " & _
                            "Below, please find the details of your order." & vbCrLf & vbCrLf
                         Else
                             sOrderHeader = sOrderHeader & "We will be processing your order within the next 24 hours, " & _
-                            "at which point you will receive an confirmation email containing your invoice and information on what to expect next." & _
+                            "at which point you will receive an confirmation email containing your invoice and information on what to expect next. " & _
                             "Below, please find the details of your order." & vbCrLf & vbCrLf
                         End If
 

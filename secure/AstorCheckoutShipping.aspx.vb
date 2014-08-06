@@ -173,8 +173,18 @@ Partial Class secure_AstorCheckoutShipping
         'MsgBox(_sDeliveryType)
 
         'EKM - only allow spirits for NY state
-        If Cart.OrderHasSpiritsAndNonDeliveryZone(GetCustomerID(Request, Response), txtzipcode.Text) Then
+        If Cart.OrderHasSpiritsAndNonDeliveryZone(GetCustomerID(Request, Response), txtzipcode.Text) And Cart.OrderHasSpiritsAstorTruckOnly(GetCustomerID(Request, Response), txtzipcode.Text) Then
             pnlSpiritsPresent.Visible = True
+            pnlCommonCarrierRestricted.Visible = True
+            pnlShippingMethod.Visible = False
+            imgbContinueCheckoutBottom.Visible = False
+            imgbContinueCheckoutBottom.Enabled = False
+            imgbNotContinueCheckoutBottom.Visible = True
+            imgbNotContinueCheckoutBottom.Enabled = False
+            WUCShipDates1.FindControl("phUPSShipDates").Visible = False
+        ElseIf Cart.OrderHasSpiritsAndNonDeliveryZone(GetCustomerID(Request, Response), txtzipcode.Text) Then 'Order has spirits and zip code is outside of Astor Delivery truck zone
+            pnlSpiritsPresent.Visible = True
+            pnlCommonCarrierRestricted.Visible = False
             pnlShippingMethod.Visible = False
             imgbContinueCheckoutBottom.Visible = False
             imgbContinueCheckoutBottom.Enabled = False
@@ -182,8 +192,9 @@ Partial Class secure_AstorCheckoutShipping
             imgbNotContinueCheckoutBottom.Enabled = False
             WUCShipDates1.FindControl("phUPSShipDates").Visible = False
             'EKM - only allow non astor truck spirits for Astor Delievery area
-        ElseIf Cart.OrderHasSpiritsAstorTruckOnly(GetCustomerID(Request, Response), txtzipcode.Text) Then
-            pnlSpiritsPresent.Visible = True
+        ElseIf Cart.OrderHasSpiritsAstorTruckOnly(GetCustomerID(Request, Response), txtzipcode.Text) Then 'Order has common carrier restricted items
+            pnlSpiritsPresent.Visible = False
+            pnlCommonCarrierRestricted.Visible = True
             pnlShippingMethod.Visible = False
             imgbContinueCheckoutBottom.Visible = False
             imgbContinueCheckoutBottom.Enabled = False
@@ -192,6 +203,7 @@ Partial Class secure_AstorCheckoutShipping
             WUCShipDates1.FindControl("phUPSShipDates").Visible = False
         Else
             pnlSpiritsPresent.Visible = False
+            pnlCommonCarrierRestricted.Visible = False
             pnlShippingMethod.Visible = True
             imgbContinueCheckoutBottom.Visible = True
             imgbContinueCheckoutBottom.Enabled = True
@@ -231,20 +243,28 @@ Partial Class secure_AstorCheckoutShipping
                 Case 1 'Astor - Truck
                     setShipDates(0)
                     showShippingInsurance(False)
+                    pnlDelDate.Visible = True
+                    pnlRoyalShipping.Visible = False
                 Case 2 'Astor - PM Messenger
                     setShipDates(1)
                     showShippingInsurance(False)
+                    pnlDelDate.Visible = True
+                    pnlRoyalShipping.Visible = False
                 Case 3 'Astor - Messenger
                     setShipDates(2)
                     showShippingInsurance(False)
-                    'pnlRoyalShipping.Visible = False
+                    pnlRoyalShipping.Visible = False
+                    pnlDelDate.Visible = True
                 Case 4 'Astor - Common Carrier - FedEx - Ground
                     setShipDates(3)
                     showShippingInsurance(True)
+                    pnlDelDate.Visible = False
+                    pnlRoyalShipping.Visible = False
                 Case 5 'Astor - Common Carrier - UPS - Ground
                     setShipDates(4)
                     pnlDelDate.Visible = False
                     showShippingInsurance(True)
+                    pnlRoyalShipping.Visible = False
                 Case 6 'Third Party - Royal - UPS - Ground
                     setShipDates(5)
                     pnlDelDate.Visible = False
@@ -672,6 +692,7 @@ Partial Class secure_AstorCheckoutShipping
             chkShippingInsurance.Checked = False
         End If
         LoadUcombo()
+        LoadShipDates(txtzipcode.Text)
     End Sub
     Private Sub SaveCustomerCartShippingCurrent()
 

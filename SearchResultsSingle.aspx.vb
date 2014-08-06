@@ -789,6 +789,8 @@ Partial Class SearchResultsSingle
                         If isCommonCarrierRestricted(.Item("bAstorTruckOnly")) Then
                             phCommonCarrierRestrictionMsg.Visible = True
                             phCommonCarrierRestrictionModal.Visible = True
+                            phSpiritsRestrictionMsg.Visible = False
+                            phNYSRestrictionModal.Visible = False
                         Else
                             phCommonCarrierRestrictionMsg.Visible = False
                             phCommonCarrierRestrictionModal.Visible = False
