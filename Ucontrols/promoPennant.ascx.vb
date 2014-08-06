@@ -8,8 +8,8 @@ Partial Class Ucontrols_promoPennant
         Dim promoBegin As DateTime
         Dim promoDate As Date
 
-        promoBegin = #6/25/2014#
-        promoEnd = #6/25/2014#.AddDays(1)
+        promoBegin = #8/6/2014#
+        promoEnd = #8/6/2014#.AddDays(1)
         promoDate = #8/6/2014#
 
         'hypPromo.NavigateUrl = "../m.aspx?p=italian-wine-sale" & "&ref=pennant"
