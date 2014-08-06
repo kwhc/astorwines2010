@@ -54,7 +54,7 @@ Partial Class Ucontrols_promo_made_in_usa
             "{""title"":""California Chardonnay"",""link"":""/WineSearchResult.aspx?p=1&searchtype=Contains&cat=1&grape=Chardonnay&country=USA&region=California"",""type"":""category""}," & _
             "{""title"":""White Burgundy"",""link"":""/WineSearchResult.aspx?p=1&searchtype=Contains&cat=1&country=France&region=Burgundy&color=White"",""type"":""category""}," & _
             "{""title"":""Champagne"",""link"":""/WineSearchResult.aspx?p=1&searchtype=Contains&cat=1&country=France&region=Champagne"",""type"":""category""}," & _
-            "{""title"":""Riesling"",""link"":""/WineSearchResult.aspx?p=1&searchtype=Contains&cat=1&country=France&grape=Riesling"",""type"":""category""}," & _
+            "{""title"":""Riesling"",""link"":""/WineSearchResult.aspx?p=1&searchtype=Contains&cat=1&grape=Riesling"",""type"":""category""}," & _
             "{""title"":""Prosecco"",""link"":""/WineSearchResult.aspx?p=1&searchtype=Contains&cat=1&grape=Prosecco+(Glera)"",""type"":""category""}" & _
             "]"
             Dim jsonArray As JArray = JArray.Parse(jsonString)
