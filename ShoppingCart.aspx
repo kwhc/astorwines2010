@@ -165,13 +165,12 @@
                 <td class="extra">
                     <h4 class="blue"><asp:Label runat="server" Text="Calculate Shipping" /></h4>
              
-                    <asp:Label runat="server" Text="ZIP CODE" />&nbsp
-                    <asp:TextBox runat="server" ID="txtzipcode" Width="60" CssClass="white" MaxLength="5" />&nbsp&nbsp
+                    <asp:TextBox runat="server" ID="txtzipcode" Width="70" CssClass="white" MaxLength="5" placeholder="Zip Code" />&nbsp&nbsp
                         
                     <asp:Button runat="server" Text="CALCULATE" ID="calculateShipping" CssClass="btn" />
 
-                    <asp:DropDownList ID="ddlshippingMethod" runat="server" Width="260px" 
-                       AutoPostBack="True" CssClass="shipping-method">
+                    <asp:DropDownList ID="ddlshippingMethod" runat="server" Width="360px" 
+                       AutoPostBack="True" CssClass="shipping-method white">
                     </asp:DropDownList>
                     <br />
                     <asp:Label ID="lblInvalidZip" CssClass="errorMessage" runat="server" Text="Invalid Zipcode For Shipping!<br />"

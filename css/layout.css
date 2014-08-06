@@ -37,7 +37,7 @@ p{
     display: none;
 }
 
-input.white{
+input.white, select.white{
     padding: 5px;
     font-size: 1.4em;
 }
