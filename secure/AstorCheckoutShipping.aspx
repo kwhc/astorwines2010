@@ -150,7 +150,7 @@
                 <asp:PlaceHolder runat="server" ID="phInsurance">
                     <div style="padding:1rem 0;">      
                         <h4>Shipping Insurance</h4>  
-                        <div><asp:CheckBox runat="server" ID="chkShippingInsurance" Checked="true" TextAlign="Right" /> I would like to add shipping insurance for 1%</div>
+                        <div style="margin-bottom:1rem;"><asp:CheckBox runat="server" ID="chkShippingInsurance" Checked="true" TextAlign="Right" /> I would like to add shipping insurance for 1%</div>
                         <span><a href="#msg-insurance" rel="modal:open" class="mod-launch">What's this?</a></span>
                         <div id="msg-insurance" style="display:none;">                            
                             <%=cAstorMessaging.getMsg_ShippingInsurance %>

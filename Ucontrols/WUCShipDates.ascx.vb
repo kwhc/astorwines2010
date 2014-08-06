@@ -31,7 +31,8 @@ Partial Class Ucontrols_WUCShipDates
 
             Select Case sVartype
                 Case "sNextShipDateShip"
-                    lblUPS.Text = sDate
+                    litUPS.Text = sDate
+                    litFedEx.Text = sDate
                 Case "sNextShipDateLower"
                     lblManLower.Text = sDate
                 Case "sNextShipDateUpper"

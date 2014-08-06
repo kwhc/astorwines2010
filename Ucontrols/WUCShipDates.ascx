@@ -34,8 +34,8 @@
                 <li>        
                     <h4 style="margin-bottom:1em;font-weight:bold;">UPS</h4>
                     <hr style="background:#666666;width:30px;border:0;height:3px;margin-bottom:1em;" align="left" />  
-                    <b>Next UPS Ground Shipment <i>Departs</i> Astor on:</b>
-                    <h3><asp:Label ID="lblUPS" runat="server" Text="12/1/2007" /></h3>
+                    <b>Next UPS Ground Shipment <i>Departs</i> our shop on:</b>
+                    <h3><asp:Literal ID="litUPS" runat="server" Text="12/1/2007" /></h3>
                     <div style="font-style: italic; line-height:1.6em; margin-top:1em;">
                             Please Note:<br />
                             <ul style="list-style-type: circle; list-style-position: inside;">
@@ -49,7 +49,17 @@
             <asp:PlaceHolder runat="server" ID="phFedExShipDates">
                 <li>
                     <h4>FedEx</h4>
-                </li>
+                    <hr style="background:#666666;width:30px;border:0;height:3px;margin-bottom:1em;" align="left" />  
+                    <b>Next FedEx Ground Shipment <i>Departs</i> our shop on:</b>
+                    <h3><asp:Label ID="litFedEx" runat="server" Text="12/1/2007" /></h3>
+                    <div style="font-style: italic; line-height:1.6em; margin-top:1em;">
+                            Please Note:<br />
+                            <ul style="list-style-type: circle; list-style-position: inside;">
+                                <li>Shipping days are counted from date shipped</li>
+                                <li>For Residential addresses: FedEx delivers Tuesday-Saturday</li>
+                                <li>For Commercial addresses: FedEx delivers Monday-Friday</li>
+                            </ul>
+                     </div>                </li>
             </asp:PlaceHolder>
             <asp:PlaceHolder runat="server" ID="phAstorTrucks">
                 <li class="alt">
