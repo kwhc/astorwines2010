@@ -129,6 +129,7 @@ Partial Class secure_AstorCheckOutConfirmation
                             litShipDelDate.Text = CType(("<b>" & FormatDateTime(CType(.Item("ShipDate"), Date), DateFormat.LongDate).ToString & " in the time range " & .Item("sPMCourier") & "</b>"), String)
                             phShippingConfirmationEmail.Visible = True
                             litShippingConfirmationEmailIntro.Text = "You'll receive this the next business day from us."
+                            litShippingConfirmationEmailDetail.Text = "<p>It will include your invoice.</p>"
                             phDeliveryConfirmationEmail.Visible = True
                             litDeliveryConfirmationEmailIntro.Text = "<p>You'll receive this on the day of your delivery from the messenger service.</p>"
                             litDeliveryConfirmationEmailDetail.Text = "<p>It will confirm that your order has been successfully delivered.</p>"
