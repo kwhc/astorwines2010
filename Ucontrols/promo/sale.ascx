@@ -132,11 +132,13 @@
     
     <div class="note"><asp:Literal runat="server" ID="litRestrictions" /></div>
 </asp:PlaceHolder>
+
 <asp:PlaceHolder runat="server" ID="phPromoEnded">
     <div style="text-transform:uppercase;font-weight:bold;font-size:2rem;padding-top:2rem;">This Sale Has Ended</div>
     <hr style="width:6rem;border-color:#f5f5f5;border-style:solid;border-width:2px;margin-top:2rem;margin-bottom:2rem;text-align:center;" align="center"/>
 </asp:PlaceHolder>
 </div>
+
 <asp:PlaceHolder runat="server" ID="phOther">
     <div class="clearfix" style="width:100%;">
         <div style="width:50%;float:left;">

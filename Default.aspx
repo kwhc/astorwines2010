@@ -93,7 +93,7 @@
         <img src="../images/general/img_new.png" alt="New" style="float: left; margin-right: 12px; margin-top: 6px;" />
         <img src="../images/home/img_bubble_bkdelivery.png" alt="We Now Deliver to Brooklyn on Tuesdays" />
     </div>--%>
-    <asp:HyperLink runat="server" NavigateUrl="m.aspx?p=pm-delivery-service" ImageUrl="../images/promo/2014-pmDeliveryService/img_pmDeliveryServiceBanner.png" />
+    <asp:HyperLink runat="server" NavigateUrl="m.aspx?p=pm-courier-service" ImageUrl="../images/promo/2014-pmDeliveryService/img_pmDeliveryServiceBanner.png" />
 </div>
 <div style="background-color:#fefefe;padding:2rem 0;">            
     <ul class="nl clearfix">

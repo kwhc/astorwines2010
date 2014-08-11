@@ -4,5 +4,6 @@ Partial Class Ucontrols_promo_after_hours_courier_service
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         imgAfterHoursHeader.ImageUrl = "../../images/promo/2014-afterHoursCourierService/img_afterHoursCourierServiceHeader.gif"
+        Page.Title = "PM Courier Service from Astor Wines & Spirits"
     End Sub
 End Class

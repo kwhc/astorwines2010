@@ -70,14 +70,20 @@
     <div>
         <h3>I’m worried my bottles will break during shipment. Is there an insurance fee for shipped bottles?</h3>
         <p>
-        Nope – we’ve got you covered! If your bottle arrives broken, just let us know and we’ll make arrangements to replace it, free of charge.
+        For 1% of your order value, you will be covered for loss or breakage. If your bottle arrives broken, or never arrives at all, let us know and we will make arrangements to replace it, free of charge.
+        </p>
+        <p>
+        By refusing insurance, you relieve Astor Wines & Spirits of any and all responsibility for breakage or loss that may occur to your order.
         </p>
     </div>    
     
     <div>
         <h3>Do you offer same-day delivery?</h3>
         <p>
-Yes, we can often deliver your order on the same day as your purchase, using messengers (not our free delivery service). The fee varies according to the number of bottles you are purchasing and where they are being delivered. Please call 212-674-7500 for an estimate. 
+        Yes, for deliveries in Manhattan below 125th Street we delivery via messenger service the same day as your purchase for a flat fee of $25 for up to seven cases. For orders larger than seven cases, please speak to our sales staff for pricing.
+        </p>
+        <p>
+        Please call our shop at 212-674-7500 for more information or to place an order.
         </p>
     </div>    
 

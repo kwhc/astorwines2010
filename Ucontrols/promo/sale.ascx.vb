@@ -13,6 +13,9 @@ Partial Class Ucontrols_promo_made_in_usa
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
 
+        phPromoEnded.Visible = False
+        phOther.Visible = False
+
         imgHero.Width = 526
 
         Dim sale = Request.QueryString("p")
@@ -22,10 +25,20 @@ Partial Class Ucontrols_promo_made_in_usa
                 jsonWhiteWineSale()
             Case "rose-wine-sale"
                 jsonRoseSale()
+            Case Else
+                phPromo.Visible = False
         End Select
 
     End Sub
+    Sub promoActive()
+        phPromoEnded.Visible = False
+        phOther.Visible = False
+    End Sub
 
+    Sub promoEnded()
+        phPromo.Visible = False
+        Page.Title = "Sale Has Ended"
+    End Sub
     Sub jsonWhiteWineSale()
 
         saleDate = #8/6/2014#
@@ -95,15 +108,7 @@ Partial Class Ucontrols_promo_made_in_usa
 
     End Sub
 
-    Sub promoActive()
-        phPromoEnded.Visible = False
-        phOther.Visible = False
-    End Sub
 
-    Sub promoEnded()
-        phPromo.Visible = False
-        Page.Title = "Sale Has Ended"
-    End Sub
 
     Sub jsonRoseSale()
         'saleDate = #8/20/2014#
