@@ -671,7 +671,7 @@ Namespace AstorwinesCommerce
             Return _bExists
         End Function
         Public Function WebCalcShipping(ByVal CustomerNumber As String, ByVal idt As String) As Decimal
-            Dim sSP As String = "WebCalcShipping_sp"
+            Dim sSP As String = "WebCalcShipping062014_sp"
             Dim _cnConnection As New SqlConnection(m_ConnectionString)
             Dim _scSC As New SqlCommand(sSP, _cnConnection)
 
@@ -711,7 +711,7 @@ Namespace AstorwinesCommerce
 
         End Function
         Public Function WebCalcShippingUsingZipCode(ByVal CustomerNumber As String, ByVal idt As String, ByVal ZipCode As String, ByVal ShipType As String) As Decimal
-            Dim sSP As String = "WebCalcShippingUsingZipCode_sp"
+            Dim sSP As String = "WebCalcShippingUsingZipCode062014_sp"
             Dim _cnConnection As New SqlConnection(m_ConnectionString)
             Dim _scSC As New SqlCommand(sSP, _cnConnection)
 
@@ -762,7 +762,7 @@ Namespace AstorwinesCommerce
         End Function
         Public Function WebCalcAllShipping(ByVal CustomerNumber As String, ByVal idt As String, ByVal ZipCode As String) As DataSet
 
-            Dim sSP As String = "WebCalcAllShipping_sp"
+            Dim sSP As String = "WebCalcAllShipping062014_sp"
             Dim _cnConnection As New SqlConnection(m_ConnectionString)
             Dim _scSC As New SqlCommand(sSP, _cnConnection)
             Dim _daLocal As New SqlDataAdapter
@@ -798,7 +798,7 @@ Namespace AstorwinesCommerce
         End Function
         Public Function LoadShippingDatesAstorDelivery(ByVal DeliveryType As String) As DataSet
 
-            Dim sSP As String = "LoadShippingDatesAstorDelivery_sp"
+            Dim sSP As String = "LoadShippingDatesAstorDelivery062014_sp"
             Dim _cnConnection As New SqlConnection(m_ConnectionString)
             Dim _scSC As New SqlCommand(sSP, _cnConnection)
             Dim _daLocal As New SqlDataAdapter
@@ -832,7 +832,7 @@ Namespace AstorwinesCommerce
         End Function
         Public Function GetNextUPSShipDate() As Date
 
-            Dim sSP As String = "GetDefaultShipDateWeb_sp"
+            Dim sSP As String = "GetDefaultShipDateWeb062014_sp"
             Dim _cnConnection As New SqlConnection(m_ConnectionString)
             Dim _scSC As New SqlCommand(sSP, _cnConnection)
 
@@ -869,7 +869,7 @@ Namespace AstorwinesCommerce
         End Function
         Public Function GetShipmentDeliveryType(ByVal ZipCode As String, ByVal CustomerNumber As String) As String
 
-            Dim sSP As String = "GetShipmentDeliveryType_sp"
+            Dim sSP As String = "GetShipmentDeliveryType062014_sp"
             Dim _cnConnection As New SqlConnection(m_ConnectionString)
             Dim _scSC As New SqlCommand(sSP, _cnConnection)
 
@@ -1252,6 +1252,45 @@ Namespace AstorwinesCommerce
             Return _bExists
 
         End Function
+        Public Function CheckShipDateInCart(ByVal CustomerNumber As String) As Boolean
+            Dim sSP As String = "CheckShipDateInCart_sp"
+            Dim _cnConnection As New SqlConnection(m_ConnectionString)
+            Dim _scSC As New SqlCommand(sSP, _cnConnection)
+            Dim _bDateOK As Boolean = False
+            Dim _prmCustomerNumber As New SqlParameter
+            Dim _prmDateOK As New SqlParameter
+
+            With _scSC
+                Try
+
+
+                    .CommandType = CommandType.StoredProcedure
+                    _prmCustomerNumber = .Parameters.Add("@CustomerNumber", System.Data.SqlDbType.VarChar, 100)
+                    _prmCustomerNumber.Value = CustomerNumber
+                    _prmCustomerNumber.Direction = ParameterDirection.Input
+
+
+                    _prmDateOK = .Parameters.Add("@DateOK", System.Data.SqlDbType.Bit, 10)
+                    _prmDateOK.Direction = ParameterDirection.Output
+                    .Connection.Open()
+                    .ExecuteNonQuery()
+
+                    _bDateOK = .Parameters("@DateOK").Value
+
+                Catch ex As Exception
+                    Throw
+
+                Finally
+
+                End Try
+                If .Connection.State = ConnectionState.Open Then
+                    .Connection.Close()
+                End If
+            End With
+
+            Return _bDateOK
+
+        End Function
         Public Function OrderHasSpirits(ByVal CustomerNumber As String) As Boolean
             Dim sSP As String = "OrderHasSpirits_sp"
             Dim _cnConnection As New SqlConnection(m_ConnectionString)
@@ -1268,6 +1307,49 @@ Namespace AstorwinesCommerce
                     _prmCustomerNumber = .Parameters.Add("@CustomerNumber", System.Data.SqlDbType.VarChar, 100)
                     _prmCustomerNumber.Value = CustomerNumber
                     _prmCustomerNumber.Direction = ParameterDirection.Input
+
+                    _prmExists = .Parameters.Add("@Exists", System.Data.SqlDbType.Bit, 1)
+                    _prmExists.Direction = ParameterDirection.Output
+                    .Connection.Open()
+                    .ExecuteNonQuery()
+
+                    _bExists = CType(.Parameters("@Exists").Value, Boolean)
+
+                Catch ex As Exception
+                    Throw
+
+                Finally
+
+                End Try
+                If .Connection.State = ConnectionState.Open Then
+                    .Connection.Close()
+                End If
+            End With
+
+            Return _bExists
+
+        End Function
+        Public Function OrderHasSpiritsAstorTruckOnly(ByVal CustomerNumber As String, ByVal ZipCode As String) As Boolean
+            Dim sSP As String = "OrderHasSpiritsAstorTruckOnly_sp"
+            Dim _cnConnection As New SqlConnection(m_ConnectionString)
+            Dim _scSC As New SqlCommand(sSP, _cnConnection)
+            Dim _bExists As Boolean = False
+            Dim _prmCustomerNumber As New SqlParameter
+            Dim _prmZipCode As New SqlParameter
+            Dim _prmExists As New SqlParameter
+
+            With _scSC
+                Try
+
+
+                    .CommandType = CommandType.StoredProcedure
+                    _prmCustomerNumber = .Parameters.Add("@CustomerNumber", System.Data.SqlDbType.VarChar, 100)
+                    _prmCustomerNumber.Value = CustomerNumber
+                    _prmCustomerNumber.Direction = ParameterDirection.Input
+
+                    _prmZipCode = .Parameters.Add("@ZipCode", System.Data.SqlDbType.VarChar, 5)
+                    _prmZipCode.Value = ZipCode
+                    _prmZipCode.Direction = ParameterDirection.Input
 
                     _prmExists = .Parameters.Add("@Exists", System.Data.SqlDbType.Bit, 1)
                     _prmExists.Direction = ParameterDirection.Output
@@ -1547,7 +1629,7 @@ Namespace AstorwinesCommerce
         End Function
         Public Function GetShoppingCartCustInfoFormatted(ByVal customerNumber As String) As DataSet
 
-            Dim sSP As String = "GetShoppingCartCustInfoFormatted_sp"
+            Dim sSP As String = "GetShoppingCartCustInfoFormatted062014_sp"
             Dim _cnConnection As New SqlConnection(m_ConnectionString)
             Dim _scSC As New SqlCommand(sSP, _cnConnection)
             Dim _daLocal As New SqlDataAdapter

@@ -10,6 +10,7 @@ Partial Class secure_AstorCheckOutConfirmation
     Public fShipping As Double = 0
     Public fPromo As Double = 0
     Public f3rdPartyInsurance As Double = 0
+    Public shipMethodTitle As String = String.Empty
 
     Public b3rdPartyInsurance As Boolean = False
 
@@ -54,13 +55,12 @@ Partial Class secure_AstorCheckOutConfirmation
         datMyList.DataSource = dsOrder.Tables(1)
         datMyList.DataBind()
 
-
     End Sub
     Private Sub PopulateCustomerBillingShipping()
         With dsOrder.Tables(0)
             If .Rows.Count > 0 Then
                 With .Rows(0)
-                    lblConfirm.Text = "Your order has been placed.  Your order number is: " & .Item("OrderNumber")
+                    lblConfirm.Text = "Your order number is: " & .Item("OrderNumber")
                     lblName.Text = .Item("Name")
                     lblCompany.Text = .Item("Company")
                     lblAddressApt.Text = .Item("AddressApt")
@@ -86,31 +86,110 @@ Partial Class secure_AstorCheckOutConfirmation
                     f3rdPartyInsurance = .Item("n3rdPartyAmountInsAmount")
 
 
-                    lblLTax.Text = "Tax Rate (" & (.Item("TaxRate") * 100).ToString & "%):"
-                    lblLShipping.Text = "Shipping/Handling (" & .Item("ShipType") & "):"
+                    lblLTax.Text = "<div>" & "Tax (" & (.Item("TaxRate") * 100).ToString & "%):" & "</div>"
+                    lblLShipping.Text = "<div>" & "Shipping/Handling (" & .Item("ShipType") & "):" & "</div>"
                     lblShippingMethod.Text = .Item("ShipType")
 
-                    If .Item("ShipType") = "Astor Delivery" Then
-                        litShipDelDateL.Text = "Astor Truck Delivery Date:"
-                        litShipDelDate.Text = "<b>" & FormatDateTime(.Item("ShipDate"), DateFormat.LongDate).ToString & "</b>"
-                    ElseIf .Item("ShipType") = "After Hours Courier" Then
+                    'If .Item("ShipType") = "Astor Delivery" Then
+                    '    litShipDelDateL.Text = "Astor Truck Delivery Date:"
+                    '    litShipDelDate.Text = "<b>" & FormatDateTime(.Item("ShipDate"), DateFormat.LongDate).ToString & "</b>"
+                    'ElseIf .Item("ShipType") = "After Hours Courier" Then
 
-                        litShipDelDateL.Text = "After Hours Courier Delivery Date:"
-                        litShipDelDate.Text = "<b>" & FormatDateTime(.Item("ShipDate"), DateFormat.LongDate).ToString & " in the time range " & .Item("sPMCourier") & "</b>"
-                    Else
-                        If .Item("b3rdPartyShipInsAgreement") = True Then
-                            litShipDelDateL.Text = "3rd Party shipment will TRANSFER from Astor Wines &amp; Spirits on:"
-                        Else
-                            litShipDelDateL.Text = "UPS shipment will DEPART Astor Wines &amp; Spirits on:"
-                        End If
+                    '    litShipDelDateL.Text = "After Hours Courier Delivery Date:"
+                    '    litShipDelDate.Text = "<b>" & FormatDateTime(.Item("ShipDate"), DateFormat.LongDate).ToString & " in the time range " & .Item("sPMCourier") & "</b>"
+                    'Else
+                    '    If .Item("b3rdPartyShipInsAgreement") = True Then
+                    '        litShipDelDateL.Text = "3rd Party shipment will TRANSFER from Astor Wines &amp; Spirits on:"
+                    '    Else
+                    '        litShipDelDateL.Text = "UPS shipment will DEPART Astor Wines &amp; Spirits on:"
+                    '    End If
 
 
-                        litShipDelDate.Text = "<b>" & FormatDateTime(.Item("ShipDate"), DateFormat.LongDate).ToString & "</b>"
-                    End If
+                    '    litShipDelDate.Text = "<b>" & FormatDateTime(.Item("ShipDate"), DateFormat.LongDate).ToString & "</b>"
+                    'End If
 
-                    lblShipInst.Text = .Item("ShipInst")
+                    phPaymentConfirmationEmail.Visible = False
+                    phShippingConfirmationEmail.Visible = False
+                    phTransferConfirmationEmail.Visible = False
+                    phTrackingNumberEmail.Visible = False
+                    phAstorTruckDeliveryEmail.Visible = False
+                    phDeliveryConfirmationEmail.Visible = False
 
-                    '   lblGiftNote.Text = .Item("GiftNote")
+                    Select Case .Item("ShipMethod")
+                        Case 1 'Astor - Delivery Trucks
+                            litShipDelDateL.Text = "Astor Truck Tentative Delivery Date:"
+                            litShipDelDate.Text = "<b>" & FormatDateTime(CType(.Item("ShipDate"), Date), DateFormat.LongDate).ToString & "</b>"
+                            phShippingConfirmationEmail.Visible = True
+                            litShippingConfirmationEmailIntro.Text = "You'll receive this the next business day from us."
+                            litShippingConfirmationEmailDetail.Text = "This email tells you that your order has been approved, your payment has been processed and is packed. It will also contain your invoice."
+                            phAstorTruckDeliveryEmail.Visible = True
+                        Case 2 'Astor - PM Messenger
+                            shipMethodTitle = "Champion Courier"
+                            litShipDelDateL.Text = "PM Messenger Tentative Delivery Window:"
+                            litShipDelDate.Text = CType(("<b>" & FormatDateTime(CType(.Item("ShipDate"), Date), DateFormat.LongDate).ToString & " in the time range " & .Item("sPMCourier") & "</b>"), String)
+                            phShippingConfirmationEmail.Visible = True
+                            litShippingConfirmationEmailIntro.Text = "You'll receive this the next business day from us."
+                            litShippingConfirmationEmailDetail.Text = "<p>It will include your invoice.</p>"
+                            phDeliveryConfirmationEmail.Visible = True
+                            litDeliveryConfirmationEmailIntro.Text = "<p>You'll receive this on the day of your delivery from the messenger service.</p>"
+                            litDeliveryConfirmationEmailDetail.Text = "<p>It will confirm that your order has been successfully delivered.</p>"
+                        Case 3 'Astor - Messenger
+                            shipMethodTitle = "Messenger"
+                            litShipDelDateL.Text = "Messenger Tentative Delivery Window:"
+                            litShipDelDate.Text = CType(("<b>" & FormatDateTime(CType(.Item("ShipDate"), Date), DateFormat.LongDate).ToString & "</b>"), String)
+                            phShippingConfirmationEmail.Visible = True
+                            litShippingConfirmationEmailIntro.Text = "You'll receive this the next business day from us."
+                            litShippingConfirmationEmailDetail.Text = "It will include your invoice."
+                            phTrackingNumberEmail.Visible = True
+                            litTRackingNumberEmailIntro.Text = "You'll receive this on the day of your delivery from the messenger service."
+                            litTrackingNumberEmailDetail.Text = "<p>You will receive an email from the messenger service once your order has been delivered.</p>"
+                        Case 4, 8, 10 'Astor - Common Carrier - FedEx
+                            shipMethodTitle = "FedEx"
+                            litShipDelDateL.Text = "FedEx Ground shipment will tentatively depart on:"
+                            litShipDelDate.Text = "<b>" & FormatDateTime(CType(.Item("ShipDate"), Date), DateFormat.LongDate).ToString & "</b>"
+                            phShippingConfirmationEmail.Visible = True
+                            litShippingConfirmationEmailIntro.Text = "You'll receive this the next business day from us."
+                            litShippingConfirmationEmailDetail.Text = "This email tells you that your order has been approved, your payment has been processed and is packed and shipped. It will also contain your invoice."
+                            phTrackingNumberEmail.Visible = True
+                            litTRackingNumberEmailIntro.Text = "You'll receive this in 2-4 business days from today from " & shipMethodTitle
+                            litTrackingNumberEmailDetail.Text = "<p>This email includes the tracking number for your order.</p>" & _
+                            "<p>Please note that tracking data may not be available for up to 24 hours after an item has shipped.</p>"
+                        Case 5, 9, 11 'Astor - Common Carrier UPS
+                            shipMethodTitle = "UPS"
+                            litShipDelDateL.Text = "UPS Ground shipment will tentatively depart on:"
+                            litShipDelDate.Text = "<b>" & FormatDateTime(CType(.Item("ShipDate"), Date), DateFormat.LongDate).ToString & "</b>"
+                            phShippingConfirmationEmail.Visible = True
+                            litShippingConfirmationEmailIntro.Text = "You'll receive this the next business day from us."
+                            litShippingConfirmationEmailDetail.Text = "This email tells you that your order has been approved, your payment has been processed and is packed and shipped. It will also contain your invoice."
+                            phTrackingNumberEmail.Visible = True
+                            litTRackingNumberEmailIntro.Text = "You'll receive this in 2-4 business days from today from " & shipMethodTitle
+                            litTrackingNumberEmailDetail.Text = "<p>This email includes the tracking number for your order.</p>" & _
+                            "<p>Please note that tracking data may not be available for up to 24 hours after an item has shipped.</p>"
+                        Case 6 'Third Pary - Royal - UPS
+                            shipMethodTitle = "UPS"
+                            phShippingConfirmationEmail.Visible = True
+                            'litShipDelDateL.Text = "Third Party shipment will tentatively transfer from our shop on:"
+                            'litShipDelDate.Text = "<b>" & FormatDateTime(CType(.Item("ShipDate"), Date), DateFormat.LongDate).ToString & "</b>"
+                            litShippingConfirmationEmailIntro.Text = "You'll receive this in 3-4 business days from today from us."
+                            litShippingConfirmationEmailDetail.Text = "This email tells you that your order has been packed and shipped."
+                            phTransferConfirmationEmail.Visible = True
+                            phTrackingNumberEmail.Visible = True
+                            litTRackingNumberEmailIntro.Text = "You'll receive this in 4-5 business days from today from " & shipMethodTitle
+                        Case 7 'Third Party - Puni/Lyndhurst - UPS
+                            shipMethodTitle = "UPS"
+                            phShippingConfirmationEmail.Visible = True
+                            litShippingConfirmationEmailIntro.Text = "You'll receive this in 3-4 business days from today from us."
+                            litShippingConfirmationEmailDetail.Text = "This email tells you that your order has been packed and shipped."
+                            'litShipDelDateL.Text = "Third Party shipment will tentatively transfer from our shop on:"
+                            'litShipDelDate.Text = "<b>" & FormatDateTime(CType(.Item("ShipDate"), Date), DateFormat.LongDate).ToString & "</b>"
+                            phTransferConfirmationEmail.Visible = True
+                            phTrackingNumberEmail.Visible = True
+                            litTRackingNumberEmailIntro.Text = "You'll receive this in 4-5 business days from today from " & shipMethodTitle
+                    End Select
+
+                    IIf(.Item("ShipInst") <> Nothing, lblShipInst.Text = "<div style=""text-transform:uppercase;color:#aaa;"">Shipping Instructions</div>" & .Item("ShipInst"), "")
+
+                    'lblGiftNote.Text = .Item("GiftNote")
                     If RTrim(.Item("Promo")) = "" Then
                         'lblPromoCode.Text = ""
                         lblLPromo.Text = ""
@@ -118,7 +197,7 @@ Partial Class secure_AstorCheckOutConfirmation
                         lblLPromo.Visible = False
                     Else
                         'lblPromoCode.Text = .Item("Promo")
-                        lblLPromo.Text = "Promo Code: " & .Item("Promo")
+                        lblLPromo.Text = "<div>Promo Code: " & .Item("Promo") & "</div>"
                         If fPromo <> 0 Then
                             fPromo = fPromo * (-1)
                         End If
@@ -133,7 +212,7 @@ Partial Class secure_AstorCheckOutConfirmation
                         lbl3rdPartyIns.Visible = False
                         lblL3rdPartyIns.Visible = False
                     Else
-                        lblL3rdPartyIns.Text = "3rtd Party Insurance"
+                        lblL3rdPartyIns.Text = "<div>Shipping Insurance:</div>"
                         lbl3rdPartyIns.Visible = True
                         lblL3rdPartyIns.Visible = True
                     End If

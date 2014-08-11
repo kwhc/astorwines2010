@@ -58,7 +58,7 @@ Partial Class secure_AstorCheckoutOrderReview
                     If dsShoppingCart.Tables(0).Rows.Count > 0 Then
                         PopulateShoppingCartList()
                         CalcTotals()
-                        lblLTax.Text = "Tax (" & (dTaxRate * 100).ToString & "%):"
+                        lblLTax.Text = "Tax (" & (dTaxRate * 100).ToString & "%):" & "<br/>"
                     Else
                         'Redirect("~/AstorError.aspx?errorpage=" & Page.Request.Url.PathAndQuery, RedirectOptions.AbsoluteHttp)https_transfer_6/18/08
                         Response.Redirect("~/AstorError.aspx?errorpage=" & Page.Request.Url.PathAndQuery)
@@ -116,8 +116,8 @@ Partial Class secure_AstorCheckoutOrderReview
                     lblShipCompany.Text = "<div class="""">" & .Item("ShipCompany") & "</div>"
                     lblShipAddressApt.Text = "<div class="""">" & .Item("ShipAddressApt") & "</div>"
                     lblShipCityStateZipcode.Text = "<div class="""">" & .Item("ShipCityStateZipcode") & "</div>"
-                    lblShipDayPhone.Text = "<div style=""font-weight:bold;"">Day Phone</div><div class="""">" & .Item("ShipDayPhone") & "</div>"
-                    IIf(.Item("ShipEveningPhone") <> Nothing, lblShipEveningPhone.Text = "<div style=""font-weight:bold;"">Evening Phone</div><div class="""">" & .Item("ShipEveningPhone") & "</div>", "")
+                    lblShipDayPhone.Text = "<div style=""text-transform:uppercase;color:#aaa;"">Day Phone</div><div class="""">" & .Item("ShipDayPhone") & "</div>"
+                    IIf(.Item("ShipEveningPhone") <> Nothing, lblShipEveningPhone.Text = "<div style=""text-transform:uppercase;color:#aaa;"">Evening Phone</div><div class="""">" & .Item("ShipEveningPhone") & "</div>", "")
 
                     'If .Item("Scross").ToString <> "" Then
                     ' lblScross.Text = "<div class="""">at " & .Item("Scross") & "</div>"
@@ -125,24 +125,36 @@ Partial Class secure_AstorCheckoutOrderReview
 
                     IIf(.Item("Scross").ToString <> Nothing, lblScross.Text = "<div class="""">at " & .Item("Scross") & "</div>", "")
 
-                    lblShipEmail.Text = "<div style=""font-weight:bold;"">Shipping Email</div><div class="""">" & .Item("ShipEmail") & "</div>"
+                    IIf(.Item("ShipEmail").ToString <> Nothing, lblShipEmail.Text = "<div style=""text-transform:uppercase;color:#aaa;"">Shipping Email</div><div class="""">" & .Item("ShipEmail") & "</div>", "")
 
-                    lblLShipping.Text = "Shipping/Handling (" & .Item("ShipType") & "):"
-                    lblShippingMethod.Text = "<div style=""font-weight:bold;"">Shipping Method</div><div class=""shipping-method"">" & .Item("ShipType") & "</div>"
-                    lblShipInst.Text = "<div class=""shipping-instrutions"">Shipping Instructions" & .Item("ShipInst") & "</div>"
+                    lblLShipping.Text = "Shipping/Handling (" & .Item("ShipType") & "):" & "<br/>"
+                    lblShippingMethod.Text = "<div class=""shipping-method"" style=""margin-bottom:1rem;""><span style=""text-transform:uppercase;color:#aaa;"">Shipping Method</span>" & "<p>" & .Item("ShipType") & "</p></div>"
 
-                    If .Item("ShipType") = "Astor Delivery" Then
-                        litShipDelDate.Text = "Astor Delivery Date: <br /><b>" & FormatDateTime(.Item("ShipDate"), DateFormat.LongDate).ToString & "</b>"
-                    ElseIf .Item("ShipType") = "After Hours Courier" Then
-                        litShipDelDate.Text = "After Hours Courier Delivery Date: <br /><b>" & FormatDateTime(.Item("ShipDate"), DateFormat.LongDate).ToString & " in the time range " & .Item("sPMCourier") & "</b>"
-                    Else
-                        If .Item("b3rdPartyShipInsAgreement") = True Then
-                            litShipDelDate.Text = "3rd Party shipment will TRANSFER from our shop on: <br /><b>" & FormatDateTime(.Item("ShipDate"), DateFormat.LongDate).ToString & "</b>"
-                        Else
-                            litShipDelDate.Text = "UPS Shipment will DEPART from our shop on: <br /><b>" & FormatDateTime(.Item("ShipDate"), DateFormat.LongDate).ToString & "</b>"
-                        End If
-                    End If
+                    IIf(.Item("ShipInst") <> Nothing, lblShipInst.Text = "<div class=""shipping-instrutions"" style=""margin-bottom:1rem;""><span style=""text-transform:uppercase;color:#aaa;"">Shipping Instructions</span>" & "<p>" & .Item("ShipInst") & "</p></div>", "")
 
+                    'If .Item("ShipType") = "Astor Delivery" Then
+                    '    litShipDelDate.Text = "Astor Delivery Date: <br /><b>" & FormatDateTime(.Item("ShipDate"), DateFormat.LongDate).ToString & "</b>"
+                    'ElseIf .Item("ShipType") = "After Hours Courier" Then
+                    '    litShipDelDate.Text = "After Hours Courier Delivery Date: <br /><b>" & FormatDateTime(.Item("ShipDate"), DateFormat.LongDate).ToString & " in the time range " & .Item("sPMCourier") & "</b>"
+                    'Else
+                    '    If .Item("b3rdPartyShipInsAgreement") = True Then
+                    '        litShipDelDate.Text = "3rd Party shipment will TRANSFER from our shop on: <br /><b>" & FormatDateTime(.Item("ShipDate"), DateFormat.LongDate).ToString & "</b>"
+                    '    Else
+                    '        litShipDelDate.Text = "UPS Shipment will DEPART from our shop on: <br /><b>" & FormatDateTime(.Item("ShipDate"), DateFormat.LongDate).ToString & "</b>"
+                    '    End If
+                    'End If
+                    Select Case .Item("ShipMethod")
+                        Case 1 'Astor Truck
+                            litShipDelDate.Text = "<p>" & "Tentative Delivery Date: <br />" & FormatDateTime(.Item("ShipDate"), DateFormat.LongDate).ToString & "</p>"
+                        Case 2 'Astor PM Messenger
+                            litShipDelDate.Text = "<p>" & "Tentative Delivery Date: <br />" & FormatDateTime(.Item("ShipDate"), DateFormat.LongDate).ToString & " in the time range " & .Item("sPMCourier") & "</p>"
+                        Case 3 'Astor Messenger
+                            litShipDelDate.Text = "<p>" & "Tentative Delivery Date: <br />" & FormatDateTime(.Item("ShipDate"), DateFormat.LongDate).ToString & " in the time range " & .Item("sPMCourier") & "</p>"
+                        Case 4, 5, 8, 9, 10, 11 'Astor Common Carrier
+                            litShipDelDate.Text = "<p>" & "Shipment will tentatively depart on: <br />" & FormatDateTime(.Item("ShipDate"), DateFormat.LongDate).ToString & "</p>"
+                        Case 6, 7 'Third Party
+                            'litShipDelDate.Text = "<p>" & "Third Party shipment will transfer from our shop on: <br />" & FormatDateTime(.Item("ShipDate"), DateFormat.LongDate).ToString & "</p>"
+                    End Select
 
                     If .Item("GiftNote") <> "" Then
                         lblGiftNote.Text = "Gift Note: " & .Item("GiftNote")
@@ -175,7 +187,7 @@ Partial Class secure_AstorCheckoutOrderReview
                             fPromo = fPromo * (-1)
                         End If
                         'lblPromoCode.Text = 0
-                        lblLPromo.Text = "Promo Code: " & .Item("Promo")
+                        lblLPromo.Text = "Promo Code: " & .Item("Promo") & "<br/>"
                         lblPromo.Visible = True
                         lblLPromo.Visible = True
                     End If
@@ -188,10 +200,8 @@ Partial Class secure_AstorCheckoutOrderReview
                         lbl3rdPartyIns.Visible = False
                         lblL3rdPartyIns.Visible = False
                     Else
-
                         b3rdPartyInsurance = True
-
-                        lblL3rdPartyIns.Text = "3rtd Party Insurance"
+                        lblL3rdPartyIns.Text = "Shipping Insurance<br/>"
                         lbl3rdPartyIns.Visible = True
                         lblL3rdPartyIns.Visible = True
                     End If
@@ -255,6 +265,16 @@ Partial Class secure_AstorCheckoutOrderReview
         Dim orders As New AstorwinesCommerce.OrdersDB(getConnStr())
         ' Dim sShipType As String = ddlShipType.SelectedValue
         Dim Inum As String = String.Empty
+
+        ' added EKM 7/2014 - double check ship date selected
+        Dim sMsg As String = "Shipping Date no longer valid - please reselect shipping Date!"
+        If Not cart.CheckShipDateInCart((GetCustomerID(Request, Response))) Then
+            Dim _webutils As New WebUtils
+            Dim t As Type = Me.GetType
+
+            _webutils.CreateMessageAlert(Me, t, sMsg, "strKey2")
+            Exit Sub
+        End If
 
         Inum = orders.AddNewOrder(GetCustomerID(Request, Response), DateTime.Now)
         EmailConfirmation(Inum)

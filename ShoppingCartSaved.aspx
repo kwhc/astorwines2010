@@ -5,6 +5,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="middleContent" Runat="Server">
 <div id="shoppingcart" class="clearfix">
+    <div class="no-column-page">
     <h1>Don't forget these!</h1>
     
     <p>These items were previously saved to your cart. You can add them individually or all together.</p>
@@ -126,7 +127,7 @@
             <p>Any items you do not add to your cart will no longer be saved.</p>
     </div>      
               
-   
+    </div>  
     </div>
     
 </asp:Content>

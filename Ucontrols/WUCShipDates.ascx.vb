@@ -5,11 +5,11 @@ Partial Class Ucontrols_WUCShipDates
     Inherits System.Web.UI.UserControl
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        'setTitle()
         If Not Page.IsPostBack Then
             PopulateShippingDates()
-
+            ShowDeliveryBoxes()
             HolidayShippingAlert()
-
         End If
     End Sub
     Sub PopulateShippingDates()
@@ -31,7 +31,8 @@ Partial Class Ucontrols_WUCShipDates
 
             Select Case sVartype
                 Case "sNextShipDateShip"
-                    lblUPS.Text = sDate
+                    litUPS.Text = sDate
+                    litFedEx.Text = sDate
                 Case "sNextShipDateLower"
                     lblManLower.Text = sDate
                 Case "sNextShipDateUpper"
@@ -52,6 +53,20 @@ Partial Class Ucontrols_WUCShipDates
             pnlHolidayAlert.Visible = False
         End If
 
+    End Sub
+
+    Sub ShowDeliveryBoxes()
+
+        phAstorTrucks.Visible = False
+
+    End Sub
+
+    Sub setTitle()
+        If phThirdPartyTransfer.Visible = True Then
+            litTitle.Text = "Our Next Shipping Dates"
+        Else
+            litTitle.Text = "Our Next Transfer Dates"
+        End If
     End Sub
 
 End Class

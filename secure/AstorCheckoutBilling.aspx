@@ -9,7 +9,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="middleContent" Runat="Server">
   <div id="checkOutBilling" class="checkout">
-    <div style="padding: 5px;">
+    
       <awCOH:checkOutHeader ID="WUCCheckOutHeader1" runat="server" />
 
       <asp:ValidationSummary ID="vsBilling" runat="server" HeaderText="Please correct the following errors:" ValidationGroup="vgBilling" />
@@ -52,7 +52,6 @@
         </div>
         <div style="clear: both;"></div>
       </asp:Panel>
-    </div>  
   </div>
 
 </asp:Content>

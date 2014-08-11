@@ -302,7 +302,7 @@ Partial Class Ucontrols_WUCSignIn
 
         If Len(RTrim(UserName.Text)) < 1 Then
             sError = "Please correct the following errors:<br />" & vbCrLf
-            sError = sError & "    Blank Email Address - Please enter email address!!" & vbCrLf
+            sError = sError & "    Blank Email Address - Please enter email address" & vbCrLf
             lblReturningError.Text = sError
             lblReturningError.Visible = True
         ElseIf users.UserExists(UserName.Text) Then
@@ -316,7 +316,7 @@ Partial Class Ucontrols_WUCSignIn
             lblReturningError.Visible = True
         Else
             sError = "Please correct the following errors:" & vbCrLf
-            sError = sError & "    Email Address doesn't exist!!" & vbCrLf
+            sError = sError & "    Email Address doesn't exist" & vbCrLf
             lblReturningError.Text = sError
             lblReturningError.Visible = True
         End If

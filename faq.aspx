@@ -67,7 +67,7 @@
         </p>
     </div>
 
-    <div>
+    <div style="display:none;">
         <h3>I’m worried my bottles will break during shipment. Is there an insurance fee for shipped bottles?</h3>
         <p>
         For 1% of your order value, you will be covered for loss or breakage. If your bottle arrives broken, or never arrives at all, let us know and we will make arrangements to replace it, free of charge.
@@ -86,7 +86,14 @@
         Please call our shop at 212-674-7500 for more information or to place an order.
         </p>
     </div>    
-
+    
+    <div>
+        <h3>Dop you offer free shipping?</h3>
+        <p>
+        <%= cAstorMessaging.getMsg_FreeShippingInNY() %>
+        </p>
+    </div>
+    
     <div>
         <h3>Do you ship out of state?</h3>
         <p>

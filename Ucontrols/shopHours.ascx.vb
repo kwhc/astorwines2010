@@ -41,7 +41,7 @@ Partial Class Ucontrols_shopHours
 
         Dim holiday As String
 
-        holiday = "memorialDay"
+        holiday = "independenceDay"
 
         Select Case holiday
             Case "memorialDay"
@@ -65,8 +65,8 @@ Partial Class Ucontrols_shopHours
         Dim promoBegin As DateTime 'First day of promotion
         Dim promoEnd As DateTime   'Last day of promotion
 
-        promoBegin = #5/21/2014#
-        promoEnd = #5/26/2014#.AddDays(1)
+        promoBegin = #7/3/2014#
+        promoEnd = #7/4/2014#.AddDays(1)
 
 
         If Date.Now < promoBegin Or Date.Now > promoEnd Then

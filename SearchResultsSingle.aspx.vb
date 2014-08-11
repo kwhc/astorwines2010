@@ -696,6 +696,8 @@ Partial Class SearchResultsSingle
                         'staff pick notes
                         SetStaffPickInfoForItem(_bHasNotes)
 
+
+
                         If _bHasNotes And Date.Now > #3/30/2013# And Date.Now < #4/1/2013# Then
                             If .Item("iLevel1Type") = 1 Then
                                 If Convert.ToString(Convert.ToInt16(((.Item("botprcfl") - .Item("botprc")) / .Item("botprcfl")) * 100)) > 11 Then
@@ -724,17 +726,18 @@ Partial Class SearchResultsSingle
                         'new video embed - Kent 1/21/11
                         'VideoID = "18304599"
                         'VideoID = ""
-                        '                        VideoID = .Item("sVideoEmbedContent").ToString()
-                        '                        If RTrim(VideoID) = "" Then
-                        'embedVideo.Visible = False
-                        'Else
-                        'vimeoEmbed.Attributes.Add("src", "//player.vimeo.com/video/" & VideoID)
-                        'End If
-                        'With videoTout1
-                        '.VideoID = VideoID
-                        '.VideoHeight = "216"
-                        '.VideoWidth = "335"
-                        'End With
+                        VideoID = .Item("sVideoEmbedContent").ToString()
+                        If RTrim(VideoID) = "" Then
+                            embedVideo.Visible = False
+                        Else
+                            'ekm removed - 7/31/2014
+                            'vimeoEmbed.Attributes.Add("src", "//player.vimeo.com/video/" & VideoID)
+                        End If
+                        With videoTout1
+                            .VideoID = VideoID
+                            '.VideoHeight = "216"
+                            '.VideoWidth = "335"
+                        End With
                         'GetVideoID("18304599")
 
 
@@ -779,10 +782,19 @@ Partial Class SearchResultsSingle
 
                         'Spirits Check
                         spiritsCheck(.Item("iLevel1Type").ToString)
-                        If .Item("iLevel1Type").ToString = 2 Then
+                        If .Item("iLevel1Type").ToString = 2 Or isCommonCarrierRestricted(.Item("bAstorTruckOnly")) Then
                             imgbAddToCart.OnClientClick = "confirmation(); return false;"
                         End If
 
+                        If isCommonCarrierRestricted(.Item("bAstorTruckOnly")) Then
+                            phCommonCarrierRestrictionMsg.Visible = True
+                            phCommonCarrierRestrictionModal.Visible = True
+                            phSpiritsRestrictionMsg.Visible = False
+                            phNYSRestrictionModal.Visible = False
+                        Else
+                            phCommonCarrierRestrictionMsg.Visible = False
+                            phCommonCarrierRestrictionModal.Visible = False
+                        End If
 
                         'Staff Pick
                         'lblStaffPick.Text = .Item("sStaffPick").ToString
@@ -1368,7 +1380,6 @@ Partial Class SearchResultsSingle
     End Sub
 
     Sub SetEasterEgg(ByVal easterEgg As Integer)
-
         Select Case easterEgg
             Case 0
                 imgEasterEgg.ImageUrl = "../images/holiday/egg10.jpg"
@@ -1388,10 +1399,10 @@ Partial Class SearchResultsSingle
 
         If iLevel1Type = "2" Then
             shippingFlag = True
+            imgbAddToCart.OnClientClick = "confirmation(); return false;"
         Else
             shippingFlag = False
         End If
-
 
         If shippingFlag Then
             phItemNotes.Visible = True
@@ -1400,6 +1411,14 @@ Partial Class SearchResultsSingle
         End If
 
     End Sub
+
+    Public Function isCommonCarrierRestricted(ByVal flag As Boolean) As Boolean
+        If flag Then
+            Return True
+        Else
+            Return False
+        End If
+    End Function
 
     Sub addToCart()
         Dim intTxt As Integer

@@ -4,7 +4,7 @@
 <%@ Register Src="~/Ucontrols/WUCFooter.ascx" TagName="Footer" TagPrefix="awFtr" %>
 <%@ Register Src="~/Ucontrols/WUCShoppingCart.ascx" TagName="ShoppingCart" TagPrefix="awCrt" %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html lang="en-us" xml:lang="en-us" xmlns="http://www.w3.org/1999/xhtml">
   <head runat="server">
     <title>Welcome to Astor Wines &amp; Spirits</title>
@@ -76,7 +76,7 @@
 
         <awCrt:ShoppingCart ID="ShoppingCart1" runat="Server" />     
                   
-          <div id="mainContentCheckout" class="no-column-master">
+          <div id="mainContentCheckout" class="no-column-master main-container">
             <asp:contentplaceholder id="middleContent" runat="server" />
           </div>        
                 
@@ -97,7 +97,7 @@
     </script>
     <asp:ContentPlaceHolder ID="GAtracker" runat="server"></asp:ContentPlaceHolder>
     <script type="text/javascript" src="/js/jquery-1.10.2.min.js"></script>
-    <script type="text/javascript" src="/js/jquery-ui-1.10.3.custom.min.js"></script>
+    <script type="text/javascript" src="/js/jquery-ui.min.js"></script>
     <script type="text/javascript" src="/js/aqtip.js"></script>
     <script type="text/javascript" src="/js/jquery.idTabs.min.js"></script><!-- Advanced Search JS -->
     <script type="text/javascript" src="/js/jquery.modal.min.js"></script> 
@@ -106,6 +106,16 @@
             $('.mod-launch').modal = {
                 showClose: true
             };
+
+            $('#oc-email-list li h4').each(function(i){
+                $(this).addClass("show" + (i+1));
+            });
+
+            $('.show').slideToggle();
+            $('.show1').slideToggle();
+            $('.show2').delay(200).slideToggle();
+            $('.show3').delay(400).slideToggle();
+            $('.show4').delay(600).slideToggle();
         });
     </script>
     <asp:ContentPlaceHolder ID="cphJSAdd" runat="server"></asp:ContentPlaceHolder>

@@ -22,6 +22,7 @@
             All deliveries require an adult signature.
             </p>
         </div>
+        
         <div style="margin-bottom:2rem;">
             <h3>Prohibited States</h3>
             <p>
@@ -38,8 +39,10 @@
         
         
         <div>
-          <h3>Within New York State</h3>
-          
+          <h3>Shipping in New York State</h3>
+          <p>
+          <%= cAstorMessaging.getMsg_FreeShippingInNY() %>
+          </p>
           <ul>
               <li class="img-copy-row clearfix">
                   <div class="imgContainer">
@@ -51,7 +54,8 @@
                       <p>          
                         Astor offers free delivery from Battery Park to 125th Street (Mon. through Sat.) on orders that exceed $99
                         pre-tax. Orders placed before 12 noon will generally be delivered the following business day, barring
-                        seasonal peaks in delivery volume and inclement weather.
+                        seasonal peaks in delivery volume and inclement weather.</p>
+                      <p>
                         Orders placed on Sundays will be delivered as early as Tuesday, unless otherwise informed. You will
                         receive a confirmation email once your order has been processed confirming your scheduled delivery date.
                       </p>
@@ -67,22 +71,38 @@
                   <span>Free Delivery On Orders Over $99 (pre-tax)</span>
                   <p>    
                     Astor offers free delivery to Upper Manhattan on Wednesdays and Saturdays only on orders that
+<<<<<<< HEAD
                     exceed $99 pre-tax. Orders placed before 12 noon on Tuesday or Friday will generally be delivered the
+=======
+                    exceed $99 pre-tax. 
+                  </p>
+                  <p>  
+                    Orders placed before 12 noon on Tuesday or Friday will generally be delivered the
+>>>>>>> shipping-updates
                     following day, barring seasonal peaks in delivery volume and inclement weather. You will receive a 
                     confirmation email once your order has been processed confirming your scheduled delivery date.
                   </p>
                   </div>
-              </li>
-          
+              </li> 
+                
               <li class="img-copy-row clearfix">
                   <div class="imgContainer">
                     <img src="../images/delivery-shipping/brooklynDelivery.jpg" alt="Brooklyn Wine & Spirits Delivery Map" />
                   </div>
                   <div class="copyContainer gutter">
                   <h3>Brooklyn</h3>
+<<<<<<< HEAD
                   <span>Free Delivery On Orders Over $99(pre-tax)</span>
                   <p>    
                     Astor offers free delivery to Brooklyn on Tuesdays, Wednesdays, Fridays, and Saturdays only on orders that exceed $99 pre-tax. Orders placed before 12 noon on Monday, Tuesday, Thursday, or Friday will generally be delivered the following day, barring seasonal peaks in delivery volume and inclement weather. You will receive a confirmation email once your order has been processed confirming your scheduled delivery date.
+=======
+                  <span>Free Shipping On Orders Over $99 (pre-tax)</span>
+                  <p>    
+                    Astor offers free delivery to Brooklyn on Tuesdays, Wednesdays, Fridays, and Saturdays only on orders that exceed $99 pre-tax. 
+                  </p>
+                  <p>  
+                    Orders placed before 12 noon on Monday, Tuesday, Thursday, or Friday will generally be delivered the following day, barring seasonal peaks in delivery volume and inclement weather. You will receive a confirmation email once your order has been processed confirming your scheduled delivery date.
+>>>>>>> shipping-updates
                   </p>
                   </div>
               </li>
@@ -93,9 +113,11 @@
                   </div>
                   <div class="copyContainer gutter">
                   <h3>Queens</h3>
-                  <span>Free Delivery On Orders Over $150 (pre-tax)</span>
+                  <span>Free Shipping On Orders Over $150 (pre-tax)</span>
                   <p>          
                     Astor offers free delivery to Queens on Wednesdays and Saturdays only on orders that exceed $150 pre-tax.
+                  </p>
+                  <p>  
                     Orders placed before 12 noon on Tuesday or Friday will generally be delivered the following day, barring
                     seasonal peaks in delivery volume and inclement weather. You will receive a confirmation email once your
                     order has been processed confirming your scheduled delivery date.
@@ -109,12 +131,22 @@
                 </div>
                 <div class="copyContainer gutter">
                 <h3>Roosevelt Island</h3>
+<<<<<<< HEAD
                 <span>Free Delivery on Orders Over $150 (Pre-Tax)</span>
                 <p>
                 Astor offers free delivery to Roosevelt Island on Wednesdays and Saturdays only, for orders that exceed $150 pre-tax. Orders placed before 12:00 noon on Tuesday or Friday will generally be delivered the following day, barring seasonal peaks in delivery volume and inclement weather. Once your order has been processed, you will receive an email confirming your scheduled delivery date.
+=======
+                <span>Free Shipping on Orders Over $150 (Pre-Tax)</span>
+                <p>
+                Astor offers free delivery to Roosevelt Island on Wednesdays and Saturdays only, for orders that exceed $150 pre-tax. 
+                </p>
+                <p>
+                Orders placed before 12:00 noon on Tuesday or Friday will generally be delivered the following day, barring seasonal peaks in delivery volume and inclement weather. Once your order has been processed, you will receive an email confirming your scheduled delivery date.
+>>>>>>> shipping-updates
                 </p>
                 </div>
               </li>
+              
               <li class="img-copy-row clearfix">
                     <div class="imgContainer" style="width:220px;">
                     &nbsp;
@@ -157,7 +189,12 @@
               </div>
               <div class="copyContainer gutter">
               <p>
+<<<<<<< HEAD
                 Orders are shipped via UPS or FedEx. Shipping costs will be calculated at checkout. You will receive a confirmation email once your order has been
+=======
+                Orders are shipped via UPS or FedEx. We only offer Ground Delivery.
+                Shipping costs will be calculated at checkout. You will receive a confirmation email once your order has been
+>>>>>>> shipping-updates
                 processed confirming your scheduled shipment date, and then a subsequent email with your tracking number
                 with which you may track your order. Please note: UPS and FedEx orders do not ship out on Saturday or Sunday.
              </p>

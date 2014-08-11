@@ -3,9 +3,10 @@ COLORS:
 burgundy - #5f191b
 
 */
-
+body, select{
+    color: #5a5a5a;
+}
 body{
-    color: #222;    
     background-color: #1E2842;
     background-attachment: scroll;
     
@@ -14,15 +15,32 @@ body{
     background-repeat: repeat;
     /* END SPRING STYLES */
 }
-
-.red
-{
-    color: #5f191b;
+h1, h2, h3, h4, h5{
+    color: #222;
 }
 
-.checkout aside, .help, .dim, #homeContent h3, .browseLine, .searchString
+.text-light{
+    color:#fefefe;
+}
+.red, .text-danger{
+    color: #d9534f;
+}
+.callout-danger{
+    border-color:#d9534f;
+}
+.callout-info{
+    border-color:#5bc0de;
+}
+.callout-success{
+    border-color:#5cb85c;
+}
+.bg-danger{
+    background-color:#f2dede;
+}
+
+.checkout aside, .help, .dim, #homeContent h3, .browseLine, .searchString,.muted, .text-muted
 {
-    color: rgb(90, 90, 90);
+    color: rgb(120, 120, 120);
 }
 
 #productPage .outOfStockMsg, .share-container, .share-container a
@@ -121,7 +139,11 @@ div.orange{
 
 #shoppingcart .delivery-info-wrapper{
     background-color: #222;
-    color: #fff;
+    color: #fefefe;
+}
+
+#shoppingcart .delivery-info-wrapper h4{
+    color: #fefefe;
 }
 
 ul.grid li a
@@ -135,21 +157,20 @@ ul.grid li a:hover
     background-color: rgb(170,170,170);
     color: #fefefe;    
 }
+.background-dark{
+    background-color:#222;
+    color: #fefefe;
+}
 
 /* Checkout
 ***********************************/
-#saved-shipping-addresses
+#saved-shipping-addresses,.checkout aside ul li
 {
-    background-color: #ddd;   
+    background-color: #eee;   
 }
 
 .checkout aside
 {
-}
-
-.checkout aside ul li
-{
-    background: #eee;
 }
 
 .checkout aside ul li.alt
@@ -157,10 +178,11 @@ ul.grid li a:hover
     background: #E0DFDF;
 }
 
-.checkout aside ul li.head
-{
+.checkout aside ul li.head{
     background: #555;
-    color: rgb(255,255,255);
+}
+.checkout aside ul li.head h3{
+    color: rgb(255,255,255) !important;
 }
 
 #post-emails{
