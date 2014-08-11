@@ -189,12 +189,8 @@
               </div>
               <div class="copyContainer gutter">
               <p>
-<<<<<<< HEAD
-                Orders are shipped via UPS or FedEx. Shipping costs will be calculated at checkout. You will receive a confirmation email once your order has been
-=======
                 Orders are shipped via UPS or FedEx. We only offer Ground Delivery.
                 Shipping costs will be calculated at checkout. You will receive a confirmation email once your order has been
->>>>>>> shipping-updates
                 processed confirming your scheduled shipment date, and then a subsequent email with your tracking number
                 with which you may track your order. Please note: UPS and FedEx orders do not ship out on Saturday or Sunday.
              </p>
