@@ -1,7 +1,7 @@
 ﻿<%@ Page Language="VB" AutoEventWireup="false" CodeFile="brand-resources.aspx.vb" Inherits="brand_resources" MasterPageFile="~/noColumns.master" %>
 
 <asp:Content runat="server" ContentPlaceHolderID="middleContent">
-<div>
+<div class="no-column-page">
     <h1><asp:Literal runat="server" ID="litPageTitle" /></h1>
     <hr style="background:rgb(34,34,34);width:60px;border:0;height:3px;margin-bottom:1rem;" align="left" /> 
     <div class="row clearfix">

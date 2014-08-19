@@ -13,7 +13,7 @@ Partial Class Ucontrols_promo_made_in_usa
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
 
-        phPromoEnded.Visible = False
+        phPromoInactiveMessage.Visible = False
         phOther.Visible = False
 
         imgHero.Width = 526
@@ -27,17 +27,28 @@ Partial Class Ucontrols_promo_made_in_usa
                 jsonRoseSale()
             Case Else
                 phPromo.Visible = False
+                promoEnded()
         End Select
 
     End Sub
     Sub promoActive()
-        phPromoEnded.Visible = False
+        phPromoInactiveMessage.Visible = False
         phOther.Visible = False
     End Sub
 
     Sub promoEnded()
         phPromo.Visible = False
-        Page.Title = "Sale Has Ended"
+        phPromoInactiveMessage.Visible = True
+        litPromoInactiveMessage.Text = "This Promotion<br/> Has Ended"
+        phOther.Visible = True
+        Page.Title = "This Promotion Has Ended"
+    End Sub
+    Sub promoPreActive()
+        phPromo.Visible = False
+        phPromoInactiveMessage.Visible = True
+        litPromoInactiveMessage.Text = "This Promotion<br/> Is Not Yet Available"
+        phOther.Visible = True
+        Page.Title = "This Promotion Is Not Yet Available"
     End Sub
     Sub jsonWhiteWineSale()
 
@@ -90,8 +101,10 @@ Partial Class Ucontrols_promo_made_in_usa
                         phLinksLarge.Controls.Add(link)
                 End Select
             Next
-        Else
+        ElseIf Date.Today > saleDate Then
             promoEnded()
+        ElseIf Date.Today < saleDate.AddDays(-1) Then
+            promoPreActive()
         End If
 
     End Sub
@@ -104,22 +117,15 @@ Partial Class Ucontrols_promo_made_in_usa
         litTest.Text = showText
     End Sub
 
-    Sub jsonRoseWineSale()
-
-    End Sub
-
-
-
     Sub jsonRoseSale()
-        'saleDate = #8/20/2014#
-        saleDate = #7/31/2014#
+        saleDate = #8/20/2014#
         If Date.Today = saleDate Or Date.Today = saleDate.AddDays(-1) Then
             promoActive()
 
-            imgHero.ImageUrl = "~/images/promo/2014-08-white-wine-sale/2014-08-white-wine-sale-email-header.jpg"
+            imgHero.ImageUrl = "~/images/promo/2014-08-rose-wine-sale/2014-8-16-Rose-Wine-Clearance-Sale-Email-Img-2.jpg"
             litHeadline.Text = "20% Off*<br/>All Ros&eacute; Wines"
             litIntro.Text = "<p class='fancy'>" & saleDate.ToString("dddd MMMM dd, yyyy") & "</p>"
-            Page.Title = "20% Off All White Wines Today"
+            Page.Title = "20% Off All Ros&eacute; Wines Today"
             litRestrictions.Text = "*" & _
             "August 20, 2014 only, while current supplies last. For wines already on sale, the greater of (a) the pre-existing discount or (b) a discount of 20% off the full retail price will apply. No special orders; no case discounts; no further discounts."
 
@@ -157,8 +163,10 @@ Partial Class Ucontrols_promo_made_in_usa
                 End Select
             Next
 
-        Else
+        ElseIf Date.Today > saleDate Then
             promoEnded()
+        ElseIf Date.Today < saleDate.AddDays(-1) Then
+            promoPreActive()
         End If
 
     End Sub

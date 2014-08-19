@@ -10,7 +10,7 @@ Partial Class Ucontrols_promoPennant
 
         promoBegin = #8/6/2014#
         promoEnd = #8/6/2014#.AddDays(1)
-        promoDate = #8/16/2014#
+        promoDate = #8/20/2014#
         isSingleDaySale = True
 
         hypPromo.NavigateUrl = "../m.aspx?p=rose-wine-sale&" & "ref=pennant"
@@ -20,8 +20,8 @@ Partial Class Ucontrols_promoPennant
         If isSingleDaySale Then
             If Date.Today = promoDate Then 'day of sale
                 pnlPromoPennant.Visible = True
-            ElseIf Date.Today = promoDate.AddDays(-1) Then 'test check
-                pnlPromoPennant.Visible = True
+                'ElseIf Date.Today = promoDate.AddDays(-1) Then 'test check
+                ' pnlPromoPennant.Visible = True
             Else
                 pnlPromoPennant.Visible = False
             End If
