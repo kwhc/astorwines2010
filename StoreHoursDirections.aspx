@@ -144,19 +144,52 @@
         <div id="subwayDirectionsContainer" class="contentContainer clearfix">
           <h2>To get to our shop by Subway</h2><br />
             <div class="subway section">
-                <img src="images/directions/img_6train.jpg" alt="6 Train" />
+                <ul class="inline">
+                    <li>
+                        <div style="border-radius:50%;width:50px;height:50px;background-color:green;text-align:center;position:relative;">
+                            <div style="color:rgb(250,250,250);position:absolute;bottom:30%;width:100%;font-size:2rem;font-weight:bold;">6</div>
+                        </div>
+                    </li> 
+                </ul>
                 <h3>Astor Place Station</h3>
                 <p>Walk south on Lafayette to East 4th Street.</p>
             </div>
             
             <div class="subway section">
-                  <img src="images/directions/img_Rtrain.jpg" alt="R Train" />
-                  <h3>8th Street Station</h3> 
-                  <p>Walk east to Lafayette and then south to East 4th Street.</p>
+                <ul class="inline">
+                    <li>
+                        <div style="border-radius:50%;width:50px;height:50px;background-color:yellow;text-align:center;position:relative;">
+                            <div style="color:rgb(10,10,10);position:absolute;bottom:30%;width:100%;font-size:2rem;font-weight:bold;">R</div>
+                        </div>
+                    </li> 
+                </ul>
+              <h3>8th Street Station</h3> 
+              <p>Walk east to Lafayette and then south to East 4th Street.</p>
             </div>  
             
             <div class="subway section">
-              <img src="images/directions/img_Btrain.jpg" alt="B Train" /><img src="images/directions/img_Dtrain.jpg" alt="D Train" /><img src="images/directions/img_Ftrain.jpg" alt="F Train" /><img src="images/directions/img_Vtrain.jpg" alt="V Train" /><br />
+            <ul class="inline">
+                <li>
+                    <div style="border-radius:50%;width:50px;height:50px;background-color:orange;text-align:center;position:relative;">
+                        <div style="color:rgb(250,250,250);position:absolute;bottom:30%;width:100%;font-size:2rem;font-weight:bold;">B</div>
+                    </div>
+                </li> 
+                <li>   
+                    <div style="border-radius:50%;width:50px;height:50px;background-color:orange;text-align:center;position:relative;">
+                        <div style="color:rgb(250,250,250);position:absolute;bottom:30%;width:100%;font-size:2rem;font-weight:bold;">M</div>
+                    </div>
+                </li>
+                <li>
+                    <div style="border-radius:50%;width:50px;height:50px;background-color:orange;text-align:center;position:relative;">
+                        <div style="color:rgb(250,250,250);position:absolute;bottom:30%;width:100%;font-size:2rem;font-weight:bold;">D</div>
+                    </div>
+                </li>
+                <li>
+                    <div style="border-radius:50%;width:50px;height:50px;background-color:orange;text-align:center;position:relative;">
+                        <div style="color:rgb(250,250,250);position:absolute;bottom:30%;width:100%;font-size:2rem;font-weight:bold;">F</div>
+                    </div>
+                </li>
+             </ul>
               <h3>Broadway-Lafayette station</h3> 
               <p>Walk north on Lafayette to East 4th Street.</p>
             </div>
