@@ -13,20 +13,10 @@
 
 <div id="modular" runat="server" style="width:606px;">        
 
-    <asp:Panel runat="server" ID="pnlPMDelivery">
-        <p:afterHours runat="server" ID="ucPMDelivery" />
-    </asp:Panel>
-
-    <asp:Panel runat="server" ID="pnlFreeShipping">
-        <p:freeShipping runat="server" ID="ucFreeSHipping" />
-    </asp:Panel>
-
-    <asp:Panel runat="server" ID="pnlCustomerSurvey">
-        <p:customerSurvey runat="server" ID="ucCustomerSurvey" />
-    </asp:Panel>
-    
     <p:sale runat="server" ID="ucSale" />
-    
+
+    <asp:PlaceHolder runat="server" ID="phPromo" />
+   
 </div>
   
 </asp:Content>
