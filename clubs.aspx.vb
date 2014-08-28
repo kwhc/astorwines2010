@@ -91,5 +91,6 @@ Partial Class Clubs
         phFrenchWineClub.Visible = False
         phItalianWineClub.Visible = False
         phGrandCruWineClub.Visible = False
+
     End Sub
 End Class

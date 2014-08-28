@@ -226,18 +226,18 @@ ul.idTabs li a.selected
             </div>
 
             <div class="copyContainer gutter">
-            <h2>Discovery Wine Club<br />$24.99 per month</h2>
+            <h2>Discovery Wine Club<br />$29.99 per month</h2>
             <ul>
               <li><p>Your two bottles per month may include: Argentine Malbec, New York Riesling, South African Shiraz</p></li>
 	          <li><p>Perfect for novices searching for new “everyday” wines</p></li>
 	          <li><p>Free shipping* for deliveries in New York State (elsewhere, regular shipping charges apply)</p></li>
             </ul>
-            <p>Go-To Wine Club Prices:</p>
+            <p>Discovery Wine Club Prices:</p>
             <asp:DropDownList runat="server" ID="discoveryDD" CssClass="clubDD">
-                <asp:ListItem Value="19157">$74.97 for 3 Months</asp:ListItem>
-                <asp:ListItem Value="19158">$149.94 for 6 Months</asp:ListItem>
-                <asp:ListItem Value="19159">$224.90 for 9 Months</asp:ListItem>
-                <asp:ListItem Value="22180">$299.88 for 12 Months</asp:ListItem>
+                <asp:ListItem Value="19157">$89.97 for 3 Months</asp:ListItem>
+                <asp:ListItem Value="19158">$179.94 for 6 Months</asp:ListItem>
+                <asp:ListItem Value="19159">$269.91 for 9 Months</asp:ListItem>
+                <asp:ListItem Value="22180">$359.88 for 12 Months</asp:ListItem>
             </asp:DropDownList>
             <asp:ImageButton ID="addToCartDiscovery" runat="server" ImageUrl="~/images/buttons/btn_addToCart.png" />
             <br />
@@ -353,14 +353,14 @@ ul.idTabs li a.selected
             </asp:DropDownList>
             <asp:ImageButton ID="addToCartGrand" runat="server" ImageUrl="~/images/buttons/btn_addToCart.png" />
             <br />
-                <div class="note"><%=wineClubNote()%></div>
+            <div class="note"><%=wineClubNote()%></div>
          </div> 
         </li>
         </asp:PlaceHolder>
         
         <asp:PlaceHolder runat="server" ID="pnlPlatinum" Visible="false">
         <li id="platinum-elite-wine-club" class="img-copy-row clearfix wine-club-description">
-            <h2>Platinum Elite Wine Club – $599.99 per month</h2>
+           <h2>Platinum Elite Wine Club – $599.99 per month</h2>
            <div class="imgContainer">
               <img src="images/clubs/platinum.jpg" alt=""/></div>
             <div class="copyContainer gutter">     
@@ -473,8 +473,10 @@ ul.idTabs li a.selected
    
     <div id="policy">
       <b>Astor Wine Club Policy:</b>
-      <p>No cancellations. Astor’s Wine Clubs are available for nationwide delivery.<br /> 
-      *Shipping in New York State is free for Wine Club purchases only: to purchase additional items, please place a separate order, to which regular shipping charges will apply. An adult 21 years of age or older must sign for each delivery. Sorry, no substitutions.</p>
+      <p>No cancellations accepted.</p>
+      <p>An adult 21 years of age or older must sign for each delivery.</p>
+      <p>Sorry, no substitutions.</p>
+      <p>Free delivery avialable within our Astor Truck delivery zone.</p>
     </div>
 </div>
 
