@@ -35,28 +35,27 @@
                 <h2>Billing Address</h2>
                 
             <uc2:WUCBillingName ID="WUCBillingName1" runat="server" /><br />
-         <asp:LinkButton ID="lnkbEditBilling" runat="server" Width="175px" Height="20px">Edit Billing Address</asp:LinkButton>
+         <asp:LinkButton ID="lnkbEditBilling" runat="server" Width="175px" Height="20px" CssClass="btn-stroke-black">Edit Billing Address &raquo;</asp:LinkButton>
   
         <uc6:WUCBillingNameEdit ID="WUCBillingNameEdit1" runat="server" />
         </div>
 
         <div class="accountMaintenanceSection">
-        <h2>Payment Information</h2>
+            <h2>Payment Information</h2>
         
-        <asp:Label ID="lblLCC" runat="server" CssClass="pt12blsize" Text="Credit Card(s)" Width="111px"></asp:Label>
-        <asp:DropDownList ID="ddlCreditCard" runat="server" CssClass="dropdown" Width="283px" AutoPostBack="True">
-            </asp:DropDownList>
+            <asp:Label ID="lblLCC" runat="server" CssClass="pt12blsize" Text="Credit Card(s)" Width="111px" />
+            <asp:DropDownList ID="ddlCreditCard" runat="server" CssClass="dropdown" Width="283px" AutoPostBack="True"></asp:DropDownList>
             
             &nbsp;<uc5:WUCCreditCardNoCVV ID="WUCCreditCardNoCVV1" runat="server" />
             
             <br /><br />
-            <asp:LinkButton ID="lnkbAddCreditCard" runat="server" Width="175px">Add New Credit Card</asp:LinkButton>
+            <asp:LinkButton ID="lnkbAddCreditCard" runat="server" Width="175px" CssClass="btn-stroke-black">+ Add New Credit Card</asp:LinkButton>
                         
-                        <asp:LinkButton ID="lnkbDeleteCreditCard" runat="server" Width="175px" OnClientClick="return confirm('Are you sure you want to delete this credit card?');">Delete Credit Card</asp:LinkButton>
+            <asp:LinkButton ID="lnkbDeleteCreditCard" runat="server" Width="175px" CssClass="btn-stroke-black" OnClientClick="return confirm('Are you sure you want to delete this credit card?');">Delete Credit Card &raquo;</asp:LinkButton>
                         
-        <uc17:WUCCreditCardEdit ID="WUCCreditCardEdit1" runat="server" />
+            <uc17:WUCCreditCardEdit ID="WUCCreditCardEdit1" runat="server" />
 
-                            <asp:ImageButton ID="imgbSaveChangesBottom" runat="server" ImageUrl="~/images/as_savechanges.icon.gif" AlternateText="Save Changes" ToolTip="Save Changes"  ValidationGroup="vgBilling" Visible="False" />
+            <asp:ImageButton ID="imgbSaveChangesBottom" runat="server" ImageUrl="~/images/as_savechanges.icon.gif" AlternateText="Save Changes" ToolTip="Save Changes"  ValidationGroup="vgBilling" Visible="False" />
         </div>                    
 </div>
 </asp:Content>

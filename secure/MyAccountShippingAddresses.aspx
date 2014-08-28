@@ -34,30 +34,33 @@
     <asp:ValidationSummary ID="vsShipping" runat="server" HeaderText="Please correct the following errors:" ValidationGroup="vgShipping" />
     <br />
     <br />        
-    <asp:Label id="lblLShipping" runat="server" Text="Shipping Address(s)" Width="120px"></asp:Label>
-    <asp:DropDownList id="ddlShipping" runat="server" AutoPostBack="True" CssClass="dropdown" Width="283px"></asp:DropDownList>
-    <asp:LinkButton ID="lnkbAddShipping" runat="server" Width="200px">Add Another Shipping Address</asp:LinkButton>
-    <br />    
-    <div class="addressInfoMyAccount" style="float:left;">
+    
+    <div class="margin-bottom-md">
+        <asp:Label id="lblLShipping" runat="server" Text="Shipping Address(s):" Width="120px" />
+        <asp:DropDownList id="ddlShipping" runat="server" AutoPostBack="True" CssClass="dropdown margin-bottom-sm" Width="283px"></asp:DropDownList>
+        <asp:LinkButton ID="lnkbAddShipping" runat="server" CssClass="btn-stroke-black" Width="200px">+ Add Another Shipping Address</asp:LinkButton>
+    </div>
+    
+    
+    <div class="addressInfoMyAccount" style="">
         <uc3:WUCShippingName id="WUCShippingName1" runat="server" />
         <uc19:WUCShippingNameEdit ID="WUCShippingNameEdit1" runat="server" />
     </div>
-    
-    <div class="shipToStatesMyAccount" style="float:left;">
-        <asp:Label ID="Label2" runat="server" CssClass="pt12size" Text="At this time we ONLY ship to the following states:"></asp:Label>
-        <br />
-        <asp:Label ID="lblShipToStatesCodes" runat="server" CssClass="pt12blsize" Text="AZ, CA"></asp:Label>
-    </div>
-    
+      
     <br style="clear: both;" />
     
-    <div class="myAccountEditButtons">        
-        <asp:LinkButton ID="lnkbEditShipping" runat="server" Width="150px">Edit This Address</asp:LinkButton>
-        <asp:LinkButton ID="lnkbDeleteShipping" runat="server" Width="150px" OnClientClick="return confirm('Are you sure you want to delete this shipping address?');">Delete This Address</asp:LinkButton>
+    <div class="myAccountEditButtons margin-bottom-md">        
+        <asp:LinkButton ID="lnkbEditShipping" runat="server" Width="150px" CssClass="btn-stroke-black">Edit This Address &raquo;</asp:LinkButton>
+        <asp:LinkButton ID="lnkbDeleteShipping" runat="server" Width="150px" CssClass="btn-stroke-black" OnClientClick="return confirm('Are you sure you want to delete this shipping address?');">Delete This Address &raquo;</asp:LinkButton>
         <br />
     </div>       
    
     <asp:ImageButton ID="imgbSaveChangesBottom" runat="server" ImageUrl="~/images/as_savechanges.icon.gif" AlternateText="Save Changes" ToolTip="Save Changes"  ValidationGroup="vgShipping" Visible="False" />
+
+    <div class="background-red" style="padding:1rem;">
+        <p>Due to restrictive regulations, we cannot accept orders for shipment to the following locations:</p> 
+        <asp:Label ID="lblShipToStatesCodes" runat="server" Text="AZ, CA" />
+    </div>
 
     </div>
 </asp:Content>

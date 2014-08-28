@@ -187,7 +187,18 @@ dd
 {
     *zoom: 1;
 }
-
+.margin-bottom-sm{
+    margin-bottom:1rem;
+}
+.margin-bottom-md{
+    margin-bottom:2rem;
+}
+.margin-bottom-lg{
+    margin-bottom:4rem;
+}
+.margin-bottom-xl{
+    margin-bottom:8rem;
+}
 .dl-horizontal:before, .dl-horizontal:after
 {
    display: table;
@@ -252,6 +263,17 @@ a[class^=btn-square-]{
 }
 .btn-black:hover{
     background-color:#444;
+}
+.btn-stroke-black{
+    padding:0.5rem;
+    border: solid 3px rgba(0,0,0,0.8);
+    color: rgba(0,0,0,1);
+    font-weight:bold;
+}
+.btn-stroke-black:hover{
+    border: solid 3px rgba(0,0,0,0.3);
+    color: rgba(0,0,0,0.5);    
+    text-decoration:none;
 }
 .icon-btn-black .icon-stack-base{
     color:#222;
@@ -1758,20 +1780,11 @@ a.nivo-prevNav{
         
     }
     
-    .shipToStatesMyAccount{
-        width: 150px;
-        border: 1px #ddd solid;
-        padding: 5px;
-        margin-top: 20px;
-    }
-    
     .addressInfoMyAccount{
         width: 350px;
     }
     
     .myAccountEditButtons{
-        margin-top: 10px;
-        margin-bottom: 10px;
     }
 
 /* Glossary 
@@ -1866,7 +1879,14 @@ table.none
         margin-bottom: 12px;
         padding: 3px;
     }
-
+    .wine-club-description ul li{
+        border-bottom: solid 1px #ddd;
+        padding-bottom: 12px; 
+        margin-top: 12px;
+    }
+    .wine-club-description ul li p{
+        margin-bottom:0 !important;
+    }
 .img-copy-row .imgContainer
 {
     width: 220px;

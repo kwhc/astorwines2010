@@ -42,13 +42,12 @@ Partial Class Clubs
         addClubToCart(internationalExplorerDD)
     End Sub
 
-
     Public Function spiritsClubNote() As String
-        Return "Please note that Spirits Clubs must be purchased separately from other items."
+        Return "Please note that Spirits Clubs must be purchased separately from other items. Sorry, no substitutions."
     End Function
 
     Public Function wineClubNote() As String
-        Return "Please note that Wine Clubs must be purchased separately from other items."
+        Return "Please note that Wine Clubs must be purchased separately from other items. Sorry, no substitutions."
     End Function
 
     Protected Sub ibAddToCartAmericanCraft_Click(ByVal sender As Object, ByVal e As System.Web.UI.ImageClickEventArgs) Handles ibAddToCartAmericanCraft.Click
@@ -86,5 +85,11 @@ Partial Class Clubs
 
     Protected Sub addToCartFrench_Click(ByVal sender As Object, ByVal e As System.Web.UI.ImageClickEventArgs) Handles addToCartFrench.Click
         addClubToCart(frenchDD)
+    End Sub
+
+    Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        phFrenchWineClub.Visible = False
+        phItalianWineClub.Visible = False
+        phGrandCruWineClub.Visible = False
     End Sub
 End Class

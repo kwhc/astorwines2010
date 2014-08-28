@@ -104,7 +104,7 @@ ul.idTabs li a.selected
     </script>   
     <div id="wineclubs" class="">
     <ul>
-        <li id="Div1" class="img-copy-row clearfix">
+        <li id="Div1" class="img-copy-row clearfix wine-club-description">
                 
             <div class="imgContainer">
                 <img src="images/clubs/img_wc_just_reds.jpg" alt="Just Reds Wine Club" />
@@ -118,7 +118,7 @@ ul.idTabs li a.selected
                   <li><p>Perfect for anyone who loves red wine</p></li>
                   <li><p>Free shipping* for deliveries in New York State (elsewhere, regular shipping charges apply)</p></li>
                 </ul>
-                <br />
+
                 <p>Just Reds Wine Club Prices:</p>
                 <asp:DropDownList runat="server" ID="justRedsDD" CssClass="clubDD">
                     <asp:ListItem Value="27022">$239.97 for 3 Months</asp:ListItem>
@@ -131,9 +131,8 @@ ul.idTabs li a.selected
                 <div class="note"><%=wineClubNote()%></div>
             </div>            
         </li> <!-- #just-reds -->    
-
         <asp:PlaceHolder runat="server" ID="pnlInternationalExplorerWineCLub" >
-        <li id="wine-club-international-explorer" class="img-copy-row clearfix">
+        <li id="wine-club-international-explorer" class="img-copy-row clearfix wine-club-description">
                 
             <div class="imgContainer">
                 <img src="images/clubs/img_wc_international_explorer.jpg" alt="International Explorer Wine Club"/>
@@ -147,7 +146,6 @@ ul.idTabs li a.selected
                   <li><p>Focus is on variety, independent producers, and high-quality, expressive wines</p></li>
                   <li><p>Free shipping* for deliveries in New York State (elsewhere, regular shipping charges apply)</p></li>
                 </ul>
-                <br />
                 <p>Indie Wine Club Prices:</p>
                 <asp:DropDownList runat="server" ID="internationalExplorerDD" CssClass="clubDD">
                     <asp:ListItem Value="27031">$149.97 for 3 Months</asp:ListItem>
@@ -162,7 +160,7 @@ ul.idTabs li a.selected
         </li> <!-- #international-explorer -->    
         </asp:PlaceHolder>
 
-        <li id="top-ten-wine-club" class="img-copy-row clearfix">
+        <li id="top-ten-wine-club" class="img-copy-row clearfix wine-club-description">
                 
             <div class="imgContainer">
                 <img src="images/icons/img_top12_300x300.png" width="160" alt="Top 12 Under $12 Club"/>
@@ -175,7 +173,6 @@ ul.idTabs li a.selected
                   <li><p>Lots of variety: With any Top 12 Club membership, you’ll taste dozens of wines</p></li>
                   <li><p>Free shipping* for deliveries in New York State (elsewhere, regular shipping charges apply)</p></li>
                 </ul>
-                <br />
                 <p>Top 12 Wine Club Prices:</p>
                 <asp:DropDownList runat="server" ID="top10DD" CssClass="clubDD">
                     <asp:ListItem Value="22618">$299.97 for 3 Months</asp:ListItem>
@@ -187,14 +184,14 @@ ul.idTabs li a.selected
                 <br />
                 <div class="note"><%=wineClubNote()%></div>
                 <div style="border-top: solid 1px #ddd; border-bottom: solid 1px #ddd; padding: 12px 0px; margin-top: 20px;">
-                <b class="red">A note about the old Top 10 Under $10:</b>
-                <p>We’ve found that wine quality and variety get exponentially better with a ceiling of $12 (versus $10) per bottle, so we changed the pack. We hope you love all the exciting, amazing, delicious wines in the new Top 12 Under $12!</p>
+                    <b class="red">A note about the old Top 10 Under $10:</b>
+                    <p>We’ve found that wine quality and variety get exponentially better with a ceiling of $12 (versus $10) per bottle, so we changed the pack. We hope you love all the exciting, amazing, delicious wines in the new Top 12 Under $12!</p>
                 </div>
             </div>            
         </li>
         
         <asp:PlaceHolder runat="server" ID="pnlOrganicWineClub" Visible="false">
-        <li id="organic-wine-club" class="img-copy-row clearfix">
+        <li id="organic-wine-club" class="img-copy-row clearfix wine-club-description">
             <h2>Organic Wine Club – $49.99 per month</h2>
                 
                     <div class="imgContainer">
@@ -209,7 +206,6 @@ ul.idTabs li a.selected
 	                  <li><p>Wines may include: Biodynamic Oregon Pinot Noir, Loire Valley Sauvignon Blanc from natural winemakers, organic red wine from Rioja</p></li>
 	                  <li><p>Free shipping* for deliveries in New York State (elsewhere, regular shipping charges apply)</p></li>
                     </ul>
-                    <br />
                     <p>Organic Wine Club Prices:</p>
                     <asp:DropDownList runat="server" ID="organicDD" CssClass="clubDD">
                         <asp:ListItem Value="22646">3 Months for $149.97</asp:ListItem>
@@ -224,7 +220,7 @@ ul.idTabs li a.selected
         </li>
         </asp:PlaceHolder>
                
-        <li id="discovery-wine-club" class="img-copy-row clearfix">
+        <li id="discovery-wine-club" class="img-copy-row clearfix wine-club-description">
             <div class="imgContainer">
               <img src="images/clubs/img_goToWineClub.png" alt="" />
             </div>
@@ -236,7 +232,6 @@ ul.idTabs li a.selected
 	          <li><p>Perfect for novices searching for new “everyday” wines</p></li>
 	          <li><p>Free shipping* for deliveries in New York State (elsewhere, regular shipping charges apply)</p></li>
             </ul>
-            <br />
             <p>Go-To Wine Club Prices:</p>
             <asp:DropDownList runat="server" ID="discoveryDD" CssClass="clubDD">
                 <asp:ListItem Value="19157">$74.97 for 3 Months</asp:ListItem>
@@ -250,8 +245,8 @@ ul.idTabs li a.selected
             </div>            
         </li>
         
-        <asp:PlaceHolder runat="server" ID="pnlFrenchWineClub" >
-        <li id="Li4" class="img-copy-row clearfix">
+        <asp:PlaceHolder runat="server" ID="phFrenchWineClub" >
+        <li id="Li4" class="img-copy-row clearfix wine-club-description">
                 
             <div class="imgContainer">
                 <img src="images/clubs/img_frenchWineClub.png" alt="French Wine Club"/>
@@ -268,7 +263,6 @@ ul.idTabs li a.selected
 </p></li>
                   <li><p>Free shipping* for deliveries in New York State (elsewhere, regular shipping charges apply)</p></li>
                 </ul>
-                <br />
                 <p>French Wine Club Prices:</p>
                 <asp:DropDownList runat="server" ID="frenchDD" CssClass="clubDD">
                     <asp:ListItem Value="29323">$164.97 for 3 Months</asp:ListItem>
@@ -282,8 +276,9 @@ ul.idTabs li a.selected
             </div>            
         </li> <!-- #international-explorer -->    
         </asp:PlaceHolder>
- 
-        <li id="italian-wine-club" class="img-copy-row clearfix">
+        
+        <asp:PlaceHolder runat="server" ID="phItalianWineClub">
+        <li id="italian-wine-club" class="img-copy-row clearfix wine-club-description">
               <div class="imgContainer">
                 <img src="images/clubs/img_wc_italian.jpg" alt=""/>
               </div>
@@ -295,7 +290,6 @@ ul.idTabs li a.selected
 	                <li><p>Explore Italy’s indigenous grapes and varied regions in depth</p></li>
 	                <li><p>Free shipping* for deliveries in New York State (elsewhere, regular shipping charges apply)</p></li>
                   </ul>	
-                  <br />
                 <p>Italian Wine Club Prices:</p>
                 <asp:DropDownList runat="server" ID="italianDD" CssClass="clubDD">
                     <asp:ListItem Value="19160">$164.97 for 3 Months</asp:ListItem>
@@ -308,8 +302,9 @@ ul.idTabs li a.selected
                 <div class="note"><%=wineClubNote()%></div>
             </div>
         </li>
+        </asp:PlaceHolder>
         
-        <li id="world-passport-wine-club" class="img-copy-row clearfix">   
+        <li id="world-passport-wine-club" class="img-copy-row clearfix wine-club-description">   
            
             <div class="imgContainer">
               <img src="images/clubs/img_wc_world_passport.jpg" alt=""/>
@@ -323,7 +318,6 @@ ul.idTabs li a.selected
 	              <li><p>You’ll taste the difference between Old World and New World wines, traditional and modern wines, established wineries and hot new producers</p></li>
 	              <li><p>Free shipping* for deliveries in New York State (elsewhere, regular shipping charges apply)</p></li>
                 </ul>	
-                <br />
                 <p>World Passport Wine Club Prices:</p>
                 <asp:DropDownList runat="server" ID="passportDD" CssClass="clubDD">
                     <asp:ListItem Value="19163">$299.97 for 3 Months</asp:ListItem>
@@ -336,8 +330,9 @@ ul.idTabs li a.selected
                 <div class="note"><%=wineClubNote()%></div>
             </div>
         </li>
-   
-        <li id="grand-cru-wine-club" class="img-copy-row clearfix">
+        
+        <asp:PlaceHolder runat="server" ID="phGrandCruWineClub">
+        <li id="grand-cru-wine-club" class="img-copy-row clearfix wine-club-description">
            <div class="imgContainer">
               <img src="images/clubs/img_wc_grand_cru.jpg" alt=""/>
            </div>
@@ -349,7 +344,6 @@ ul.idTabs li a.selected
 	            <li><p>The best wines from time-tested producers and regions</p></li>
 	            <li><p>Free shipping* for deliveries in New York State (elsewhere, regular shipping charges apply)</p></li>
               </ul>	
-              <br />
             <p>Grand Cru Wine Club Prices:</p>
             <asp:DropDownList runat="server" ID="grandDD" CssClass="clubDD">
                 <asp:ListItem Value="19166">$764.97 for 3 Months</asp:ListItem>
@@ -362,9 +356,10 @@ ul.idTabs li a.selected
                 <div class="note"><%=wineClubNote()%></div>
          </div> 
         </li>
-
+        </asp:PlaceHolder>
+        
         <asp:PlaceHolder runat="server" ID="pnlPlatinum" Visible="false">
-        <li id="platinum-elite-wine-club" class="img-copy-row clearfix">
+        <li id="platinum-elite-wine-club" class="img-copy-row clearfix wine-club-description">
             <h2>Platinum Elite Wine Club – $599.99 per month</h2>
            <div class="imgContainer">
               <img src="images/clubs/platinum.jpg" alt=""/></div>
@@ -374,7 +369,6 @@ ul.idTabs li a.selected
 	              <li><p>The most sophisticated wines for the most discerning palates</p></li>
 	              <li><p>Free shipping* for deliveries in New York State (elsewhere, regular shipping charges apply)</p></li>
                 </ul>	
-                <br />
             <p>Platinum Elite Wine Club Prices:</p>
             <asp:DropDownList runat="server" ID="platinumDD" CssClass="clubDD">
                 <asp:ListItem Value="19169">3 Months for $1799.97</asp:ListItem>
@@ -391,7 +385,7 @@ ul.idTabs li a.selected
     
     <div id="spiritsclubs">
         <ul>
-             <li id="Li1" class="img-copy-row clearfix">
+             <li id="Li1" class="img-copy-row clearfix wine-club-description">
                 <div class="imgContainer">
                     <img src="images/clubs/img_smokySpiritsClub.png" alt="Smoky Spirits Club" />
                     <img src="images/general/img_new.png" alt="French Wine Club" width="60" style="position: relative; width: 100px;"/>
@@ -404,7 +398,6 @@ ul.idTabs li a.selected
 	                  <li><p>Our wide-ranging selection includes bottles from all over the world – any country that produces smoky distilled spirits is fair game</p></li>
 	                  <li><p>Free shipping* for deliveries in New York State (elsewhere, regular shipping charges apply)</p></li>
                     </ul>
-                    <br />
                     <p>Smoky Spirits Club Prices:</p>
                     <asp:DropDownList runat="server" ID="ddlSmoky" CssClass="clubDD">
                         <asp:ListItem Value="29321">$179.97 for 3 Months</asp:ListItem>
@@ -417,7 +410,7 @@ ul.idTabs li a.selected
                     <div class="note"><%=spiritsClubNote()%></div>
                 </div>            
             </li>
-             <li id="Li2" class="img-copy-row clearfix">
+             <li id="Li2" class="img-copy-row clearfix wine-club-description">
                 <div class="imgContainer">
                     <img src="images/clubs/img_americanCraftSpiritClub.png" alt="" />
                     <img src="images/general/img_new.png" alt="French Wine Club" width="60" style="position: relative; width: 100px;"/>
@@ -430,7 +423,6 @@ ul.idTabs li a.selected
 	                  <li><p>Focus is on craft distilleries creating unique, cutting-edge spirits</p></li>
 	                  <li><p>Free shipping* for deliveries in New York State (elsewhere, regular shipping charges apply)</p></li>
                     </ul>
-                    <br />
                     <p>American Craft Spirits Club Prices:</p>
                     <asp:DropDownList runat="server" ID="ddlAmericanCraft" CssClass="clubDD">
                         <asp:ListItem Value="29385">$179.97 for 3 Months</asp:ListItem>
@@ -443,7 +435,7 @@ ul.idTabs li a.selected
                     <div class="note"><%=spiritsClubNote()%></div>
                 </div>            
             </li>
-             <li id="Li3" class="img-copy-row clearfix">
+             <li id="Li3" class="img-copy-row clearfix wine-club-description">
                 <div class="imgContainer">
                   <img src="images/clubs/img_aTasteOfScotlandSpiritsClub.png" alt="A Taste of Scotland Spirits Club" />
                 <img src="images/general/img_new.png" alt="French Wine Club" width="60" style="position: relative; width: 100px;"/>
@@ -456,7 +448,6 @@ ul.idTabs li a.selected
 	              <li><p> Expand your knowledge by tasting Scotch from lesser-known producers and overlooked expressions from well-known producers</p></li>
 	              <li><p>Free shipping* for deliveries in New York State (elsewhere, regular shipping charges apply)</p></li>
                 </ul>
-                <br />
                 <p>A Taste of Scotland Spirits Club Prices:</p>
                 <asp:DropDownList runat="server" ID="ddlATasteOfScotland" CssClass="clubDD">
                     <asp:ListItem Value="29383">$164.97 for 3 Months</asp:ListItem>

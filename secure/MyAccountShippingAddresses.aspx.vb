@@ -10,7 +10,7 @@ Partial Class secure_MyAccountShippingAddresses
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Not IsPostBack Then
-            lblShipToStatesCodes.Text = Application("ShipToStatesCodes")
+            lblShipToStatesCodes.Text = Application("NotShipToStatesDesc")
             dsCust = Cust.GetCustomerShippingInfoFormatted(GetCustomerID(Request, Response), String.Empty, "0000")
             If dsCust.Tables.Count > 0 Then
                 If dsCust.Tables(0).Rows.Count > 0 Then
