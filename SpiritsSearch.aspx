@@ -10,7 +10,7 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="middleContent" Runat="Server">
-    <div id="spiritSearch" class="hub page">
+    <div id="spiritSearch" class="" style="background-color:rgb(255,255,255);padding:1rem;">
 
         <h1>Spirits</h1>
                
@@ -24,7 +24,18 @@
                 </div>
             </div>
         </asp:Panel>
-        
+    </div>
+
+    <asp:PlaceHolder runat="server" ID="phFeature">
+    <div class="" >
+        <iframe src="https://player.vimeo.com/video/95180539?title=0&amp;byline=0&amp;portrait=0" width="606" height="341" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+        <div class="background-red" style="padding:1rem;background-color:rgb(255,255,255);">
+            <h3 style="margin-top:0;"><span style="font-size:1.4rem;">Drink Like a VIP:</span><br/><span style="font-size:1.8rem;font-weight:bold;">Learn about our Exclusive Cask Selections</span></h3>
+        </div>
+    </div>
+    </asp:PlaceHolder>  
+         
+    <div style="background-color:rgb(255,255,255);padding:1rem;">       
         <div class="row clearfix">        
             <ul class="dailyFeaturesContainer">
                 <li><uc13:WUCDailyFeatures ID="WUCDailyFeatures1" runat="server" feature="10" /></li>
@@ -58,9 +69,13 @@
             </div>
         </asp:Panel>
         
+
+        
+        <asp:PlaceHolder runat="server" ID="phTastingNotesFeed" Visible="false">
         <div class="rss-feed-container row">
             <rss:rssFeed runat="server" ID="rssfeed" FeedUrl="http://feeds.feedburner.com/tastingnotesnyc/JRPG" />    
         </div>
+        </asp:PlaceHolder>
         
         <div class="browseLine row">
             <asp:HyperLink runat="server" Text="Free Tastings at Our Shop in the East Village 4 Days a Week" NavigateUrl="/TastingEvents.aspx" />
@@ -79,4 +94,6 @@
         </div>    
  
     </div>
+
+    
 </asp:Content>
