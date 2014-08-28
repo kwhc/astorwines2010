@@ -4,7 +4,6 @@
 <%@ Register Src="Ucontrols/WUCDefinitions.ascx" TagName="WUCDefinitions" TagPrefix="uc9" %>
 <%@ Register TagPrefix="igtxt" Namespace="Infragistics.WebUI.WebDataInput" Assembly="Infragistics35.WebUI.WebDataInput.v11.1, Version=11.1.20111.1006, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb" %>
 <%@ Register Src="~/Ucontrols/WUCCombinedSearch.ascx" TagName="combinedSearch" TagPrefix="awCmb" %>
-<%@ Register Src="~/Ucontrols/WUCVideoTout.ascx" TagName="videoTout" TagPrefix="Vid" %>
 <%@ Register Src="~/Ucontrols/modalResponseWaitList.ascx" TagName="waitList" TagPrefix="modal" %>
 
 <asp:Content ContentPlaceHolderID="HeadSupplement" runat="server">
@@ -49,175 +48,188 @@
   
   <div id="productPage">
     <input id="ReturnUrl" runat="server" name="ReturnUrl" type="hidden" value="~/Default.aspx" />
-    <div class="itemDetailImages clearfix">
     
-        <div style="padding: 10px 0px;">
-            <asp:Image ID="imgItemPic" runat="server" CssClass="centerImg" />
-        </div>
-        <div id="thumbnails" class="clearfix">
+    <div class="margin-bottom-md clearfix">
+        <div class="itemDetailImages clearfix">
         
-        <asp:PlaceHolder runat="server" ID="thumb1Holder">
-            <div class="thumbnailHolder">
-                <asp:Literal ID="thumb1Lnk" runat="server" Text="" />
-                    <asp:Image runat="server" ID="thumb1" CssClass="thumbnail" />
-                <asp:Literal ID="thumb1LnkEnd" runat="server" /><br />
-                <span> label</span>                
+            <div style="padding: 10px 0px;">
+                <asp:Image ID="imgItemPic" runat="server" CssClass="centerImg" />
             </div>
-            <asp:Literal runat="server" ID="litThumb1Img" />
-        </asp:PlaceHolder>
-        
-        <asp:PlaceHolder runat="server" ID="thumb2Holder">
-            <div class="thumbnailHolder">
-                <asp:Literal ID="thumb2Lnk" runat="server" Text="" />
-                    <asp:Image runat="server" ID="thumb2" CssClass="thumbnail" />
-                <asp:Literal ID="thumb2LnkEnd" runat="server" Text="" /><br />
-                <span> bottle</span>
-            </div>
-        </asp:PlaceHolder>
-
-        <asp:PlaceHolder runat="server" ID="thumb3Holder">
-            <div class="thumbnailHolder clearfix">
-                <asp:Literal ID="thumb3Lnk" runat="server" Text="" />
-                    <asp:Image runat="server" ID="thumb3" CssClass="thumbnail" />
-                <asp:Literal ID="thumb3LnkEnd" runat="server" Text="" /><br />
-                <span> packaging</span>            
-            </div>
-            <asp:Literal runat="server" ID="litThumb3Img" />
-        </asp:PlaceHolder>
-                
-      </div> <!-- #thumbnails -->
-        
-        <asp:Image runat="server" ID="imgEasterEgg" Style="margin: 20px 0px;" Visible="False" />    
-        
-        <asp:PlaceHolder runat="server" ID="phStaffPick">
-            <h3 class="block">Staff Pick</h3>
-        </asp:PlaceHolder>
-
-        <asp:PlaceHolder ID="kosherPassover" runat="Server">
-            <h3 class="block">Kosher for Passover</h3>
-        </asp:PlaceHolder>
-                    
-    </div> <!-- .itemDetailImages -->
- 
-    <div class="itemDetailMeta clearfix">
-        
-      <h1><asp:Literal ID="lblItemName" runat="server" /></h1>
-    
-      <div class="productTagLinks clearfix">
-        Item # <asp:Literal ID="lblItem" runat="server" /> <asp:Literal ID="lblSize" runat="server" />
-        <br /><br />
-        
-        <!--<asp:Literal ID="lblInfo" runat="server"></asp:Literal>-->
-         <div id="itemSpecs" class="clearfix">
-            <div class="leftColumn">
-                <asp:PlaceHolder ID="phColor" runat="server">Color:
-                    <asp:LinkButton ID="lnkbColor" runat="server" Text="color" /><br />
-                </asp:PlaceHolder>
-                <asp:PlaceHolder ID="phVintage" runat="server">Vintage:
-                    <asp:LinkButton ID="lnkbVintage" runat="server" Text="vintage" /><br />
-                </asp:PlaceHolder>
-                <asp:PlaceHolder ID="phCountry" runat="server">Country:
-                    <asp:LinkButton ID="lnkbCountry" runat="server" Text="Country" /><br />
-                </asp:PlaceHolder>  
-            </div>
-            <div class="rightColumn">
-              
-              <asp:PlaceHolder ID="phRegion" runat="server">
-                  <asp:Label ID="lblLRegion" runat="server" Text="Region:" />
-                  <asp:LinkButton ID="lnkbRegion" runat="server" Text="Region" /><br />
-              </asp:PlaceHolder>
-              
-              <asp:PlaceHolder ID="phSubRegion" runat="server">
-                  <asp:Label ID="lblSubRegion" runat="server" Text="Sub-Region:" />
-                  <asp:LinkButton ID="lnkbSubRegion" runat="server" Text="Sub-Region" /><br />
-              </asp:PlaceHolder>                
-              
-              <asp:PlaceHolder ID="phVineyard" runat="server">
-                <asp:Label ID="lblVineyard" runat="server" Text="" /><br />
-              </asp:PlaceHolder>
-              
-               <asp:PlaceHolder ID="phABV" runat="server">
-                <asp:Label ID="lblAbv" runat="server" Text="" /><br />
-              </asp:PlaceHolder>
-              
-              <asp:PlaceHolder ID="phSakeMeterValue" runat="server">
-                <asp:Label ID="lblSakeMeterValue" runat="server" Text="" /><br />
-              </asp:PlaceHolder>
-              
-              <asp:PlaceHolder ID="phProducer" runat="server">
-                  <asp:Label ID="lblProducer" runat="server" Text="Producer:" />
-                  <asp:LinkButton ID="lnkbProducer" runat="server" Text="Producer" /><br />
-              </asp:PlaceHolder>
-              
-              <asp:PlaceHolder ID="phGrape" runat="server">
-                  Grape Variety:&nbsp
-                  <asp:LinkButton ID="lnkbGrape1" runat="server" Text="" Visible="false" />
-                  <asp:LinkButton ID="lnkbGrape2" runat="server" Text="" Visible="false" />
-                  <asp:LinkButton ID="lnkbGrape3" runat="server" Text="" Visible="false" />
-                  <asp:LinkButton ID="lnkbGrape4" runat="server" Text="" Visible="false" />
-                  <asp:LinkButton ID="lnkbGrape5" runat="server" Text="" Visible="false" />
-              </asp:PlaceHolder>
-            </div>
-            <asp:Label runat="server" ID="blTagsHead" />
-         </div>
-      </div> <!-- .productTagLinks -->
-       
-    <div class="productPrice">
-
-        <asp:Panel runat="server" ID="pnlInStock">
-            <ul class="pricing">
-                <li>    
-                    <div style="line-height:2.6em;display:block;width:inherit;"><strong><asp:Literal ID="litBottlepriceLabel" runat="server" Text="Single Bottle:" /></strong></div>
-                    <asp:Literal ID="litOldBottlePrice" runat="server" Visible="False"/>
-                    <asp:Literal ID="litNewBottlePrice" runat="server" />
-                    <asp:Literal runat="server" ID="litBottleDiscount" />
-                </li>
-                <li>    
-                    <div style="line-height:2.6em;display:block;"><strong><asp:Literal ID="litCaseLabel" runat="server" /></strong></div>
-                    <asp:Literal ID="litOldCasePrice" runat="server" />
-                    <asp:Literal ID="litNewCasePrice" runat="server" />
-                    <asp:Literal runat="server" ID="litCaseDiscount" />
-                </li>
-            </ul>
-
-            <igtxt:WebNumericEdit ID="wneQty" runat="server" DataMode="Int" MaxLength="3" MaxValue="999" MinValue="1" ValueText="1" Height="34px" CssClass="qty wneQty" HorizontalAlign="Center">
-            </igtxt:WebNumericEdit>
-            <asp:DropDownList ID="ddlType" runat="server" class="dd ddType" Height="40px">
-                <asp:ListItem Value="Bottle">Bottle(s)</asp:ListItem>
-                <asp:ListItem Value="Case">Case(s)</asp:ListItem>
-            </asp:DropDownList>
-            <br style="clear: both;" />
-            <br />
+            <div id="thumbnails" class="clearfix">
             
-            <asp:ImageButton ID="imgbAddToCart" runat="server" ImageUrl="~/images/buttons/btn_addToCart.png" CssClass="addToCartBtn" />
-        </asp:Panel>
-        <asp:Panel runat="server" ID="pnlOutOfStock">
-           <%-- <asp:ImageButton ID="imgNotifyMe" runat="server" ImageUrl="~/images/buttons/btn_notifyMe.png" CssClass="addToCartBtn">  
-            </asp:ImageButton>--%>
-            <div class="outOfStockMsg">
-              <asp:Literal runat="server" ID="litOutOfStockMsg" />
-              <%-- <asp:ImageButton runat="server" ID="imgbWaitList" ImageUrl="~/images/as_checkout_notify_icon.gif"></asp:ImageButton>--%>
-              <asp:Literal ID="WaitLink" runat="server" Visible="true">*YES Notify Me*</asp:Literal>
-            </div>
-        </asp:Panel>
+            <asp:PlaceHolder runat="server" ID="thumb1Holder">
+                <div class="thumbnailHolder">
+                    <asp:Literal ID="thumb1Lnk" runat="server" Text="" />
+                        <asp:Image runat="server" ID="thumb1" CssClass="thumbnail" />
+                    <asp:Literal ID="thumb1LnkEnd" runat="server" /><br />
+                    <span> label</span>                
+                </div>
+                <asp:Literal runat="server" ID="litThumb1Img" />
+            </asp:PlaceHolder>
+            
+            <asp:PlaceHolder runat="server" ID="thumb2Holder">
+                <div class="thumbnailHolder">
+                    <asp:Literal ID="thumb2Lnk" runat="server" Text="" />
+                        <asp:Image runat="server" ID="thumb2" CssClass="thumbnail" />
+                    <asp:Literal ID="thumb2LnkEnd" runat="server" Text="" /><br />
+                    <span> bottle</span>
+                </div>
+            </asp:PlaceHolder>
 
-    </div> <!-- .productPrice -->
+            <asp:PlaceHolder runat="server" ID="thumb3Holder">
+                <div class="thumbnailHolder clearfix">
+                    <asp:Literal ID="thumb3Lnk" runat="server" Text="" />
+                        <asp:Image runat="server" ID="thumb3" CssClass="thumbnail" />
+                    <asp:Literal ID="thumb3LnkEnd" runat="server" Text="" /><br />
+                    <span> packaging</span>            
+                </div>
+                <asp:Literal runat="server" ID="litThumb3Img" />
+            </asp:PlaceHolder>
+                    
+          </div> <!-- #thumbnails -->
+            
+            <asp:Image runat="server" ID="imgEasterEgg" Style="margin: 20px 0px;" Visible="False" />    
+            
+            <asp:PlaceHolder runat="server" ID="phStaffPick">
+                <h3 class="block">Staff Pick</h3>
+            </asp:PlaceHolder>
 
-      <div class="clearfix">
-        <asp:PlaceHolder ID="phTasting" runat="server">This item is being featured in a tasting on:
-            <asp:LinkButton ID="lnkbTasting" runat="server" Text="tasting date" OnClientClick="window.document.forms[0].target='_self';" /><br />
-        </asp:PlaceHolder>
-        <asp:PlaceHolder ID="phWineClub" runat="server">This item is featured in:
-            <asp:LinkButton ID="lnkbWineClub" runat="server" Text="WineClub" OnClientClick="window.document.forms[0].target='_self';" /><br />
-        </asp:PlaceHolder>
-        <asp:PlaceHolder ID="phClass" runat="server">This item is featured in 
-            <asp:LinkButton ID="lnkbClass" runat="server" Text="AstorCenterClass" OnClientClick="window.document.forms[0].target='_blank';" /> at Astor Center
-        </asp:PlaceHolder>
-      </div>
-    </div> <!-- .itemDetailMeta -->
-  
-<div class="col-notes">
+            <asp:PlaceHolder ID="kosherPassover" runat="Server">
+                <h3 class="block">Kosher for Passover</h3>
+            </asp:PlaceHolder>
+                        
+        </div> <!-- .itemDetailImages -->
+ 
+        <div class="itemDetailMeta clearfix">
+            
+          <h1><asp:Literal ID="lblItemName" runat="server" /></h1>
         
+          <div class="productTagLinks clearfix">
+            Item # <asp:Literal ID="lblItem" runat="server" /> <asp:Literal ID="lblSize" runat="server" />
+            <br /><br />
+            
+            <!--<asp:Literal ID="lblInfo" runat="server"></asp:Literal>-->
+             <div id="itemSpecs" class="clearfix">
+                <div class="leftColumn">
+                    <asp:PlaceHolder ID="phColor" runat="server">Color:
+                        <asp:LinkButton ID="lnkbColor" runat="server" Text="color" /><br />
+                    </asp:PlaceHolder>
+                    <asp:PlaceHolder ID="phVintage" runat="server">Vintage:
+                        <asp:LinkButton ID="lnkbVintage" runat="server" Text="vintage" /><br />
+                    </asp:PlaceHolder>
+                    <asp:PlaceHolder ID="phCountry" runat="server">Country:
+                        <asp:LinkButton ID="lnkbCountry" runat="server" Text="Country" /><br />
+                    </asp:PlaceHolder>  
+                </div>
+                <div class="rightColumn">
+                  
+                  <asp:PlaceHolder ID="phRegion" runat="server">
+                      <asp:Label ID="lblLRegion" runat="server" Text="Region:" />
+                      <asp:LinkButton ID="lnkbRegion" runat="server" Text="Region" /><br />
+                  </asp:PlaceHolder>
+                  
+                  <asp:PlaceHolder ID="phSubRegion" runat="server">
+                      <asp:Label ID="lblSubRegion" runat="server" Text="Sub-Region:" />
+                      <asp:LinkButton ID="lnkbSubRegion" runat="server" Text="Sub-Region" /><br />
+                  </asp:PlaceHolder>                
+                  
+                  <asp:PlaceHolder ID="phVineyard" runat="server">
+                    <asp:Label ID="lblVineyard" runat="server" Text="" /><br />
+                  </asp:PlaceHolder>
+                  
+                   <asp:PlaceHolder ID="phABV" runat="server">
+                    <asp:Label ID="lblAbv" runat="server" Text="" /><br />
+                  </asp:PlaceHolder>
+                  
+                  <asp:PlaceHolder ID="phSakeMeterValue" runat="server">
+                    <asp:Label ID="lblSakeMeterValue" runat="server" Text="" /><br />
+                  </asp:PlaceHolder>
+                  
+                  <asp:PlaceHolder ID="phProducer" runat="server">
+                      <asp:Label ID="lblProducer" runat="server" Text="Producer:" />
+                      <asp:LinkButton ID="lnkbProducer" runat="server" Text="Producer" /><br />
+                  </asp:PlaceHolder>
+                  
+                  <asp:PlaceHolder ID="phGrape" runat="server">
+                      Grape Variety:&nbsp
+                      <asp:LinkButton ID="lnkbGrape1" runat="server" Text="" Visible="false" />
+                      <asp:LinkButton ID="lnkbGrape2" runat="server" Text="" Visible="false" />
+                      <asp:LinkButton ID="lnkbGrape3" runat="server" Text="" Visible="false" />
+                      <asp:LinkButton ID="lnkbGrape4" runat="server" Text="" Visible="false" />
+                      <asp:LinkButton ID="lnkbGrape5" runat="server" Text="" Visible="false" />
+                  </asp:PlaceHolder>
+                </div>
+                <asp:Label runat="server" ID="blTagsHead" />
+             </div>
+          </div> <!-- .productTagLinks -->
+           
+        <div class="productPrice">
+
+            <asp:Panel runat="server" ID="pnlInStock">
+                <ul class="pricing">
+                    <li>    
+                        <div style="line-height:2.6em;display:block;width:inherit;"><strong><asp:Literal ID="litBottlepriceLabel" runat="server" Text="Single Bottle:" /></strong></div>
+                        <asp:Literal ID="litOldBottlePrice" runat="server" Visible="False"/>
+                        <asp:Literal ID="litNewBottlePrice" runat="server" />
+                        <asp:Literal runat="server" ID="litBottleDiscount" />
+                    </li>
+                    <li>    
+                        <div style="line-height:2.6em;display:block;"><strong><asp:Literal ID="litCaseLabel" runat="server" /></strong></div>
+                        <asp:Literal ID="litOldCasePrice" runat="server" />
+                        <asp:Literal ID="litNewCasePrice" runat="server" />
+                        <asp:Literal runat="server" ID="litCaseDiscount" />
+                    </li>
+                </ul>
+
+                <igtxt:WebNumericEdit ID="wneQty" runat="server" DataMode="Int" MaxLength="3" MaxValue="999" MinValue="1" ValueText="1" Height="34px" CssClass="qty wneQty" HorizontalAlign="Center">
+                </igtxt:WebNumericEdit>
+                <asp:DropDownList ID="ddlType" runat="server" class="dd ddType" Height="40px">
+                    <asp:ListItem Value="Bottle">Bottle(s)</asp:ListItem>
+                    <asp:ListItem Value="Case">Case(s)</asp:ListItem>
+                </asp:DropDownList>
+                <br style="clear: both;" />
+                <br />
+                
+                <asp:ImageButton ID="imgbAddToCart" runat="server" ImageUrl="~/images/buttons/btn_addToCart.png" CssClass="addToCartBtn" />
+            </asp:Panel>
+            <asp:Panel runat="server" ID="pnlOutOfStock">
+               <%-- <asp:ImageButton ID="imgNotifyMe" runat="server" ImageUrl="~/images/buttons/btn_notifyMe.png" CssClass="addToCartBtn">  
+                </asp:ImageButton>--%>
+                <div class="outOfStockMsg">
+                  <asp:Literal runat="server" ID="litOutOfStockMsg" />
+                  <%-- <asp:ImageButton runat="server" ID="imgbWaitList" ImageUrl="~/images/as_checkout_notify_icon.gif"></asp:ImageButton>--%>
+                  <asp:Literal ID="WaitLink" runat="server" Visible="true">*YES Notify Me*</asp:Literal>
+                </div>
+            </asp:Panel>
+
+        </div> <!-- .productPrice -->
+
+          <div class="clearfix">
+            <asp:PlaceHolder ID="phTasting" runat="server">This item is being featured in a tasting on:
+                <asp:LinkButton ID="lnkbTasting" runat="server" Text="tasting date" OnClientClick="window.document.forms[0].target='_self';" /><br />
+            </asp:PlaceHolder>
+            <asp:PlaceHolder ID="phWineClub" runat="server">This item is featured in:
+                <asp:LinkButton ID="lnkbWineClub" runat="server" Text="WineClub" OnClientClick="window.document.forms[0].target='_self';" /><br />
+            </asp:PlaceHolder>
+            <asp:PlaceHolder ID="phClass" runat="server">This item is featured in 
+                <asp:LinkButton ID="lnkbClass" runat="server" Text="AstorCenterClass" OnClientClick="window.document.forms[0].target='_blank';" /> at Astor Center
+            </asp:PlaceHolder>
+          </div>
+        </div> <!-- .itemDetailMeta -->
+    </div>  
+<div class="col-notes">
+    <asp:PlaceHolder ID="embedVideo" runat="Server">
+        <div class="section margin-bottom-md">
+            <h2>Video Tasting Notes</h2>
+            <div style="font-size: 11px; color: #563E23;">
+             <!--<%-- <asp:Literal ID="litEmbedVideo" runat="server"></asp:Literal> --%>
+         	        <div id="moogaloop" style="width: 315px; height: 225px;"></div>-->
+         	        <!-- Video Tasting Section -->
+                <iframe runat="server" id="vimeoEmbed" width="300" height="169" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+            </div>
+        </div>
+    </asp:PlaceHolder>
+            
     <asp:PlaceHolder ID="tastingNotes" runat="Server">
         <div class="section">
             <h2>Tasting Notes</h2>
@@ -236,19 +248,6 @@
             <em><asp:Label ID="lblStaffName" runat="server" Text="" /></em>
         </div>
       </div>
-    </asp:PlaceHolder>
-    
-    <asp:PlaceHolder ID="embedVideo" runat="Server">
-        <div class="section">
-            <h2>Video Tasting Notes</h2>
-            <div style="font-size: 11px; color: #563E23;">
-             <!--<%-- <asp:Literal ID="litEmbedVideo" runat="server"></asp:Literal> --%>
-         	        <div id="moogaloop" style="width: 315px; height: 225px;"></div>-->
-         	        <!-- Video Tasting Section -->
-                    <Vid:videoTout ID="videoTout1" runat="server" Visible="false" />
-                    <iframe runat="server" id="vimeoEmbed" width="260" height="146" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-            </div>
-        </div>
     </asp:PlaceHolder>
     
     <asp:PlaceHolder ID="pairingAdvice" runat="Server">

@@ -717,12 +717,6 @@ Partial Class SearchResultsSingle
                             End If
                         End If
 
-                        ' embed video
-                        'litEmbedVideo.Text = .Item("sVideoEmbedContent").ToString
-                        'If RTrim   (litEmbedVideo.Text) = "" Then
-                        'embedVideo.Visible = False
-                        'End If
-
                         'new video embed - Kent 1/21/11
                         'VideoID = "18304599"
                         'VideoID = ""
@@ -730,17 +724,9 @@ Partial Class SearchResultsSingle
                         If RTrim(VideoID) = "" Then
                             embedVideo.Visible = False
                         Else
-                            'ekm removed - 7/31/2014
-                            'vimeoEmbed.Attributes.Add("src", "//player.vimeo.com/video/" & VideoID)
+                            vimeoEmbed.Attributes.Add("src", "https://player.vimeo.com/video/" & VideoID & "?title=0&amp;byline=0&amp;portrait=0")
                         End If
-                        With videoTout1
-                            .VideoID = VideoID
-                            '.VideoHeight = "216"
-                            '.VideoWidth = "335"
-                        End With
                         'GetVideoID("18304599")
-
-
                         ' pairing advice
                         lblPairingAdvice.Text = .Item("spairingadvice").ToString
                         If RTrim(lblPairingAdvice.Text) = "" Then

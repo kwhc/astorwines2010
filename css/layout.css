@@ -382,8 +382,8 @@ body{
 #cateringPage, #landmark-shop, .info-page, #productPage, .hub, .page
 {
     background: #fff;
-    padding: 40px 40px;
-    width: 526px;
+    padding: 40px 30px;
+    width: 546px;
 }
  
 #homeContent
@@ -1340,9 +1340,8 @@ h4.blue{
     
     #productPage .col-notes
     {
-        width: 260px; 
+        width: 300px; 
         float: left; 
-        margin-top: 40px;
         clear: both;
     }
     
@@ -1434,7 +1433,6 @@ h4.blue{
     }
 
     #productPage .section{ 
-		margin-bottom: 30px;
 		width: 100%; 
     }
     
