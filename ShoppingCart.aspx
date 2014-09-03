@@ -203,8 +203,8 @@
         <div class="shipping-restrictions-list" style="display:none;">
             <ul>
             <li style="margin-bottom:24px;"><a href="#njinfo" class="mod-launch" rel="modal:open" style="color:#fefefe;padding:10px 20px;background:#333333;text-decoration:none;">Shipping to New Jersey?</a></li>
-            <asp:PlaceHolder runat="server" ID="phMsgSpiritsOnlyDelivery" Visible="false"><li style="margin-bottom:24px;"><span style="color:#fefefe;padding:10px 20px;background:#333333;text-decoration:none;"><i class="icon-exclamation-sign icon-large"></i> Currently spirits are only available for shipment within New York State.</span></li></asp:PlaceHolder>
-            <asp:PlaceHolder runat="server" ID="phMsgSpiritsNoAirShipping" Visible="false"><li style="margin-bottom:24px;"><span style="color:#fefefe;padding:10px 20px;background:#333333;text-decoration:none;"><i class="icon-exclamation-sign icon-large"></i> Currently spirits cannot be shipped via UPS of FedEx.</span></li></asp:PlaceHolder>
+                <asp:PlaceHolder runat="server" ID="phMsgSpiritsOnlyDelivery" Visible="false"><li style="margin-bottom:24px;"><span style="color:#fefefe;padding:10px 20px;background:#333333;text-decoration:none;"><i class="icon-exclamation-sign icon-large"></i> Currently spirits are only available for shipment within New York State.</span></li></asp:PlaceHolder>
+                <asp:PlaceHolder runat="server" ID="phMsgSpiritsNoAirShipping" Visible="false"><li style="margin-bottom:24px;"><span style="color:#fefefe;padding:10px 20px;background:#333333;text-decoration:none;"><i class="icon-exclamation-sign icon-large"></i> Currently spirits cannot be shipped via UPS of FedEx.</span></li></asp:PlaceHolder>
             </ul>
         </div>
 

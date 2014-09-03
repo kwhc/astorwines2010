@@ -160,6 +160,24 @@ Partial Class ShoppingCart
             End If
         Next
 
+        'Check for Wine Clubs
+        'Dim arrWineClubs As Double() = {27022}
+        'Dim wineClubCount As Integer = 0
+
+        'For lIndex = 0 To dt.Rows.Count - 1
+        '    For Each club As Integer In arrWineClubs
+        '        If club = dt.Rows(lIndex)("item") Then
+        '            wineClubCount = wineClubCount + 1
+        '        End If
+        '    Next
+        'Next
+
+        'If wineClubCount > 0 Then
+        '    Session("hasWineClub") = True
+        'Else
+        '    Session("hasWineClub") = False
+        'End If
+
     End Sub
     'Protected Sub datResults_ItemDataBound(ByVal sender As Object, ByVal e As System.Web.UI.WebControls.DataListItemEventArgs) Handles datMyList.ItemDataBound
     '    If e.Item.ItemType = ListItemType.Item Or e.Item.ItemType = ListItemType.AlternatingItem Then
@@ -260,28 +278,30 @@ Partial Class ShoppingCart
 
         cart.CheckAmountNeededShippingFree(GetCustomerID(Request, Response), String.Empty, _sZipCode, dAmountNeeded, dMinAmount, Type, dAmountNeededForFreeShipping)
 
-        If dAmountNeededForFreeShipping > 0 And dAmountNeededForFreeShipping < 100.0 Then
-            lblShippingMsg.Visible = True
-            lblShippingMsg.Text = "Your total is only <strong>$" & dAmountNeededForFreeShipping.ToString & "</strong> away for one time free shipping!"
-        ElseIf dAmountNeeded >= 1 And dAmountNeeded < 99999.99 Then
-            lblShippingMsg.Visible = True
-            lblShippingMsg.Text = "Your total is only <strong>$" & dAmountNeeded.ToString & "</strong> away from free shipping!"
-        ElseIf Type = 1 And dAmountNeeded < 1 Then
-            lblShippingMsg.Visible = True
-            lblShippingMsg.Text = "<b>Your order meets our minimum for free delivery!</b>"
-        ElseIf Type = 2 And dAmountNeeded < 1 Then
-            lblShippingMsg.Visible = True
-            lblShippingMsg.Text = "<b>Your order meets our $150 minimum for free ground shipping within New York State!</b>"
-        ElseIf Type = 3 And dAmountNeeded < 1 Then
-            lblShippingMsg.Visible = True
-            lblShippingMsg.Text = "<b>Your order is eligiable for first order free shipping!</b>"
-        ElseIf Type = 4 And dAmountNeeded < 1 Then
-            lblShippingMsg.Visible = True
-            lblShippingMsg.Text = "<b>Your order is eligiable for first order free shipping!</b>"
-
-        Else
-            lblShippingMsg.Visible = False
+        If Not Session("hasWineClub") Then
+            If dAmountNeededForFreeShipping > 0 And dAmountNeededForFreeShipping < 100.0 Then
+                lblShippingMsg.Visible = True
+                lblShippingMsg.Text = "Your total is only <strong>$" & dAmountNeededForFreeShipping.ToString & "</strong> away for one time free shipping!"
+            ElseIf dAmountNeeded >= 1 And dAmountNeeded < 99999.99 Then
+                lblShippingMsg.Visible = True
+                lblShippingMsg.Text = "Your total is only <strong>$" & dAmountNeeded.ToString & "</strong> away from free shipping!"
+            ElseIf Type = 1 And dAmountNeeded < 1 Then
+                lblShippingMsg.Visible = True
+                lblShippingMsg.Text = "<b>Your order meets our minimum for free delivery!</b>"
+            ElseIf Type = 2 And dAmountNeeded < 1 Then
+                lblShippingMsg.Visible = True
+                lblShippingMsg.Text = "<b>Your order meets our $150 minimum for free ground shipping within New York State!</b>"
+            ElseIf Type = 3 And dAmountNeeded < 1 Then
+                lblShippingMsg.Visible = True
+                lblShippingMsg.Text = "<b>Your order is eligiable for first order free shipping!</b>"
+            ElseIf Type = 4 And dAmountNeeded < 1 Then
+                lblShippingMsg.Visible = True
+                lblShippingMsg.Text = "<b>Your order is eligiable for first order free shipping!</b>"
+            Else
+                lblShippingMsg.Visible = False
+            End If
         End If
+
         Session("ShippingZipCode") = txtzipcode.Text
         Session("ShippingSelectedIndex") = iSelectedIndex
         CalcTotals()

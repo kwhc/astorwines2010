@@ -116,7 +116,6 @@ ul.idTabs li a.selected
                 <ul>
                   <li><p>Six bottles per month! Wines will range from light to full-bodied and may include California Cabernet, Sangiovese blends, Cru Beaujolais</p></li>  
                   <li><p>Perfect for anyone who loves red wine</p></li>
-                  <li><p>Free shipping* for deliveries in New York State (elsewhere, regular shipping charges apply)</p></li>
                 </ul>
 
                 <p>Just Reds Wine Club Prices:</p>
@@ -144,9 +143,8 @@ ul.idTabs li a.selected
                 <ul>
                   <li><p>Try two unique and fascinating new wines each month! Shipments may include sparkling Grignolino from Piedmont, natural Cabernet Franc or sweet Chenin Blanc from the Loire, Nerello Mascalese from Sicily, Pinot Noir from Oregon</p></li>  
                   <li><p>Focus is on variety, independent producers, and high-quality, expressive wines</p></li>
-                  <li><p>Free shipping* for deliveries in New York State (elsewhere, regular shipping charges apply)</p></li>
                 </ul>
-                <p>Indie Wine Club Prices:</p>
+                <p>Explorer Wine Club Prices:</p>
                 <asp:DropDownList runat="server" ID="internationalExplorerDD" CssClass="clubDD">
                     <asp:ListItem Value="27031">$149.97 for 3 Months</asp:ListItem>
                     <asp:ListItem Value="27033">$299.94 for 6 Months</asp:ListItem>
@@ -171,7 +169,6 @@ ul.idTabs li a.selected
                 <ul>
                   <li><p>Get a new mixed case each month containing 12 of our most delicious wine finds</p></li>  
                   <li><p>Lots of variety: With any Top 12 Club membership, you’ll taste dozens of wines</p></li>
-                  <li><p>Free shipping* for deliveries in New York State (elsewhere, regular shipping charges apply)</p></li>
                 </ul>
                 <p>Top 12 Wine Club Prices:</p>
                 <asp:DropDownList runat="server" ID="top10DD" CssClass="clubDD">
@@ -204,7 +201,6 @@ ul.idTabs li a.selected
                       <li><p>Try two incredible bottles of wine each month, and support these talented, earth-friendly producers</p></li>
 	                  <li><p>The most delicious wines from organic, natural, and Biodynamic winemakers</p></li>
 	                  <li><p>Wines may include: Biodynamic Oregon Pinot Noir, Loire Valley Sauvignon Blanc from natural winemakers, organic red wine from Rioja</p></li>
-	                  <li><p>Free shipping* for deliveries in New York State (elsewhere, regular shipping charges apply)</p></li>
                     </ul>
                     <p>Organic Wine Club Prices:</p>
                     <asp:DropDownList runat="server" ID="organicDD" CssClass="clubDD">
@@ -230,7 +226,6 @@ ul.idTabs li a.selected
             <ul>
               <li><p>Your two bottles per month may include: Argentine Malbec, New York Riesling, South African Shiraz</p></li>
 	          <li><p>Perfect for novices searching for new “everyday” wines</p></li>
-	          <li><p>Free shipping* for deliveries in New York State (elsewhere, regular shipping charges apply)</p></li>
             </ul>
             <p>Discovery Wine Club Prices:</p>
             <asp:DropDownList runat="server" ID="discoveryDD" CssClass="clubDD">
@@ -259,9 +254,7 @@ ul.idTabs li a.selected
                 <ul>
                   <li><p>Oh la la! A wine club si français! Explore the wonders of French wine, from the classique to the nouveaux, naturel or avant-garde.</p></li>  
                   <li><p>Your two bottles every month will feature regions like Chablis, Champagne, Languedoc, the Loire, Bordeaux, or Burgundy</p></li>
-                  <li><p>Featuring familiar French varietals like Chardonnay, Pinot Noir, and Cabernet Sauvignon, and unique indigenous varieties like Trousseau, Cinsault, and Pineau d’Aunis
-</p></li>
-                  <li><p>Free shipping* for deliveries in New York State (elsewhere, regular shipping charges apply)</p></li>
+                  <li><p>Featuring familiar French varietals like Chardonnay, Pinot Noir, and Cabernet Sauvignon, and unique indigenous varieties like Trousseau, Cinsault, and Pineau d’Aunis</p></li>
                 </ul>
                 <p>French Wine Club Prices:</p>
                 <asp:DropDownList runat="server" ID="frenchDD" CssClass="clubDD">
@@ -288,7 +281,6 @@ ul.idTabs li a.selected
                     <li><p>Your two bottles may include: Aglianico, Erbaluce, Ruch&#233;</p></li>
 	                <li><p>Get a thoroughly tasty overview of Italian wine</p></li>
 	                <li><p>Explore Italy’s indigenous grapes and varied regions in depth</p></li>
-	                <li><p>Free shipping* for deliveries in New York State (elsewhere, regular shipping charges apply)</p></li>
                   </ul>	
                 <p>Italian Wine Club Prices:</p>
                 <asp:DropDownList runat="server" ID="italianDD" CssClass="clubDD">
@@ -316,7 +308,6 @@ ul.idTabs li a.selected
                   <li><p>Your two bottles per month may include: Alsatian Pinot Noir, Loire Valley Sauvignon Blanc, Oregon Chardonnay</p></li>
 	              <li><p>A crash course in wine on a sophisticated level</p></li>
 	              <li><p>You’ll taste the difference between Old World and New World wines, traditional and modern wines, established wineries and hot new producers</p></li>
-	              <li><p>Free shipping* for deliveries in New York State (elsewhere, regular shipping charges apply)</p></li>
                 </ul>	
                 <p>World Passport Wine Club Prices:</p>
                 <asp:DropDownList runat="server" ID="passportDD" CssClass="clubDD">
@@ -342,7 +333,6 @@ ul.idTabs li a.selected
                 <li><p>Your two bottles per month may include: Bordeaux, Burgundy, California Cabernet Sauvignon</p></li>
 	            <li><p>For experienced wine connoisseurs</p></li>
 	            <li><p>The best wines from time-tested producers and regions</p></li>
-	            <li><p>Free shipping* for deliveries in New York State (elsewhere, regular shipping charges apply)</p></li>
               </ul>	
             <p>Grand Cru Wine Club Prices:</p>
             <asp:DropDownList runat="server" ID="grandDD" CssClass="clubDD">
@@ -367,7 +357,6 @@ ul.idTabs li a.selected
                 <ul>
                   <li><p>Your two bottles per month may include wines such as: Grand Cru Bordeaux, Grand Cru Burgundy, cult California Cabernet Sauvignons, Tête de Cuvée Champagnes</p></li>
 	              <li><p>The most sophisticated wines for the most discerning palates</p></li>
-	              <li><p>Free shipping* for deliveries in New York State (elsewhere, regular shipping charges apply)</p></li>
                 </ul>	
             <p>Platinum Elite Wine Club Prices:</p>
             <asp:DropDownList runat="server" ID="platinumDD" CssClass="clubDD">
@@ -396,7 +385,6 @@ ul.idTabs li a.selected
                     <ul>
                       <li><p>Try one smoky spirit each month: these may include peaty whisky, a variety of Mezcals, and innovative smoky expressions from the USA</p></li>
 	                  <li><p>Our wide-ranging selection includes bottles from all over the world – any country that produces smoky distilled spirits is fair game</p></li>
-	                  <li><p>Free shipping* for deliveries in New York State (elsewhere, regular shipping charges apply)</p></li>
                     </ul>
                     <p>Smoky Spirits Club Prices:</p>
                     <asp:DropDownList runat="server" ID="ddlSmoky" CssClass="clubDD">
@@ -421,7 +409,6 @@ ul.idTabs li a.selected
                     <ul>
                       <li><p>Try one innovative expression each month from the rapidly growing craft distilling industry in America: this may include any exceptional spirit distilled in the US of A, such as whiskey, brandy, gin, rum, and more</p></li>
 	                  <li><p>Focus is on craft distilleries creating unique, cutting-edge spirits</p></li>
-	                  <li><p>Free shipping* for deliveries in New York State (elsewhere, regular shipping charges apply)</p></li>
                     </ul>
                     <p>American Craft Spirits Club Prices:</p>
                     <asp:DropDownList runat="server" ID="ddlAmericanCraft" CssClass="clubDD">
@@ -446,7 +433,6 @@ ul.idTabs li a.selected
                 <ul>
                   <li><p>Try one new Scotch whisky each month: shipments will include a mix of regions and flavors</p></li>
 	              <li><p> Expand your knowledge by tasting Scotch from lesser-known producers and overlooked expressions from well-known producers</p></li>
-	              <li><p>Free shipping* for deliveries in New York State (elsewhere, regular shipping charges apply)</p></li>
                 </ul>
                 <p>A Taste of Scotland Spirits Club Prices:</p>
                 <asp:DropDownList runat="server" ID="ddlATasteOfScotland" CssClass="clubDD">

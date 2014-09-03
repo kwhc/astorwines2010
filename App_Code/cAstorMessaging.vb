@@ -5,7 +5,7 @@ Public Class cAstorMessaging
 
     Public Shared Function getMsg_FreeShippingInNY() As String
 
-        msg = "We offer free ground shipping on orders over $99 (pre-tax) in Manhattan and Brooklyn, and orders over $150 (pre-tax) elsewhere in New York State."
+        msg = "We offer free ground shipping on orders over $99 (pre-tax) in Manhattan and Brooklyn, and orders over $150 (pre-tax) elsewhere in New York State. For Wine Club orders, each month’s total purchase amount must exceed the above minimum amounts to qualify for free shipping."
 
         Return msg
     End Function
