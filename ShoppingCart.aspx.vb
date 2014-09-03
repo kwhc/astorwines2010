@@ -161,22 +161,22 @@ Partial Class ShoppingCart
         Next
 
         'Check for Wine Clubs
-        'Dim arrWineClubs As Double() = {27022}
-        'Dim wineClubCount As Integer = 0
+        Dim arrWineClubs As Double() = {27022, 27025, 27026, 27027, 27031, 27033, 27035, 27036, 22618, 22619, 22620, 22621, 22646, 22647, 22648, 22649, 19157, 19158, 19159, 22180, 29323, 29324, 29325, 29326, 19160, 19161, 19162, 22185, 19163, 19164, 19165, 22186, 19166, 19167, 19168, 22187, 19169, 19170, 19171, 29321, 29327, 29328, 29329, 29385, 29334, 29335, 29336, 29383, 29330, 29332, 29333}
+        Dim wineClubCount As Integer = 0
 
-        'For lIndex = 0 To dt.Rows.Count - 1
-        '    For Each club As Integer In arrWineClubs
-        '        If club = dt.Rows(lIndex)("item") Then
-        '            wineClubCount = wineClubCount + 1
-        '        End If
-        '    Next
-        'Next
+        For lIndex = 0 To dt.Rows.Count - 1
+            For Each club As Integer In arrWineClubs
+                If club = dt.Rows(lIndex)("item") Then
+                    wineClubCount = wineClubCount + 1
+                End If
+            Next
+        Next
 
-        'If wineClubCount > 0 Then
-        '    Session("hasWineClub") = True
-        'Else
-        '    Session("hasWineClub") = False
-        'End If
+        If wineClubCount > 0 Then
+            Session("hasWineClub") = True
+        Else
+            Session("hasWineClub") = False
+        End If
 
     End Sub
     'Protected Sub datResults_ItemDataBound(ByVal sender As Object, ByVal e As System.Web.UI.WebControls.DataListItemEventArgs) Handles datMyList.ItemDataBound
