@@ -130,7 +130,7 @@ ul.idTabs li a.selected
                 <div class="note"><%=wineClubNote()%></div>
             </div>            
         </li> <!-- #just-reds -->    
-        <asp:PlaceHolder runat="server" ID="pnlInternationalExplorerWineCLub" >
+        <asp:PlaceHolder runat="server" ID="phInternationalExplorerWineClub" >
         <li id="wine-club-international-explorer" class="img-copy-row clearfix wine-club-description">
                 
             <div class="imgContainer">
