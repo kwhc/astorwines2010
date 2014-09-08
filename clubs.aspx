@@ -1,4 +1,4 @@
-<%@ Page Language="VB" MasterPageFile="~/as_master_1.master" EnableEventValidation="false" AutoEventWireup="false" CodeFile="clubs.aspx.vb" Inherits="Clubs" title="Wine & Spirits Clubs | Astor Wines & Spirits" %>
+<%@ Page Language="VB" MasterPageFile="~/as_master_1.master" EnableEventValidation="false" AutoEventWireup="false" CodeFile="clubs.aspx.vb" Inherits="Clubs" title="Monthly Wine Clubs | Astor Wines & Spirits" %>
 
 <%@ Register Src="~/Ucontrols/WUCCombinedSearch.ascx" TagName="combinedSearch" TagPrefix="awCmb" %>
 
@@ -462,7 +462,6 @@ ul.idTabs li a.selected
       <p>No cancellations accepted.</p>
       <p>An adult 21 years of age or older must sign for each delivery.</p>
       <p>Sorry, no substitutions.</p>
-      <p>Free delivery avialable within our Astor Truck delivery zone.</p>
     </div>
 </div>
 
